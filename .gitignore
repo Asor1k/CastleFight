@@ -61,3 +61,4 @@ crashlytics-build.properties
 
 # Apple custom attributes of the folder
 .DS_Store 
+/.idea/.idea.CastleFight/.idea/workspace.xml
