@@ -20,7 +20,6 @@ namespace CastleFight
         private void OnButtonClick()
         {
             Application.Quit();
-            Debug.LogError("we are here");
         }
     }
 }
