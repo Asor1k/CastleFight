@@ -9,7 +9,7 @@ namespace CastleFight
     {
         [SerializeField] private Transform camTr;
         [SerializeField] private CameraMoverSettings settings;
-        
+
         private IUpdateManager updateManager;
         private Vector3 cursorPos;
         private float xPercentCursorPos;

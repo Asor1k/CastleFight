@@ -17,17 +17,15 @@ namespace CastleFight.Core
 
         public T GetManager<T>()
         {
-            T result = default;
             foreach (var manager in managers)
             {
-                result = (T) manager;
-                if (result != null)
+                if (manager is T result)
                 {
-                    return (T) manager;
+                    return result;
                 }
             }
 
-            return result;
+            return default;
         }
 
         public void AddManager(object manager)

@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e7cc53c2f393f4a4a9eb7ba9402427da, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,11 +224,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Landscape
-      objectReference: {fileID: 0}
-    - target: {fileID: 6154745206060604478, guid: fcb681ad2e2b449afb109f5063a06400,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7147588638221610541, guid: fcb681ad2e2b449afb109f5063a06400,
         type: 3}
