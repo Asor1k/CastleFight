@@ -44,7 +44,7 @@ namespace CastleFight
             {
                 MoveCamera(Vector3.right);
             }
-            else if (yPercentCursorPos <= settings.ScreenSensibility)
+            if (yPercentCursorPos <= settings.ScreenSensibility)
             {
                 MoveCamera(Vector3.back);
             }
