@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    public class CameraMover : MonoBehaviour
+    public class CameraMover : UserAbility
     {
         [SerializeField] private Transform camTr;
         [SerializeField] private CameraMoverSettings settings;
@@ -18,10 +18,19 @@ namespace CastleFight
         private void Start()
         {
             updateManager = ManagerHolder.I.GetManager<IUpdateManager>();
-            updateManager.OnUpdate += UpdateHandler;
         }
 
         private void OnDestroy()
+        {
+            UnsubscribeToUpdate();
+        }
+
+        private void SubscribeToUpdate()
+        {
+            updateManager.OnUpdate += UpdateHandler;
+        }
+
+        private void UnsubscribeToUpdate()
         {
             updateManager.OnUpdate -= UpdateHandler;
         }
@@ -36,6 +45,7 @@ namespace CastleFight
             cursorPos.Set(Input.mousePosition);
             xPercentCursorPos = 1f / Screen.width * cursorPos.x;
             yPercentCursorPos = 1f / Screen.height * cursorPos.y;
+
             if (xPercentCursorPos <= settings.ScreenSensibility)
             {
                 MoveCamera(Vector3.left);
@@ -44,6 +54,7 @@ namespace CastleFight
             {
                 MoveCamera(Vector3.right);
             }
+
             if (yPercentCursorPos <= settings.ScreenSensibility)
             {
                 MoveCamera(Vector3.back);
@@ -57,6 +68,16 @@ namespace CastleFight
         private void MoveCamera(Vector3 direction)
         {
             camTr.Translate(direction * settings.Speed * Time.deltaTime);
+        }
+
+        public override void Unlock()
+        {
+            SubscribeToUpdate();
+        }
+
+        public override void Lock()
+        {
+            UnsubscribeToUpdate();
         }
     }
 }

@@ -2,7 +2,7 @@
 using Core;
 using UnityEngine;
 
-public class CoursorBuilder : MonoBehaviour
+public class CoursorBuilder : UserAbility
 {
     [SerializeField] private Camera cam;
 
@@ -13,10 +13,19 @@ public class CoursorBuilder : MonoBehaviour
     private void Start()
     {
         updateManager = ManagerHolder.I.GetManager<IUpdateManager>();
-        updateManager.OnUpdate += OnUpdateHandler;
     }
 
     private void OnDestroy()
+    {
+        UnsubscribeFromUpdate();
+    }
+
+    private void SubscribeToUpdate()
+    {
+        updateManager.OnUpdate += OnUpdateHandler;
+    }
+
+    private void UnsubscribeFromUpdate()
     {
         updateManager.OnUpdate -= OnUpdateHandler;
     }
@@ -33,8 +42,18 @@ public class CoursorBuilder : MonoBehaviour
         {
             if (Physics.Raycast(ray, out var hit))
             {
-                Instantiate(GameObject.CreatePrimitive(PrimitiveType.Cube), hit.point + new Vector3(0,0.5f, 0), Quaternion.identity); // TODO: temp code
+                GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = hit.point + new Vector3(0,0.5f, 0); // TODO: temp code
             }
         }
+    }
+
+    public override void Unlock()
+    {
+        SubscribeToUpdate();
+    }
+
+    public override void Lock()
+    {
+        UnsubscribeFromUpdate();
     }
 }
