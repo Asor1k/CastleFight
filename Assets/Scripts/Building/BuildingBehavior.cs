@@ -2,8 +2,8 @@
 
 namespace CastleFight
 {
-    public class BuildingBehavior : MonoBehaviour
+    public abstract class BuildingBehavior : MonoBehaviour
     {
-
+        public abstract void MoveTo(Vector3 position);
     }
 }
