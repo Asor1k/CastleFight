@@ -1,19 +1,24 @@
-﻿using UnityEngine;
+﻿using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
+using UnityEngine;
 
 namespace CastleFight.Core
 {
     public class GameController : MonoBehaviour
     {
         [SerializeField] private UserController userController;
-        
+
         private void Awake()
         {
             ManagerHolder.I.AddManager(this);
+            EventBusController.I.Bus.Subscribe<ExitToMainMenuEvent>(OnExitToMainMenuEventHandler);
+            EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
-        private void Start()
+        private void OnDestroy()
         {
-            // TODO: subscribe to exit to main menu event
+            EventBusController.I.Bus.Unsubscribe<ExitToMainMenuEvent>(OnExitToMainMenuEventHandler);
+            EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
         public void StartGame()
@@ -22,12 +27,27 @@ namespace CastleFight.Core
             userController.StartGame();
         }
 
-        private void OnExitToMainMenuEventHandler()
+        private void StopGame()
         {
             userController.StopGame();
             // TODO: stop bot
-            // TODO: rise OpenMainMenuEvent
+        }
+
+        private void OnExitToMainMenuEventHandler(ExitToMainMenuEvent exitToMainMenuEvent)
+        {
+            StopGame();
+            RiseOpenMainMenu();
+        }
+
+        private void OnGameEndEventHandler(GameEndEvent gameEndEvent)
+        {
+            StopGame();
+            RiseOpenMainMenu();
+        }
+
+        private void RiseOpenMainMenu()
+        {
+            EventBusController.I.Bus.Publish(new OpenMainMenuEvent());
         }
     }
 }
-

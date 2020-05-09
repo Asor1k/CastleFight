@@ -1,4 +1,6 @@
 using CastleFight.Core;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +22,7 @@ namespace CastleFight
         
         private void PrepareGameSet()
         {
-            GameObject.Find("CoreHolder").GetComponent<GameManager>().StartGame();
+            EventBusController.I.Bus.Publish(new GameSetReadyEvent());
         }
     }
 }

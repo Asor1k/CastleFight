@@ -1,3 +1,6 @@
+using System;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 
 namespace CastleFight.Core
@@ -7,11 +10,31 @@ namespace CastleFight.Core
         [SerializeField] private UILayout mainMenu;
         [SerializeField] private GameController gameController;
 
+        private void Awake()
+        {
+            EventBusController.I.Bus.Subscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
+            EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetREady);
+        }
+
+        private void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
+            EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameSetREady);
+        }
+
+        private void OnOpenMainMenuEventHandler(OpenMainMenuEvent openMainMenuEvent)
+        {
+            OpenMainMenu();
+        }
+        
+        private void OnGameSetREady(GameSetReadyEvent gameSetReadyEvent)
+        {
+            StartGame();
+        }
+
         private void Start()
         {
             Init();
-            // TODO: subscribe to GameSetIsReady and start the game
-            // TOOD: subscribe to 
         }
 
         private void Init()
@@ -24,9 +47,7 @@ namespace CastleFight.Core
             mainMenu.Show();
         }
 
-        // private void OnGameSetIsReady() { ... StartGame() }
-        
-        public void StartGame()
+        private void StartGame()
         {
             gameController.StartGame();
         }
