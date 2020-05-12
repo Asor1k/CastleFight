@@ -4,6 +4,6 @@ namespace CastleFight
 {
     public class BuildingBehavior : MonoBehaviour
     {
-
+ 
     }
 }
