@@ -8,18 +8,18 @@ namespace CastleFight
     public abstract class BaseBuildingConfig : ScriptableObject
     {
         [SerializeField]
-        protected Building _prefab;
+        protected Building prefab;
         [SerializeField]
-        protected BaseUnitConfig _unit;
+        protected BaseUnitConfig unit;
         [SerializeField]
-        protected float _delay;
+        protected float delay;
         [SerializeField]
-        protected Sprite _icon;
+        protected Sprite icon;
 
         public virtual Building Create()
         {
-            var building = Instantiate(_prefab);
-            building.Init(_unit, _delay);
+            var building = Instantiate(prefab);
+            building.Init(unit, delay);
 
             return building;
         }

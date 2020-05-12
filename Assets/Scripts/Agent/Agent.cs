@@ -8,20 +8,20 @@ namespace CastleFight
     [RequireComponent(typeof(NavMeshAgent))]
     public class Agent : MonoBehaviour
     {
-        public bool IsStopped { get { return _agent.isStopped; } }
+        public bool IsStopped { get { return agent.isStopped; } }
 
         [SerializeField]
-        protected NavMeshAgent _agent;
+        protected NavMeshAgent agent;
 
         public virtual void MoveTo(Vector3 position)
         {
-            _agent.isStopped = false;
-            _agent.SetDestination(position);
+            agent.isStopped = false;
+            agent.SetDestination(position);
         }
 
         public virtual void Stop()
         {
-            _agent.isStopped = true;
+            agent.isStopped = true;
         }
     }
 }

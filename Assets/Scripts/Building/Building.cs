@@ -5,50 +5,30 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    public class Building : MonoBehaviour, IBuildingCreateHandler
+    public class Building : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _spawnPoint;
-        private BaseUnitConfig _unit;
-        private float _spawnDelay;
-
+        private GameObject spawnPoint;
+        private BaseUnitConfig unitConfig;
+        private float spawnDelay;
+   
         private Coroutine _spawnCoroutine = null;
 
-        private void Start()
+        public void Init(BaseUnitConfig unitConfig, float spawnDelay)
         {
-            _spawnCoroutine = StartCoroutine(SpawnCoroutine());    
-        }
-
-        public void Init(BaseUnitConfig unit, float spawnDelay)
-        {
-            _unit = unit;
+            this.unitConfig = unitConfig;
         }
 
         private void SpawnUnit() 
         {
-            var unit = _unit.Create();
-            unit.transform.position = _spawnPoint.transform.position;
+            var unit = unitConfig.Create();
+            unit.transform.position = spawnPoint.transform.position;
         }
 
         private IEnumerator SpawnCoroutine()
         {
-            yield return new WaitForSeconds(_spawnDelay);
+            yield return new WaitForSeconds(spawnDelay);
             SpawnUnit();
-        }
-
-        void IBuildingCreateHandler.MoveTo(Vector3 position)
-        {
-            transform.position = position;
-        }
-
-        void IBuildingCreateHandler.Place()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        bool IBuildingCreateHandler.CanBePlaced()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

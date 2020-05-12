@@ -7,9 +7,9 @@ namespace CastleFight.Config
     public abstract class BaseUnitConfig : ScriptableObject
     {
         [SerializeField]
-        protected Unit _prefab;
+        protected Unit prefab;
         [SerializeField]
-        protected Sprite _icon;
+        protected Sprite icon;
 
         public abstract Unit Create();
     }
