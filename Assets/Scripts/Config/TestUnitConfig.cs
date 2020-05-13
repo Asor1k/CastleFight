@@ -10,7 +10,7 @@ namespace CastleFight
     {
         public override Unit Create()
         {
-            return Instantiate(_prefab);
+            return Instantiate(prefab);
         }
     }
 }
