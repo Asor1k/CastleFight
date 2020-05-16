@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3915cbf1d3a44602ad8edacf58865f7a, type: 3}
+  m_Name: UndeadBuildingSet
+  m_EditorClassIdentifier: 
+  buildingConfigs:
+  - {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4, type: 2}
+  - {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e, type: 2}
+  - {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60, type: 2}

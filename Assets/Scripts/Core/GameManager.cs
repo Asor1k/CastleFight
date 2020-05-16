@@ -1,4 +1,4 @@
-using System;
+using CastleFight.Core.Data;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
@@ -12,24 +12,25 @@ namespace CastleFight.Core
 
         private void Awake()
         {
+            BuildingManager.I.Init();
             EventBusController.I.Bus.Subscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
-            EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetREady);
+            EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
         }
 
         private void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
-            EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameSetREady);
+            EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameSetReady);
         }
 
         private void OnOpenMainMenuEventHandler(OpenMainMenuEvent openMainMenuEvent)
         {
             OpenMainMenu();
         }
-        
-        private void OnGameSetREady(GameSetReadyEvent gameSetReadyEvent)
+
+        private void OnGameSetReady(GameSetReadyEvent gameSetReadyEvent)
         {
-            StartGame();
+            StartGame(gameSetReadyEvent.gameSet);
         }
 
         private void Start()
@@ -47,9 +48,9 @@ namespace CastleFight.Core
             mainMenu.Show();
         }
 
-        private void StartGame()
+        private void StartGame(GameSet gameSet)
         {
-            gameController.StartGame();
+            gameController.StartGame(gameSet);
         }
     }
 }

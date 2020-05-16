@@ -1,6 +1,4 @@
 ﻿using CastleFight.Config;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CastleFight
@@ -16,9 +14,11 @@ namespace CastleFight
         [SerializeField]
         protected Sprite icon;
 
+        public Sprite Icon => icon;
+        
         public virtual Building Create()
         {
-            var building = Instantiate(prefab);
+            var building = Instantiate(prefab); // TODO: get from pool
             building.Init(unit, delay);
 
             return building;

@@ -1,4 +1,5 @@
-﻿using CastleFight.Core.EventsBus;
+﻿using CastleFight.Core.Data;
+using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 
@@ -21,9 +22,10 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
-        public void StartGame()
+        public void StartGame(GameSet gameSet)
         {
             // TODO: start bot
+            userController.Init(gameSet.userRaceConfig);
             userController.StartGame();
         }
 
