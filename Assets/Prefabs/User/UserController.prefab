@@ -48,6 +48,8 @@ MonoBehaviour:
   abilities:
   - {fileID: 1943153797941935103}
   - {fileID: 1563699999869710840}
+  gameUILayoutPrefab: {fileID: 7830681768046503700, guid: 95b25c7b07a10457cab18c0c4145295b,
+    type: 3}
 --- !u!114 &1943153797941935103
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace CastleFight
+namespace CastleFight.MainMenu
 {
     public class ExitButton : MonoBehaviour
     {

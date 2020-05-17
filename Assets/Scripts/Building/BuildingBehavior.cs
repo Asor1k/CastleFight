@@ -1,27 +1,20 @@
 ﻿using System.Collections.Generic;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 
 namespace CastleFight
 {
     public class BuildingBehavior : MonoBehaviour
     {
-        private Collider collider;
-        private Rigidbody rigidbody;
+        [SerializeField] private Collider col;
+
         private List<Collider> collisions = new List<Collider>();
 
-        private void Awake()
+        public void Place()
         {
-            collider = GetComponent<Collider>();
-            rigidbody = gameObject.AddComponent<Rigidbody>();
-
-            collider.isTrigger = true;
-            rigidbody.isKinematic = true;
-        }
-
-        public void Place() 
-        {
-            collider.isTrigger = false;
-            Destroy(rigidbody);
+            EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
+            col.isTrigger = false;
         }
 
         public void MoveTo(Vector3 position)
@@ -45,6 +38,11 @@ namespace CastleFight
         private void OnTriggerExit(Collider collider)
         {
             collisions.Remove(collider);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject); // TODO: move to pool
         }
     }
 }

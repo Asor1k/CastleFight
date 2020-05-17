@@ -1,4 +1,5 @@
 using CastleFight.Core;
+using CastleFight.GameUI;
 using UnityEngine;
 
 namespace CastleFight
@@ -6,17 +7,32 @@ namespace CastleFight
     public class UserController : MonoBehaviour
     {
         [SerializeField] private UserAbility[] abilities;
-        
+        [SerializeField] private GameUIBehavior gameUILayoutPrefab;
+        [SerializeField] private RectTransform gameUIHolder;
+
+        private GameUIBehavior gameUI;
+
+        public void Init(RaceConfig config)
+        {
+            if (gameUI == null)
+            {
+                gameUI = Instantiate(gameUILayoutPrefab, gameUIHolder);
+            }
+
+            gameUI.Hide();
+            gameUI.Init(config.BuildingSet);
+        }
+
         public void StartGame()
         {
             UnlockAbilities();
-            // TODO: show UI
+            gameUI.Show();
         }
 
         public void StopGame()
         {
             LockAbilities();
-            // TODO: hide UI
+            gameUI.Hide();
         }
 
         private void UnlockAbilities()

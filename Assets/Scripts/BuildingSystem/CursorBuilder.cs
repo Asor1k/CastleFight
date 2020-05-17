@@ -1,4 +1,6 @@
 ﻿using CastleFight.Core;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using Core;
 using UnityEngine;
 
@@ -34,6 +36,30 @@ namespace CastleFight
             updateManager.OnUpdate -= OnUpdateHandler;
         }
 
+        private void SubscribeToBuildingChosenEvent()
+        {
+            EventBusController.I.Bus.Subscribe<BuildingChosenEvent>(OnBuildingChosen);
+        }
+
+        private void UnsubscribeToBuildingChosenEvent()
+        {
+            EventBusController.I.Bus.Unsubscribe<BuildingChosenEvent>(OnBuildingChosen);
+        }
+
+        private void OnBuildingChosen(BuildingChosenEvent buildingChosenEvent)
+        {
+            Clear();
+            SetBuilding(buildingChosenEvent.GetBehavior);
+        }
+
+        private void Clear()
+        {
+            if (buildingBehavior != null)
+            {
+                buildingBehavior.Destroy();
+            }
+        }
+
         public void SetBuilding(BuildingBehavior buildingBehavior)
         {
             this.buildingBehavior = buildingBehavior;
@@ -61,11 +87,14 @@ namespace CastleFight
         public override void Unlock()
         {
             SubscribeToUpdate();
+            SubscribeToBuildingChosenEvent();
         }
 
         public override void Lock()
         {
             UnsubscribeFromUpdate();
+            UnsubscribeToBuildingChosenEvent();
+            Clear();
         }
     }
 }

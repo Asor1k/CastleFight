@@ -1,6 +1,5 @@
 ﻿using CastleFight.Config;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CastleFight
@@ -8,7 +7,12 @@ namespace CastleFight
     public class Building : MonoBehaviour
     {
         [SerializeField]
-        private GameObject spawnPoint;
+        private Transform spawnPoint;
+        [SerializeField]
+        private BuildingBehavior behavior;
+
+        public BuildingBehavior Behavior => behavior;
+        
         private BaseUnitConfig unitConfig;
         private float spawnDelay;
    
@@ -22,7 +26,7 @@ namespace CastleFight
         private void SpawnUnit() 
         {
             var unit = unitConfig.Create();
-            unit.transform.position = spawnPoint.transform.position;
+            unit.transform.position = spawnPoint.position;
         }
 
         private IEnumerator SpawnCoroutine()
