@@ -7,15 +7,7 @@ namespace CastleFight.Core
 {
     public class Pool
     {
-        public static Pool I
-        {
-            get
-            {
-                if(instance == null)
-                    instance = new Pool();
-                return instance;
-            }
-        }
+        public static Pool I => instance ?? (instance = new Pool());
 
         private static Pool instance;
 
