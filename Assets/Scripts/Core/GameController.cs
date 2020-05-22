@@ -8,6 +8,7 @@ namespace CastleFight.Core
     public class GameController : MonoBehaviour
     {
         [SerializeField] private UserController userController;
+        [SerializeField] private BotController botController;
 
         private void Awake()
         {
@@ -24,9 +25,10 @@ namespace CastleFight.Core
 
         public void StartGame(GameSet gameSet)
         {
-            // TODO: start bot
+            botController.Init(gameSet.botRaceConfig);
             userController.Init(gameSet.userRaceConfig);
             userController.StartGame();
+            // TODO: start bot            
         }
 
         private void StopGame()

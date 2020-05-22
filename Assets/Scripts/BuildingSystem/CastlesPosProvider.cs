@@ -11,10 +11,10 @@ namespace CastleFight
         {
             return userCastlePos;
         }
-        
-        // public Transform GetCastlePos(BotController botController)
-        // {
-            // return botCastlePos;
-        // }
+
+        public Transform GetCastlePos(BotController botController)
+        {
+            return botCastlePos;
+        }
     }
 }
