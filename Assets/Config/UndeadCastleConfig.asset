@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69d8af6f19ac4ac6ae831b86d068e5a, type: 3}
-  m_Name: AllianceRaceConfig
+  m_Script: {fileID: 11500000, guid: 28df29123a1b433e8a5ae6d7cec1ea48, type: 3}
+  m_Name: UndeadCastleConfig
   m_EditorClassIdentifier: 
-  raceName: Alliance
-  buildingSet: {fileID: 11400000, guid: a5efeae6104a5452788f3c2fdc197da0, type: 2}
-  castle: {fileID: 11400000, guid: 95c63f8736c2f4659b81ea6c66a07b39, type: 2}
+  prefab: {fileID: 1161378957170409622, guid: 2ceea3cfc4442664a99972dd938425b9, type: 3}

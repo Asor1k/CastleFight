@@ -287,6 +287,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb681ad2e2b449afb109f5063a06400, type: 3}
+--- !u!114 &928954483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5056038203935498135, guid: fcb681ad2e2b449afb109f5063a06400,
+    type: 3}
+  m_PrefabInstance: {fileID: 928954482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc2f6c12e92427592ed5d1db75aebdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503023095
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +703,11 @@ PrefabInstance:
       propertyPath: gameUIHolder
       value: 
       objectReference: {fileID: 1576975319}
+    - target: {fileID: 5525622564571893519, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: castlesPosProvider
+      value: 
+      objectReference: {fileID: 928954483}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f85e31bc81e459a82297d3ab460566, type: 3}
 --- !u!114 &4934858381824743414 stripped
