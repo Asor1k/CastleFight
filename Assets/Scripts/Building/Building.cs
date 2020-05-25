@@ -1,38 +1,49 @@
-﻿using CastleFight.Config;
-using System.Collections;
+﻿using System;
+using Core;
 using UnityEngine;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 
 namespace CastleFight
 {
     public class Building : MonoBehaviour
     {
+        public event Action OnReady;
+        public BuildingBehavior Behavior => behavior;
+        public BaseBuildingConfig Config => config;
+        public bool SpawnBlocked => spawnBlocked;
+        public Transform SpawnPoint => spawnPoint;
+
         [SerializeField]
         private Transform spawnPoint;
         [SerializeField]
         private BuildingBehavior behavior;
+        private BaseBuildingConfig config;
+        private bool spawnBlocked = false;
+        private IUpdateManager updateManager;
 
-        public BuildingBehavior Behavior => behavior;
-        
-        private BaseUnitConfig unitConfig;
-        private float spawnDelay;
-   
-        private Coroutine _spawnCoroutine = null;
-
-        public void Init(BaseUnitConfig unitConfig, float spawnDelay)
+        private void Start()
         {
-            this.unitConfig = unitConfig;
+            EventBusController.I.Bus.Subscribe<BuildingPlacedEvent>(BuildingPlacedHandler);
         }
 
-        private void SpawnUnit() 
+        public void Init(BaseBuildingConfig config)
         {
-            var unit = unitConfig.Create();
-            unit.transform.position = spawnPoint.position;
+            this.config = config;
+        } 
+
+        private void BuildingPlacedHandler(BuildingPlacedEvent buildingPlacedEvent)
+        {
+            if(buildingPlacedEvent.behavior.gameObject == gameObject)
+                Build();
+            
+           // EventBusController.I.Bus.Unsubscribe<BuildingPlacedEvent>(BuildingPlacedHandler);
         }
 
-        private IEnumerator SpawnCoroutine()
+        private void Build()
         {
-            yield return new WaitForSeconds(spawnDelay);
-            SpawnUnit();
+            //TODO: Implement building construction
+            OnReady?.Invoke();
         }
     }
 }

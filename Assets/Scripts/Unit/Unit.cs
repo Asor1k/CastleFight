@@ -4,14 +4,9 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    public class Unit : MonoBehaviour
+    public abstract class Unit : MonoBehaviour
     {
         [SerializeField]
-        private Agent _agent;
-
-        private void Start()
-        {
-            _agent = GetComponent<Agent>();
-        }  
+        protected Agent agent; 
     }
 }

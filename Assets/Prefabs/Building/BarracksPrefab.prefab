@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5391365603093743726}
   - component: {fileID: 2852064753154194856}
   - component: {fileID: -546456028477452519}
+  - component: {fileID: 1937247370873158973}
   - component: {fileID: 1299630602202255800}
   m_Layer: 10
   m_Name: BarracksPrefab
@@ -154,6 +155,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5409811227491674541}
   behavior: {fileID: 2852064753154194856}
+--- !u!114 &1937247370873158973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585766819733644120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc775025d86bff40bf85d051ffae204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: -546456028477452519}
 --- !u!54 &1299630602202255800
 Rigidbody:
   m_ObjectHideFlags: 0

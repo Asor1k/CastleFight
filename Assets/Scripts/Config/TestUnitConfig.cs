@@ -1,7 +1,6 @@
 ﻿using CastleFight.Config;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using CastleFight.Core;
 
 namespace CastleFight
 {
@@ -10,7 +9,12 @@ namespace CastleFight
     {
         public override Unit Create()
         {
-            return Instantiate(prefab);
+            Unit unit = Pool.I.Get<TestUnit>();
+
+            if(unit == null)
+                unit = Instantiate(prefab);
+
+            return unit;
         }
     }
 }
