@@ -5,6 +5,10 @@ namespace CastleFight
 {
     public abstract class BaseBuildingConfig : ScriptableObject
     {
+        public Sprite Icon => icon;
+        public float Delay => delay;
+        public BaseUnitConfig Unit => unit;
+
         [SerializeField]
         protected Building prefab;
         [SerializeField]
@@ -13,13 +17,11 @@ namespace CastleFight
         protected float delay;
         [SerializeField]
         protected Sprite icon;
-
-        public Sprite Icon => icon;
         
         public virtual Building Create()
         {
             var building = Instantiate(prefab); // TODO: get from pool
-            building.Init(unit, delay);
+            building.Init(this);
 
             return building;
         }

@@ -1,5 +1,4 @@
 ﻿﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +27,7 @@ namespace CastleFight.Core
 
             return (T)item;
         }
+        
 
         public void Put<T>(T item) where T : MonoBehaviour
         {

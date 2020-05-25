@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
-  m_Name: GryphonAviaryConfig
+  m_Script: {fileID: 11500000, guid: 58d36015faa45b843a2e90f20ae61194, type: 3}
+  m_Name: TestUnit
   m_EditorClassIdentifier: 
-  prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
-  unit: {fileID: 11400000, guid: b10d6bfd2462ab842bdcbd2cd14208ca, type: 2}
-  delay: 5
+  prefab: {fileID: 1814952116869706685, guid: 221ccd5242a99184a93fb2dc3513680e, type: 3}
   icon: {fileID: 0}
