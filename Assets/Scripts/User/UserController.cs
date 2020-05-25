@@ -9,6 +9,7 @@ namespace CastleFight
         [SerializeField] private UserAbility[] abilities;
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
         [SerializeField] private RectTransform gameUIHolder;
+        [SerializeField] private CastlesPosProvider castlesPosProvider;
 
         private GameUIBehavior gameUI;
 
@@ -21,6 +22,17 @@ namespace CastleFight
 
             gameUI.Hide();
             gameUI.Init(config.BuildingSet);
+
+            CreateCastle(config.CastleConfig);
+        }
+
+        private void CreateCastle(CastleConfig castleConfig)
+        {
+            var castleHolder = castlesPosProvider.GetCastlePos(this);
+            var castlePos = castleHolder.position;
+            castlePos = new Vector3(castlePos.x, castlePos.y + 2.5f, castlePos.z); // TODO: remove magic number
+            var castle = castleConfig.Create();
+            castle.transform.position = castlePos;
         }
 
         public void StartGame()

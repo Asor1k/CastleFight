@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6414877383483972450}
   - component: {fileID: 2934195691979948196}
   - component: {fileID: 8780712695732730686}
+  - component: {fileID: 1161378957170409622}
   m_Layer: 0
   m_Name: CastlePrefab
   m_TagString: Untagged
@@ -107,3 +108,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 2934195691979948196}
+--- !u!114 &1161378957170409622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189981915339529542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a0423cc33344be9e6c1d3df55ca70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  behavior: {fileID: 8780712695732730686}
