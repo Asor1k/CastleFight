@@ -48,7 +48,7 @@ namespace CastleFight.Core
             StopGame();
             RiseOpenMainMenu();
         }
-
+    
         private void RiseOpenMainMenu()
         {
             EventBusController.I.Bus.Publish(new OpenMainMenuEvent());

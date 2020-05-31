@@ -2,13 +2,14 @@ using CastleFight.Config;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CastleFight.MainMenu
 {
     public class GameSetProvider : MonoBehaviour
     {
         [SerializeField] private RaceSet raceSet;
-
+        
         private RaceChosenEvent raceChosenEvent;
 
         private void Awake()
@@ -25,6 +26,21 @@ namespace CastleFight.MainMenu
         {
             this.raceChosenEvent = raceChosenEvent;
         }
+
+        //Begin [Asor1k]
+        public void StartNewGame()
+        {
+            Debug.Log("New game started");
+            SceneManager.LoadScene(0);
+            //Restart game
+        }
+        public void ExitGame()
+        {
+            Debug.Log("Exit");
+            Application.Quit();
+            //Exit game
+        }
+        //End [Asor1k]
 
         public void PrepareGameSet()
         {

@@ -17,6 +17,8 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
         }
 
+        
+
         private void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
