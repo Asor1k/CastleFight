@@ -31,6 +31,7 @@ namespace CastleFight.MainMenu
         public void StartNewGame()
         {
             Debug.Log("New game started");
+            EventBusController.I.Bus.Publish(new RestartGameEvent());
             SceneManager.LoadScene(0);
             //Restart game
         }

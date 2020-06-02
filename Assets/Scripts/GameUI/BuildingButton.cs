@@ -18,6 +18,7 @@ namespace CastleFight.GameUI
 
         public void Init(BaseBuildingConfig config)
         {
+            
             if (config.Icon != null)
             {
                 img.sprite = config.Icon;
@@ -28,7 +29,11 @@ namespace CastleFight.GameUI
         {
             Click?.Invoke(this);
         }
-
+        public void OnDestroy()
+        {
+            //Debug.Log("Destroy");
+            btn.onClick.RemoveAllListeners();
+        }
         public void Destroy()
         {
             // TODO: put to pool

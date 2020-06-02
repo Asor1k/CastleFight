@@ -17,13 +17,21 @@ namespace CastleFight.MainMenu
         private void Awake()
         {
             playButton.onClick.AddListener(OnPlayClick);
-            DontDestroyOnLoad(this);    
+         //   DontDestroyOnLoad(this);    
             
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
-
+            EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
             SetGameSetupCanvasEnabled(true); //[Asor1k] Changed on true
         }
 
+        void OnRestartGame(RestartGameEvent restartGameEvent)
+        {
+            /*playButton = null;
+            setProvider = null;
+            gameSetup = null;
+            startPart = null;
+            Destroy(this);*/
+        }
         private void SetGameSetupCanvasEnabled(bool enabled)
         {
             if(gameSetup == null)
@@ -41,8 +49,9 @@ namespace CastleFight.MainMenu
 
         private void OnDestroy()
         {
+            EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameSetReady);
+            EventBusController.I.Bus.Unsubscribe<RestartGameEvent>(OnRestartGame);
             playButton.onClick.RemoveAllListeners();
-           
         }
 
         private void OnPlayClick()

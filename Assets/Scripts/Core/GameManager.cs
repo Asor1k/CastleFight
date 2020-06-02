@@ -15,9 +15,13 @@ namespace CastleFight.Core
             BuildingManager.I.Init();
             EventBusController.I.Bus.Subscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
+            EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
         }
 
-        
+        void OnRestartGame(RestartGameEvent restartGameEvent)
+        {
+            mainMenu = null;
+        }
 
         private void OnDestroy()
         {

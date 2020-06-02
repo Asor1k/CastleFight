@@ -374,8 +374,6 @@ MonoBehaviour:
   setProvider: {fileID: 4731180890878409649}
   gameSetup: {fileID: 5562752925563700138}
   startPart: {fileID: 7804556856762496402}
-  menuDropdownMain: {fileID: 0}
-  menuToggles: []
 --- !u!1 &4494303434645485014
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122420688917162732, guid: 1d76fe2bfb62a460a8b424050b32c8b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282679749043837252, guid: 1d76fe2bfb62a460a8b424050b32c8b0,
         type: 3}

@@ -12,7 +12,7 @@ namespace CastleFight.GameUI
         [SerializeField] private RectTransform buldingsHodler;
         [SerializeField] private BuildingButton buildingBtnPrefab;
 
-        private Dictionary<BuildingButton, BaseBuildingConfig> buildingBtnsTable = new Dictionary<BuildingButton, BaseBuildingConfig>();
+       private Dictionary<BuildingButton, BaseBuildingConfig> buildingBtnsTable = new Dictionary<BuildingButton, BaseBuildingConfig>();
 
         public void Init(BuildingSet set)
         {
@@ -23,6 +23,7 @@ namespace CastleFight.GameUI
                 btn.Init(config);
                 btn.Click += OnBuildingBtnClick;
                 buildingBtnsTable.Add(btn, config);
+                Debug.Log(buildingBtnsTable.Count);
             }
         }
 
@@ -32,20 +33,40 @@ namespace CastleFight.GameUI
             EventBusController.I.Bus.Publish(new BuildingChosenEvent(config));
         }
 
+        //Begin [Asor1k]
+        public void Start()
+        {
+            EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
+        }
+
+        private void OnRestartGame(RestartGameEvent gameSetReady)
+        {
+            Hide();
+        }
+
+        public void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<RestartGameEvent>(OnRestartGame);
+            
+        }
+        //End [Asor1k]
+
         private void Clear()
         {
+           // Debug.Log(buildingBtnsTable.Count);
             if (buildingBtnsTable != null)
             {
                 foreach (var pair in buildingBtnsTable)
                 {
                     pair.Key.Click -= OnBuildingBtnClick;
+                   
                     pair.Key.Destroy();
                 }
 
                 buildingBtnsTable.Clear();
             }
         }
-
+    
         public void Show()
         {
             layout.Show();

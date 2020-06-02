@@ -24,6 +24,7 @@ namespace CastleFight
         private void OnDestroy()
         {
             UnsubscribeFromUpdate();
+            Lock();
         }
 
         private void SubscribeToUpdate()
@@ -49,6 +50,7 @@ namespace CastleFight
         private void OnBuildingChosen(BuildingChosenEvent buildingChosenEvent)
         {
             Clear();
+            Debug.Log(buildingChosenEvent.GetBehavior);
             SetBuilding(buildingChosenEvent.GetBehavior);
         }
 
@@ -70,14 +72,15 @@ namespace CastleFight
             if (buildingBehavior == null) return;
 
             ray = cam.ScreenPointToRay(Input.mousePosition);
-
+           // Debug.Log("OnUpdate");
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
             {
                 var position = new Vector3(Mathf.RoundToInt(hit.point.x), hit.point.y, Mathf.RoundToInt(hit.point.z));
                 buildingBehavior.MoveTo(position);
-
+                
                 if (Input.GetMouseButtonDown(0) && buildingBehavior.CanBePlaced())
                 {
+                    
                     buildingBehavior.Place();
                     buildingBehavior = null;
                 }
@@ -89,6 +92,7 @@ namespace CastleFight
             SubscribeToUpdate();
             SubscribeToBuildingChosenEvent();
         }
+       
 
         public override void Lock()
         {

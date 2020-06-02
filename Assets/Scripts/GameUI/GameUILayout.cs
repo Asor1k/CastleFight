@@ -6,7 +6,7 @@ namespace CastleFight.GameUI
     public class GameUILayout : UILayout
     {
         [SerializeField] private UILayout[] parts;
-        
+
         public override void Show()
         {
             base.Show();

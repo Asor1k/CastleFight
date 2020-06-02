@@ -253,9 +253,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Exit game
-      m_Image: {fileID: 0}
     - m_Text: Start new game
+      m_Image: {fileID: 0}
+    - m_Text: Exit
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

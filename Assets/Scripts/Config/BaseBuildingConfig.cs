@@ -20,6 +20,7 @@ namespace CastleFight
         
         public virtual Building Create()
         {
+            
             var building = Instantiate(prefab); // TODO: get from pool
             building.Init(this);
 

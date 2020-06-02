@@ -8,6 +8,7 @@ namespace CastleFight
         private void Awake()
         {
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(Behavior));
+          //  behavior = GetComponent<BuildingBehavior>();
         }
     }
 }

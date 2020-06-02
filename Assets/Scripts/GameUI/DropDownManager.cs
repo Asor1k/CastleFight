@@ -52,10 +52,10 @@ namespace CastleFight.MainMenu
                 case -1:
                     return;
                 case 0:
-                    setProvider.ExitGame();
+                    setProvider.StartNewGame();
                     break;
                 case 1:
-                    setProvider.StartNewGame();
+                    setProvider.ExitGame();
                     break;
 
             }

@@ -9,7 +9,7 @@ namespace CastleFight
     public class BuildingBehavior : MonoBehaviour
     {
         [SerializeField] private Collider col;
-
+        Building building;
         private List<Collider> collisions = new List<Collider>();
 
         public void Place()
@@ -18,6 +18,11 @@ namespace CastleFight
             col.isTrigger = false;
         }
 
+        public void Start()
+        {
+            
+           //Castle castle = gameObject.AddComponent<Castle>();
+        }
         public void MoveTo(Vector3 position)
         {
             transform.position = position;
