@@ -65,7 +65,7 @@ namespace CastleFight
             if (buildingBehavior == null) return;
            
             ray = cam.ScreenPointToRay(Input.mousePosition);
-          //  Debug.Log("OnUpdate");
+        
 
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
             {
