@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GraveyardConfig
   m_EditorClassIdentifier: 
   prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
-  unit: {fileID: 0}
-  delay: 0
+  unit: {fileID: 11400000, guid: b10d6bfd2462ab842bdcbd2cd14208ca, type: 2}
+  delay: 4
   icon: {fileID: 0}

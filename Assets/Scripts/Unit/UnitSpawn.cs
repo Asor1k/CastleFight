@@ -13,7 +13,7 @@ namespace CastleFight
         private Building building;
         private IUpdateManager updateManager;
         private float spawnDelay;
-        private float spawnTimer = 0;
+      [SerializeField]  private float spawnTimer = 0;
         private bool buildingReady = false;
 
         private void Awake()
@@ -23,19 +23,14 @@ namespace CastleFight
 
         private void Start()
         {
-            updateManager = ManagerHolder.I.GetManager<IUpdateManager>();
-            SubscribeEventHandlers();
         }
 
         private void OnDestroy()
         {
-           UnsubscribeEventHandlers();
+
         }
 
-        private void SubscribeEventHandlers()
-        {
-            updateManager.OnUpdate += UpdateHandler;
-        }
+      
 
         private void OnBuildingReadyHandler()
         {
@@ -45,12 +40,8 @@ namespace CastleFight
             building.OnReady -= OnBuildingReadyHandler;
         }
 
-        private void UnsubscribeEventHandlers()
-        {
-            updateManager.OnUpdate -= UpdateHandler;
-        }
 
-        private void UpdateHandler()
+        private void Update()
         {
             if(!buildingReady){return;}
 

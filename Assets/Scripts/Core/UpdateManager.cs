@@ -22,7 +22,13 @@ namespace CastleFight.Core
 
         private void Update()
         {
+            if (OnUpdate == null) return;
             OnUpdate?.Invoke();
+            
+            foreach(EventHandler ev in OnUpdate.GetInvocationList())
+            {
+                Debug.Log(ev.Target);
+            }
         }
 
         private void LateUpdate()

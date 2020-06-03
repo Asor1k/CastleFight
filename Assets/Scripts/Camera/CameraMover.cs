@@ -10,32 +10,20 @@ namespace CastleFight
         [SerializeField] private Transform camTr;
         [SerializeField] private CameraMoverSettings settings;
 
-        private IUpdateManager updateManager;
         private Vector3 cursorPos;
         private float xPercentCursorPos;
         private float yPercentCursorPos;
 
         private void Start()
         {
-            updateManager = ManagerHolder.I.GetManager<IUpdateManager>();
         }
 
         private void OnDestroy()
         {
-            UnsubscribeToUpdate();
         }
 
-        private void SubscribeToUpdate()
-        {
-            updateManager.OnUpdate += UpdateHandler;
-        }
-
-        private void UnsubscribeToUpdate()
-        {
-            updateManager.OnUpdate -= UpdateHandler;
-        }
-
-        private void UpdateHandler()
+      
+        private void Update()
         {
             CheckCursorPosition();
         }
@@ -72,12 +60,10 @@ namespace CastleFight
 
         public override void Unlock()
         {
-            SubscribeToUpdate();
         }
 
         public override void Lock()
         {
-            UnsubscribeToUpdate();
         }
     }
 }
