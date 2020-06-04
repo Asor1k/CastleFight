@@ -11,7 +11,7 @@ namespace CastleFight
         [SerializeField] private Collider col;
         Building building;
         private List<Collider> collisions = new List<Collider>();
-
+        private MeshRenderer rend;
         public void Place()
         {
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
@@ -20,7 +20,7 @@ namespace CastleFight
 
         public void Start()
         {
-            
+            rend = GetComponent<MeshRenderer>();
            //Castle castle = gameObject.AddComponent<Castle>();
         }
         public void MoveTo(Vector3 position)
@@ -30,9 +30,13 @@ namespace CastleFight
 
         public bool CanBePlaced()
         {
-            if (collisions.Count == 0)
+            if (rend == null) return true;
+            if (collisions.Count == 0)  
+            {
+                rend.material.color = Color.white; //Make color changes using shaders
                 return true;
-
+            }
+            rend.material.color = Color.red;
             return false;
         }
 
