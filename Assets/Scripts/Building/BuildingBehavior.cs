@@ -10,6 +10,7 @@ namespace CastleFight
     {
         [SerializeField] private Collider col;
         Building building;
+        public float offsetY;
         private List<Collider> collisions = new List<Collider>();
         private MeshRenderer rend;
         public void Place()
