@@ -66,14 +66,15 @@ namespace CastleFight
            
             ray = cam.ScreenPointToRay(Input.mousePosition);
         
-
+            
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
             {
-                var position = new Vector3(Mathf.RoundToInt(hit.point.x), hit.point.y, Mathf.RoundToInt(hit.point.z));
-                buildingBehavior.MoveTo(position);
                 
-                if (Input.GetMouseButtonDown(0) && buildingBehavior.CanBePlaced())
-                {
+                var position = new Vector3(Mathf.RoundToInt(hit.point.x*2)/2f, hit.point.y + buildingBehavior.offsetY, Mathf.RoundToInt(hit.point.z*2)/2f);
+                buildingBehavior.MoveTo(position);
+                bool canPlace = buildingBehavior.CanBePlaced();
+                if (Input.GetMouseButtonDown(0) && canPlace)
+                {   
                     buildingBehavior.Place();
                     buildingBehavior = null;
                 }
