@@ -8,6 +8,7 @@ namespace CastleFight
         public Sprite Icon => icon;
         public float Delay => delay;
         public BaseUnitConfig Unit => unit;
+        public float Cost => cost;
 
         [SerializeField]
         protected Building prefab;
@@ -17,6 +18,8 @@ namespace CastleFight
         protected float delay;
         [SerializeField]
         protected Sprite icon;
+        [SerializeField]
+        protected float cost;
         
         public virtual Building Create()
         {
