@@ -13,15 +13,14 @@ namespace CastleFight
         public BaseBuildingConfig Config => config;
         public bool SpawnBlocked => spawnBlocked;
         public Transform SpawnPoint => spawnPoint;
-        
 
         [SerializeField]
         private Transform spawnPoint;
-        public BuildingBehavior behavior;
+        [SerializeField] private BuildingBehavior behavior;
         private BaseBuildingConfig config;
         private bool spawnBlocked = false;
         private IUpdateManager updateManager;
-        private Team team;
+
 
         public void Init(BaseBuildingConfig config)
         {

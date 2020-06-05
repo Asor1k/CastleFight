@@ -8,6 +8,7 @@ namespace CastleFight
 {
     public class CursorBuilder : UserAbility
     {
+        [SerializeField] private Team team;
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
 
@@ -75,7 +76,7 @@ namespace CastleFight
                 bool canPlace = buildingBehavior.CanBePlaced();
                 if (Input.GetMouseButtonDown(0) && canPlace)
                 {   
-                    buildingBehavior.Place();
+                    buildingBehavior.Place(team);
                     buildingBehavior = null;
                 }
             }
