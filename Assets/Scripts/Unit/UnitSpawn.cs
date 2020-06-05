@@ -13,24 +13,13 @@ namespace CastleFight
         private Building building;
         private IUpdateManager updateManager;
         private float spawnDelay;
-      [SerializeField]  private float spawnTimer = 0;
+        [SerializeField]  private float spawnTimer = 0;
         private bool buildingReady = false;
 
         private void Awake()
         {
             building.OnReady += OnBuildingReadyHandler;
         }
-
-        private void Start()
-        {
-        }
-
-        private void OnDestroy()
-        {
-
-        }
-
-      
 
         private void OnBuildingReadyHandler()
         {
@@ -50,7 +39,7 @@ namespace CastleFight
             if(spawnTimer < 0 && !building.SpawnBlocked)
             {
                 spawnTimer = spawnDelay;
-                SpawnUnit(building.SpawnPoint.position);
+                SpawnUnit(building.SpawnPoint.position, building.Behavior.Team);
             }
         }
 
@@ -60,9 +49,9 @@ namespace CastleFight
                 spawnTimer -= Time.deltaTime;
         }
 
-        private Unit SpawnUnit(Vector3 spawnPoint)
+        private Unit SpawnUnit(Vector3 spawnPoint, Team team)
         {
-            var unit = building.Config.Unit.Create();
+            var unit = building.Config.Unit.Create(team);
             unit.transform.position = spawnPoint;
 
             EventBusController.I.Bus.Publish(new UnitSpawnedEvent(unit));

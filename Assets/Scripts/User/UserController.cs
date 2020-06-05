@@ -33,6 +33,7 @@ namespace CastleFight
             castlePos = new Vector3(castlePos.x, castlePos.y + 2.5f, castlePos.z); // TODO: remove magic number
             var castle = castleConfig.Create();
             castle.transform.position = castlePos;
+            castle.gameObject.layer = (int)Team.Team1;
         }
 
         public void StartGame()

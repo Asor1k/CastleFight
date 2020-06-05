@@ -16,35 +16,18 @@ namespace CastleFight
 
         [SerializeField]
         private Transform spawnPoint;
-        public BuildingBehavior behavior;
+        [SerializeField] private BuildingBehavior behavior;
         private BaseBuildingConfig config;
         private bool spawnBlocked = false;
         private IUpdateManager updateManager;
 
-        private void Start()
-        {
-            EventBusController.I.Bus.Subscribe<BuildingPlacedEvent>(BuildingPlacedHandler);
-        }
 
         public void Init(BaseBuildingConfig config)
         {
             this.config = config;
         } 
 
-        private void BuildingPlacedHandler(BuildingPlacedEvent buildingPlacedEvent)
-        {
-
-            if(buildingPlacedEvent.behavior.gameObject == gameObject)
-                Build();
-            
-           // EventBusController.I.Bus.Unsubscribe<BuildingPlacedEvent>(BuildingPlacedHandler);
-        }
-
-        public void OnDestroy()
-        {
-            EventBusController.I.Bus.Unsubscribe<BuildingPlacedEvent>(BuildingPlacedHandler); //[Asor1k]
-        }
-        private void Build()
+        public void Build()
         {
             //TODO: Implement building construction
             OnReady?.Invoke();

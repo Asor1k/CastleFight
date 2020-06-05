@@ -8,6 +8,7 @@ namespace CastleFight
     [RequireComponent(typeof(NavMeshAgent))]
     public class Agent : MonoBehaviour
     {
+        public float Speed{get{return agent.velocity.magnitude;}}
         public bool IsStopped { get { return agent.isStopped; } }
 
         [SerializeField]

@@ -8,15 +8,22 @@ namespace CastleFight
 {
     public class BuildingBehavior : MonoBehaviour
     {
+        public Team Team => team;
         [SerializeField] private Collider col;
-        Building building;
+        [SerializeField] Building building;
         public float offsetY;
         private List<Collider> collisions = new List<Collider>();
         private MeshRenderer rend;
-        public void Place()
+        private Team team;
+
+        public void Place(Team team)
         {
+            this.team = team;
+            gameObject.layer = (int)team;
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             col.isTrigger = false;
+
+            building.Build();
         }
 
         public void Start()
