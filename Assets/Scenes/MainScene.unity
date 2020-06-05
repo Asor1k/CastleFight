@@ -736,6 +736,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 7573274762857164962}
+    - target: {fileID: 1563699999869710840, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: team
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: camTr
