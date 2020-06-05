@@ -390,6 +390,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005cc03825d5fdb4fbedc766a729739e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1940491494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 390068433671224634, guid: 067a64d9616a74e759b4a29ce0395e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 4968849266797525958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2014396576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -848,13 +854,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
+      propertyPath: buildSteps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
       propertyPath: castlesPosProvider
       value: 
       objectReference: {fileID: 928954483}
+    - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: buildSteps.Array.data[0].Point
+      value: 
+      objectReference: {fileID: 1940491494}
+    - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: buildSteps.Array.data[0].BuildingConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 809c4f2ad48ffe444b3db1b8c51f9a83,
+        type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -864,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
