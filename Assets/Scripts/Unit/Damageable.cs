@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    public class TestUnit : Unit
-    {
-        private void Start()
+    public class Damageable : MonoBehaviour
+    {   
+        public void Hit(int damage)
         {
-            agent.MoveTo(Vector3.zero);
+
         }
     }
 }

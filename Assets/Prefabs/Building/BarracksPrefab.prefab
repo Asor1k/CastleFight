@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 5391365603093743726}
+  building: {fileID: -546456028477452519}
 --- !u!114 &-546456028477452519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: -546456028477452519}
+  spawnTimer: 0
 --- !u!54 &1299630602202255800
 Rigidbody:
   m_ObjectHideFlags: 0

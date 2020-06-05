@@ -16,5 +16,13 @@ namespace CastleFight
         {
             return botCastlePos;
         }
+
+        public Transform GetCastlePos(UnitController unitController)
+        {
+            if(unitController.gameObject.layer == 11)
+                return botCastlePos;
+            else
+                return userCastlePos;
+        }
     }
 }

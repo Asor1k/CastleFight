@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58d36015faa45b843a2e90f20ae61194, type: 3}
-  m_Name: TestUnit
+  m_Script: {fileID: 11500000, guid: dfd8795d5e359214095fa4dfc864937c, type: 3}
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1814952116869706685, guid: 221ccd5242a99184a93fb2dc3513680e, type: 3}
+  speed: 3
+  attackDistance: 3
+  prefab: {fileID: 3822656305727089414, guid: f45107bb94ba7dd4c9a83c53b9e2ee81, type: 3}
   icon: {fileID: 0}
+  enemyDetectRange: 10
