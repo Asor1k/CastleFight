@@ -40,6 +40,7 @@ namespace CastleFight
         public void Start()
         {
             rend = GetComponent<MeshRenderer>();
+            
             user = FindObjectOfType<UserController>();
 
             //Castle castle = gameObject.AddComponent<Castle>();
