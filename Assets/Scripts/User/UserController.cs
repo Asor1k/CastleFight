@@ -8,7 +8,7 @@ namespace CastleFight
     {
         [SerializeField] private UserAbility[] abilities;
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
-        [SerializeField] private RectTransform gameUIHolder;
+        [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
 
         private GameUIBehavior gameUI;

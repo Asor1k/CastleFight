@@ -736,36 +736,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 7573274762857164962}
-    - target: {fileID: 1563699999869710840, guid: c8f85e31bc81e459a82297d3ab460566,
-        type: 3}
-      propertyPath: team
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: camTr
       value: 
       objectReference: {fileID: 7573274762857164963}
-    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
-        type: 3}
-      propertyPath: minY
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
-        type: 3}
-      propertyPath: maxY
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
-        type: 3}
-      propertyPath: minX
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
-        type: 3}
-      propertyPath: maxX
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 2125970061034513812, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: m_Name
@@ -836,6 +811,11 @@ PrefabInstance:
       propertyPath: castlesPosProvider
       value: 
       objectReference: {fileID: 928954483}
+    - target: {fileID: 9022739490893321351, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: goldAmount
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f85e31bc81e459a82297d3ab460566, type: 3}
 --- !u!114 &4934858381824743414 stripped

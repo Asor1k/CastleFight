@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1161378957170409622}
   m_Layer: 0
   m_Name: CastlePrefab
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 2934195691979948196}
+  building: {fileID: 0}
+  offsetY: 0
 --- !u!114 &1161378957170409622
 MonoBehaviour:
   m_ObjectHideFlags: 0

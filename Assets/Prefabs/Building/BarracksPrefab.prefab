@@ -143,6 +143,7 @@ MonoBehaviour:
   col: {fileID: 5391365603093743726}
   building: {fileID: -546456028477452519}
   offsetY: 1
+  user: {fileID: 0}
 --- !u!114 &-546456028477452519
 MonoBehaviour:
   m_ObjectHideFlags: 0
