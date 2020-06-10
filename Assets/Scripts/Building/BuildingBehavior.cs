@@ -43,6 +43,10 @@ namespace CastleFight
             
             user = FindObjectOfType<UserController>();
 
+            if (CompareTag("Castle")&&team==Team.Team1)
+            {
+
+            }
             //Castle castle = gameObject.AddComponent<Castle>();
         }
         public void MoveTo(Vector3 position)

@@ -19,9 +19,8 @@ namespace CastleFight
         [SerializeField] private BuildingBehavior behavior;
         private BaseBuildingConfig config;
         private bool spawnBlocked = false;
-        private IUpdateManager updateManager;
 
-
+        
         public void Init(BaseBuildingConfig config)
         {
             this.config = config;

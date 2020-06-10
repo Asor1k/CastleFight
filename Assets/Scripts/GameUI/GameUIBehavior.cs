@@ -23,7 +23,6 @@ namespace CastleFight.GameUI
                 btn.Init(config);
                 btn.Click += OnBuildingBtnClick;
                 buildingBtnsTable.Add(btn, config);
-                Debug.Log(buildingBtnsTable.Count);
             }
         }
 

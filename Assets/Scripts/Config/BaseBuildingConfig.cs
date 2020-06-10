@@ -11,6 +11,7 @@ namespace CastleFight
         public int Cost => cost;
         public float GoldDelay => goldDelay;
         public int GoldIncome => goldIncome;
+        public string Name => buildingName;
 
         [SerializeField]
         protected Building prefab;
@@ -26,6 +27,8 @@ namespace CastleFight
         protected float goldDelay;
         [SerializeField]
         protected int goldIncome;
+        [SerializeField]
+        protected string buildingName;
 
 
         public virtual Building Create()

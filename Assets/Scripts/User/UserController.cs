@@ -30,10 +30,11 @@ namespace CastleFight
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);
             var castlePos = castleHolder.position;
-            castlePos = new Vector3(castlePos.x, castlePos.y + 2.5f, castlePos.z); // TODO: remove magic number
+            castlePos = new Vector3(castlePos.x, castlePos.y, castlePos.z);
             var castle = castleConfig.Create();
             castle.transform.position = castlePos;
             castle.gameObject.layer = (int)Team.Team1;
+            castle.Init(castleConfig);
         }
 
         public void StartGame()

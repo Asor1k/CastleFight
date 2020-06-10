@@ -19,3 +19,4 @@ MonoBehaviour:
   cost: 100
   goldDelay: 1
   goldIncome: 1
+  buildingName: Gryphon Aviary

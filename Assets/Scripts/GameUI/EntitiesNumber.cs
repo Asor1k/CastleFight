@@ -19,5 +19,10 @@ namespace CastleFight
             entitiesText.text = number.ToString();
         }
 
+
+        private void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<UnitSpawnedEvent>(OnUnitSpawned);
+        }
     }
 }
