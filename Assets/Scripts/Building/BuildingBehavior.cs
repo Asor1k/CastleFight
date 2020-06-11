@@ -17,7 +17,8 @@ namespace CastleFight
         private Team team;
         public UserController user;
         private bool isPlaced = false;
-
+        internal GoldManager goldManager;
+      
         public void Place(Team team)
         {
             this.team = team;
@@ -25,24 +26,36 @@ namespace CastleFight
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             col.isTrigger = false;
             building.Build();
+            isPlaced = true;
             if (team == Team.Team1) 
             StartCoroutine(StartMoneyGain());
         }
+        private void OnMouseEnter()
+        {
+            if (!isPlaced) return;
+            rend.material.shader = Shader.Find("Outlined/Custom");
+        }
 
+        private void OnMouseExit()
+        {
+            if (!isPlaced) return;
+            rend.material.shader = Shader.Find("Standard");
+        }
         IEnumerator StartMoneyGain()
         {
             yield return new WaitForSeconds(building.Config.GoldDelay);
             StartCoroutine(StartMoneyGain());
-            user.GetComponent<GoldManager>().MakeGoldChange(building.Config.GoldIncome);
+            goldManager.MakeGoldChange(building.Config.GoldIncome);
             
         }
+        
 
         public void Start()
         {
             rend = GetComponent<MeshRenderer>();
             
             user = FindObjectOfType<UserController>();
-
+            goldManager = user.GetComponent<GoldManager>();
             if (CompareTag("Castle")&&team==Team.Team1)
             {
 
