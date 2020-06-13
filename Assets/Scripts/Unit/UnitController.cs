@@ -10,7 +10,7 @@ namespace CastleFight
         [SerializeField]
         private Unit unit;
         private TargetProvider targetProvider = new TargetProvider();
-        private Damageable currentTarget;
+        private IDamageable currentTarget;
         private LayerMask enemyLayer;
         private float targetUpdateDelay = 0.5f;
         private Coroutine updateTargetCoroutine;
@@ -34,13 +34,24 @@ namespace CastleFight
 
         void Update()
         {
+            
             if(currentTarget == null)
             {
                 unit.MoveTo(GetEnemyCastlePosition());
             }
             else 
             {
-                var distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
+                if(!currentTarget.Alive)
+                {
+                    currentTarget = null;
+
+                    if(updateTargetCoroutine == null)
+                        updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
+
+                    return;
+                }
+
+                var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 
                 if(distanceToTarget <= unit.AttackDistance)
                 {
@@ -48,9 +59,12 @@ namespace CastleFight
                     unit.Attack(currentTarget);
                 }
                 else if(distanceToTarget > unit.EnemyDetectRange)
-                    StartCoroutine(UpdateTargetCoroutine());
+                    currentTarget = null;
+
+                    if(updateTargetCoroutine == null)
+                        updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
                 else   
-                    unit.MoveTo(currentTarget.transform.position);
+                    unit.MoveTo(currentTarget.Transform.position);
             }
 
         }
@@ -65,6 +79,7 @@ namespace CastleFight
                 if(currentTarget != null)
                 {
                     StopCoroutine(updateTargetCoroutine);
+                    updateTargetCoroutine = null;
                 }
             }
         }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 namespace CastleFight
 {
     [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshObstacle))]
     public class Agent : MonoBehaviour
     {
         public float Speed{get{return agent.velocity.magnitude;}}
@@ -13,16 +14,34 @@ namespace CastleFight
 
         [SerializeField]
         protected NavMeshAgent agent;
+        [SerializeField]
+        protected NavMeshObstacle obstacle;
 
         public virtual void MoveTo(Vector3 position)
         {
+            obstacle.enabled = false;
+            agent.enabled = true;
+
             agent.isStopped = false;
             agent.SetDestination(position);
         }
 
         public virtual void Stop()
         {
-            agent.isStopped = true;
+            agent.enabled = false;
+            obstacle.enabled = true;
+        }
+
+        public void Disable()
+        {
+            agent.enabled = false;
+            obstacle.enabled = false;
+        }
+
+        public void Enable()
+        {
+            agent.enabled = true;
+            obstacle.enabled = false;
         }
     }
 }

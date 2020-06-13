@@ -16,6 +16,13 @@ namespace CastleFight
         private Animator animator;
         private Action attackCallback;
 
+        void Start()
+        {
+            unit.OnKilled += OnUnitKilled;
+            unit.OnReset += OnUnitReset;
+        }
+
+        
         public void AnimAttackCallback()
         {
             OnAnimationAttackCallback?.Invoke();
@@ -44,6 +51,16 @@ namespace CastleFight
         private void UpdateSpeed(float speed)
         {
             animator.SetFloat("Speed", speed);
+        }
+
+        private void OnUnitKilled()
+        {
+            animator.SetTrigger("Kill");
+        }
+
+        private void OnUnitReset()
+        {
+            animator.SetTrigger("Reset");
         }
 
     }
