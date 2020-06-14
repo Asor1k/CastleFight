@@ -5,6 +5,7 @@ namespace CastleFight.Config
 {
     public abstract class BaseUnitConfig : ScriptableObject
     {
+        public int MaxHp{get{return maxHp;}}
         public float Speed{get{return speed;}}
         public float EnemyDetectRange{get{return enemyDetectRange;}}
         public float AttackDistance{get{return attackDistance;}}
@@ -13,6 +14,8 @@ namespace CastleFight.Config
         protected float speed;
         [SerializeField]
         protected float attackDistance;
+        [SerializeField]
+        protected int maxHp;
         [SerializeField]
         protected Unit prefab;
         [SerializeField]

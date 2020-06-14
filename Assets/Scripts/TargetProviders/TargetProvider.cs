@@ -4,13 +4,13 @@ namespace CastleFight
 {
     public class TargetProvider
     {
-        public Damageable GetTarget(LayerMask targetLayer,Vector3 originPoint, float radius)
+        public IDamageable GetTarget(LayerMask targetLayer,Vector3 originPoint, float radius)
         {
             Collider[] hitColliders = Physics.OverlapSphere(originPoint, radius, targetLayer);
 
             foreach(var collider in hitColliders)
             {
-                var damageable = collider.GetComponent<Damageable>();
+                var damageable = collider.GetComponent<IDamageable>();
                 if(damageable != null)
                     return damageable;
             }

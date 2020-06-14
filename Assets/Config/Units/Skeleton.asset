@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 3
+  maxHp: 100
   prefab: {fileID: 3822656305727089414, guid: f45107bb94ba7dd4c9a83c53b9e2ee81, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
