@@ -13,20 +13,30 @@ namespace CastleFight
         public BaseBuildingConfig Config => config;
         public bool SpawnBlocked => spawnBlocked;
         public Transform SpawnPoint => spawnPoint;
+        public int Lvl => lvl;
 
         [SerializeField]
         private Transform spawnPoint;
         [SerializeField] private BuildingBehavior behavior;
         private BaseBuildingConfig config;
+        private int lvl;
         private bool spawnBlocked = false;
-        private IUpdateManager updateManager;
 
-
+        
         public void Init(BaseBuildingConfig config)
         {
             this.config = config;
-        } 
+            lvl = 1; //TODO: delete the magic number
+        }
+        public void UpgradeBuilding()
+        {
 
+            if (behavior.goldManager.IsEnogh(behavior))
+            {
+                behavior.goldManager.MakeGoldChange(-config.Cost);
+                lvl++; //Upgrade
+            }
+        }
         public void Build()
         {
             //TODO: Implement building construction

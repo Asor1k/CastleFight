@@ -16,3 +16,7 @@ MonoBehaviour:
   unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
   delay: 5
   icon: {fileID: 0}
+  cost: 100
+  goldDelay: 1
+  goldIncome: 1
+  buildingName: Barracks

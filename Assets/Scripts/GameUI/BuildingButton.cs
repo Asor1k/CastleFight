@@ -10,18 +10,28 @@ namespace CastleFight.GameUI
         
         [SerializeField] private Button btn;
         [SerializeField] private Image img;
-
+        [SerializeField] private Text priceText;
+        [SerializeField] private Text nameText;
+        private BaseBuildingConfig buildingConfig;
         private void Start()
         {
             btn.onClick.AddListener(OnClick);
         }
 
+        private void UpdatePrice()
+        {
+            priceText.text = buildingConfig.Cost.ToString();
+        }
+
         public void Init(BaseBuildingConfig config)
         {
-            
+            buildingConfig = config;
+            UpdatePrice();
+            nameText.text = config.Name;
             if (config.Icon != null)
             {
                 img.sprite = config.Icon;
+
             }
         }
         

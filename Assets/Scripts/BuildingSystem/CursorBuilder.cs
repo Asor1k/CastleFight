@@ -11,22 +11,20 @@ namespace CastleFight
         [SerializeField] private Team team;
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
-
+        private GoldManager goldManager;
         private Ray ray;
         private GameObject currentGo;
         [SerializeField] private BuildingBehavior buildingBehavior;
 
         private void Start()
         {
-
+            goldManager = GetComponent<GoldManager>();
         }
 
         private void OnDestroy()
         {
             Lock();
         }
-
-        
 
         private void SubscribeToBuildingChosenEvent()
         {
@@ -57,25 +55,28 @@ namespace CastleFight
         public void SetBuilding(BuildingBehavior buildingBehavior)
         {
             this.buildingBehavior = buildingBehavior;  
-          
         }
 
         private void Update()
         { 
            
             if (buildingBehavior == null) return;
-           
+            if (!goldManager.IsEnogh(buildingBehavior))
+            {
+                Destroy(buildingBehavior.gameObject);
+                buildingBehavior = null;
+                return;
+            }
             ray = cam.ScreenPointToRay(Input.mousePosition);
-        
             
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
             {
-                
                 var position = new Vector3(Mathf.RoundToInt(hit.point.x*2)/2f, hit.point.y + buildingBehavior.offsetY, Mathf.RoundToInt(hit.point.z*2)/2f);
                 buildingBehavior.MoveTo(position);
                 bool canPlace = buildingBehavior.CanBePlaced();
                 if (Input.GetMouseButtonDown(0) && canPlace)
-                {   
+                {
+                    goldManager.MakeGoldChange(-buildingBehavior.building.Config.Cost);
                     buildingBehavior.Place(team);
                     buildingBehavior = null;
                 }

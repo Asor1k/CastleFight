@@ -469,6 +469,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuDropdown
       objectReference: {fileID: 0}
+    - target: {fileID: 2950837626009656421, guid: 06f58fe64f2cf494bbe07d22d0a53cc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5652396734002618776, guid: 06f58fe64f2cf494bbe07d22d0a53cc2,
         type: 3}
       propertyPath: m_LocalPosition.x

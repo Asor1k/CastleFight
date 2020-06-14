@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
@@ -10,26 +10,57 @@ namespace CastleFight
     {
         public Team Team => team;
         [SerializeField] private Collider col;
-        [SerializeField] Building building;
+        public Building building;
         public float offsetY;
         private List<Collider> collisions = new List<Collider>();
         private MeshRenderer rend;
         private Team team;
-
+        public UserController user;
+        private bool isPlaced = false;
+        internal GoldManager goldManager;
+      
         public void Place(Team team)
         {
             this.team = team;
             gameObject.layer = (int)team;
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             col.isTrigger = false;
-
             building.Build();
+            isPlaced = true;
+            if (team == Team.Team1) 
+            StartCoroutine(StartMoneyGain());
         }
+        private void OnMouseEnter()
+        {
+            if (!isPlaced) return;
+            rend.material.shader = Shader.Find("Outlined/Custom");
+        }
+
+        private void OnMouseExit()
+        {
+            if (!isPlaced) return;
+            rend.material.shader = Shader.Find("Standard");
+        }
+        IEnumerator StartMoneyGain()
+        {
+            yield return new WaitForSeconds(building.Config.GoldDelay);
+            StartCoroutine(StartMoneyGain());
+            goldManager.MakeGoldChange(building.Config.GoldIncome);
+            
+        }
+        
 
         public void Start()
         {
             rend = GetComponent<MeshRenderer>();
-           //Castle castle = gameObject.AddComponent<Castle>();
+            
+            user = FindObjectOfType<UserController>();
+            goldManager = user.GetComponent<GoldManager>();
+            if (CompareTag("Castle")&&team==Team.Team1)
+            {
+
+            }
+            //Castle castle = gameObject.AddComponent<Castle>();
         }
         public void MoveTo(Vector3 position)
         {

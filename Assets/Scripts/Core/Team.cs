@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CastleFight{
+namespace CastleFight {
     public enum Team : int 
     {
         Team1 = 11,

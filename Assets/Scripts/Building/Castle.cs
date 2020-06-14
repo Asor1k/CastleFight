@@ -1,14 +1,27 @@
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
+using UnityEngine;
+using System;
 
 namespace CastleFight
 {
-    public class Castle : Building
+    public class Castle : MonoBehaviour
     {
-        private void Awake()
+          public event Action OnReady;
+        public CastleConfig Config => config;
+
+        private CastleConfig config;
+        public void Init(CastleConfig config)
         {
-            EventBusController.I.Bus.Publish(new BuildingPlacedEvent(Behavior));
-          //  behavior = GetComponent<BuildingBehavior>();
+            this.config = config;
         }
+
+        public void Build()
+        {
+            //TODO: Implement building construction
+            OnReady?.Invoke();
+        }
+
+
     }
 }
