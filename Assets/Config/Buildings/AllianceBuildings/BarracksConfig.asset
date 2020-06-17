@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
   unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
-  delay: 5
+  delay: 3
   icon: {fileID: 0}
   cost: 100
   goldDelay: 1

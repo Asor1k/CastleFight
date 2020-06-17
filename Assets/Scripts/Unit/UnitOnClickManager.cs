@@ -7,7 +7,8 @@ namespace CastleFight
 {
     public class UnitOnClickManager : MonoBehaviour
     {
-        [SerializeField] private Image circleImg;
+        [SerializeField] private Image bigCircleImg;
+        [SerializeField] private Image smallCircleImg;
         public void Start()
         {
             EventBusController.I.Bus.Subscribe<BuildingDeselectedEvent>(OnDeselect); //TODO: change buildingDeselected to Deselected
@@ -19,6 +20,17 @@ namespace CastleFight
               EventBusController.I.Bus.Publish(new UnitClickedEvent(GetComponent<UnitStats>()));
           }
         */
+
+        public void OnMouseEnter()
+        {
+            ShowCircle(smallCircleImg);
+        }
+
+        public void OnMouseExit()
+        {
+            HideCircle(smallCircleImg);
+        }
+
         public void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<BuildingDeselectedEvent>(OnDeselect); //TODO: change buildingDeselected to Deselected
@@ -28,22 +40,22 @@ namespace CastleFight
         private void UnitClicked(UnitClickedEvent unitClickedEvent)
         {
             if (transform==unitClickedEvent.unit.transform)
-            ShowCircle();
+            ShowCircle(bigCircleImg);
         }
 
-        public void ShowCircle()
+        public void ShowCircle(Image image)
         {
-            Debug.Log("clicked");
-            circleImg.enabled = true;
+            
+            image.enabled = true;
         }
 
         void OnDeselect(BuildingDeselectedEvent buildingDeselectedEvent)
         {
-            HideCircle();
+            HideCircle(bigCircleImg);
         }
-        public void HideCircle()
+        public void HideCircle(Image image)
         {
-            circleImg.enabled = false;
+            image.enabled = false;
         }
 
     }
