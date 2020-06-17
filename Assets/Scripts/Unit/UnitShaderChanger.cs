@@ -1,25 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitShaderChanger : MonoBehaviour
+namespace CastleFight
 {
-    [SerializeField] List<SkinnedMeshRenderer> renderers;
-    private void OnMouseEnter()
+    public class UnitShaderChanger : MonoBehaviour
     {
-        foreach(SkinnedMeshRenderer rend in renderers)
+        [SerializeField] List<SkinnedMeshRenderer> renderers;
+        public void Start()
         {
-            rend.material.shader = Shader.Find("Outlined/Custom");
+            foreach (SkinnedMeshRenderer skinnedMesh in GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                renderers.Add(skinnedMesh);
+            }
         }
-
-    }
-    private void OnMouseExit()
-    {
-        foreach (SkinnedMeshRenderer rend in renderers)
+        private void OnMouseEnter()
         {
-            rend.material.shader = Shader.Find("Standard");
-            
-        }
+            foreach (SkinnedMeshRenderer rend in renderers)
+            {
+                rend.material.shader = Shader.Find("Outlined/Custom");
+            }
 
+        }
+        public void OnDestroy()
+        {
+            renderers.Clear();
+        }
+        private void OnMouseExit()
+        {
+            foreach (SkinnedMeshRenderer rend in renderers)
+            {
+                rend.material.shader = Shader.Find("Standard");
+
+            }
+
+        }
     }
 }
