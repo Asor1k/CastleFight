@@ -14,7 +14,7 @@ namespace CastleFight
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
         [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-
+        public uint number;
         private GameUIBehavior gameUI;
         private Ray ray;
        [SerializeField] Camera cam;
@@ -24,7 +24,6 @@ namespace CastleFight
             {
                 gameUI = Instantiate(gameUILayoutPrefab, gameUIHolder);
             }
-         
             gameUI.Hide();
             gameUI.Init(config.BuildingSet);
 
@@ -45,6 +44,12 @@ namespace CastleFight
                     if (hit.collider.CompareTag("Building"))
                     {
                         EventBusController.I.Bus.Publish(new BuildingClickedEvent(hit.collider.GetComponent<BuildingBehavior>()));
+                    }
+                    else if (hit.collider.CompareTag("Unit"))
+                    {
+
+                        EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
+                        EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>()));
                     }
                     else if(!IsRaycastUI())
                     {

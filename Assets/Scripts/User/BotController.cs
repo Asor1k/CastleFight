@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 namespace CastleFight
@@ -8,37 +9,65 @@ namespace CastleFight
     {
         [SerializeField] private List<BotBuildStep> buildSteps;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-
+        [SerializeField] private float turnTime;
+        [SerializeField] private Vector3 stepOffset;
+        [SerializeField] private int goldPerTurn = 0;
+        [SerializeField] private int gold;
+        [SerializeField] private int currBuildIndex;
+        private int blocksBuilt = 0;
+        [SerializeField] private int maxBlocksBuilt;
         public void Init(RaceConfig config)
         {
             CreateCastle(config.CastleConfig);
-            PlaceTestBuilding();
+            StartGame();
         }
 
         private void CreateCastle(CastleConfig castleConfig)
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);
             var castlePos = castleHolder.position;
-            castlePos = new Vector3(castlePos.x, castlePos.y + 2.5f, castlePos.z); // TODO: remove magic number
+            castlePos = new Vector3(castlePos.x, castlePos.y, castlePos.z); // TODO: remove magic number
             var castle = castleConfig.Create();
             castle.transform.position = castlePos;
             castle.gameObject.layer = (int)Team.Team2;
         }
 
-        private void PlaceTestBuilding()
+        private void PlaceBuilding(int buildInd)
         {
-            var building = buildSteps[0].BuildingConfig.Create();
-            building.transform.position = buildSteps[0].Point.position;
+            var building = buildSteps[buildInd].BuildingConfig.Create();
+            building.transform.position = buildSteps[buildInd].Point.position + stepOffset*blocksBuilt;
             building.GetComponent<BuildingBehavior>().Place(Team.Team2);
+        }
+
+        private IEnumerator BotGameTurn()
+        {
+            yield return new WaitForSeconds(turnTime);
+            if (currBuildIndex >= buildSteps.Count)
+            {
+                currBuildIndex = 0;
+                if (blocksBuilt>=maxBlocksBuilt) yield break;
+                blocksBuilt++;
+            }
+            gold += goldPerTurn;
+            if (gold >= buildSteps[currBuildIndex].BuildingConfig.Cost)
+            {
+                PlaceBuilding(currBuildIndex);              
+                gold -= buildSteps[currBuildIndex].BuildingConfig.Cost;
+                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.GoldIncome;
+                currBuildIndex++;
+            }
+            StartCoroutine(BotGameTurn());
         }
 
         public void StartGame()
         {
- 
+            currBuildIndex = 0;
+            StartCoroutine(BotGameTurn());
         }
 
         public void StopGame()
         {
+
         }
     }
 

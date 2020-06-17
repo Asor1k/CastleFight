@@ -35,7 +35,7 @@ namespace CastleFight
             EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameStart);
         }
 
-        public bool IsEnogh(BuildingBehavior buildingBehavior)
+        public bool IsEnough(BuildingBehavior buildingBehavior)
         {
             bool canPlace = goldAmount >= buildingBehavior.building.Config.Cost;
             if (!canPlace)

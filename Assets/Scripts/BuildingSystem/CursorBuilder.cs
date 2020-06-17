@@ -56,17 +56,21 @@ namespace CastleFight
         {
             this.buildingBehavior = buildingBehavior;  
         }
-
+        private void CancelBuilding()
+        {
+            Destroy(buildingBehavior.gameObject);
+            buildingBehavior = null;
+        }
         private void Update()
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnogh(buildingBehavior))
+            if (!goldManager.IsEnough(buildingBehavior) || Input.GetMouseButtonDown(1)) 
             {
-                Destroy(buildingBehavior.gameObject);
-                buildingBehavior = null;
+                CancelBuilding();
                 return;
             }
+            
             ray = cam.ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
