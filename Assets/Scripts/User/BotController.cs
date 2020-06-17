@@ -8,15 +8,14 @@ namespace CastleFight
     public class BotController : MonoBehaviour
     {
         [SerializeField] private List<BotBuildStep> buildSteps;
-        [SerializeField] List<Transform> buildingsTrList;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-        [SerializeField] float turnTime;
-        [SerializeField] Vector3 stepOffset;
+        [SerializeField] private float turnTime;
+        [SerializeField] private Vector3 stepOffset;
         [SerializeField] private int goldPerTurn = 0;
         [SerializeField] private int gold;
         [SerializeField] private int currBuildIndex;
         private int blocksBuilt = 0;
-        [SerializeField] int maxBlocksBuilt;
+        [SerializeField] private int maxBlocksBuilt;
         public void Init(RaceConfig config)
         {
             CreateCastle(config.CastleConfig);

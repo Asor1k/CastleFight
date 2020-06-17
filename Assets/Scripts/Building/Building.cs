@@ -31,7 +31,7 @@ namespace CastleFight
         public void UpgradeBuilding()
         {
 
-            if (behavior.goldManager.IsEnogh(behavior))
+            if (behavior.goldManager.IsEnough(behavior))
             {
                 behavior.goldManager.MakeGoldChange(-config.Cost);
                 lvl++; //Upgrade

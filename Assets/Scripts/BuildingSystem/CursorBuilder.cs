@@ -65,7 +65,7 @@ namespace CastleFight
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnogh(buildingBehavior) || Input.GetMouseButtonDown(1)) 
+            if (!goldManager.IsEnough(buildingBehavior) || Input.GetMouseButtonDown(1)) 
             {
                 CancelBuilding();
                 return;
