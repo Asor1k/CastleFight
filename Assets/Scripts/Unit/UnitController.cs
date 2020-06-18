@@ -52,6 +52,8 @@ namespace CastleFight
                 }
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
+                var targetScale = currentTarget.Transform.localScale;
+                distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
                 
                 if(distanceToTarget <= unit.AttackDistance)
                 {
