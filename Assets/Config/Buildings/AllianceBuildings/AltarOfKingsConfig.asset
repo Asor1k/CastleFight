@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: AltarOfKingsConfig
   m_EditorClassIdentifier: 
-  prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
+  prefab: {fileID: 3769575545502128820, guid: 95bb6a0a139d62a42ab93fd03104ffab, type: 3}
   unit: {fileID: 11400000, guid: 485c976aef566bb4d8da57ba46adab71, type: 2}
   delay: 10
   icon: {fileID: 0}
