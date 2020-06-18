@@ -889,15 +889,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 390068433671224634, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7805
+      objectReference: {fileID: 0}
     - target: {fileID: 726934247070289098, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 726934247070289098, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7805
+      objectReference: {fileID: 0}
     - target: {fileID: 2577139980055350637, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577139980055350637, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7805
       objectReference: {fileID: 0}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -955,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: goldPerTurn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -1537,6 +1552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135600059364684140, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067a64d9616a74e759b4a29ce0395e75, type: 3}

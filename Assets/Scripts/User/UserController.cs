@@ -43,6 +43,7 @@ namespace CastleFight
                 {
                     if (hit.collider.CompareTag("Building"))
                     {
+                        if (hit.collider.gameObject.layer != (int)Team.Team1) return;
                         EventBusController.I.Bus.Publish(new BuildingClickedEvent(hit.collider.GetComponent<BuildingBehavior>()));
                     }
                     else if (hit.collider.CompareTag("Unit"))
