@@ -1,4 +1,5 @@
 ﻿using System;
+using CastleFight.Config;
 using Core;
 using UnityEngine;
 using CastleFight.Core.EventsBus;
