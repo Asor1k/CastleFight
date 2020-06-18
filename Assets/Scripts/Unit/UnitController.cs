@@ -38,16 +38,16 @@ namespace CastleFight
             if(currentTarget == null)
             {
                 unit.MoveTo(GetEnemyCastlePosition());
+                
+                if(updateTargetCoroutine == null)
+                    updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
             }
             else 
             {
                 if(!currentTarget.Alive)
                 {
                     currentTarget = null;
-
-                    if(updateTargetCoroutine == null)
-                        updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
-
+                    
                     return;
                 }
 
@@ -58,11 +58,8 @@ namespace CastleFight
                     unit.Stop();
                     unit.Attack(currentTarget);
                 }
-                else if(distanceToTarget > unit.EnemyDetectRange)
+                else if (distanceToTarget > unit.EnemyDetectRange)
                     currentTarget = null;
-
-                    if(updateTargetCoroutine == null)
-                        updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
                 else   
                     unit.MoveTo(currentTarget.Transform.position);
             }
@@ -74,10 +71,11 @@ namespace CastleFight
             while(true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                currentTarget = targetProvider.GetTarget(enemyLayer, transform.position, unit.EnemyDetectRange);
+                var target = targetProvider.GetTarget(enemyLayer, transform.position, unit.EnemyDetectRange);
 
-                if(currentTarget != null)
+                if(target != null)
                 {
+                    currentTarget = target;
                     StopCoroutine(updateTargetCoroutine);
                     updateTargetCoroutine = null;
                 }
