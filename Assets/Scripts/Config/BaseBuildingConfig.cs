@@ -12,7 +12,8 @@ namespace CastleFight
         public float GoldDelay => goldDelay;
         public int GoldIncome => goldIncome;
         public string Name => buildingName;
-
+        public int MaxHp => maxHp;
+        
         [SerializeField]
         protected Building prefab;
         [SerializeField]
@@ -29,6 +30,8 @@ namespace CastleFight
         protected int goldIncome;
         [SerializeField]
         protected string buildingName;
+
+        [SerializeField] protected int maxHp;
 
 
         public virtual Building Create()

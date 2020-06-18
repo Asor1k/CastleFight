@@ -19,8 +19,7 @@ namespace CastleFight
         {
             SetBarValue((float)stats.Hp / stats.MaxHp);
         }
-
-
+        
         public void Update()
         {
             transform.LookAt(Camera.main.transform);

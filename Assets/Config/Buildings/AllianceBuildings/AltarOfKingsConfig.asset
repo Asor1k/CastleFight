@@ -20,3 +20,4 @@ MonoBehaviour:
   goldDelay: 1
   goldIncome: 1
   buildingName: Altar of Kings
+  maxHp: 1000

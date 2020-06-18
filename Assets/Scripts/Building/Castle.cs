@@ -23,5 +23,8 @@ namespace CastleFight
         }
 
 
+        public bool Alive { get; }
+        public Transform Transform { get; }
+
     }
 }
