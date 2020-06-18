@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -22,8 +23,12 @@ namespace CastleFight
             obstacle.enabled = false;
             agent.enabled = true;
 
+            if (!gameObject.activeSelf || !agent.isOnNavMesh) return;
+
+
             agent.isStopped = false;
             agent.SetDestination(position);
+
         }
 
         public virtual void Stop()

@@ -19,14 +19,10 @@ namespace CastleFight
         {
             SetBarValue((float)stats.Hp / stats.MaxHp);
         }
-
-
-        public void LateUpdate()
+        
+        public void Update()
         {
-            var cameraPosition = Camera.main.transform.position;
-            var barPosition = transform.position;
-            
-            transform.LookAt(new Vector3(cameraPosition.x, cameraPosition.y, barPosition.z));
+            transform.LookAt(Camera.main.transform);
         }
     }
 }

@@ -27,5 +27,10 @@ namespace CastleFight
                 _progressBar.color = Color.Lerp(Color.red, Color.yellow, colorFactor);
             }
         }
+
+        public void Show(bool status)
+        {
+            gameObject.SetActive(status);
+        }
     }
 }

@@ -8,14 +8,27 @@ namespace CastleFight
         {
             Collider[] hitColliders = Physics.OverlapSphere(originPoint, radius, targetLayer);
 
+            IDamageable closest = null;
+            float closestDistance = -1;
+            
             foreach(var collider in hitColliders)
             {
                 var damageable = collider.GetComponent<IDamageable>();
-                if(damageable != null)
-                    return damageable;
+                if (damageable != null)
+                {
+                    var distance = Vector2.Distance(new Vector2(originPoint.x, originPoint.z),
+                        new Vector2(damageable.Transform.position.x, damageable.Transform.position.z));
+
+                    if (closestDistance == -1 || closestDistance > distance)
+                    {
+                        closest = damageable;
+                        closestDistance = distance;
+                    }
+                }
+
             }
 
-            return null;
+            return closest;
         }
     }
 }

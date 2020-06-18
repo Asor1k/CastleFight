@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 1161378957170409622, guid: 2ceea3cfc4442664a99972dd938425b9, type: 3}
   goldDelay: 1
   goldIncome: 1
+  maxHp: 5000
