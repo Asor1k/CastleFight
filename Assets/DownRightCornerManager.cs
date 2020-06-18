@@ -24,7 +24,7 @@ namespace Castlefight {
 
         private void OnUpgrade()
         {
-            buildingBehaviour.building.UpgradeBuilding();
+            buildingBehaviour.Building.UpgradeBuilding();
             UpdateGUI();
         }
         private void OnBuildingClicked(BuildingClickedEvent buildingClicked)
@@ -36,10 +36,10 @@ namespace Castlefight {
 
         private void UpdateGUI()
         {
-            upgrText.text = "Upgrade: " + buildingBehaviour.building.Config.Cost.ToString();
-            buildingNameText.text = buildingBehaviour.building.Config.Name;
-            buildingIcon.sprite = buildingBehaviour.building.Config.Icon;
-            lvlText.text = "Lvl: " + buildingBehaviour.building.Lvl.ToString();
+            upgrText.text = "Upgrade: " + buildingBehaviour.Building.Config.Cost.ToString();
+            buildingNameText.text = buildingBehaviour.Building.Config.Name;
+            buildingIcon.sprite = buildingBehaviour.Building.Config.Icon;
+            lvlText.text = "Lvl: " + buildingBehaviour.Building.Lvl.ToString();
         }
         private void OnBuildingDeselected(BuildingDeselectedEvent buildingDeselectedEvent)
         {

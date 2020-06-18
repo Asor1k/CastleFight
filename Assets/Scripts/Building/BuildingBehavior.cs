@@ -3,24 +3,33 @@ using System.Collections.Generic;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace CastleFight
 {
     public class BuildingBehavior : MonoBehaviour
     {
         public Team Team => team;
+        public Building Building => building;
+        public float OffsetY  => offsetY;
+        
         [SerializeField] private Collider col;
-        public Building building;
-        public float offsetY;
+        [SerializeField] private NavMeshObstacle obstacle;
+        [SerializeField] private Building building;
+        [SerializeField] private float offsetY; //TODO: Move to config
+        [SerializeField] private UserController user;
+        
         private List<Collider> collisions = new List<Collider>();
         private MeshRenderer rend;
         private Team team;
-        public UserController user;
         private bool isPlaced = false;
+        
         internal GoldManager goldManager;
       
         public void Place(Team team)
         {
+            obstacle.enabled = true;
+            col.enabled = true;
             this.team = team;
             gameObject.layer = (int)team;
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
@@ -30,6 +39,7 @@ namespace CastleFight
             if (team == Team.Team1) 
             StartCoroutine(StartMoneyGain());
         }
+        
         private void OnMouseEnter()
         {
             if (!isPlaced) return;
@@ -41,6 +51,7 @@ namespace CastleFight
             if (!isPlaced) return;
             rend.material.shader = Shader.Find("Standard");
         }
+        
         IEnumerator StartMoneyGain()
         {
             yield return new WaitForSeconds(building.Config.GoldDelay);
@@ -49,7 +60,6 @@ namespace CastleFight
             
         }
         
-
         public void Start()
         {
             rend = GetComponent<MeshRenderer>();
@@ -62,6 +72,7 @@ namespace CastleFight
             }
             //Castle castle = gameObject.AddComponent<Castle>();
         }
+        
         public void MoveTo(Vector3 position)
         {
             transform.position = position;
