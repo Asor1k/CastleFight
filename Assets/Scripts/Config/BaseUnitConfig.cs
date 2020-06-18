@@ -5,12 +5,32 @@ namespace CastleFight.Config
 {
     public abstract class BaseUnitConfig : ScriptableObject
     {
-        public int MaxHp{get{return maxHp;}}
-        public float Speed{get{return speed;}}
-        public float EnemyDetectRange{get{return enemyDetectRange;}}
-        public float AttackDistance{get{return attackDistance;}}
+        public int MaxHp
+        {
+            get { return maxHp; }
+        }
 
-        [SerializeField]
+        public float Speed
+        {
+            get { return speed; }
+        }
+
+        public float EnemyDetectRange
+        {
+            get { return enemyDetectRange; }
+        }
+
+        public float AttackDistance
+        {
+            get { return attackDistance; }
+        }
+
+        public int Damage
+        {
+            get { return damage; }
+        }
+
+    [SerializeField]
         protected float speed;
         [SerializeField]
         protected float attackDistance;
@@ -22,6 +42,9 @@ namespace CastleFight.Config
         protected Sprite icon;
         [SerializeField]
         protected float enemyDetectRange;
+
+        [SerializeField] protected int damage;
+        
         public abstract Unit Create(Team team);
     }
 }

@@ -62,7 +62,7 @@ namespace CastleFight
         {
             if(!alive || !target.Alive) return;
 
-            animationController.Attack(()=>{target.TakeDamage(10);});
+            animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
 
         private void Kill()
