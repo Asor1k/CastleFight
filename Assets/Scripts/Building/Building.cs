@@ -8,7 +8,8 @@ using CastleFight.Core.EventsBus.Events;
 using UnityEngine.AI;
 
 namespace CastleFight
-{
+{   
+    [RequireComponent(typeof(BuildingStats))]
     public class Building : MonoBehaviour
     {
         public event Action OnReady;
@@ -24,7 +25,7 @@ namespace CastleFight
         [SerializeField] private BuildingBehavior behavior;
         [SerializeField] private BuildingStats stats;
         [SerializeField] private BuildingHealthBar healthBar;
-        [SerializeField] private Collider collider;
+        [SerializeField] private Collider col;
         [SerializeField] private NavMeshObstacle obstacle;
         
         private BaseBuildingConfig config;
@@ -34,6 +35,11 @@ namespace CastleFight
         
         public void Init(BaseBuildingConfig config)
         {
+            stats = GetComponent<BuildingStats>();
+            col = GetComponent<Collider>();
+            behavior = GetComponent<BuildingBehavior>();
+            healthBar = GetComponentInChildren<BuildingHealthBar>();
+
             this.config = config;
             lvl = 1; //TODO: delete the magic number
             stats.Init(config.MaxHp);
@@ -62,7 +68,7 @@ namespace CastleFight
         public void Destroy()
         {
             isStanding = false;
-            collider.enabled = false;
+            col.enabled = false;
             obstacle.enabled = false;
             StartCoroutine(DestroyCoroutine());
         }

@@ -25,7 +25,7 @@ namespace CastleFight
         private bool isPlaced = false;
         
         internal GoldManager goldManager;
-      
+        
         public void Place(Team team)
         {
             obstacle.enabled = true;
@@ -57,14 +57,16 @@ namespace CastleFight
             yield return new WaitForSeconds(building.Config.GoldDelay);
             StartCoroutine(StartMoneyGain());
             goldManager.MakeGoldChange(building.Config.GoldIncome);
-            
         }
         
         public void Start()
         {
             rend = GetComponent<MeshRenderer>();
-            
+            obstacle = GetComponent<NavMeshObstacle>();
+            col = GetComponent<Collider>();
             user = FindObjectOfType<UserController>();
+            building = GetComponent<Building>();
+
             goldManager = user.GetComponent<GoldManager>();
             if (CompareTag("Castle")&&team==Team.Team1)
             {

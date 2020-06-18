@@ -30,7 +30,7 @@ namespace CastleFight
 
         public void Show(bool status)
         {
-            gameObject.SetActive(status);
+            GetComponent<Canvas>().enabled = status;
         }
     }
 }

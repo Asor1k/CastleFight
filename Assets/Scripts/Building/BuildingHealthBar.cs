@@ -12,6 +12,7 @@ namespace CastleFight
         
         private void Start()
         {
+            stats = GetComponentInParent<BuildingStats>();
             stats.OnDamaged += OnBuildingDamaged;
             stats.OnInit += OnInit;
         }
