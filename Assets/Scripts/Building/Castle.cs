@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 using System.Collections;
 using Castlefight;
-using UnityEditor.Experimental.AssetImporters;
 using UnityEngine.AI;
 
 namespace CastleFight
