@@ -6,8 +6,16 @@ namespace CastleFight
 {
     public interface IDamageable
     {
-        bool Alive{get;}
+        bool Alive { get; }
+        TargetType Type { get; }
         Transform Transform{get;}
         void TakeDamage(int damage);
+    }
+
+    public enum TargetType
+    {
+        GroundUnit,
+        Building,
+        Castle
     }
 }

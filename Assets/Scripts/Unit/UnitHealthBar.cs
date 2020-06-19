@@ -22,7 +22,10 @@ namespace CastleFight
         
         public void Update()
         {
-            transform.LookAt(Camera.main.transform);
+            var cameraPosition = Camera.main.transform.position;
+            var barPosition = transform.position;
+                       
+            transform.LookAt(new Vector3(cameraPosition.x, cameraPosition.y, barPosition.z));
         }
     }
 }

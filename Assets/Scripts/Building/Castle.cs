@@ -18,6 +18,8 @@ namespace CastleFight
             get { return isStanding; }
         }
 
+        public TargetType Type => TargetType.Castle;
+
         public Transform Transform => transform;
         
         [SerializeField] private BuildingStats stats;
