@@ -1,5 +1,6 @@
 ﻿using CastleFight.Core.EventsBus.Events;
 using CastleFight.Core.EventsBus;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -9,10 +10,12 @@ namespace CastleFight
     {
         [SerializeField] private Image bigCircleImg;
         [SerializeField] private Image smallCircleImg;
+        private List<SkinnedMeshRenderer> renderers;
         public void Start()
         {
             EventBusController.I.Bus.Subscribe<BuildingDeselectedEvent>(OnDeselect); //TODO: change buildingDeselected to Deselected
             EventBusController.I.Bus.Subscribe<UnitClickedEvent>(UnitClicked);
+           
         }
         /*  public void OnMouseDown()
           {

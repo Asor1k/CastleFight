@@ -10,6 +10,7 @@ namespace CastleFight
         private void Start()
         {
             EventBusController.I.Bus.Subscribe<UnitSpawnedEvent>(OnUnitSpawned);
+            
             entitiesText = GetComponent<Text>();
         }
 
