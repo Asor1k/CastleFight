@@ -33,6 +33,16 @@ namespace CastleFight
 
         void Update()
         {
+            if (!unit.Alive)
+            {
+                if (updateTargetCoroutine != null)
+                {
+                    StopCoroutine(updateTargetCoroutine);
+                    updateTargetCoroutine = null;
+                }
+
+                return;
+            }
             
             if(currentTarget == null)
             {

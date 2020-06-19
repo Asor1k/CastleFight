@@ -30,7 +30,12 @@ namespace CastleFight.Config
             get { return damage; }
         }
 
-    [SerializeField]
+        public float AttackDelay
+        {
+            get => attackDelay;
+        }
+        
+        [SerializeField]
         protected float speed;
         [SerializeField]
         protected float attackDistance;
@@ -42,8 +47,10 @@ namespace CastleFight.Config
         protected Sprite icon;
         [SerializeField]
         protected float enemyDetectRange;
-
-        [SerializeField] protected int damage;
+        [SerializeField]
+        protected float attackDelay;
+        [SerializeField]
+        protected int damage;
         
         public abstract Unit Create(Team team);
     }

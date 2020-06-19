@@ -18,4 +18,5 @@ MonoBehaviour:
   prefab: {fileID: 3039512680202058138, guid: 12cf16695ceb29744a96b3e883dfa2fa, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
+  attackDelay: 2
   damage: 100
