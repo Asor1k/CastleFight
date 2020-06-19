@@ -55,6 +55,8 @@ namespace CastleFight
 
         public virtual void Stop()
         {
+            if(!alive) return;
+            
             agent.Stop();
         }
         

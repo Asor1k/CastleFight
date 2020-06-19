@@ -73,8 +73,6 @@ namespace CastleFight
                 if(target != null)
                 {
                     currentTarget = target;
-                   // StopCoroutine(updateTargetCoroutine);
-                  //  updateTargetCoroutine = null;
                 }
             }
         }
