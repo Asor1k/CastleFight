@@ -39,7 +39,6 @@ namespace CastleFight
             if(spawnTimer < 0 && !building.SpawnBlocked)
             {
                 spawnTimer = spawnDelay;
-                Debug.Log(building.SpawnPoint.position);
                 SpawnUnit(building.SpawnPoint.position, building.Behavior.Team);
             }
         }
