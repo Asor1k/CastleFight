@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3769575545502128820}
   - component: {fileID: 6257995670203426960}
   - component: {fileID: 6787935064834589717}
+  - component: {fileID: 7673656490750283154}
+  - component: {fileID: 4428899642971308575}
   m_Layer: 10
   m_Name: AltarOfKingsPrefab
   m_TagString: Building
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 498592978788801987}
-  obstacle: {fileID: 0}
+  obstacle: {fileID: 7673656490750283154}
   building: {fileID: 3769575545502128820}
   offsetY: 1
   user: {fileID: 0}
@@ -130,10 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 515982637090995200}
   behavior: {fileID: 7759192086011095045}
-  stats: {fileID: 0}
-  healthBar: {fileID: 0}
-  col: {fileID: 0}
-  obstacle: {fileID: 0}
+  stats: {fileID: 4428899642971308575}
+  healthBar: {fileID: 3657655745992928089}
+  col: {fileID: 498592978788801987}
+  obstacle: {fileID: 7673656490750283154}
 --- !u!114 &6257995670203426960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +166,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &7673656490750283154
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125538442367956725}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &4428899642971308575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125538442367956725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &228152478581945846
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072544156110580286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -0.435, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1692162724773660276}
@@ -300,7 +330,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 0.0004093647, a: 1}
   m_RaycastTarget: 0
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -351,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.48447484, y: -1.0535}
+  m_AnchoredPosition: {x: 0, y: 0.846}
   m_SizeDelta: {x: 156, y: 58.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9122418970380743699
@@ -427,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 2075654646981029897}
-  stats: {fileID: 0}
+  stats: {fileID: 4428899642971308575}
 --- !u!1 &2431406116718744166
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +517,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
