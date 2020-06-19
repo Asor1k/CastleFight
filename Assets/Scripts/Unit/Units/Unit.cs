@@ -17,8 +17,7 @@ namespace CastleFight
         public virtual float Speed{get{return stats.Speed;}}
         public virtual float EnemyDetectRange{get{return config.EnemyDetectRange;}}
         public virtual float AttackDistance{get{return config.AttackDistance;}}
-
-        [SerializeField] private bool debug = false;
+        
         [SerializeField]
         protected Agent agent; 
         [SerializeField]
@@ -27,13 +26,17 @@ namespace CastleFight
         protected UnitAnimationController animationController;
         [SerializeField]
         protected UnitStats stats;
+        [SerializeField]
         protected BaseUnitConfig config;
-        private Team team;
-        private IDamageable target;
-        private int hp;
-        private int maxHp;
-        private bool alive = true;
-        private bool readyToAttack = true;
+        [SerializeField]
+        protected UnitHealthBar healthBar;
+        
+        protected Team team;
+        protected IDamageable target;
+        protected int hp;
+        protected int maxHp;
+        protected bool alive = true;
+        protected bool readyToAttack = true;
         
         public virtual void Init(BaseUnitConfig config, Team team)
         {
@@ -69,6 +72,7 @@ namespace CastleFight
             readyToAttack = false;
             StartAttackCooldown();
             
+            agent.LookAt(target.Transform);
             animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
 
@@ -77,6 +81,7 @@ namespace CastleFight
             alive = false;
             collider.enabled = false;
             agent.Disable();
+            healthBar.Show(false);
             OnKilled?.Invoke();
             DelayDestroy();
         }

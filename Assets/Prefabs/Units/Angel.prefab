@@ -91,6 +91,8 @@ MonoBehaviour:
   collider: {fileID: 3642396761852716395}
   animationController: {fileID: 6794275160315907024}
   stats: {fileID: 5346373488676787640}
+  config: {fileID: 0}
+  healthBar: {fileID: 7397435238559249620}
 --- !u!114 &6794275160315907024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6574341171294174675}
   - component: {fileID: 6574341171294174686}
-  - component: {fileID: 3116005668420899199}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -258,20 +259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6574341171294174674}
   m_CullTransparentMesh: 0
---- !u!114 &3116005668420899199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574341171294174674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00165b979a69cc542bf80c166add0e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _progressBar: {fileID: 6574341172156953532}
-  stats: {fileID: 5346373488676787640}
 --- !u!1 &6574341171549934889
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00165b979a69cc542bf80c166add0e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 6574341172156953532}
+  progressBar: {fileID: 6574341172156953532}
+  canvas: {fileID: 6574341172977631282}
   stats: {fileID: 5346373488676787640}
 --- !u!1 &7261477583574534200
 GameObject:

@@ -458,5 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 4963583607149331828}
+  progressBar: {fileID: 4963583607149331828}
+  canvas: {fileID: 4963583607940314874}
   stats: {fileID: 1157267239654619611}

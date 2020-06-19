@@ -188,7 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 5009918230424955899}
+  progressBar: {fileID: 5009918230424955899}
+  canvas: {fileID: 3633456597345910574}
   stats: {fileID: 7075326238139344395}
 --- !u!1 &3102247042991468410
 GameObject:

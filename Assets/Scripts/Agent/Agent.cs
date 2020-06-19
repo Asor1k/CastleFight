@@ -31,6 +31,11 @@ namespace CastleFight
 
         }
 
+        public virtual void LookAt(Transform transform)
+        {
+            RotateTowards(transform);
+        }
+        
         public virtual void Stop()
         {
             agent.enabled = false;
@@ -47,6 +52,11 @@ namespace CastleFight
         {
             agent.enabled = true;
             obstacle.enabled = false;
+        }
+        private void RotateTowards (Transform target) {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 1);
         }
     }
 }
