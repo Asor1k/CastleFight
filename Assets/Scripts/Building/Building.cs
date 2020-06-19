@@ -32,14 +32,18 @@ namespace CastleFight
         private int lvl;
         private bool spawnBlocked = false;
         private bool isStanding = true;
-        
-        public void Init(BaseBuildingConfig config)
+
+        public void Start()
         {
+           
+        }
+
+        public void Init(BaseBuildingConfig config)
+        {  
             stats = GetComponent<BuildingStats>();
             col = GetComponent<Collider>();
             behavior = GetComponent<BuildingBehavior>();
             healthBar = GetComponentInChildren<BuildingHealthBar>();
-
             this.config = config;
             lvl = 1; //TODO: delete the magic number
             stats.Init(config.MaxHp);
