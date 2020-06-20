@@ -21,6 +21,7 @@ namespace CastleFight
         public void TakeDamage(int damage)
         {
             hp -= damage;
+            Debug.Log(damage);
             OnDamaged?.Invoke();
         }
 

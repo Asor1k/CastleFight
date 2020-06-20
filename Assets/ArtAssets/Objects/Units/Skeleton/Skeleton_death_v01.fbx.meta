@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton
+    second: {fileID: 2100000, guid: 0d47bb8d81dd73b45b89d8a138ddb989, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton_weapon
+    second: {fileID: 2100000, guid: d25521a96457be248a55277f2c5dd870, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

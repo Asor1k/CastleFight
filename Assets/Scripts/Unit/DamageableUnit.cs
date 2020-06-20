@@ -18,6 +18,7 @@ namespace CastleFight
 
         public void TakeDamage(int damage)
         {
+            Debug.Log(damage);
             if(unit.Alive)
                 unitStats.TakeDamage(damage);
         }

@@ -377,6 +377,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6630727662977298467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1949324787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 679796747513844847, guid: 2811510cc2f8a5643ba286e63702c0a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6630727662977298467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1949324790
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949324787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 139ba2bb432255d4f9119c7c3a7f0581, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2014396576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,7 +923,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[1].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 809c4f2ad48ffe444b3db1b8c51f9a83,
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -909,7 +934,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[2].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 809c4f2ad48ffe444b3db1b8c51f9a83,
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -920,7 +945,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[3].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 809c4f2ad48ffe444b3db1b8c51f9a83,
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -1453,6 +1478,12 @@ PrefabInstance:
       propertyPath: maxBlocksBuilt
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
+        type: 3}
+      propertyPath: buildSteps.Array.data[0].BuildingConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
+        type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1543,7 +1574,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6630727662977298467}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1949324787}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc2f6c12e92427592ed5d1db75aebdb, type: 3}
@@ -2296,6 +2327,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3796218902875386795, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3796218902876292079, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_IsActive
@@ -2311,12 +2347,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3796218903532204334, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3796218903847028960, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3796218904215395905, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796218904425562046, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_IsActive
       value: 0

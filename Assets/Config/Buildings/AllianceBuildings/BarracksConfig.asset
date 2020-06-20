@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BarracksConfig
   m_EditorClassIdentifier: 
   prefab: {fileID: 2225725235042911035, guid: 8102d38c42381614bbdd1aa91c0fd388, type: 3}
-  unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  unit: {fileID: 11400000, guid: 5361b64a3ae5d9e4990932703d6f882b, type: 2}
   delay: 10
   icon: {fileID: 0}
   cost: 100
