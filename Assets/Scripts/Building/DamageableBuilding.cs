@@ -11,6 +11,9 @@ namespace CastleFight
         {
             get { return building.IsStanding; }
         }
+
+        public TargetType Type => TargetType.Building;
+
         public Transform Transform
         {
             get { return transform; }

@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 4128709893998101010}
   - component: {fileID: 6196882130712034065}
   - component: {fileID: 2331157157072551451}
+  - component: {fileID: 5309257444387567439}
   m_Layer: 0
   m_Name: GrifTowerPrefab
   m_TagString: Untagged
@@ -307,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 5391365603093743726, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
-  obstacle: {fileID: 0}
+  obstacle: {fileID: 2331157157072551451}
   building: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26,
     type: 3}
   offsetY: 1
@@ -328,10 +329,10 @@ MonoBehaviour:
     type: 3}
   behavior: {fileID: 2852064753154194856, guid: 21444df4b33cd5b44a19d49eb1da5b26,
     type: 3}
-  stats: {fileID: 0}
-  healthBar: {fileID: 0}
-  col: {fileID: 0}
-  obstacle: {fileID: 0}
+  stats: {fileID: 5309257444387567439}
+  healthBar: {fileID: 2462065885534551095}
+  col: {fileID: 4332749481859901249}
+  obstacle: {fileID: 2331157157072551451}
 --- !u!114 &4128709893998101010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +371,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4684661734508677116}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
@@ -379,6 +380,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &5309257444387567439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684661734508677116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4918654303590144888
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,8 +504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 1468967049840986186}
-  stats: {fileID: 0}
+  progressBar: {fileID: 1468967049840986186}
+  canvas: {fileID: 1406437833478244049}
+  stats: {fileID: 5309257444387567439}
 --- !u!1 &5098669003368369213
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +804,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 0.0004093647, a: 1}
   m_RaycastTarget: 0
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -919,7 +932,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 19.47}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8245329653222423146
 CanvasRenderer:
@@ -989,7 +1002,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

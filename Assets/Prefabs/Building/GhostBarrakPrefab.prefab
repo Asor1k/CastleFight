@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -134,7 +133,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 0.0004093647, a: 1}
   m_RaycastTarget: 0
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -338,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 5391365603093743726}
-  obstacle: {fileID: 0}
+  obstacle: {fileID: 7965643078472898452}
   building: {fileID: -546456028477452519}
   offsetY: 0.35
   user: {fileID: 0}
@@ -356,10 +354,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5409811227491674541}
   behavior: {fileID: 2852064753154194856}
-  stats: {fileID: 0}
-  healthBar: {fileID: 0}
-  col: {fileID: 0}
-  obstacle: {fileID: 0}
+  stats: {fileID: 552485581764761080}
+  healthBar: {fileID: 3694695281123928941}
+  col: {fileID: 5391365603093743726}
+  obstacle: {fileID: 7965643078472898452}
 --- !u!114 &1937247370873158973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +395,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5585766819733644120}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.89900005, y: 1, z: 0.53800005}
@@ -530,5 +528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressBar: {fileID: 1053639936931316851}
-  stats: {fileID: 0}
+  progressBar: {fileID: 1053639936931316851}
+  canvas: {fileID: 3123835570006208391}
+  stats: {fileID: 552485581764761080}

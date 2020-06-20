@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CastleFight
 {
-
     public class UnitController : MonoBehaviour
     {
         [SerializeField]
@@ -34,20 +33,26 @@ namespace CastleFight
 
         void Update()
         {
+            if (!unit.Alive)
+            {
+                if (updateTargetCoroutine != null)
+                {
+                    StopCoroutine(updateTargetCoroutine);
+                    updateTargetCoroutine = null;
+                }
+
+                return;
+            }
             
             if(currentTarget == null)
             {
                 unit.MoveTo(GetEnemyCastlePosition());
-                
-                if(updateTargetCoroutine == null)
-                    updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
             }
             else 
             {
                 if(!currentTarget.Alive)
                 {
                     currentTarget = null;
-                    
                     return;
                 }
 
@@ -78,8 +83,6 @@ namespace CastleFight
                 if(target != null)
                 {
                     currentTarget = target;
-                    StopCoroutine(updateTargetCoroutine);
-                    updateTargetCoroutine = null;
                 }
             }
         }

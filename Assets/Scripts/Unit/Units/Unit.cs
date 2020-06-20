@@ -17,7 +17,7 @@ namespace CastleFight
         public virtual float Speed{get{return stats.Speed;}}
         public virtual float EnemyDetectRange{get{return config.EnemyDetectRange;}}
         public virtual float AttackDistance{get{return config.AttackDistance;}}
-
+        
         [SerializeField]
         protected Agent agent; 
         [SerializeField]
@@ -26,13 +26,18 @@ namespace CastleFight
         protected UnitAnimationController animationController;
         [SerializeField]
         protected UnitStats stats;
+        [SerializeField]
         protected BaseUnitConfig config;
-        private Team team;
-        private IDamageable target;
-        private int hp;
-        private int maxHp;
-        private bool alive = true;
-
+        [SerializeField]
+        protected UnitHealthBar healthBar;
+        
+        protected Team team;
+        protected IDamageable target;
+        protected int hp;
+        protected int maxHp;
+        protected bool alive = true;
+        protected bool readyToAttack = true;
+        
         public virtual void Init(BaseUnitConfig config, Team team)
         {
             this.team = team;
@@ -55,13 +60,19 @@ namespace CastleFight
 
         public virtual void Stop()
         {
+            if(!alive) return;
+            
             agent.Stop();
         }
         
         public virtual void Attack(IDamageable target)
         {
-            if(!alive || !target.Alive) return;
-
+            if(!target.Alive || !alive || !readyToAttack) return;
+            
+            readyToAttack = false;
+            StartAttackCooldown();
+            
+            agent.LookAt(target.Transform);
             animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
 
@@ -70,6 +81,7 @@ namespace CastleFight
             alive = false;
             collider.enabled = false;
             agent.Disable();
+            healthBar.Show(false);
             OnKilled?.Invoke();
             DelayDestroy();
         }
@@ -94,6 +106,14 @@ namespace CastleFight
             {
                 Kill();
             }
+        }
+
+        private async Task StartAttackCooldown()
+        {
+            var miliseconds = config.AttackDelay * 1000;
+            await Task.Delay((int)miliseconds);
+
+            readyToAttack = true;
         }
     }
 

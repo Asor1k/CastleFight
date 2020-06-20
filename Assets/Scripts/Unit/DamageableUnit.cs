@@ -6,10 +6,11 @@ namespace CastleFight
 {
     public class DamageableUnit : MonoBehaviour, IDamageable
     {
+        public TargetType Type => TargetType.GroundUnit;
         public Transform Transform => transform;
 
         public bool Alive => unit.Alive;
-
+        
         [SerializeField]
         private UnitStats unitStats;
         [SerializeField]
