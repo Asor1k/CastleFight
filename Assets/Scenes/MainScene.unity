@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: e7cc53c2f393f4a4a9eb7ba9402427da, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!4 &202352798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8135600059364684140, guid: 067a64d9616a74e759b4a29ce0395e75,
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685740586}
   - component: {fileID: 685740587}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: NoBuildingArea (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,6 +1666,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 623613803966998170, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 666549984940524144, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_MotionVectors
@@ -1740,6 +1745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MotionVectors
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 939019502239095684, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 963278852862796452, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
@@ -2296,6 +2306,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3796218903532204334, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3796218903847028960, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_IsActive
@@ -2596,6 +2611,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5484927307932389906, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5570477812376084882, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_Size.x
@@ -2751,6 +2771,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6630727662429725476, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6630727662429725478, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_Size.z
@@ -2776,6 +2801,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -8.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6630727663420097045, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6630727663420097047, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_Size.x
@@ -2795,6 +2825,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630727664032516003, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6630727664032516005, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
@@ -3217,6 +3252,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: c9e63d7af47f49c43b3964e664c96d8b,
         type: 2}
+    - target: {fileID: 9030238312878252803, guid: 2811510cc2f8a5643ba286e63702c0a6,
+        type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9144158624623989724, guid: 2811510cc2f8a5643ba286e63702c0a6,
         type: 3}
       propertyPath: m_MotionVectors
