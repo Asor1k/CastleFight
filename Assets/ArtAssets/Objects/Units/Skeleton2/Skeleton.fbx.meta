@@ -3,7 +3,19 @@ guid: 95b681091b529274ca1cd8f7049e4ade
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton
+    second: {fileID: -8468983757882266563, guid: a2c7a2d2a0b19284699bd7ab319cb6dc,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton_weapon
+    second: {fileID: -8468983757882266563, guid: 6f39e9b11a25f3f4ea842fb63f44eaf2,
+      type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
