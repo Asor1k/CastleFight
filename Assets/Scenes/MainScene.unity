@@ -227,7 +227,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.609
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -274,13 +274,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.7643723, y: 0.22707261, z: -0.35643262, w: 0.48695883}
+  m_LocalRotation: {x: 0.60052013, y: 0.12001963, z: -0.40521634, w: 0.6788009}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 115, y: 50, z: 0}
+  m_LocalEulerAnglesHint: {x: 114.142, y: 127.67, z: 83.02799}
 --- !u!1 &1503023095
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +960,7 @@ PrefabInstance:
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: goldPerTurn
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
