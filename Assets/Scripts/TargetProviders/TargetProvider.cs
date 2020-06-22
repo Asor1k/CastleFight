@@ -23,6 +23,7 @@ namespace CastleFight
                     if (closest != null && closest.Type == TargetType.Building && damageable.Type != TargetType.Building)
                     {
                         closest = damageable;
+                        
                         closestDistance = distance;
                     }
                     else if (closestDistance == -1 || closestDistance > distance)
