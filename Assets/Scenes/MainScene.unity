@@ -817,6 +817,18 @@ PrefabInstance:
       propertyPath: number
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5525622564571893519, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: smallCircle
+      value: 
+      objectReference: {fileID: 21300000, guid: b22e8d5440a0a1044a212d39596304cc,
+        type: 3}
+    - target: {fileID: 5525622564571893519, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: bigCircle
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b18cc802ede78c4d863df98c5903d8b,
+        type: 3}
     - target: {fileID: 9022739490893321351, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: goldAmount

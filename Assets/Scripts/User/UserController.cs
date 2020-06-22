@@ -10,14 +10,18 @@ namespace CastleFight
 {
     public class UserController : MonoBehaviour
     {
+
+       
+
         [SerializeField] private UserAbility[] abilities;
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
         [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-        public uint number;
+        [SerializeField] internal Sprite smallCircle;
+        [SerializeField] internal Sprite bigCircle;
         private GameUIBehavior gameUI;
         private Ray ray;
-       [SerializeField] Camera cam;
+        [SerializeField] Camera cam;
         public void Init(RaceConfig config)
         {
             if (gameUI == null)
@@ -61,7 +65,7 @@ namespace CastleFight
             }
         }
 
-        private bool IsRaycastUI()
+        public bool IsRaycastUI()
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
 

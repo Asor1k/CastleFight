@@ -8,14 +8,14 @@ namespace CastleFight
 {
     public class UnitOnClickManager : MonoBehaviour
     {
-        [SerializeField] private Image bigCircleImg;
-        [SerializeField] private Image smallCircleImg;
+        [SerializeField] private Image circleImg;
+        private UserController user;
         private List<SkinnedMeshRenderer> renderers;
         public void Start()
         {
+            user = FindObjectOfType<UserController>();
             EventBusController.I.Bus.Subscribe<BuildingDeselectedEvent>(OnDeselect); //TODO: change buildingDeselected to Deselected
-            EventBusController.I.Bus.Subscribe<UnitClickedEvent>(UnitClicked);
-           
+            EventBusController.I.Bus.Subscribe<UnitClickedEvent>(UnitClicked);  
         }
         /*  public void OnMouseDown()
           {
@@ -24,16 +24,16 @@ namespace CastleFight
           }
         */
 
-        public void OnMouseEnter()
+       /* public void OnMouseEnter()
         {
-            ShowCircle(smallCircleImg);
+            ShowCircle(user.smallCircle);
         }
 
         public void OnMouseExit()
         {
-            HideCircle(smallCircleImg);
+            HideCircle();
         }
-
+        */
         public void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<BuildingDeselectedEvent>(OnDeselect); //TODO: change buildingDeselected to Deselected
@@ -42,23 +42,26 @@ namespace CastleFight
         }
         private void UnitClicked(UnitClickedEvent unitClickedEvent)
         {
+            Debug.Log("Clicked");
             if (transform==unitClickedEvent.unit.transform)
-            ShowCircle(bigCircleImg);
-        }
-
-        public void ShowCircle(Image image)
-        {
+            ShowCircle(user.bigCircle);
             
-            image.enabled = true;
         }
 
-        void OnDeselect(BuildingDeselectedEvent buildingDeselectedEvent)
+        private void ShowCircle(Sprite sprite)
         {
-            HideCircle(bigCircleImg);
+            circleImg.enabled = true;
+            circleImg.sprite = sprite;    
         }
-        public void HideCircle(Image image)
+
+        private void OnDeselect(BuildingDeselectedEvent buildingDeselectedEvent)
         {
-            image.enabled = false;
+            HideCircle();
+        }
+
+        private void HideCircle()
+        {
+            circleImg.enabled = false;
         }
 
     }

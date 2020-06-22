@@ -11,6 +11,7 @@ namespace CastleFight
         [SerializeField] private Team team;
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
+        private UserController user;
         private GoldManager goldManager;
         private Ray ray;
         private GameObject currentGo;
@@ -19,6 +20,7 @@ namespace CastleFight
         private void Start()
         {
             goldManager = GetComponent<GoldManager>();
+            user = GetComponent<UserController>();
         }
 
         private void OnDestroy()
@@ -70,7 +72,10 @@ namespace CastleFight
                 CancelBuilding();
                 return;
             }
-            
+            if (user.IsRaycastUI())
+            {
+                return;
+            }
             ray = cam.ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
