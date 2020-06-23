@@ -20,6 +20,7 @@ namespace CastleFight
 
         public virtual void MoveTo(Vector3 position)
         {
+
             obstacle.enabled = false;
             agent.enabled = true;
 
