@@ -17,9 +17,10 @@ namespace CastleFight
         protected NavMeshAgent agent;
         [SerializeField]
         protected NavMeshObstacle obstacle;
-
+        
         public virtual void MoveTo(Vector3 position)
         {
+
             obstacle.enabled = false;
             agent.enabled = true;
 
