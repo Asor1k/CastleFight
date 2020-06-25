@@ -17,7 +17,15 @@ namespace CastleFight
         protected NavMeshAgent agent;
         [SerializeField]
         protected NavMeshObstacle obstacle;
-
+        
+        private void Start()
+        {
+            agent.autoBraking = true;
+            agent.autoRepath = true;
+            obstacle.carving = true;
+            NavMesh.avoidancePredictionTime = 0.5f;
+        }
+        
         public virtual void MoveTo(Vector3 position)
         {
             obstacle.enabled = false;
