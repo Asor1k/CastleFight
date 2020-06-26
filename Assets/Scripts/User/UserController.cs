@@ -4,6 +4,7 @@ using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using CastleFight.Config;
 using UnityEngine;
 
 namespace CastleFight
@@ -12,6 +13,7 @@ namespace CastleFight
     {
         [SerializeField] private UserAbility[] abilities;
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
+        [SerializeField] private CircleConfig unitCircleConfig;
         [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
         public uint number;
@@ -48,9 +50,9 @@ namespace CastleFight
                     }
                     else if (hit.collider.CompareTag("Unit"))
                     {
-
-                        EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
-                        EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>()));
+                        EventBusController.I.Bus.Publish(new BuildingDeselectedEvent()); 
+                        EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>())); //TODO: remove or leave nicely
+                        unitCircleConfig.Create(hit.collider.transform);
                     }
                     else if(!IsRaycastUI())
                     {
