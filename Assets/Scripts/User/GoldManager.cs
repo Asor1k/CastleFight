@@ -40,7 +40,7 @@ namespace CastleFight
 
         public bool IsEnough(BuildingBehavior buildingBehavior)
         {
-            bool canPlace = goldAmount >= buildingBehavior.Building.Config.Cost;
+            bool canPlace = goldAmount >= buildingBehavior.Building.Config.LevelsStats[buildingBehavior.Building.Lvl-1].Cost;
             if (!canPlace)
             { 
                 NotEnoughGold();
