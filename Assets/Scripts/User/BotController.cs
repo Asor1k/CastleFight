@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using CastleFight.Config;
 using UnityEngine;
 
 namespace CastleFight
@@ -53,7 +54,7 @@ namespace CastleFight
             {
                 PlaceBuilding(currBuildIndex);              
                 gold -= buildSteps[currBuildIndex].BuildingConfig.Cost;
-                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.GoldIncome;
+                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.LevelsStats[0].GoldIncome;
                 currBuildIndex++;
             }
             StartCoroutine(BotGameTurn());

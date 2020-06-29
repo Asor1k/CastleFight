@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CastleFight.Config;
 using CastleFight.Core;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;

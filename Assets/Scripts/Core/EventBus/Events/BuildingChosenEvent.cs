@@ -1,3 +1,5 @@
+using CastleFight.Config;
+
 namespace CastleFight.Core.EventsBus.Events
 {
     public class BuildingChosenEvent : EventBase

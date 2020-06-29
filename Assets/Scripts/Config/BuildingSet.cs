@@ -1,3 +1,4 @@
+using CastleFight.Config;
 using UnityEngine;
 
 namespace CastleFight

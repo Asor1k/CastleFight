@@ -1,4 +1,5 @@
 ﻿using System;
+using CastleFight.Config;
 using UnityEngine;
 using UnityEngine.UI;
 

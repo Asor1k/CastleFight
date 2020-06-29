@@ -1,46 +1,48 @@
 ﻿using CastleFight.Config;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
-namespace CastleFight
+namespace CastleFight.Config
 {
     public abstract class BaseBuildingConfig : ScriptableObject
     {
         public Sprite Icon => icon;
-        public float Delay => delay;
         public BaseUnitConfig Unit => unit;
-        public int Cost => cost;
-        public float GoldDelay => goldDelay;
-        public int GoldIncome => goldIncome;
         public string Name => buildingName;
-        public int MaxHp => maxHp;
+        public int Cost => cost;
+        public List<BuildingLevelStats> LevelsStats => levelsStats;
         
+        [SerializeField]
+        private List<BuildingLevelStats> levelsStats;
         [SerializeField]
         protected Building prefab;
         [SerializeField]
         protected BaseUnitConfig unit;
         [SerializeField]
-        protected float delay;
-        [SerializeField]
         protected Sprite icon;
         [SerializeField]
-        protected int cost;
-        [SerializeField]
-        protected float goldDelay;
-        [SerializeField]
-        protected int goldIncome;
-        [SerializeField]
         protected string buildingName;
-
-        [SerializeField] protected int maxHp;
+        [SerializeField]
+        protected int cost;
 
 
         public virtual Building Create()
         {
-            
-            var building = Instantiate(prefab); // TODO: get from pool
+            var building = Instantiate(prefab);
             building.Init(this);
 
             return building;
         }
+    }
+
+    [Serializable]
+    public struct BuildingLevelStats
+    {
+        public int MaxHp;
+        public int GoldIncome;
+        public int GoldDelay;
+        public int Delay;
+        public int Cost;
     }
 }

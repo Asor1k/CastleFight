@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using CastleFight.Core;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
@@ -15,11 +17,12 @@ namespace CastleFight
         private int goldAmount = 0;
         [SerializeField]
         private Text notEnoghGoldText;
-        private UserController user;
+        [SerializeField]
+        private UserController userController;
 
         public void Start()
         {
-            user = GetComponent<UserController>();
+            ManagerHolder.I.AddManager(this);
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameStart);
         }
 
@@ -57,7 +60,7 @@ namespace CastleFight
         }
         private void NotEnoughGold()
         {
-            Text text = Instantiate(notEnoghGoldText, user.gameUIHolder);
+            Text text = Instantiate(notEnoghGoldText, userController.gameUIHolder);
             StartCoroutine(DestroyText(text));
             //Debug.Log("Not Enough Gold!!");
         }
