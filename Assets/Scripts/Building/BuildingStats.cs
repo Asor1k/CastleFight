@@ -19,6 +19,7 @@ namespace Castlefight
         {
             get => maxHp;
         }
+        
         private int hp;
         private int maxHp;
 

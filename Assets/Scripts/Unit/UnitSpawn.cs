@@ -23,7 +23,7 @@ namespace CastleFight
 
         private void OnBuildingReadyHandler()
         {
-            spawnDelay = building.Config.Delay;
+            spawnDelay = building.Config.LevelsStats[building.Lvl - 1].Delay;
             spawnTimer = spawnDelay;
             buildingReady = true;
             building.OnReady -= OnBuildingReadyHandler;

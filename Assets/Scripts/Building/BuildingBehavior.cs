@@ -18,13 +18,13 @@ namespace CastleFight
         [SerializeField] private Building building;
         [SerializeField] private float offsetY; //TODO: Move to config
         [SerializeField] private UserController user;
-        
+        [SerializeField] private MeshRenderer rend;
+
         private List<Collider> collisions = new List<Collider>();
-        private MeshRenderer rend;
         private Team team;
         private bool isPlaced = false;
         
-        internal GoldManager goldManager;
+
         
         public void Place(Team team)
         {
@@ -32,11 +32,11 @@ namespace CastleFight
             col.enabled = true;
             this.team = team;
             gameObject.layer = (int)team;
-            EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             col.isTrigger = false;
-            building.Build();
             isPlaced = true;
-            if (team == Team.Team1) 
+
+            building.Build();
+            EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             StartCoroutine(StartMoneyGain());
         }
         
@@ -54,25 +54,9 @@ namespace CastleFight
         
         IEnumerator StartMoneyGain()
         {
-            yield return new WaitForSeconds(building.Config.GoldDelay);
+            yield return new WaitForSeconds(building.Config.LevelsStats[building.Lvl - 1].GoldDelay);
             StartCoroutine(StartMoneyGain());
-            goldManager.MakeGoldChange(building.Config.GoldIncome);
-        }
-        
-        public void Start()
-        {
-            rend = GetComponent<MeshRenderer>();
-            obstacle = GetComponent<NavMeshObstacle>();
-            col = GetComponent<Collider>();
-            user = FindObjectOfType<UserController>();
-            building = GetComponent<Building>();
-
-            goldManager = user.GetComponent<GoldManager>();
-            if (CompareTag("Castle")&&team==Team.Team1)
-            {
-
-            }
-            //Castle castle = gameObject.AddComponent<Castle>();
+            building.GoldManager.MakeGoldChange(building.Config.LevelsStats[building.Lvl - 1].GoldIncome);
         }
         
         public void MoveTo(Vector3 position)
