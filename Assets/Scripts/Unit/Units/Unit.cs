@@ -25,18 +25,22 @@ namespace CastleFight
         [SerializeField]
         protected UnitAnimationController animationController;
         [SerializeField]
-        protected UnitStats stats;
-        [SerializeField]
         protected BaseUnitConfig config;
         [SerializeField]
         protected UnitHealthBar healthBar;
-        
+        [SerializeField]
+        protected BaseUnitSkillConfig skillConfig;
+
+        [SerializeField]
+        internal UnitStats stats;
+
         protected Team team;
         protected IDamageable target;
         protected int hp;
         protected int maxHp;
         protected bool alive = true;
         protected bool readyToAttack = true;
+        
         
         public virtual void Init(BaseUnitConfig config, Team team)
         {
@@ -46,8 +50,10 @@ namespace CastleFight
             maxHp = config.MaxHp;
             hp = maxHp;
             alive = true;
-            stats.Init(config.MaxHp, config.Speed);
+            stats.Init(config.MaxHp, config.Speed, config.Damage);
             stats.OnDamaged += OnUnitDamaged;
+            if (skillConfig != null)
+            skillConfig.InitEffects(this);
             OnInit?.Invoke();
         }
 
@@ -73,9 +79,19 @@ namespace CastleFight
             StartAttackCooldown();
             
             agent.LookAt(target.Transform);
-            animationController.Attack(()=>{target.TakeDamage(config.Damage);});
+            animationController.Attack(()=>{target.TakeDamage(Damage());});
         }
-
+        private int Damage()
+        { 
+            int damage = stats.Damage;
+            if (stats.FractionCritChance == 0f) return damage;
+            if (UnityEngine.Random.value <= stats.FractionCritChance)
+            {
+                return Mathf.RoundToInt(damage * stats.CritMultiplier);
+            }
+            else return damage;
+        }
+        
         private void Kill()
         {
             alive = false;

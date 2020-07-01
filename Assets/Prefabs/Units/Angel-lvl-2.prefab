@@ -89,9 +89,10 @@ MonoBehaviour:
   agent: {fileID: 438337414622664764}
   collider: {fileID: 2948502942935635673}
   animationController: {fileID: 4912677336085641314}
-  stats: {fileID: 5788648465315243530}
   config: {fileID: 0}
   healthBar: {fileID: 0}
+  skillConfig: {fileID: 11400000, guid: 40fc0e7cbe92e1744a00fdb2ce954a19, type: 2}
+  stats: {fileID: 5788648465315243530}
 --- !u!114 &4912677336085641314
 MonoBehaviour:
   m_ObjectHideFlags: 0
