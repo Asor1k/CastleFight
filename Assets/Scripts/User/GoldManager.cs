@@ -38,15 +38,16 @@ namespace CastleFight
             EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameStart);
         }
 
-        public bool IsEnough(BuildingBehavior buildingBehavior)
+        public bool IsEnoughToBuild(BuildingBehavior buildingBehavior)
         {
-            bool canPlace = goldAmount >= buildingBehavior.Building.Config.LevelsStats[buildingBehavior.Building.Lvl-1].Cost;
+            bool canPlace = goldAmount >= buildingBehavior.Building.Config.Cost;
             if (!canPlace)
             { 
                 NotEnoughGold();
             }
             return canPlace;
         }
+        
         public void MakeGoldChange(int gold)
         {
             goldAmount += gold;
@@ -58,6 +59,7 @@ namespace CastleFight
             yield return new WaitForSeconds(1);
             Destroy(text.gameObject);
         }
+        
         private void NotEnoughGold()
         {
             Text text = Instantiate(notEnoghGoldText, userController.gameUIHolder);
