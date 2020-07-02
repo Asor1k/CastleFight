@@ -39,7 +39,6 @@ namespace CastleFight
         private void OnBuildingChosen(BuildingChosenEvent buildingChosenEvent)
         {
             Clear();
-          
             SetBuilding(buildingChosenEvent.GetBehavior);
         }
 
@@ -56,16 +55,18 @@ namespace CastleFight
         {
             this.buildingBehavior = buildingBehavior;  
         }
+        
         private void CancelBuilding()
         {
             Destroy(buildingBehavior.gameObject);
             buildingBehavior = null;
         }
+        
         private void Update()
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnough(buildingBehavior) || Input.GetMouseButtonDown(1)) 
+            if (!goldManager.IsEnoughToBuild(buildingBehavior) || Input.GetMouseButtonDown(1)) 
             {
                 CancelBuilding();
                 return;
@@ -93,7 +94,6 @@ namespace CastleFight
             SubscribeToBuildingChosenEvent();
         }
        
-
         public override void Lock()
         {
             UnsubscribeToBuildingChosenEvent();

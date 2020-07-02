@@ -17,7 +17,8 @@ namespace CastleFight
         public uint number;
         private GameUIBehavior gameUI;
         private Ray ray;
-       [SerializeField] Camera cam;
+        [SerializeField] Camera cam;
+       
         public void Init(RaceConfig config)
         {
             if (gameUI == null)
@@ -73,6 +74,7 @@ namespace CastleFight
             results.Clear();
             return isUi;
         }
+        
         private void CreateCastle(CastleConfig castleConfig)
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);
