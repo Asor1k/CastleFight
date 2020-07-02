@@ -14,6 +14,7 @@ namespace CastleFight.GameUI
         [SerializeField] private Text priceText;
         [SerializeField] private Text nameText;
         private BaseBuildingConfig buildingConfig;
+        
         private void Start()
         {
             btn.onClick.AddListener(OnClick);

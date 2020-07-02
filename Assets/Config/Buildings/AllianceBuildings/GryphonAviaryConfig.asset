@@ -12,34 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: GryphonAviaryConfig
   m_EditorClassIdentifier: 
-  levelsStats:
-  - MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
+  levels:
+  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
     Delay: 10
     Cost: 0
-  - MaxHp: 2000
-    GoldIncome: 20
-    GoldDelay: 20
-    Delay: 10
-    Cost: 150
-  - MaxHp: 3000
-    GoldIncome: 30
-    GoldDelay: 30
-    Delay: 10
-    Cost: 150
-  - MaxHp: 4000
-    GoldIncome: 40
-    GoldDelay: 40
-    Delay: 10
-    Cost: 150
-  - MaxHp: 5000
-    GoldIncome: 50
-    GoldDelay: 50
-    Delay: 10
-    Cost: 150
   prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
-  unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
   icon: {fileID: 0}
   buildingName: Gryphon Aviary
   cost: 100

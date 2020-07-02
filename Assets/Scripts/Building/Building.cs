@@ -50,17 +50,17 @@ namespace CastleFight
             this.config = config;
             lvl = 1; //TODO: delete the magic number
             levelLabel.SetLevel(lvl);
-            stats.Init(config.LevelsStats[0].MaxHp);
+            stats.Init(config.Levels[0].MaxHp);
             stats.OnDamaged += OnDamage;
         }
         
         public void UpgradeBuilding()
         {
-            if (lvl > config.LevelsStats.Count || !goldManager.IsEnoughToBuild(behavior)) return;
+            if (lvl > config.Levels.Count || !goldManager.IsEnoughToBuild(behavior)) return;
 
             lvl++;  
-            goldManager.MakeGoldChange(-config.LevelsStats[lvl - 1].Cost);
-            stats.Init(config.LevelsStats[lvl-1].MaxHp);
+            goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost);
+            stats.Init(config.Levels[lvl-1].MaxHp);
             levelLabel.SetLevel(lvl);
         }
 

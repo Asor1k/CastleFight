@@ -54,9 +54,9 @@ namespace CastleFight
         
         IEnumerator StartMoneyGain()
         {
-            yield return new WaitForSeconds(building.Config.LevelsStats[building.Lvl - 1].GoldDelay);
+            yield return new WaitForSeconds(building.Config.Levels[building.Lvl - 1].GoldDelay);
             StartCoroutine(StartMoneyGain());
-            building.GoldManager.MakeGoldChange(building.Config.LevelsStats[building.Lvl - 1].GoldIncome);
+            building.GoldManager.MakeGoldChange(building.Config.Levels[building.Lvl - 1].GoldIncome);
         }
         
         public void MoveTo(Vector3 position)

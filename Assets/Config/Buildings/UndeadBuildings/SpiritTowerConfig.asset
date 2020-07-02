@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: SpiritTowerConfig
   m_EditorClassIdentifier: 
+  levels:
+  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 0
   prefab: {fileID: -546456028477452519, guid: 27e71f90dc83e324ca2e38dae5527fc7, type: 3}
-  unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
-  delay: 10
   icon: {fileID: 0}
-  cost: 100
-  goldDelay: 1
-  goldIncome: 1
   buildingName: Spirit tower
-  maxHp: 1000
+  cost: 100
