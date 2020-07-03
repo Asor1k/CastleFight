@@ -30,11 +30,10 @@ namespace CastleFight
             Debug.Log(damage);
             OnDamaged?.Invoke();
         }
-        public void InitCritSkill(float critChance,float critMultiplicator)
+        public void InitCritSkill(float critChance,float critMultiplier)
         {
             this.critChance = critChance;
-            this.critMultiplier = critMultiplicator;
-            Debug.Log("INIT");
+            this.critMultiplier = critMultiplier;
         }
         public void InitHpSkill(int deltaMaxHp)
         {

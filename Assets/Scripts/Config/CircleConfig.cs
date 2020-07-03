@@ -6,14 +6,14 @@ namespace CastleFight.Config
     [CreateAssetMenu(fileName = "Circle", menuName = "Highlight/Circle", order = 0)]
     public class CircleConfig : ScriptableObject
     {
-        [SerializeField] private Circle prefab;
+        [SerializeField] private UnitHighlight prefab;
 
-        public Circle Create(Transform tr)
+        public UnitHighlight Create(Transform tr)
         {
-            var circle = Pool.I.Get<Circle>();
+            var circle = Pool.I.Get<UnitHighlight>();
             if (circle == null)
             {
-                circle = Instantiate(prefab) as Circle;
+                circle = Instantiate(prefab) as UnitHighlight;
                 
             }
             circle.Init(tr);

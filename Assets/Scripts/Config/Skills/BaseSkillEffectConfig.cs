@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    
     public abstract class BaseSkillEffectConfig : ScriptableObject
     {
         [SerializeField] private SkillEffect skillEffect;

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CastleFight
 {
-    public class Circle : MonoBehaviour
+    public class UnitHighlight : MonoBehaviour
     {
         public void Start()
         {

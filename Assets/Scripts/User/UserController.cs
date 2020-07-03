@@ -16,12 +16,13 @@ namespace CastleFight
         [SerializeField] private CircleConfig unitCircleConfig;
         [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-        public uint number;
         private GameUIBehavior gameUI;
+        PlayerProgress progress;
         private Ray ray;
-       [SerializeField] Camera cam;
+        [SerializeField] Camera cam;
         public void Init(RaceConfig config)
         {
+            
             if (gameUI == null)
             {
                 gameUI = Instantiate(gameUILayoutPrefab, gameUIHolder);
@@ -51,7 +52,7 @@ namespace CastleFight
                     else if (hit.collider.CompareTag("Unit"))
                     {
                         EventBusController.I.Bus.Publish(new BuildingDeselectedEvent()); 
-                        EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>())); //TODO: remove or leave nicely
+                        EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<Unit>().stats)); //TODO: remove or leave nicely
                         unitCircleConfig.Create(hit.collider.transform);
                     }
                     else if(!IsRaycastUI())
