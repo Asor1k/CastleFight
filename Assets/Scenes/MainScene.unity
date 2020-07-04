@@ -3699,12 +3699,31 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4934858381824743413}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4934858381824743415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f1feceb2e654c47b8db5f6121b08f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4934858381824743415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2125970061034513812, guid: c8f85e31bc81e459a82297d3ab460566,
+    type: 3}
+  m_PrefabInstance: {fileID: 4934858381824743413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4934858381824743416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934858381824743415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb8674d3b285084cad2016460bd2d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProgressFileName: PlayerData.json
 --- !u!1001 &4968849266797525958
 PrefabInstance:
   m_ObjectHideFlags: 0
