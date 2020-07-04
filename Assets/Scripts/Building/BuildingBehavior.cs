@@ -24,8 +24,6 @@ namespace CastleFight
         private Team team;
         private bool isPlaced = false;
         
-
-        
         public void Place(Team team)
         {
             obstacle.enabled = true;
