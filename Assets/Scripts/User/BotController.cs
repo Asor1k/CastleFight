@@ -54,7 +54,7 @@ namespace CastleFight
             {
                 PlaceBuilding(currBuildIndex);              
                 gold -= buildSteps[currBuildIndex].BuildingConfig.Cost;
-                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.LevelsStats[0].GoldIncome;
+                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.Levels[0].GoldIncome;
                 currBuildIndex++;
             }
             StartCoroutine(BotGameTurn());

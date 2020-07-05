@@ -25,10 +25,26 @@ namespace CastleFight
         private float timer;
         bool isMoving = false;
         bool isBoosting = false;
-        float speed;
+        float speed = 60;
+
         private void Update()
         {
-            CheckCursorPosition();
+            if (Input.GetMouseButtonDown(0))
+            {
+                isMoving = true;
+            }
+
+            if (isMoving)
+            {
+                camTr.position -= (new Vector3(0, 0, Input.GetAxis("Mouse X")) * speed) * Time.deltaTime;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                isMoving = false;
+            }
+
+            /*CheckCursorPosition();
             if (isMoving)
             {
                 if (timer >= settings.TimeUntillBoost)
@@ -40,7 +56,7 @@ namespace CastleFight
             {
                 timer = 0;
                 isBoosting = false;
-            }
+            }*/
         }
 
         

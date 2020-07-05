@@ -30,6 +30,7 @@ namespace CastleFight
         [SerializeField] private BuildingBehavior behavior;
         [SerializeField] private BuildingStats stats;
         [SerializeField] private BuildingHealthBar healthBar;
+        [SerializeField] private BuildingUpgradeButton upgradeButton;
         [SerializeField] private BuildingLevelLabel levelLabel;
         [SerializeField] private Collider col;
         [SerializeField] private NavMeshObstacle obstacle;
@@ -50,18 +51,20 @@ namespace CastleFight
             this.config = config;
             lvl = 1; //TODO: delete the magic number
             levelLabel.SetLevel(lvl);
-            stats.Init(config.LevelsStats[0].MaxHp);
+            stats.Init(config.Levels[0].MaxHp);
             stats.OnDamaged += OnDamage;
+            UpdateUpgradeLabel();
         }
         
         public void UpgradeBuilding()
         {
-            if (lvl > config.LevelsStats.Count || !goldManager.IsEnoughToBuild(behavior)) return;
+            if (lvl > config.Levels.Count || !goldManager.IsEnoughToBuild(behavior)) return;
 
             lvl++;  
-            goldManager.MakeGoldChange(-config.LevelsStats[lvl - 1].Cost);
-            stats.Init(config.LevelsStats[lvl-1].MaxHp);
+            goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost);
+            stats.Init(config.Levels[lvl-1].MaxHp);
             levelLabel.SetLevel(lvl);
+            UpdateUpgradeLabel();
         }
 
         public void Build()
@@ -70,7 +73,29 @@ namespace CastleFight
             //TODO: Implement building construction
             OnReady?.Invoke();
         }
-        
+
+        public void Select()
+        {
+            if (lvl == config.Levels.Count) return;
+            
+            upgradeButton.Show();
+        }
+
+        public void Deselect()
+        {
+            upgradeButton.Hide();
+        }
+
+        private void UpdateUpgradeLabel()
+        {
+            if (gameObject.layer != (int)Team.Team1) return;
+            
+            if(lvl < config.Levels.Count)
+               upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
+             else
+                upgradeButton.Hide();
+        }
+
         public void Destroy()
         {
             isStanding = false;
