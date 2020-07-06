@@ -17,11 +17,11 @@ namespace CastleFight.MainMenu
         private void Awake()
         {
             playButton.onClick.AddListener(OnPlayClick);
-         //   DontDestroyOnLoad(this);    
+    
             
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
             EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
-            SetGameSetupCanvasEnabled(true); //[Asor1k] Changed on true
+            SetGameSetupCanvasEnabled(true);
         }
 
         void OnRestartGame(RestartGameEvent restartGameEvent)
