@@ -23,7 +23,7 @@ namespace CastleFight
 
         private void OnBuildingReadyHandler()
         {
-            spawnDelay = building.Config.LevelsStats[building.Lvl - 1].Delay;
+            spawnDelay = building.Config.Levels[building.Lvl - 1].Delay;
             spawnTimer = spawnDelay;
             buildingReady = true;
             building.OnReady -= OnBuildingReadyHandler;
@@ -51,7 +51,7 @@ namespace CastleFight
 
         private Unit SpawnUnit(Vector3 spawnPoint, Team team)
         {
-            var unit = building.Config.Unit.Create(team);
+            var unit = building.Config.Levels[building.Lvl - 1].Unit.Create(team);
             unit.transform.position = spawnPoint;
 
             EventBusController.I.Bus.Publish(new UnitSpawnedEvent(unit));

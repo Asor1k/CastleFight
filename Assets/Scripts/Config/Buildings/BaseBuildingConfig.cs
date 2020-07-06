@@ -2,23 +2,21 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace CastleFight.Config
 {
     public abstract class BaseBuildingConfig : ScriptableObject
     {
         public Sprite Icon => icon;
-        public BaseUnitConfig Unit => unit;
         public string Name => buildingName;
         public int Cost => cost;
-        public List<BuildingLevelStats> LevelsStats => levelsStats;
+        public List<BuildingLevelConfig> Levels => levels;
         
         [SerializeField]
-        private List<BuildingLevelStats> levelsStats;
+        private List<BuildingLevelConfig> levels;
         [SerializeField]
         protected Building prefab;
-        [SerializeField]
-        protected BaseUnitConfig unit;
         [SerializeField]
         protected Sprite icon;
         [SerializeField]
@@ -37,8 +35,9 @@ namespace CastleFight.Config
     }
 
     [Serializable]
-    public struct BuildingLevelStats
+    public struct BuildingLevelConfig
     {
+        public BaseUnitConfig Unit;
         public int MaxHp;
         public int GoldIncome;
         public int GoldDelay;
