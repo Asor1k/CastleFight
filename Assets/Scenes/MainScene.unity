@@ -3023,6 +3023,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2839491122153921118, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.1298828
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839491122153921118, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.30999756
+      objectReference: {fileID: 0}
     - target: {fileID: 2968414257877607643, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: menuDropdown1
@@ -3121,6 +3131,11 @@ PrefabInstance:
     - target: {fileID: 5454914489838327178, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562752925563700138, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6694373487722306983, guid: fe39232c150974ec4a2087070d28b39d,
