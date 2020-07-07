@@ -8,7 +8,6 @@ namespace CastleFight
     {
         public TargetType Type => TargetType.GroundUnit;
         public Transform Transform => transform;
-
         public bool Alive => unit.Alive;
         
         [SerializeField]

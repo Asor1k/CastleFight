@@ -91,7 +91,7 @@ MonoBehaviour:
   collider: {fileID: 2948502942935635673}
   animationController: {fileID: 4912677336085641314}
   stats: {fileID: 5788648465315243530}
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: 4690f518908329646a585151a4b579bb, type: 2}
   healthBar: {fileID: 8993604237973456742}
 --- !u!114 &4912677336085641314
 MonoBehaviour:

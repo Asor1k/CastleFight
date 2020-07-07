@@ -4,8 +4,6 @@ using CastleFight.Config;
 using CastleFight.Core;
 using Core;
 using UnityEngine;
-using CastleFight.Core.EventsBus;
-using CastleFight.Core.EventsBus.Events;
 using CastleFight.UI;
 using UnityEngine.AI;
 using BuildingStats = Castlefight.BuildingStats;

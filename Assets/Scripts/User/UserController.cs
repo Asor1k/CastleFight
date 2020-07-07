@@ -14,8 +14,8 @@ namespace CastleFight
         [SerializeField] private GameUIBehavior gameUILayoutPrefab;
         [SerializeField] internal RectTransform gameUIHolder;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
-        public uint number;
         private GameUIBehavior gameUI;
+        private GoldManager goldManager;
         private Ray ray;
         [SerializeField] Camera cam;
        
@@ -30,9 +30,21 @@ namespace CastleFight
 
             CreateCastle(config.CastleConfig);
         }
+        private void OnUnitDie(UnitDiedEvent unitDiedEvent)
+        {
+            if (unitDiedEvent.Unit.gameObject.layer == (int)Team.Team2)
+            {
+                goldManager.MakeGoldChange(unitDiedEvent.Unit.Config.Cost);
+            }
+            else
+            {
+                //DO something when your unit dies
+            }
+        }
         public void Start()
         {
-            
+            goldManager = ManagerHolder.I.GetManager<GoldManager>();
+            EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDie);
         }
         public void Update()
         {
@@ -74,7 +86,10 @@ namespace CastleFight
             results.Clear();
             return isUi;
         }
-        
+        public void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<UnitDiedEvent>(OnUnitDie);
+        }
         private void CreateCastle(CastleConfig castleConfig)
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);

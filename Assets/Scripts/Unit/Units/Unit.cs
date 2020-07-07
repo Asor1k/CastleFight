@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using CastleFight.Config;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using System.Threading.Tasks;
 
 namespace CastleFight
@@ -12,7 +14,7 @@ namespace CastleFight
         public event Action OnReset;
 
         public bool Alive{get{return alive;}}
-
+        public BaseUnitConfig Config{get{return config;}}
         public float CurrentSpeed{get{return agent.Speed;}}
         public virtual float Speed{get{return stats.Speed;}}
         public virtual float EnemyDetectRange{get{return config.EnemyDetectRange;}}
@@ -68,10 +70,8 @@ namespace CastleFight
         public virtual void Attack(IDamageable target)
         {
             if(!target.Alive || !alive || !readyToAttack) return;
-            
             readyToAttack = false;
             StartAttackCooldown();
-            
             agent.LookAt(target.Transform);
             animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
@@ -82,6 +82,7 @@ namespace CastleFight
             collider.enabled = false;
             agent.Disable();
             healthBar.Show(false);
+            EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
             OnKilled?.Invoke();
             DelayDestroy();
         }

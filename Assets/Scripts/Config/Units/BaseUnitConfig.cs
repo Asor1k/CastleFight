@@ -30,6 +30,11 @@ namespace CastleFight.Config
             get { return damage; }
         }
 
+        public int Cost
+        {
+            get { return cost; }
+        }
+
         public float AttackDelay
         {
             get => attackDelay;
@@ -51,7 +56,9 @@ namespace CastleFight.Config
         protected float attackDelay;
         [SerializeField]
         protected int damage;
-        
+        [SerializeField]
+        protected int cost;
+
         public abstract Unit Create(Team team);
     }
 }

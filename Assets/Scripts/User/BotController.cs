@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using CastleFight.Config;
 using UnityEngine;
 
@@ -12,7 +14,6 @@ namespace CastleFight
         [SerializeField] private CastlesPosProvider castlesPosProvider;
         [SerializeField] private float turnTime;
         [SerializeField] private Vector3 stepOffset;
-        [SerializeField] private int goldPerTurn = 0;
         [SerializeField] private int gold;
         [SerializeField] private int currBuildIndex;
         private int blocksBuilt = 0;
@@ -20,9 +21,20 @@ namespace CastleFight
         public void Init(RaceConfig config)
         {
             CreateCastle(config.CastleConfig);
+            EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDie);
             StartGame();
         }
-
+        private void OnUnitDie(UnitDiedEvent unitDiedEvent)
+        {
+            if (unitDiedEvent.Unit.gameObject.layer == (int)Team.Team1)
+            {
+                gold += unitDiedEvent.Unit.Config.Cost;
+            }
+            else
+            {
+                //DO something when your unit dies
+            }
+        }
         private void CreateCastle(CastleConfig castleConfig)
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);
@@ -49,12 +61,10 @@ namespace CastleFight
                 if (blocksBuilt>=maxBlocksBuilt) yield break;
                 blocksBuilt++;
             }
-            gold += goldPerTurn;
             if (gold >= buildSteps[currBuildIndex].BuildingConfig.Cost)
             {
-                PlaceBuilding(currBuildIndex);              
+                PlaceBuilding(currBuildIndex);
                 gold -= buildSteps[currBuildIndex].BuildingConfig.Cost;
-                goldPerTurn += buildSteps[currBuildIndex].BuildingConfig.Levels[0].GoldIncome;
                 currBuildIndex++;
             }
             StartCoroutine(BotGameTurn());
@@ -69,6 +79,10 @@ namespace CastleFight
         public void StopGame()
         {
 
+        }
+        public void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<UnitDiedEvent>(OnUnitDie);
         }
     }
 

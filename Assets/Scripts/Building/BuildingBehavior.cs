@@ -35,7 +35,7 @@ namespace CastleFight
 
             building.Build();
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
-            StartCoroutine(StartMoneyGain());
+            
         }
         
         private void OnMouseEnter()
@@ -50,12 +50,12 @@ namespace CastleFight
             rend.material.shader = Shader.Find("Standard");
         }
         
-        IEnumerator StartMoneyGain()
+        /*IEnumerator StartMoneyGain()
         {
             yield return new WaitForSeconds(building.Config.Levels[building.Lvl - 1].GoldDelay);
             StartCoroutine(StartMoneyGain());
             building.GoldManager.MakeGoldChange(building.Config.Levels[building.Lvl - 1].GoldIncome);
-        }
+        }*/
         
         public void MoveTo(Vector3 position)
         {

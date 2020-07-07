@@ -1391,6 +1391,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc0db2b14252644da9f1f74ed0c8f90, type: 3}
+--- !u!114 &837910089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2274171422615663411, guid: fe39232c150974ec4a2087070d28b39d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2014396576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &953663881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3071,6 +3083,36 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2131727773}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356624773308606610, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5454914489838327178, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3081,6 +3123,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6694373487722306983, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: ratingDeltaText
+      value: 
+      objectReference: {fileID: 837910089}
+    - target: {fileID: 6694373487722306983, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: playerProgress
+      value: 
+      objectReference: {fileID: 4934858381824743416}
     - target: {fileID: 7073441995259368613, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3233,6 +3285,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
+--- !u!114 &2131727773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6694373487722306983, guid: fe39232c150974ec4a2087070d28b39d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2014396576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b359bddd74f2e4e4a8925773f96b0fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &63417904667923168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3802,6 +3866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProgressFileName: PlayerData.json
+  ratingDelta: 25
 --- !u!1001 &4968849266797525958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4417,7 +4482,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[0].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 809c4f2ad48ffe444b3db1b8c51f9a83,
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
         type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
