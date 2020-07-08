@@ -19,7 +19,7 @@ namespace CastleFight
         private void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
-            Debug.Log(goldManager);   
+
         }
 
         private void OnDestroy()
