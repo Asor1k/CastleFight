@@ -5,8 +5,9 @@ namespace CastleFight
 {
     public class RatingUI : MonoBehaviour
     {
-        [SerializeField] private Text ratingText;        
-        void Start()
+        [SerializeField] private Text ratingText;
+
+        public void Start()
         {
             PlayerProgress playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
             if (playerProgress == null) return;

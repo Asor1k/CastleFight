@@ -7,4 +7,11 @@ public class PlayerData
     public int Wins;
     public int Loses;
     public int Rating;
+
+    public PlayerData()
+    {
+        Wins = 0;
+        Loses = 0;
+        Rating = 0;
+    }
 }

@@ -15,7 +15,7 @@ namespace CastleFight
        
         public void Awake()
         {
-            EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
+            
             ManagerHolder.I.AddManager(this);
             if (SaveManager.FileExists(playerProgressFileName))
             {
@@ -26,6 +26,7 @@ namespace CastleFight
                 data = new PlayerData();
                 SaveManager.Save(playerProgressFileName, data);
             }
+            EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
         }
         public void OnApplicationQuit()
         {

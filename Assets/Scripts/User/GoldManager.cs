@@ -26,10 +26,13 @@ namespace CastleFight
         private Text notEnoghGoldText;
         [SerializeField]
         private UserController userController;
-     
-        public void Start()
+
+        public void Awake()
         {
             ManagerHolder.I.AddManager(this);
+        }
+        public void Start()
+        {
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameStart);
         }
 
