@@ -34,7 +34,7 @@ namespace CastleFight
         {
             if (unitDiedEvent.Unit.gameObject.layer == (int)Team.Team2)
             {
-                goldManager.MakeGoldChange(unitDiedEvent.Unit.Config.Cost);
+                goldManager.MakeGoldChange(unitDiedEvent.Unit.Config.Cost,Team.Team1);
             }
             else
             {

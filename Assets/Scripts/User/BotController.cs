@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
+using CastleFight.Core;
 using CastleFight.Config;
 using UnityEngine;
 
@@ -14,21 +15,24 @@ namespace CastleFight
         [SerializeField] private CastlesPosProvider castlesPosProvider;
         [SerializeField] private float turnTime;
         [SerializeField] private Vector3 stepOffset;
-        [SerializeField] private int gold;
         [SerializeField] private int currBuildIndex;
-        private int blocksBuilt = 0;
         [SerializeField] private int maxBlocksBuilt;
+
+        private int blocksBuilt = 0;
+        private GoldManager goldManager;
+
         public void Init(RaceConfig config)
         {
             CreateCastle(config.CastleConfig);
             EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDie);
+            goldManager = ManagerHolder.I.GetManager<GoldManager>();
             StartGame();
         }
         private void OnUnitDie(UnitDiedEvent unitDiedEvent)
         {
             if (unitDiedEvent.Unit.gameObject.layer == (int)Team.Team1)
             {
-                gold += unitDiedEvent.Unit.Config.Cost;
+                goldManager.MakeGoldChange(unitDiedEvent.Unit.Config.Cost, Team.Team2);
             }
             else
             {
@@ -61,10 +65,10 @@ namespace CastleFight
                 if (blocksBuilt>=maxBlocksBuilt) yield break;
                 blocksBuilt++;
             }
-            if (gold >= buildSteps[currBuildIndex].BuildingConfig.Cost)
+            if (goldManager.BotGoldAmount >= buildSteps[currBuildIndex].BuildingConfig.Cost)
             {
                 PlaceBuilding(currBuildIndex);
-                gold -= buildSteps[currBuildIndex].BuildingConfig.Cost;
+                goldManager.MakeGoldChange(-buildSteps[currBuildIndex].BuildingConfig.Cost, Team.Team2);
                 currBuildIndex++;
             }
             StartCoroutine(BotGameTurn());

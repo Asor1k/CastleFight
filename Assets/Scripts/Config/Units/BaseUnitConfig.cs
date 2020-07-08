@@ -34,6 +34,10 @@ namespace CastleFight.Config
         {
             get { return cost; }
         }
+        public float goldDmgFraction
+        {
+            get { return goldDmgPercent/100f; }
+        }
 
         public float AttackDelay
         {
@@ -58,7 +62,8 @@ namespace CastleFight.Config
         protected int damage;
         [SerializeField]
         protected int cost;
-
+        [SerializeField]
+        protected float goldDmgPercent;
         public abstract Unit Create(Team team);
     }
 }

@@ -10,16 +10,23 @@ using UnityEngine.UI;
 namespace CastleFight
 {
     public class GoldManager : MonoBehaviour
-    {   
+    {
+        public int BotGoldAmount => botGoldAmount;
+   
+        [SerializeField]
+        public GoldAnim goldAnimPrefab;
+
         [SerializeField]
         private Text goldText;
         [SerializeField]
-        private int goldAmount = 0;
+        private int userGoldAmount = 0;
+        [SerializeField]
+        private int botGoldAmount = 0;
         [SerializeField]
         private Text notEnoghGoldText;
         [SerializeField]
         private UserController userController;
-
+     
         public void Start()
         {
             ManagerHolder.I.AddManager(this);
@@ -29,7 +36,7 @@ namespace CastleFight
         private void OnGameStart(GameSetReadyEvent gameSetReadyEvent)
         {
             goldText = FindObjectOfType<GoldText>().GetComponent<Text>();
-            goldText.text = goldAmount.ToString();
+            goldText.text = userGoldAmount.ToString();
         }
         
 
@@ -40,18 +47,25 @@ namespace CastleFight
 
         public bool IsEnoughToBuild(BuildingBehavior buildingBehavior)
         {
-            bool canPlace = goldAmount >= buildingBehavior.Building.Config.Cost;
+            bool canPlace = userGoldAmount >= buildingBehavior.Building.Config.Cost;
             if (!canPlace)
             { 
                 NotEnoughGold();
             }
             return canPlace;
         }
-        
-        public void MakeGoldChange(int gold)
+
+        public void MakeGoldChange(int gold, Team team)
         {
-            goldAmount += gold;
-            goldText.text = goldAmount.ToString();
+            if (team == Team.Team1)
+            {
+                userGoldAmount += gold;
+                goldText.text = userGoldAmount.ToString();
+            }
+            else if(team == Team.Team2)
+            {
+                botGoldAmount += gold;
+            }
         }
 
         private IEnumerator DestroyText(Text text)

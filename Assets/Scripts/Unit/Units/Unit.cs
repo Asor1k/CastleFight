@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using CastleFight.Config;
+using System.Collections.Generic;
+using System.Collections;
 using CastleFight.Core.EventsBus;
-using CastleFight.Core.EventsBus.Events;
+using CastleFight.Core;
 using System.Threading.Tasks;
 
 namespace CastleFight
@@ -31,7 +33,7 @@ namespace CastleFight
         [SerializeField]
         protected BaseUnitConfig config;
         [SerializeField]
-        protected UnitHealthBar healthBar;
+        protected UnitHealthBar healthBarCanvas;
         
         protected Team team;
         protected IDamageable target;
@@ -39,6 +41,8 @@ namespace CastleFight
         protected int maxHp;
         protected bool alive = true;
         protected bool readyToAttack = true;
+
+        private GoldManager goldManager;
         
         public virtual void Init(BaseUnitConfig config, Team team)
         {
@@ -50,6 +54,7 @@ namespace CastleFight
             alive = true;
             stats.Init(config.MaxHp, config.Speed);
             stats.OnDamaged += OnUnitDamaged;
+            goldManager = ManagerHolder.I.GetManager<GoldManager>();
             OnInit?.Invoke();
         }
 
@@ -73,16 +78,26 @@ namespace CastleFight
             readyToAttack = false;
             StartAttackCooldown();
             agent.LookAt(target.Transform);
+            if(target.Type == TargetType.Building || target.Type == TargetType.Castle)
+            {
+                int gold = GetGoldPerHit();
+                goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
+                InitGoldAnim(gold);
+            }
             animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
-
+        private int GetGoldPerHit()
+        {
+            return Mathf.RoundToInt(config.Damage * config.goldDmgFraction);
+        }
         private void Kill()
         {
             alive = false;
             collider.enabled = false;
             agent.Disable();
-            healthBar.Show(false);
-            EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
+           // healthBarCanvas.Show(false);
+            goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
+            InitGoldAnim(config.Cost);
             OnKilled?.Invoke();
             DelayDestroy();
         }
@@ -108,7 +123,28 @@ namespace CastleFight
                 Kill();
             }
         }
+        private void InitGoldAnim(int gold)
+        {
+            GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
+            if(goldAnim == null)
+            {
+                goldAnim = Instantiate(goldManager.goldAnimPrefab, transform);
+            }
+            else
+            {
+                goldAnim.gameObject.SetActive(true);
+                goldAnim.transform.SetParent(transform);
+                goldAnim.transform.localPosition = Vector3.zero;
+            }
+            goldAnim.Init(gold);
+            StartCoroutine(DelayDestroyAnim(goldAnim));
+        }
 
+        private IEnumerator DelayDestroyAnim(GoldAnim anim)
+        {
+            yield return new WaitForSeconds(1);
+            anim.gameObject.SetActive(false);
+        }
         private async Task StartAttackCooldown()
         {
             var miliseconds = config.AttackDelay * 1000;
