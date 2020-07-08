@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 5042154463871825191}
   - component: {fileID: 5788648465315243530}
   - component: {fileID: 438337414622664764}
-  - component: {fileID: 888841108820694537}
   - component: {fileID: 7847816120627912695}
   - component: {fileID: 2948502942935635673}
   - component: {fileID: 4616630469420679079}
@@ -91,8 +90,8 @@ MonoBehaviour:
   collider: {fileID: 2948502942935635673}
   animationController: {fileID: 4912677336085641314}
   stats: {fileID: 5788648465315243530}
-  config: {fileID: 0}
-  healthBar: {fileID: 8993604237973456742}
+  config: {fileID: 11400000, guid: 4690f518908329646a585151a4b579bb, type: 2}
+  healthBarCanvas: {fileID: 8993604237973456742}
 --- !u!114 &4912677336085641314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,20 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 7847816120627912695}
   obstacle: {fileID: 4616630469420679079}
---- !u!114 &888841108820694537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3400931669794532412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6792457403a3448abd634bca6dc3b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bigCircleImg: {fileID: 6964373675283160995}
-  smallCircleImg: {fileID: 4120961787271240931}
 --- !u!195 &7847816120627912695
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ namespace CastleFight
 
         public void OnMouseExit()
         {
-            HideCircle(smallCircleImg);
+
         }
 
         public void OnDestroy()
@@ -54,12 +54,7 @@ namespace CastleFight
 
         void OnDeselect(BuildingDeselectedEvent buildingDeselectedEvent)
         {
-            HideCircle(bigCircleImg);
         }
-        public void HideCircle(Image image)
-        {
-            image.enabled = false;
-        }
-
+        
     }
 }

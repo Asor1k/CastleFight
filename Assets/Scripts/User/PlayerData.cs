@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public int wins;
-    public int loses;
-
+    public int Wins;
+    public int Loses;
+    public int Rating;
 }
