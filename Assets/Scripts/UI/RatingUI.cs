@@ -10,7 +10,10 @@ namespace CastleFight
         public void Start()
         {
             PlayerProgress playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
-            if (playerProgress == null) return;
+            if (playerProgress == null)
+            {
+                return;
+            }
             ratingText.text = "Raiting:" + playerProgress.Data.Rating;
         }
     }

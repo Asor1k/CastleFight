@@ -95,8 +95,9 @@ namespace CastleFight
             alive = false;
             collider.enabled = false;
             agent.Disable();
-           // healthBarCanvas.Show(false);
+            healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
+            if(gameObject.layer == (int)Team.Team2) 
             InitGoldAnim(config.Cost);
             OnKilled?.Invoke();
             DelayDestroy();
