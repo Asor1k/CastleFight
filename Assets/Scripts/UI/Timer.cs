@@ -11,6 +11,11 @@ namespace CastleFight.Core
         public void Start()
         {
             timerManager = ManagerHolder.I.GetManager<TimerManager>();
+            if (gameObject.layer == (int)Team.Team2)
+            {
+                image.enabled = false;
+                this.enabled = false;
+            }
         }
         public void Update()
         {

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2595719727865546921}
   - component: {fileID: 1157267239654619611}
   - component: {fileID: 1490417540363586034}
+  - component: {fileID: 1264399600669484385}
   m_Layer: 0
   m_Name: CastlePrefab
   m_TagString: Castle
@@ -154,6 +155,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1264399600669484385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189981915339529542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bac81b770a71f4b9e8a1acfe7d9cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1010862769127106342}
 --- !u!1 &4963583607149331834
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +601,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClockImg
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6763862364801045176, guid: 1db8d5b8b8f1a0048a51e81f4ea6a7c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1db8d5b8b8f1a0048a51e81f4ea6a7c0, type: 3}
 --- !u!224 &4936559212764998161 stripped
 RectTransform:
@@ -595,3 +610,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1458514293649568645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010862769127106342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1890070731286566051, guid: 1db8d5b8b8f1a0048a51e81f4ea6a7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1458514293649568645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
