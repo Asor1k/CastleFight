@@ -33,7 +33,6 @@ namespace CastleFight
         {
             this.config = config;
             stats.Init(config.MaxHp);
-            Debug.Log(config.MaxHp);
         }
 
         public void Build()
