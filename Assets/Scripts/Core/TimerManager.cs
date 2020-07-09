@@ -7,11 +7,12 @@ namespace CastleFight.Core {
     public class TimerManager : MonoBehaviour
     {
         public float SpawnTimer => spawnTimer;
+        public TimerConfig TimerConfig => timerConfig;
 
         [SerializeField] private TimerConfig timerConfig;
         private float spawnTimer;
 
-        public void Start()
+        public void Awake()
         {
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameStart);
             ManagerHolder.I.AddManager(this);

@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
-
-public class Timer : MonoBehaviour
+namespace CastleFight.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Timer : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField] private Image image;
+        private TimerManager timerManager;
+        public void Start()
+        {
+            timerManager = ManagerHolder.I.GetManager<TimerManager>();
+        }
+        public void Update()
+        {
+            image.fillAmount = timerManager.SpawnTimer / timerManager.TimerConfig.SpawnTime;
+        }
     }
 }
