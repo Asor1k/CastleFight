@@ -47,6 +47,7 @@ namespace CastleFight
             var castle = castleConfig.Create();
             castle.transform.position = castlePos;
             castle.gameObject.layer = (int)Team.Team2;
+            castle.Init(castleConfig);
         }
 
         private void PlaceBuilding(int buildInd)

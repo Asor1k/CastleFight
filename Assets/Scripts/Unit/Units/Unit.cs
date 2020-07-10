@@ -82,7 +82,8 @@ namespace CastleFight
             {
                 int gold = GetGoldPerHit();
                 goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
-                InitGoldAnim(gold);
+                if (gameObject.layer == (int)Team.Team1)
+                    InitGoldAnim(config.Cost);
             }
             animationController.Attack(()=>{target.TakeDamage(config.Damage);});
         }
@@ -95,9 +96,10 @@ namespace CastleFight
             alive = false;
             collider.enabled = false;
             agent.Disable();
-           // healthBarCanvas.Show(false);
+            healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
-            InitGoldAnim(config.Cost);
+            if(gameObject.layer == (int)Team.Team2) 
+             InitGoldAnim(config.Cost);
             OnKilled?.Invoke();
             DelayDestroy();
         }

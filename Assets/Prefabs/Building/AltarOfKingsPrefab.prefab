@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6787935064834589717}
   - component: {fileID: 7673656490750283154}
   - component: {fileID: 4428899642971308575}
+  - component: {fileID: 2863461123095502469}
   m_Layer: 10
   m_Name: AltarOfKingsPrefab
   m_TagString: Building
@@ -149,6 +150,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2863461123095502469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125538442367956725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a8e3bb7da1b884abfac5e863249f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 4428899642971308575}
+  building: {fileID: 3769575545502128820}
 --- !u!1 &1072544156110580286
 GameObject:
   m_ObjectHideFlags: 0

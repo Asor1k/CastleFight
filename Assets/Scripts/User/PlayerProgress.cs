@@ -15,7 +15,6 @@ namespace CastleFight
        
         public void Awake()
         {
-            
             ManagerHolder.I.AddManager(this);
             if (SaveManager.FileExists(playerProgressFileName))
             {
@@ -30,9 +29,16 @@ namespace CastleFight
         }
         public void OnApplicationQuit()
         {
+            Save();
+        }
+        public void OnDestroy()
+        {
+            Save();
+        }
+        private void Save()
+        {
             SaveManager.Save(playerProgressFileName, data);
         }
-
         public void OnGameEnd(GameEndEvent gameEndEvent)
         {
             if(gameEndEvent.winnerTeam == Team.Team2)
