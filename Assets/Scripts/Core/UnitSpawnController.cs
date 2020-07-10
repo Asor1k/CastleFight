@@ -4,7 +4,7 @@ using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 namespace CastleFight.Core {
-    public class TimerManager : MonoBehaviour
+    public class UnitSpawnController : MonoBehaviour
     {
         public float SpawnTimer => spawnTimer;
         public TimerConfig TimerConfig => timerConfig;
