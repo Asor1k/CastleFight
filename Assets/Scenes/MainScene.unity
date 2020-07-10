@@ -1634,6 +1634,19 @@ MonoBehaviour:
   notEnoghGoldText: {fileID: 1834253022470403084, guid: 5aca1078a0017b34e818cbde123d4c02,
     type: 3}
   userController: {fileID: 4934858381824743414}
+--- !u!114 &1051771388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051771381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48803cac1ff5fa345a6f552a9478393e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerConfig: {fileID: 11400000, guid: f763ecb0168dd744ab44769667329ea5, type: 2}
 --- !u!1 &1126020992
 GameObject:
   m_ObjectHideFlags: 0
