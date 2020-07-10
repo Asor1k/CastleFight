@@ -33,7 +33,7 @@ namespace CastleFight
 
         private void OnUnitsSpawn(SpawnUnitsEvent spawnUnitsEvent)
         {
-            if (building.SpawnBlocked || !building.Behavior.IsPlaced) return;
+            if (building.SpawnBlocked || !building.Behavior.IsPlaced || !building.IsStanding) return;
             SpawnUnit(building.SpawnPoint.position, building.Behavior.Team);
         }
         private void Update()
