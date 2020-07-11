@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 6196882130712034065}
   - component: {fileID: 2331157157072551451}
   - component: {fileID: 5309257444387567439}
+  - component: {fileID: -4898533986171169515}
   m_Layer: 0
   m_Name: GrifTowerPrefab
   m_TagString: Untagged
@@ -309,8 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 5391365603093743726, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
   obstacle: {fileID: 2331157157072551451}
-  building: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
+  building: {fileID: 6567052194844129819}
   offsetY: 1
   user: {fileID: 0}
   rend: {fileID: 4373216664749534237}
@@ -328,8 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5409811227491674541, guid: 21444df4b33cd5b44a19d49eb1da5b26,
     type: 3}
-  behavior: {fileID: 2852064753154194856, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
+  behavior: {fileID: 8264710344464076043}
   stats: {fileID: 5309257444387567439}
   healthBar: {fileID: 8577777125221069786}
   upgradeButton: {fileID: 3672202044789199970}
@@ -395,6 +394,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4898533986171169515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684661734508677116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a8e3bb7da1b884abfac5e863249f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 5309257444387567439}
+  building: {fileID: 6567052194844129819}
 --- !u!1 &5098669003368369213
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1299630602202255800}
   - component: {fileID: 7965643078472898452}
   - component: {fileID: 552485581764761080}
+  - component: {fileID: 5767437411356471347}
   m_Layer: 10
   m_Name: GhostBarrakPrefab
   m_TagString: Building
@@ -227,6 +228,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5767437411356471347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585766819733644120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a8e3bb7da1b884abfac5e863249f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 552485581764761080}
+  building: {fileID: -546456028477452519}
 --- !u!1001 &6728986946376514790
 PrefabInstance:
   m_ObjectHideFlags: 0
