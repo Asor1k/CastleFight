@@ -92,7 +92,7 @@ MonoBehaviour:
   animationController: {fileID: 6888175309903453530}
   stats: {fileID: 5471743723961303858}
   config: {fileID: 0}
-  healthBar: {fileID: 7454956663079789150}
+  healthBarCanvas: {fileID: 7454956663079789150}
 --- !u!114 &6888175309903453530
 MonoBehaviour:
   m_ObjectHideFlags: 0
