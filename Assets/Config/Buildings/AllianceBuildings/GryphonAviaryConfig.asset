@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: GryphonAviaryConfig
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  - Unit: {fileID: 11400000, guid: e37023dd5a88d9940863997f48a1c65e, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 0
+  - Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
     MaxHp: 1000
     GoldIncome: 1
     GoldDelay: 5

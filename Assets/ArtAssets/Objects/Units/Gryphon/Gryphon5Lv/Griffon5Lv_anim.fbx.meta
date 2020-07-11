@@ -1,17 +1,20 @@
 fileFormatVersion: 2
-guid: 69828f74b54591545afd3b56f4529f9d
+guid: 80756972d604608479be20f220d92726
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -8205346464737765966
-    second: ghost_move
+      74: -5939371576346874151
+    second: Griffon_LvL5_Idle
   - first:
-      74: 5760000541639399817
-    second: ghost_attack
+      74: 5586928176867270727
+    second: Griffon_LvL5_Move
   - first:
-      74: 1990438470331398446
-    second: ghost_dieas
+      74: -5857289428368238012
+    second: Griffon_LvL5_Death
+  - first:
+      74: -5060922703822537936
+    second: Griffon_LvL5_Attack
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -41,11 +44,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ghost_move
-      takeName: ghost_move
+      name: Griffon_LvL5_Idle
+      takeName: Griffon_LvL5_Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 51
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -70,18 +73,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ghost_attack
-      takeName: ghost_attack
+      name: Griffon_LvL5_Move
+      takeName: Griffon_LvL5_Move
       internalID: 0
-      firstFrame: 52
-      lastFrame: 107
+      firstFrame: 50
+      lastFrame: 89
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -93,25 +96,17 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.25011128
-        functionName: AttackAnimCallback
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: f7970178be9f3b54ca260e227db48107,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 52
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ghost_dieas
-      takeName: ghost_dieas
+      name: Griffon_LvL5_Death
+      takeName: Griffon_LvL5_Death
       internalID: 0
-      firstFrame: 108
-      lastFrame: 163
+      firstFrame: 100
+      lastFrame: 149
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -131,6 +126,43 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Griffon_LvL5_Attack
+      takeName: Griffon_LvL5_Attack
+      internalID: 0
+      firstFrame: 160
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.5097552
+        functionName: AttackAnimCallback
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f7970178be9f3b54ca260e227db48107,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
