@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: SpiritTowerConfig
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  - Unit: {fileID: 11400000, guid: 05d30238ca00d1242956cc3b79c499a4, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 0
+  - Unit: {fileID: 11400000, guid: 2155f760d54fe274f8893af634705e99, type: 2}
     MaxHp: 1000
     GoldIncome: 1
     GoldDelay: 5

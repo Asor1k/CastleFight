@@ -19,4 +19,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 1
-  damage: 12
+  damage: 110
+  cost: 0
+  goldDmgPercent: 0
