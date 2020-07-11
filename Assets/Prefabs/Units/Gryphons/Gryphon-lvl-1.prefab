@@ -373,7 +373,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8537129047672265591}
-  - component: {fileID: 8467077337366668790}
   m_Layer: 0
   m_Name: Griffon1Lv_anim
   m_TagString: Untagged
@@ -397,25 +396,6 @@ Transform:
   m_Father: {fileID: 4944303851574924142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &8467077337366668790
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084046407596133689}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a6f74608e359b564185dbf73aa1c0039, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1091252632046743017
 GameObject:
   m_ObjectHideFlags: 0

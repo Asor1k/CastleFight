@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using CastleFight.Config;
 using UnityEngine;
 
 namespace CastleFight
@@ -8,20 +9,18 @@ namespace CastleFight
     public class UnitAnimationController : MonoBehaviour
     {
         public event Action OnAnimationAttackCallback;
-
-
+        
         [SerializeField]
         private Unit unit;
         [SerializeField]
         private Animator animator;
         private Action attackCallback;
-
+        private BaseUnitConfig unitConfig;
         void Start()
         {
             unit.OnKilled += OnUnitKilled;
             unit.OnReset += OnUnitReset;
         }
-
         
         public void AnimAttackCallback()
         {
