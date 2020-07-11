@@ -20,6 +20,7 @@ namespace CastleFight
 
         private int blocksBuilt = 0;
         private GoldManager goldManager;
+        private BuildingsLimitManager buildingsLimitManager;
 
         public void Init(RaceConfig config)
         {
@@ -27,6 +28,7 @@ namespace CastleFight
             EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDie);
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             StartGame();
+            buildingsLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
         }
         private void OnUnitDie(UnitDiedEvent unitDiedEvent)
         {
@@ -52,6 +54,7 @@ namespace CastleFight
 
         private void PlaceBuilding(int buildInd)
         {
+            buildingsLimitManager.AddBuilding(Team.Team2);
             var building = buildSteps[buildInd].BuildingConfig.Create();
             building.transform.position = buildSteps[buildInd].Point.position + stepOffset*blocksBuilt;
             building.GetComponent<BuildingBehavior>().Place(Team.Team2);
@@ -66,7 +69,7 @@ namespace CastleFight
                 if (blocksBuilt>=maxBlocksBuilt) yield break;
                 blocksBuilt++;
             }
-            if (goldManager.BotGoldAmount >= buildSteps[currBuildIndex].BuildingConfig.Cost)
+            if (goldManager.BotGoldAmount >= buildSteps[currBuildIndex].BuildingConfig.Cost && buildingsLimitManager.CanBuild(Team.Team2))
             {
                 PlaceBuilding(currBuildIndex);
                 goldManager.MakeGoldChange(-buildSteps[currBuildIndex].BuildingConfig.Cost, Team.Team2);
