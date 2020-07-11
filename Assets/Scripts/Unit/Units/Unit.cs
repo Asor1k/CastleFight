@@ -74,7 +74,6 @@ namespace CastleFight
         
         public virtual void Attack(IDamageable target)
         {
-            Debug.Log(gameObject.name);
             if(!target.Alive || !alive || !readyToAttack) return;
             readyToAttack = false;
             StartAttackCooldown();

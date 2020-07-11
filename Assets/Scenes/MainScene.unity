@@ -4569,7 +4569,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[0].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
+      objectReference: {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4,
         type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
