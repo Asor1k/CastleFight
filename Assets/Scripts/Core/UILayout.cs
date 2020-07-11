@@ -4,7 +4,7 @@ namespace CastleFight.Core
 {
     public class UILayout : MonoBehaviour
     {
-        [SerializeField] private Canvas canvas;
+        [SerializeField] protected Canvas canvas;
 
         public virtual void Show()
         {

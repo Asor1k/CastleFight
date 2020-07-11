@@ -18,11 +18,13 @@ namespace CastleFight
 
         private void Start()
         {
-            goldManager = GetComponent<GoldManager>();
+            goldManager = ManagerHolder.I.GetManager<GoldManager>();
+
         }
 
         private void OnDestroy()
         {
+
             Lock();
         }
 
@@ -82,7 +84,7 @@ namespace CastleFight
                 
                 if (Input.GetMouseButtonDown(0) && canPlace)
                 {
-                    goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost);
+                    goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost, Team.Team1);
                     buildingBehavior.Place(team);
                     buildingBehavior = null;
                 }

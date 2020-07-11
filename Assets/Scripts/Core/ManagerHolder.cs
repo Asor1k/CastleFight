@@ -27,7 +27,10 @@ namespace CastleFight.Core
 
             return default;
         }
-
+        public void Clear()
+        {
+            managers.Clear();
+        }
         public void AddManager(object manager)
         {
             managers.Add(manager);

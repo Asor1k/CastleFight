@@ -27,22 +27,15 @@ namespace CastleFight.MainMenu
             this.raceChosenEvent = raceChosenEvent;
         }
 
-        //Begin [Asor1k]
         public void StartNewGame()
         {
-            Debug.Log("New game started");
             EventBusController.I.Bus.Publish(new RestartGameEvent());
             SceneManager.LoadScene(0);
-            //Restart game
         }
         public void ExitGame()
         {
-            Debug.Log("Exit");
             Application.Quit();
-            //Exit game
         }
-        //End [Asor1k]
-
         public void PrepareGameSet()
         {
             if (raceChosenEvent?.UserRaceConfig == null)
@@ -67,7 +60,7 @@ namespace CastleFight.MainMenu
         {
             foreach (var config in raceSet.RaceConfigs)
             {
-                if (config.Equals(raceChosenEvent.UserRaceConfig) == false)
+                if (!config.Equals(raceChosenEvent.UserRaceConfig))
                 {
                     return config;
                 }
