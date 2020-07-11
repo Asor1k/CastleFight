@@ -25,6 +25,12 @@ MonoBehaviour:
     GoldDelay: 5
     Delay: 10
     Cost: 100
+  - Unit: {fileID: 11400000, guid: d68b7358a15e38e4fa0faeb51aedfa44, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 100
   prefab: {fileID: 3769575545502128820, guid: 95bb6a0a139d62a42ab93fd03104ffab, type: 3}
   icon: {fileID: 0}
   buildingName: Altar of Kings

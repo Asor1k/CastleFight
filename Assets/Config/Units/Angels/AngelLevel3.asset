@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ea60823bfbc0d4d95f42fd4cebd756, type: 3}
+  m_Name: AngelLevel3
+  m_EditorClassIdentifier: 
+  speed: 3
+  attackDistance: 3
+  maxHp: 500
+  prefab: {fileID: 2210365828415378932, guid: 1ae5b413c1dc0f74282edc3d64e5ebd5, type: 3}
+  icon: {fileID: 0}
+  enemyDetectRange: 10
+  attackDelay: 1
+  damage: 100
+  cost: 10
+  goldDmgPercent: 10
