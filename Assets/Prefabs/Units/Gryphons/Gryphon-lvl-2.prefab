@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f5bd5a1618e804badab7d54b6ea80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
+  unit: {fileID: 6789630306314732085}
   animator: {fileID: 5204483624078267251}
 --- !u!114 &7284311028908779700
 MonoBehaviour:
@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 5853490943356552275}
-  unit: {fileID: 0}
+  unit: {fileID: 6789630306314732085}
 --- !u!114 &5853490943356552275
 MonoBehaviour:
   m_ObjectHideFlags: 0
