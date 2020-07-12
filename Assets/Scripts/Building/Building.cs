@@ -56,7 +56,7 @@ namespace CastleFight
         
         public void UpgradeBuilding()
         {
-            if (lvl > config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
+            if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
 
             lvl++;  
             goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost,Team.Team1);
