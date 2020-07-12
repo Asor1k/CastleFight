@@ -86,8 +86,6 @@ namespace CastleFight
 
         private void UpdateUpgradeLabel()
         {
-            if (gameObject.layer != (int)Team.Team1) return;
-            
             if(lvl < config.Levels.Count)
                upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
              else
