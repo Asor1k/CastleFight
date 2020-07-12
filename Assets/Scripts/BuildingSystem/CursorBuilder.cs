@@ -67,7 +67,7 @@ namespace CastleFight
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnoughToBuild(buildingBehavior) || Input.GetMouseButtonDown(1) || !buildingLimitManager.CanBuild(team)) 
+            if (!goldManager.IsEnough(buildingBehavior.Building.Config.Cost) || Input.GetMouseButtonDown(1) || !buildingLimitManager.CanBuild(team)) 
             {
                 CancelBuilding();
                 return;

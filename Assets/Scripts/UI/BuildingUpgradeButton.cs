@@ -11,6 +11,10 @@ namespace CastleFight.UI
         [SerializeField] private Text costLabel;
         [SerializeField] private Building building;
 
+        public void Start()
+        {
+            Hide();
+        }
         public void SetCostLabel(string cost)
         {
             costLabel.text = cost.ToString();
