@@ -56,7 +56,7 @@ namespace CastleFight
         
         public void UpgradeBuilding()
         {
-            if (lvl > config.Levels.Count || !goldManager.IsEnoughToBuild(behavior)) return;
+            if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
 
             lvl++;  
             goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost,Team.Team1);
@@ -86,8 +86,6 @@ namespace CastleFight
 
         private void UpdateUpgradeLabel()
         {
-            if (gameObject.layer != (int)Team.Team1) return;
-            
             if(lvl < config.Levels.Count)
                upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
              else

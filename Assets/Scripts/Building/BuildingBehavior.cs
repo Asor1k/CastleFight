@@ -12,7 +12,8 @@ namespace CastleFight
         public Team Team => team;
         public Building Building => building;
         public float OffsetY  => offsetY;
-        
+        public bool IsPlaced => isPlaced;
+
         [SerializeField] private Collider col;
         [SerializeField] private NavMeshObstacle obstacle;
         [SerializeField] private Building building;

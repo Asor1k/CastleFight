@@ -11,9 +11,13 @@ namespace CastleFight.UI
         [SerializeField] private Text costLabel;
         [SerializeField] private Building building;
 
+        public void Start()
+        {
+            Hide();
+        }
         public void SetCostLabel(string cost)
         {
-            costLabel.text = cost.ToString();
+            costLabel.text = cost;
         }
 
         public void OnButtonClick()
@@ -29,6 +33,12 @@ namespace CastleFight.UI
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        private IEnumerator DelayHide()
+        {
+            yield return new WaitForSeconds(0.1f);
+            Hide();
         }
     }
 }

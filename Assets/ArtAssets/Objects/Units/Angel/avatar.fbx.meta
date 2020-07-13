@@ -3,7 +3,22 @@ guid: d4f6cac244796214590af7900a3f77b3
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor_MTL1
+    second: {fileID: 2100000, guid: db8a142c08124bb4bb66551501883dd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_MTL
+    second: {fileID: 2100000, guid: 6d4b22b70cc6143429d2de31edf4d604, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sword1
+    second: {fileID: 2100000, guid: 404b971cbf72bfa4d8520c794040a551, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
