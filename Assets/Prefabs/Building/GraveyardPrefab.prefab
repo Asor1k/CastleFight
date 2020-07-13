@@ -254,6 +254,11 @@ PrefabInstance:
       propertyPath: building
       value: 
       objectReference: {fileID: -546456028477452519}
+    - target: {fileID: 2451324210973206345, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4824583960071267033, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: stats

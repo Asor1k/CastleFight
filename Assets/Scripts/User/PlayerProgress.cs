@@ -22,10 +22,19 @@ namespace CastleFight
             }
             else
             {
-                data = new PlayerData();
-                SaveManager.Save(playerProgressFileName, data);
+                CreateNewData();
+            }
+            if (data == null)
+            {
+                CreateNewData();
             }
             EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
+        }
+
+        private void CreateNewData()
+        {
+            data = new PlayerData();
+            SaveManager.Save(playerProgressFileName, data);
         }
         public void OnApplicationQuit()
         {

@@ -11,6 +11,7 @@ namespace CastleFight
         [SerializeField] private Team team;
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
+        private BuildingsLimitManager buildingLimitManager;
         private GoldManager goldManager;
         private Ray ray;
         private GameObject currentGo;
@@ -19,12 +20,11 @@ namespace CastleFight
         private void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
-
+            buildingLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
         }
 
         private void OnDestroy()
         {
-
             Lock();
         }
 
@@ -47,15 +47,14 @@ namespace CastleFight
         private void Clear()
         {
             if (buildingBehavior != null)
-            {
-                Debug.Log("Destroy");
+            { 
                 buildingBehavior.Destroy();
             }
         }
 
         public void SetBuilding(BuildingBehavior buildingBehavior)
         {
-            this.buildingBehavior = buildingBehavior;  
+            this.buildingBehavior = buildingBehavior;
         }
         
         private void CancelBuilding()
@@ -68,7 +67,7 @@ namespace CastleFight
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnoughToBuild(buildingBehavior) || Input.GetMouseButtonDown(1)) 
+            if (!goldManager.IsEnough(buildingBehavior.Building.Config.Cost) || Input.GetMouseButtonDown(1) || !buildingLimitManager.CanBuild(team)) 
             {
                 CancelBuilding();
                 return;
@@ -84,18 +83,24 @@ namespace CastleFight
                 
                 if (Input.GetMouseButtonDown(0) && canPlace)
                 {
-                    goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost, Team.Team1);
-                    buildingBehavior.Place(team);
-                    buildingBehavior = null;
+                    Build();
                 }
             }
+        }
+
+        private void Build()
+        {
+            buildingLimitManager.AddBuilding(team);
+            goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost, Team.Team1);
+            buildingBehavior.Place(team);
+            buildingBehavior = null;
         }
 
         public override void Unlock()
         {
             SubscribeToBuildingChosenEvent();
         }
-       
+        
         public override void Lock()
         {
             UnsubscribeToBuildingChosenEvent();

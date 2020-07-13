@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AngelLevel2Sword
+  m_Name: Body_MTL
   m_Shader: {fileID: 4800000, guid: f981d68c76f27be4e9683353421d9f01, type: 3}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 8c03de1c1c5002f4baa5be316ad925bb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 52f6e45323eb0be46b7ce41039a68612, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 07a2e6d3e1cd9ab41a52db4ada1f833c, type: 3}
+        m_Texture: {fileID: 2800000, guid: f5866fcc9c9c1d547b385354229fdaf3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5665f40ce95dc3b46a0f0a6f3477bffd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 835f2ef0b881cf64396e8c6739be9525, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: fa8817ce985cd7d4a869b480478f1953, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3bc11ad5e444b094192270000a6b2f1f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -61,7 +61,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -74,4 +74,4 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.7578583, g: 0.7578583, b: 0.7578583, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

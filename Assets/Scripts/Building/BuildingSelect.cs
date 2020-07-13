@@ -18,6 +18,7 @@ namespace CastleFight
 
         private void BuildingSelectHandler(BuildingClickedEvent eventData)
         {
+            BuildingDeselectHandler(new BuildingDeselectedEvent());
             selectedBuilding = eventData.behavior;
             
             selectedBuilding.Building.Select();
@@ -28,6 +29,10 @@ namespace CastleFight
             if(selectedBuilding != null)
                 selectedBuilding.Building.Deselect();
         }
-
+        private void OnDestroy()
+        {
+            EventBusController.I.Bus.Unsubscribe<BuildingClickedEvent>(BuildingSelectHandler);
+            EventBusController.I.Bus.Unsubscribe<BuildingDeselectedEvent>(BuildingDeselectHandler);
+        }
     }
 }
