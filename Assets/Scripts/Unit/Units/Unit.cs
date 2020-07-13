@@ -78,14 +78,17 @@ namespace CastleFight
             readyToAttack = false;
             StartAttackCooldown();
             agent.LookAt(target.Transform);
-            if(target.Type == TargetType.Building || target.Type == TargetType.Castle)
-            {
-                int gold = GetGoldPerHit();
-                goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
-                if (gameObject.layer == (int)Team.Team1)
-                    InitGoldAnim(config.Cost);
-            }
-            animationController.Attack(()=>{target.TakeDamage(config.Damage);});
+           
+            animationController.Attack(()=>{
+                target.TakeDamage(config.Damage);
+                if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
+                {
+                    int gold = GetGoldPerHit();
+                    goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
+                    if (gameObject.layer == (int)Team.Team1)
+                        InitGoldAnim(config.Cost,target.Transform);
+                }
+            });
         }
         private int GetGoldPerHit()
         {
@@ -98,8 +101,10 @@ namespace CastleFight
             agent.Disable();
             healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
-            if(gameObject.layer == (int)Team.Team2) 
-             InitGoldAnim(config.Cost);
+            if (gameObject.layer == (int)Team.Team2)
+            {
+                InitGoldAnim(config.Cost, transform);
+            }
             OnKilled?.Invoke();
             DelayDestroy();
         }
@@ -125,7 +130,7 @@ namespace CastleFight
                 Kill();
             }
         }
-        private void InitGoldAnim(int gold)
+        private void InitGoldAnim(int gold, Transform transform)
         {
             GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
             if(goldAnim == null)
@@ -137,6 +142,17 @@ namespace CastleFight
                 goldAnim.gameObject.SetActive(true);
                 goldAnim.transform.SetParent(transform);
                 goldAnim.transform.localPosition = Vector3.zero;
+                if (target != null)
+                {
+                    if (target.Type == TargetType.Castle)
+                    {
+                        Debug.Log("HUI");
+                    }
+                }
+                goldAnim.transform.localPosition = new Vector3(0,0.2f,0);
+                goldAnim.transform.localScale = new Vector3(1f / transform.localScale.x, 1f / transform.localScale.y, 1f / transform.localScale.z);
+
+                // goldAnim.transform.lossyScale.Set(1f / transform.lossyScale.x, 1f / transform.lossyScale.y, 1f / transform.lossyScale.z);
             }
             goldAnim.Init(gold);
             StartCoroutine(DelayDestroyAnim(goldAnim));
@@ -146,6 +162,7 @@ namespace CastleFight
         {
             yield return new WaitForSeconds(1);
             anim.gameObject.SetActive(false);
+            Pool.I.Put(anim);
         }
         private async Task StartAttackCooldown()
         {
