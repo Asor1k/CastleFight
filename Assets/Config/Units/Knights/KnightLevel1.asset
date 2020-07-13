@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: KnightLevel1
   m_EditorClassIdentifier: 
   speed: 3
-  attackDistance: 3
+  attackDistance: 2
   maxHp: 500
   prefab: {fileID: 2905682080975651303, guid: b6268036936b7a242878ca5bed987435, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 1
   damage: 10
+  cost: 0
+  goldDmgPercent: 0

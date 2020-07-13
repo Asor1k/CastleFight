@@ -59,7 +59,7 @@ namespace CastleFight
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
                 distanceToTarget -= GetInnerObgectSize(targetScale, distanceToTarget);
-                
+        
                 if(distanceToTarget <= unit.AttackDistance)
                 {
                     unit.Stop();
@@ -75,7 +75,8 @@ namespace CastleFight
 
         private float GetInnerObgectSize(Vector3 targetScale, float distance)
         {
-            return distance * (1 - (transform.position.z - targetScale.z / 2) / transform.position.z);
+            float distanceZ = Mathf.Abs(transform.position.z - currentTarget.Transform.position.z);
+            return distance * (1 - (distanceZ - targetScale.z / 2) / distanceZ);
         }
         private IEnumerator UpdateTargetCoroutine()
         {
