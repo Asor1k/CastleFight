@@ -6,10 +6,9 @@ using TMPro;
 
 namespace CastleFight.UI
 {
-    public class BuildingUpgradeButton : MonoBehaviour
+    public class BuildingUpgradeButton : BuildingButton
     {
         [SerializeField] private Text costLabel;
-        [SerializeField] private Building building;
 
         public void Start()
         {
@@ -25,20 +24,5 @@ namespace CastleFight.UI
             building.UpgradeBuilding();
         }
 
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
-
-        private IEnumerator DelayHide()
-        {
-            yield return new WaitForSeconds(0.1f);
-            Hide();
-        }
     }
 }

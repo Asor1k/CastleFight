@@ -14,10 +14,10 @@ namespace CastleFight
         private float xPercentCursorPos;
         private float yPercentCursorPos;
 
-        [SerializeField] private float minY;
-        [SerializeField] private float maxY;
+        [SerializeField] private float delta;
         [SerializeField] private float minX;
         [SerializeField] private float maxX;
+        [SerializeField] float speed = 60;
         private bool isBlockedRight;
         private bool isBlockedUp;
         private bool isBlockedLeft;
@@ -25,18 +25,27 @@ namespace CastleFight
         private float timer;
         bool isMoving = false;
         bool isBoosting = false;
-        float speed = 60;
+       
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                isMoving = true;
-            }
+            
 
-            if (isMoving)
+            if (Input.GetMouseButton(0))
             {
-                camTr.position -= (new Vector3(0, 0, Input.GetAxis("Mouse X")) * speed) * Time.deltaTime;
+                if (!isMoving)
+                {
+                    isMoving = true;
+                    return;
+                }
+                float x = Input.GetAxis("Mouse X");
+              
+                x = x >= maxX ? maxX : x;
+                x = x <= minX ? minX : x;
+               // x = Mathf.Abs(x) > delta ? x : 0f;
+                
+                Vector3 pos = (new Vector3(0, 0, x) * speed) * Time.deltaTime;
+                camTr.position -= pos;
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -65,8 +74,9 @@ namespace CastleFight
         {
             if (camTr.position.z >= maxX) isBlockedRight = true;
             if (camTr.position.z <= minX) isBlockedLeft = true;
-            if (camTr.position.x >= maxY) isBlockedDown = true;
+    /*        if (camTr.position.x >= maxY) isBlockedDown = true;
             if (camTr.position.x <= minY) isBlockedUp = true;
+    */   
         }
 
         private void CheckCursorPosition()

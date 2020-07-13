@@ -12,7 +12,8 @@ namespace CastleFight.Config
         public string Name => buildingName;
         public int Cost => cost;
         public List<BuildingLevelConfig> Levels => levels;
-        
+        public int SumForSale => sumForSale;
+
         [SerializeField]
         private List<BuildingLevelConfig> levels;
         [SerializeField]
@@ -23,7 +24,8 @@ namespace CastleFight.Config
         protected string buildingName;
         [SerializeField]
         protected int cost;
-
+        [SerializeField]
+        protected int sumForSale;
 
         public virtual Building Create()
         {
@@ -43,5 +45,6 @@ namespace CastleFight.Config
         public int GoldDelay;
         public int Delay;
         public int Cost;
+        public int SumForSale;
     }
 }

@@ -16,8 +16,9 @@ namespace CastleFight {
         public void Start()
         {
             buildingManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
-            buildingManager.UserPlaced += OnUserPlaced;
+            buildingManager.UserUpdateLabel += OnUpdateLable;
             buildingManager.UserTryWithMaximum += OnUserTryWithMaximum;
+       
         }
 
         private void OnUserTryWithMaximum()
@@ -33,11 +34,11 @@ namespace CastleFight {
             }
             StartCoroutine(DelayDestroy(limitPopup));
         }
-
-        private void OnUserPlaced()
+        private void OnUpdateLable()
         {
             limitText.text = buildingManager.BuildingsCount(Team.Team1).ToString() + " / " + buildingManager.BuildingLimitConfig.MaxBuildingsPerTeam;
         }
+        
         private IEnumerator DelayDestroy(BuildingLimitPopup limitPopup)
         {
             yield return new WaitForSeconds(1);

@@ -19,31 +19,37 @@ MonoBehaviour:
     GoldDelay: 10
     Delay: 10
     Cost: 80
+    SumForSale: 5
   - Unit: {fileID: 11400000, guid: a9837355940362e45b5ed84b1c0e0eaf, type: 2}
     MaxHp: 1000
     GoldIncome: 10
     GoldDelay: 10
     Delay: 10
     Cost: 80
+    SumForSale: 5
   - Unit: {fileID: 11400000, guid: 7ca6522ddabfbf443ab227601e6b07db, type: 2}
     MaxHp: 1000
     GoldIncome: 10
     GoldDelay: 10
     Delay: 1
     Cost: 80
+    SumForSale: 5
   - Unit: {fileID: 11400000, guid: 652a91417c0ab184b94d0e05e693d5cb, type: 2}
     MaxHp: 1000
     GoldIncome: 10
     GoldDelay: 10
     Delay: 10
     Cost: 80
+    SumForSale: 0
   - Unit: {fileID: 11400000, guid: 7d76b940f39705849aaa442d8a5eef15, type: 2}
     MaxHp: 1000
     GoldIncome: 10
     GoldDelay: 10
     Delay: 10
     Cost: 80
+    SumForSale: 0
   prefab: {fileID: 7608270241480408792, guid: c32b31f78f506b14e8669ad75a5184f4, type: 3}
   icon: {fileID: 0}
   buildingName: KnightTent
   cost: 10
+  sumForSale: 5
