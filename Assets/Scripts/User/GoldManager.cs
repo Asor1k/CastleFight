@@ -19,14 +19,17 @@ namespace CastleFight
         [SerializeField]
         private Text goldText;
         [SerializeField]
-        private int userGoldAmount = 0;
-        [SerializeField]
-        private int botGoldAmount = 0;
+        private FirstGoldConfig firstGoldConfig;
+        
+       
         [SerializeField]
         private Text notEnoghGoldText;
         [SerializeField]
         private UserController userController;
-
+        
+        private int userGoldAmount;
+        private int botGoldAmount;
+       
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
@@ -34,6 +37,8 @@ namespace CastleFight
         public void Start()
         {
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameStart);
+            userGoldAmount = firstGoldConfig.UserGold;
+            botGoldAmount = firstGoldConfig.BotGold;
         }
 
         private void OnGameStart(GameSetReadyEvent gameSetReadyEvent)
