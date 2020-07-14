@@ -2303,7 +2303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513355848
 GameObject:
@@ -3603,7 +3603,7 @@ PrefabInstance:
     - target: {fileID: 2327882026304535394, guid: 81c64e95e9579418c873d6b1040e34a2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2327882026304535394, guid: 81c64e95e9579418c873d6b1040e34a2,
         type: 3}
@@ -4024,7 +4024,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[1].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
+      objectReference: {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4583,7 +4583,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[0].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
+      objectReference: {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60,
         type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4623,7 +4623,7 @@ PrefabInstance:
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}

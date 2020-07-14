@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: GryphonAviaryConfig
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  - Unit: {fileID: 11400000, guid: e37023dd5a88d9940863997f48a1c65e, type: 2}
     MaxHp: 1000
     GoldIncome: 1
     GoldDelay: 5
     Delay: 10
     Cost: 0
-  prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
+  - Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 80
+  prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
   icon: {fileID: 0}
   buildingName: Gryphon Aviary
-  cost: 100
+  cost: 82

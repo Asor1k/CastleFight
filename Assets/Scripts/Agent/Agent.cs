@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using CastleFight.Config;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,18 +13,20 @@ namespace CastleFight
     {
         public float Speed{get{return agent.velocity.magnitude;}}
         public bool IsStopped { get { return agent.isStopped; } }
-
+        
         [SerializeField]
         protected NavMeshAgent agent;
         [SerializeField]
         protected NavMeshObstacle obstacle;
+        private BaseUnitConfig unitConfig;
         
-        private void Start()
+        public void Init(BaseUnitConfig unitConfig)
         {
             agent.autoBraking = true;
             agent.autoRepath = true;
             obstacle.carving = true;
             NavMesh.avoidancePredictionTime = 0.5f;
+            agent.speed = unitConfig.Speed;
         }
         
         public virtual void MoveTo(Vector3 position)
