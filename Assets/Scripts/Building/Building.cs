@@ -60,7 +60,6 @@ namespace CastleFight
         {
             Destroy();
             goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
-            buildingsLimitManager.DeleteBuilding(Team.Team1);
         }
 
         public void UpgradeBuilding()
@@ -108,6 +107,7 @@ namespace CastleFight
             isStanding = false;
             col.enabled = false;
             obstacle.enabled = false;
+            buildingsLimitManager.DeleteBuilding(Team.Team1);
             Deselect();
             StartCoroutine(DestroyCoroutine());
         }
