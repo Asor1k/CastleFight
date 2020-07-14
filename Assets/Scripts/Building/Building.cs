@@ -75,7 +75,6 @@ namespace CastleFight
         public void Select()
         {
             if (lvl == config.Levels.Count) return;
-            
             upgradeButton.Show();
         }
 

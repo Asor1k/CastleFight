@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: -4898533986171169515}
   m_Layer: 0
   m_Name: GrifTowerPrefab
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,6 +765,11 @@ PrefabInstance:
       propertyPath: building
       value: 
       objectReference: {fileID: 6567052194844129819}
+    - target: {fileID: 2451324210973206345, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4824583960071267033, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: stats
