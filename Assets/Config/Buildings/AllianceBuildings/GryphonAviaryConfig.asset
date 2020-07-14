@@ -24,8 +24,8 @@ MonoBehaviour:
     GoldIncome: 1
     GoldDelay: 5
     Delay: 10
-    Cost: 0
+    Cost: 80
   prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
   icon: {fileID: 0}
   buildingName: Gryphon Aviary
-  cost: 100
+  cost: 82

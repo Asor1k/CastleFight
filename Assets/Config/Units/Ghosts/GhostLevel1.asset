@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3751c3ed8298edd42b24fe74a5d281d0, type: 3}
   m_Name: GhostLevel1
   m_EditorClassIdentifier: 
-  speed: 3
-  attackDistance: 3
-  maxHp: 500
+  speed: 2
+  attackDistance: 6
+  maxHp: 300
   prefab: {fileID: 3138134609941368957, guid: de996ea5f78a62649bb492e3e40120fa, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
-  attackDelay: 1
-  damage: 100
-  cost: 10
+  attackDelay: 1.5
+  damage: 135
+  cost: 15
   goldDmgPercent: 10

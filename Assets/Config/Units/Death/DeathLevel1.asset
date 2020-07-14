@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1807a299f76f3884e9a8425ce42bbc0a, type: 3}
   m_Name: DeathLevel1
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   attackDistance: 3
-  maxHp: 500
+  maxHp: 700
   prefab: {fileID: 997473790396060956, guid: b9d94814d233ae749b8400d113319325, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 100
+  enemyDetectRange: 10
   attackDelay: 1
-  damage: 100
-  cost: 15
-  goldDmgPercent: 3
+  damage: 200
+  cost: 30
+  goldDmgPercent: 10

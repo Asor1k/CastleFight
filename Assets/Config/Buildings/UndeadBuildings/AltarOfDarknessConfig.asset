@@ -22,4 +22,4 @@ MonoBehaviour:
   prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
   icon: {fileID: 0}
   buildingName: Altar of Darkness
-  cost: 100
+  cost: 175

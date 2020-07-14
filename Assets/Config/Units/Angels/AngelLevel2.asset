@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07631f7ada6ee2447a41f2b3f9cdd461, type: 3}
   m_Name: AngelLevel2
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   attackDistance: 3
-  maxHp: 800
+  maxHp: 1100
   prefab: {fileID: 1343882039070817968, guid: 25b98671addf17c4bbc7257e4fab3eac, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 0.8
-  damage: 200
-  cost: 20
+  damage: 170
+  cost: 45
   goldDmgPercent: 10

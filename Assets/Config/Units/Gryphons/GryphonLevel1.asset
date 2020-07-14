@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 3
-  maxHp: 500
+  maxHp: 400
   prefab: {fileID: 4893965998705981292, guid: f59830293a2f9154ea5866df15f4638b, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
-  attackDelay: 2
-  damage: 100
-  cost: 10
+  attackDelay: 1
+  damage: 80
+  cost: 15
   goldDmgPercent: 10
