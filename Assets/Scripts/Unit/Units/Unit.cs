@@ -86,7 +86,7 @@ namespace CastleFight
                     int gold = GetGoldPerHit();
                     goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
                     if (gameObject.layer == (int)Team.Team1)
-                        InitGoldAnim(config.Cost,target.Transform);
+                        InitGoldAnim(gold,target.Transform);
                 }
             });
         }

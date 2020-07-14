@@ -30,7 +30,6 @@ namespace CastleFight
 
             updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
         }
-
         void Update()
         {
             if (!unit.Alive)
@@ -58,8 +57,9 @@ namespace CastleFight
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
-                distanceToTarget -= GetInnerObgectSize(targetScale, distanceToTarget);
-        
+                
+                distanceToTarget -= targetScale.z/2;
+                
                 if(distanceToTarget <= unit.AttackDistance)
                 {
                     unit.Stop();
@@ -71,12 +71,6 @@ namespace CastleFight
                     unit.MoveTo(currentTarget.Transform.position);
             }
 
-        }
-
-        private float GetInnerObgectSize(Vector3 targetScale, float distance)
-        {
-            float distanceZ = Mathf.Abs(transform.position.z - currentTarget.Transform.position.z);
-            return distance * (1 - (distanceZ - targetScale.z / 2) / distanceZ);
         }
         private IEnumerator UpdateTargetCoroutine()
         {
