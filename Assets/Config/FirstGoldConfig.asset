@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84837c2b248d024aab3f7ac78a7b3af, type: 3}
   m_Name: FirstGoldConfig
   m_EditorClassIdentifier: 
-  userGold: 0
-  botGold: 0
+  userGold: 180
+  botGold: 180

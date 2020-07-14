@@ -1629,8 +1629,7 @@ MonoBehaviour:
   goldAnimPrefab: {fileID: 6723233652344805696, guid: c85bb664acf1ac64fa99d3c674c94b7f,
     type: 3}
   goldText: {fileID: 0}
-  userGoldAmount: 180
-  botGoldAmount: 180
+  firstGoldConfig: {fileID: 11400000, guid: 4f39173b6f35efd4da69cb0f2429e86c, type: 2}
   notEnoghGoldText: {fileID: 1834253022470403084, guid: 5aca1078a0017b34e818cbde123d4c02,
     type: 3}
   userController: {fileID: 4934858381824743414}
