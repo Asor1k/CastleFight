@@ -34,7 +34,7 @@ namespace CastleFight
         protected BaseUnitConfig config;
         [SerializeField]
         protected UnitHealthBar healthBarCanvas;
-        
+
         protected Team team;
         protected IDamageable target;
         protected int hp;

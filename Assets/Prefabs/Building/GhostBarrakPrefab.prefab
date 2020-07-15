@@ -161,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99, y: 0.99, z: 0.99}
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Size: {x: 1.7, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.2, z: 0.3}
 --- !u!114 &2852064753154194856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   building: {fileID: -546456028477452519}
   offsetY: 0.35
   user: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 5822633041160850346}
 --- !u!114 &-546456028477452519
 MonoBehaviour:
   m_ObjectHideFlags: 0
