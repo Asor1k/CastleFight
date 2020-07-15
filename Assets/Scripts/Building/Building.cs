@@ -106,7 +106,7 @@ namespace CastleFight
             isStanding = false;
             col.enabled = false;
             obstacle.enabled = false;
-            buildingsLimitManager.DeleteBuilding(Team.Team1);
+            buildingsLimitManager.DeleteBuilding((Team)gameObject.layer);
             Deselect();
             StartCoroutine(DestroyCoroutine());
         }
