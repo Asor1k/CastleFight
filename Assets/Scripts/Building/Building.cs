@@ -59,6 +59,7 @@ namespace CastleFight
         public void SellBuilding()
         {
             Destroy();
+            goldManager.InitGoldAnim(config.Levels[lvl - 1].SumForSale, transform);
             goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
         }
 

@@ -87,7 +87,7 @@ namespace CastleFight
                     int gold = GetGoldPerHit();
                     goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
                     if (gameObject.layer == (int)Team.Team1)
-                        InitGoldAnim(gold,target.Transform);
+                        goldManager.InitGoldAnim(gold,target.Transform);
                 }
             });
         }
@@ -106,7 +106,7 @@ namespace CastleFight
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
             if (gameObject.layer == (int)Team.Team2)
             {
-                InitGoldAnim(config.Cost, transform);
+                goldManager.InitGoldAnim(config.Cost, transform);
             }
             OnKilled?.Invoke();
             DelayDestroy();
@@ -133,40 +133,7 @@ namespace CastleFight
                 Kill();
             }
         }
-        private void InitGoldAnim(int gold, Transform transform)
-        {
-            GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
-            if(goldAnim == null)
-            {
-                goldAnim = Instantiate(goldManager.goldAnimPrefab, transform);
-            }
-            else
-            {
-                goldAnim.gameObject.SetActive(true);
-                goldAnim.transform.SetParent(transform);
-                goldAnim.transform.localPosition = Vector3.zero;
-                if (target != null)
-                {
-                    if (target.Type == TargetType.Castle)
-                    {
-                        Debug.Log("HUI");
-                    }
-                }
-                goldAnim.transform.localPosition = new Vector3(0,0.2f,0);
-                goldAnim.transform.localScale = new Vector3(1f / transform.localScale.x, 1f / transform.localScale.y, 1f / transform.localScale.z);
 
-                // goldAnim.transform.lossyScale.Set(1f / transform.lossyScale.x, 1f / transform.lossyScale.y, 1f / transform.lossyScale.z);
-            }
-            goldAnim.Init(gold);
-            StartCoroutine(DelayDestroyAnim(goldAnim));
-        }
-
-        private IEnumerator DelayDestroyAnim(GoldAnim anim)
-        {
-            yield return new WaitForSeconds(1);
-            anim.gameObject.SetActive(false);
-            Pool.I.Put(anim);
-        }
         private async Task StartAttackCooldown()
         {
             var miliseconds = config.AttackDelay * 1000;
