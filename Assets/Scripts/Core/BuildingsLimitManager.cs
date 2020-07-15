@@ -26,7 +26,6 @@ namespace CastleFight
         {
             if (!buildingsBuilt.ContainsKey(team))
             {
-                Debug.Log(team);
                 buildingsBuilt.Add(team, 1);
             }
             else

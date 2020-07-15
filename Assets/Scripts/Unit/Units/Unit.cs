@@ -79,7 +79,7 @@ namespace CastleFight
             readyToAttack = false;
             StartAttackCooldown();
             agent.LookAt(target.Transform);
-           
+            
             animationController.Attack(()=>{
                 target.TakeDamage(config.Damage);
                 if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
