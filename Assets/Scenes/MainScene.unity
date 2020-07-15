@@ -1633,6 +1633,8 @@ MonoBehaviour:
   notEnoghGoldText: {fileID: 1834253022470403084, guid: 5aca1078a0017b34e818cbde123d4c02,
     type: 3}
   userController: {fileID: 4934858381824743414}
+  userGoldAmount: 0
+  botGoldAmount: 0
 --- !u!114 &1051771388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4027,7 +4029,7 @@ PrefabInstance:
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: buildSteps.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4043,7 +4045,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[1].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4,
+      objectReference: {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4054,7 +4056,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[2].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60,
+      objectReference: {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4,
         type: 2}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4602,7 +4604,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildSteps.Array.data[0].BuildingConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60,
+      objectReference: {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e,
         type: 2}
     - target: {fileID: 5311003990444949554, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}

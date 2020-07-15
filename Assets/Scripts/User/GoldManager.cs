@@ -26,8 +26,9 @@ namespace CastleFight
         private Text notEnoghGoldText;
         [SerializeField]
         private UserController userController;
-        
+        [SerializeField]
         private int userGoldAmount;
+        [SerializeField]
         private int botGoldAmount;
        
         public void Awake()

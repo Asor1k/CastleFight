@@ -15,7 +15,7 @@ namespace CastleFight
         [SerializeField] private BuildingLimitConfig buildingLimitConfig;
 
         private Dictionary<Team, int> buildingsBuilt;
-
+        public int BuildingsCount(Team team) => buildingsBuilt[team];
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
@@ -26,6 +26,7 @@ namespace CastleFight
         {
             if (!buildingsBuilt.ContainsKey(team))
             {
+                Debug.Log(team);
                 buildingsBuilt.Add(team, 1);
             }
             else
@@ -50,7 +51,6 @@ namespace CastleFight
             }
         }
 
-        public int BuildingsCount(Team team) => buildingsBuilt[team];
         public bool CanBuild(Team team)
         {
             bool canBuild = true;

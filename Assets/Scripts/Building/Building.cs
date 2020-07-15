@@ -103,6 +103,7 @@ namespace CastleFight
 
         public void Destroy()
         {
+            if (!isStanding) return;
             isStanding = false;
             col.enabled = false;
             obstacle.enabled = false;
