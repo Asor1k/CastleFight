@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 2
   attackDistance: 2
   maxHp: 600
-  prefab: {fileID: 0}
+  prefab: {fileID: 1680103467088871816, guid: 97319fe53eb16f9438dc1ecbaeca7be1, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 1.5
