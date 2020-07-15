@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AltarOfDarknessConfig
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  - Unit: {fileID: 11400000, guid: d3e125dd36b652d4a98c791118d45e77, type: 2}
     MaxHp: 1000
     GoldIncome: 1
     GoldDelay: 5
@@ -22,4 +22,4 @@ MonoBehaviour:
   prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
   icon: {fileID: 0}
   buildingName: Altar of Darkness
-  cost: 100
+  cost: 175

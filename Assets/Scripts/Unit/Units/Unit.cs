@@ -55,6 +55,7 @@ namespace CastleFight
             stats.Init(config.MaxHp, config.Speed);
             stats.OnDamaged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
+            agent.Init(config);
             OnInit?.Invoke();
         }
 
@@ -90,10 +91,12 @@ namespace CastleFight
                 }
             });
         }
+        
         private int GetGoldPerHit()
         {
             return Mathf.RoundToInt(config.Damage * config.goldDmgFraction);
         }
+        
         private void Kill()
         {
             alive = false;

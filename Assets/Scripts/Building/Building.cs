@@ -84,7 +84,6 @@ namespace CastleFight
         {
             destroyButton.Show();
             if (lvl == config.Levels.Count) return;
-            
             upgradeButton.Show();
         }
 

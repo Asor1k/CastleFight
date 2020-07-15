@@ -253,9 +253,10 @@ GameObject:
   - component: {fileID: 6196882130712034065}
   - component: {fileID: 2331157157072551451}
   - component: {fileID: 5309257444387567439}
+  - component: {fileID: -4898533986171169515}
   m_Layer: 0
   m_Name: GrifTowerPrefab
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +280,7 @@ Transform:
   - {fileID: 4417344940793502091}
   - {fileID: 8409444195366126962}
   - {fileID: 6247938529120465378}
+  - {fileID: 4600774390497551698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,8 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 5391365603093743726, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
   obstacle: {fileID: 2331157157072551451}
-  building: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
+  building: {fileID: 6567052194844129819}
   offsetY: 1
   user: {fileID: 0}
   rend: {fileID: 4373216664749534237}
@@ -326,14 +327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdf6b122a7bf3c439fe9be2498abd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 5409811227491674541, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
-  behavior: {fileID: 2852064753154194856, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
+  spawnPoint: {fileID: 4600774390497551698}
+  behavior: {fileID: 8264710344464076043}
   stats: {fileID: 5309257444387567439}
   healthBar: {fileID: 8577777125221069786}
   upgradeButton: {fileID: 3672202044789199970}
-  destroyButton: {fileID: 5509605638569705063}
   levelLabel: {fileID: 5866179389634681157}
   col: {fileID: 4332749481859901249}
   obstacle: {fileID: 2331157157072551451}
@@ -349,8 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc775025d86bff40bf85d051ffae204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26,
-    type: 3}
+  building: {fileID: 6567052194844129819}
   spawnTimer: 0
 --- !u!54 &6196882130712034065
 Rigidbody:
@@ -396,6 +393,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4898533986171169515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684661734508677116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a8e3bb7da1b884abfac5e863249f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 5309257444387567439}
+  building: {fileID: 6567052194844129819}
 --- !u!1 &5098669003368369213
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +644,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8338973783719879044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4600774390497551698}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4600774390497551698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8338973783719879044}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8599653029749700079}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8510152770927842908
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +765,11 @@ PrefabInstance:
       propertyPath: building
       value: 
       objectReference: {fileID: 6567052194844129819}
+    - target: {fileID: 2451324210973206345, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4824583960071267033, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: stats
@@ -854,25 +900,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
-        type: 3}
-      propertyPath: building
-      value: 
-      objectReference: {fileID: 6567052194844129819}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24ac4def7d9e6e4eac4f965ba6a4056, type: 3}
---- !u!114 &8577777125221069786 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4824583960071267033, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+--- !u!224 &6247938529120465378 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7154845044039360737, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
     type: 3}
   m_PrefabInstance: {fileID: 3890616766264348931}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5866179389634681157 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7248231643720779846, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
@@ -897,21 +932,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf9af97a568b334b967401ccd51bb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5509605638569705063 stripped
+--- !u!114 &8577777125221069786 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+  m_CorrespondingSourceObject: {fileID: 4824583960071267033, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
     type: 3}
   m_PrefabInstance: {fileID: 3890616766264348931}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 701eacfc513a3f241b128214797f8fbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fa79ded79069ed42ba488f5e98d7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6247938529120465378 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7154845044039360737, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
-    type: 3}
-  m_PrefabInstance: {fileID: 3890616766264348931}
-  m_PrefabAsset: {fileID: 0}

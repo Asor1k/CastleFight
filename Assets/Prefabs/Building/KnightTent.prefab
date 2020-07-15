@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 285327115108769913}
   - component: {fileID: 4015087083842480638}
   - component: {fileID: 6967250349649487475}
+  - component: {fileID: 3315388873642827287}
   m_Layer: 10
   m_Name: KnightTent
   m_TagString: Building
@@ -62,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 6663138362528191129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.078039, y: 1.7005, z: -29.252945}
-  m_LocalScale: {x: 1.5, y: 2, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6552485654212237420}
   - {fileID: 5673377901213338893}
@@ -180,6 +181,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f62e39b66954eb693cee338c3b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3315388873642827287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6663138362528191129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a8e3bb7da1b884abfac5e863249f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 6967250349649487475}
+  building: {fileID: 7608270241480408792}
 --- !u!1001 &3310425606431272428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,7 +433,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 816fcf164052c1742bf94ac5dd7660fb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 816fcf164052c1742bf94ac5dd7660fb,
         type: 3}

@@ -56,8 +56,8 @@ namespace CastleFight
         {
             buildingsLimitManager.AddBuilding(Team.Team2);
             var building = buildSteps[buildInd].BuildingConfig.Create();
-            building.transform.position = buildSteps[buildInd].Point.position + stepOffset*blocksBuilt + new Vector3(0,building.Behavior.OffsetY,0);
-            building.GetComponent<BuildingBehavior>().Place(Team.Team2);
+            building.transform.position = buildSteps[buildInd].Point.position + new Vector3(0, building.Behavior.OffsetY,0) + stepOffset*blocksBuilt;
+            building.Behavior.Place(Team.Team2);
         }
 
         private IEnumerator BotGameTurn()

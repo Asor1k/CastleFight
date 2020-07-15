@@ -22,4 +22,4 @@ MonoBehaviour:
   prefab: {fileID: -546456028477452519, guid: 7398d8d05ae4dea4b99ab709a3525d22, type: 3}
   icon: {fileID: 0}
   buildingName: Graveyard
-  cost: 100
+  cost: 84
