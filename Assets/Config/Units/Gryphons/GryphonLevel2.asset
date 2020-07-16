@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GryphonLevel2
   m_EditorClassIdentifier: 
   speed: 2
-  attackDistance: 3
+  attackDistance: 6
   maxHp: 600
   prefab: {fileID: 6789630306314732085, guid: 3a11217a9d4fbfb4b94bfd782c04dfd4, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 2
   damage: 150
-  cost: 30
+  cost: 55
   goldDmgPercent: 10

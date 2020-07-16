@@ -20,5 +20,5 @@ MonoBehaviour:
   enemyDetectRange: 10
   attackDelay: 0.8
   damage: 170
-  cost: 45
+  cost: 78
   goldDmgPercent: 10
