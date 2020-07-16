@@ -471,6 +471,8 @@ GameObject:
   - component: {fileID: 3352276842567606147}
   - component: {fileID: 3352276842567606144}
   - component: {fileID: 5731746206018142242}
+  - component: {fileID: 9081912878705060345}
+  - component: {fileID: 5922762931656291533}
   - component: {fileID: 3352276842567606145}
   - component: {fileID: 3352276842567606158}
   - component: {fileID: 3352276842567606159}
@@ -551,6 +553,32 @@ MonoBehaviour:
   stats: {fileID: 3352276842567606159}
   config: {fileID: 0}
   healthBarCanvas: {fileID: 3352276841017450758}
+  attackSkill: {fileID: 5922762931656291533}
+--- !u!114 &9081912878705060345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352276842567606152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097128ee93e40d847ac17413575b6499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5922762931656291533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352276842567606152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538029e5283fca04c825fdce6afdb6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileConfig: {fileID: 0}
 --- !u!114 &3352276842567606145
 MonoBehaviour:
   m_ObjectHideFlags: 0

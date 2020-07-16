@@ -6,6 +6,7 @@ using System.Collections;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core;
 using System.Threading.Tasks;
+using CastleFight.Skills;
 
 namespace CastleFight
 {
@@ -34,6 +35,8 @@ namespace CastleFight
         protected BaseUnitConfig config;
         [SerializeField]
         protected UnitHealthBar healthBarCanvas;
+        [SerializeField]
+        protected Skill attackSkill;
         
         protected Team team;
         protected IDamageable target;
@@ -56,6 +59,7 @@ namespace CastleFight
             stats.OnDamaged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             agent.Init(config);
+            attackSkill.Init(config);
             OnInit?.Invoke();
         }
 
@@ -86,7 +90,12 @@ namespace CastleFight
                 if (gameObject.layer == (int)Team.Team1)
                     InitGoldAnim(config.Cost);
             }
-            animationController.Attack(()=>{target.TakeDamage(config.Damage);});
+            
+            animationController.Attack(()=>
+            {
+                attackSkill.SetTarget(target);
+                attackSkill.Execute();
+            });
         }
         
         private int GetGoldPerHit()

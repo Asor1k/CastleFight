@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 557212449117220050}
   - component: {fileID: 7591531950288038802}
   - component: {fileID: 3138134609941368957}
+  - component: {fileID: 8851803776582191683}
   - component: {fileID: 8579825188945307294}
   - component: {fileID: 8558435001988639707}
   - component: {fileID: 7163422240544798966}
@@ -92,6 +93,19 @@ MonoBehaviour:
   stats: {fileID: 7163422240544798966}
   config: {fileID: 0}
   healthBarCanvas: {fileID: 5761032909426039194}
+  attackSkill: {fileID: 8851803776582191683}
+--- !u!114 &8851803776582191683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021683964163207872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097128ee93e40d847ac17413575b6499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8579825188945307294
 MonoBehaviour:
   m_ObjectHideFlags: 0

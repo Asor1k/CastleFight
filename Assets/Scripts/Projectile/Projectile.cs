@@ -10,39 +10,68 @@ namespace CastleFight.Projectiles
         [SerializeField] protected float speed;
         [SerializeField] protected float hitDistance;
         [SerializeField] protected float destroyDelay;
-        [SerializeField] protected ParticleSystem startEffect;
         [SerializeField] protected ParticleSystem runEffect;
         [SerializeField] protected ParticleSystem hitEffect;
         
+        protected Action<Projectile> targetReachCallback;
+        
         private GameObject target;
-        private bool isMoving;
+        private bool isMoving = false;
         
-        
-        public void Init(GameObject target)
+        public void Init(ProjectileConfig config)
         {
-            target = target;
+            speed = config.Speed;
+            hitDistance = config.HitDistance;
+            destroyDelay = config.DestroyDelay;
         }
 
-        public void Launch()
+        public void Launch(Vector3 point, GameObject target, Action<Projectile> targetReachCallback)
         {
+            this.target = target;
+            this.targetReachCallback = targetReachCallback;
+            transform.position = point;
+            isMoving = true;
+            
             RunStartParticles();
-            OnStart();
         }
 
         protected void RunStartParticles()
         {
-            startEffect.Play();
-            runEffect.Play();
+            StopEffect(hitEffect);
+            RunEffect(runEffect);
         }
 
         protected void RunHitParticles()
         {
-            runEffect.Stop();
-            hitEffect.Play();
+            StopEffect(runEffect);    
+            RunEffect(hitEffect);
+        }
+        
+
+        protected virtual void OnHit()
+        {
+            RunEffect(hitEffect);
+            StopEffect(runEffect);
         }
 
-        protected abstract void OnStart();
-        protected abstract void OnHit();
+        private void RunEffect(ParticleSystem effect)
+        {
+            if (effect != null)
+            {
+                effect.gameObject.SetActive(true);
+                effect.time = 0;
+                effect.Play();
+            }
+        }
+
+        private void StopEffect(ParticleSystem effect)
+        {
+            if (effect != null)
+            {
+                effect.gameObject.SetActive(false);
+                effect.Stop();
+            }
+        }
 
         public void Update()
         {
@@ -57,6 +86,7 @@ namespace CastleFight.Projectiles
                 isMoving = false;
                 RunHitParticles();
                 OnHit();
+                targetReachCallback?.Invoke(this);
             }
             
             transform.LookAt(target.transform);

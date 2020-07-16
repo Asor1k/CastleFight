@@ -333,6 +333,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1021018466742796791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8780233368418730632}
+  m_Layer: 0
+  m_Name: ProjectileLaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8780233368418730632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021018466742796791}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.251, z: 0.667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4944303851574924142}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055460042015119897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2289,7 @@ GameObject:
   - component: {fileID: 2401992640488190116}
   - component: {fileID: 2360835438921259847}
   - component: {fileID: 4893965998705981292}
+  - component: {fileID: 1525696398972487894}
   - component: {fileID: 5023288230575649237}
   - component: {fileID: 7945002301702178060}
   - component: {fileID: 5453616080807485527}
@@ -2286,6 +2317,7 @@ Transform:
   m_Children:
   - {fileID: 8537129047672265591}
   - {fileID: 7449597427960791656}
+  - {fileID: 8780233368418730632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2339,6 +2371,21 @@ MonoBehaviour:
   stats: {fileID: 5453616080807485527}
   config: {fileID: 0}
   healthBarCanvas: {fileID: 3213034662524378537}
+  attackSkill: {fileID: 1525696398972487894}
+--- !u!114 &1525696398972487894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781256773420890162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538029e5283fca04c825fdce6afdb6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileConfig: {fileID: 11400000, guid: 10fc26111d1c69448840a161e5105600, type: 2}
+  launchPoint: {fileID: 8780233368418730632}
 --- !u!114 &5023288230575649237
 MonoBehaviour:
   m_ObjectHideFlags: 0
