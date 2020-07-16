@@ -8,14 +8,14 @@ namespace CastleFight
 {
     public class BuildingsLimitManager : MonoBehaviour
     {
-        public Action UserPlaced;
         public Action UserTryWithMaximum;
+        public Action UserUpdateLabel;
         public BuildingLimitConfig BuildingLimitConfig => buildingLimitConfig;
 
         [SerializeField] private BuildingLimitConfig buildingLimitConfig;
 
         private Dictionary<Team, int> buildingsBuilt;
-
+        public int BuildingsCount(Team team) => buildingsBuilt[team];
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
@@ -35,7 +35,7 @@ namespace CastleFight
 
             if(team == Team.Team1)
             {
-                UserPlaced?.Invoke();
+                UserUpdateLabel?.Invoke();
             }
         }
         public void DeleteBuilding(Team team)
@@ -43,11 +43,13 @@ namespace CastleFight
             if (buildingsBuilt.ContainsKey(team))
             {
                 if (buildingsBuilt[team] > 0)
+                {
                     buildingsBuilt[team]--;
+                    UserUpdateLabel?.Invoke();
+                }
             }
         }
 
-        public int BuildingsCount(Team team) => buildingsBuilt[team];
         public bool CanBuild(Team team)
         {
             bool canBuild = true;

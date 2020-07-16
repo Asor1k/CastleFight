@@ -13,13 +13,29 @@ MonoBehaviour:
   m_Name: GraveyardConfig
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
+  - Unit: {fileID: 11400000, guid: 169f32552df193347b2fd7f9f0f9a688, type: 2}
     MaxHp: 1000
     GoldIncome: 1
     GoldDelay: 5
     Delay: 10
-    Cost: 0
+    Cost: 50
+    SumForSale: 30
+  - Unit: {fileID: 11400000, guid: 846558e650238ba479b46784dee538d5, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 50
+    SumForSale: 30
+  - Unit: {fileID: 11400000, guid: 9b26244518356404aab7d53316193af7, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 50
+    SumForSale: 30
   prefab: {fileID: -546456028477452519, guid: 7398d8d05ae4dea4b99ab709a3525d22, type: 3}
   icon: {fileID: 0}
   buildingName: Graveyard
   cost: 84
+  sumForSale: 30

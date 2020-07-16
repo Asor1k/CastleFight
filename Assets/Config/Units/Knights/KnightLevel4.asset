@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8ab98cf7d439643b07413b448f30ae, type: 3}
   m_Name: KnightLevel4
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   attackDistance: 3
-  maxHp: 500
+  maxHp: 1150
   prefab: {fileID: 2756720543292162476, guid: 472c9f692d84a0147b29c985e8c21fad, type: 3}
   icon: {fileID: 0}
   enemyDetectRange: 10
   attackDelay: 1
-  damage: 130
-  cost: 0
-  goldDmgPercent: 0
+  damage: 160
+  cost: 76
+  goldDmgPercent: 10

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6792470798464225311}
   - component: {fileID: 5471743723961303858}
   - component: {fileID: 2139114712465325316}
-  - component: {fileID: 1724646343593685809}
   - component: {fileID: 8598475459216947919}
   - component: {fileID: 3697964639557596129}
   - component: {fileID: 6605496434727197343}
@@ -147,20 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8598475459216947919}
   obstacle: {fileID: 6605496434727197343}
---- !u!114 &1724646343593685809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3785391642239617284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6792457403a3448abd634bca6dc3b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bigCircleImg: {fileID: 8871119316133870235}
-  smallCircleImg: {fileID: 2488933790149556699}
 --- !u!195 &8598475459216947919
 NavMeshAgent:
   m_ObjectHideFlags: 0

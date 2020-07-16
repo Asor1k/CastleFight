@@ -30,7 +30,6 @@ namespace CastleFight
 
             updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
         }
-
         void Update()
         {
             if (!unit.Alive)
@@ -58,7 +57,8 @@ namespace CastleFight
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
-                distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
+                
+                distanceToTarget -= targetScale.z/2;
                 
                 if(distanceToTarget <= unit.AttackDistance)
                 {
@@ -72,7 +72,6 @@ namespace CastleFight
             }
 
         }
-
         private IEnumerator UpdateTargetCoroutine()
         {
             while(true)

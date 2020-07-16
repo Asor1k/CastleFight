@@ -34,7 +34,7 @@ namespace CastleFight
         protected BaseUnitConfig config;
         [SerializeField]
         protected UnitHealthBar healthBarCanvas;
-        
+
         protected Team team;
         protected IDamageable target;
         protected int hp;
@@ -79,14 +79,17 @@ namespace CastleFight
             readyToAttack = false;
             StartAttackCooldown();
             agent.LookAt(target.Transform);
-            if(target.Type == TargetType.Building || target.Type == TargetType.Castle)
-            {
-                int gold = GetGoldPerHit();
-                goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
-                if (gameObject.layer == (int)Team.Team1)
-                    InitGoldAnim(config.Cost);
-            }
-            animationController.Attack(()=>{target.TakeDamage(config.Damage);});
+            
+            animationController.Attack(()=>{
+                target.TakeDamage(config.Damage);
+                if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
+                {
+                    int gold = GetGoldPerHit();
+                    goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
+                    if (gameObject.layer == (int)Team.Team1)
+                        goldManager.InitGoldAnim(gold,target.Transform);
+                }
+            });
         }
         
         private int GetGoldPerHit()
@@ -101,8 +104,10 @@ namespace CastleFight
             agent.Disable();
             healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
-            if(gameObject.layer == (int)Team.Team2) 
-             InitGoldAnim(config.Cost);
+            if (gameObject.layer == (int)Team.Team2)
+            {
+                goldManager.InitGoldAnim(config.Cost, transform);
+            }
             OnKilled?.Invoke();
             DelayDestroy();
         }
@@ -128,28 +133,7 @@ namespace CastleFight
                 Kill();
             }
         }
-        private void InitGoldAnim(int gold)
-        {
-            GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
-            if(goldAnim == null)
-            {
-                goldAnim = Instantiate(goldManager.goldAnimPrefab, transform);
-            }
-            else
-            {
-                goldAnim.gameObject.SetActive(true);
-                goldAnim.transform.SetParent(transform);
-                goldAnim.transform.localPosition = Vector3.zero;
-            }
-            goldAnim.Init(gold);
-            StartCoroutine(DelayDestroyAnim(goldAnim));
-        }
 
-        private IEnumerator DelayDestroyAnim(GoldAnim anim)
-        {
-            yield return new WaitForSeconds(1);
-            anim.gameObject.SetActive(false);
-        }
         private async Task StartAttackCooldown()
         {
             var miliseconds = config.AttackDelay * 1000;

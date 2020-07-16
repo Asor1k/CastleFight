@@ -19,7 +19,9 @@ MonoBehaviour:
     GoldDelay: 5
     Delay: 10
     Cost: 0
-  prefab: {fileID: -546456028477452519, guid: 21444df4b33cd5b44a19d49eb1da5b26, type: 3}
+    SumForSale: 0
+  prefab: {fileID: -546456028477452519, guid: 5de68431c904e2843b3a3dc69db287b2, type: 3}
   icon: {fileID: 0}
   buildingName: Altar of Darkness
   cost: 175
+  sumForSale: 0

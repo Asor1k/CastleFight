@@ -63,7 +63,10 @@ namespace CastleFight
         {
             var unit = building.Config.Levels[building.Lvl - 1].Unit.Create(team);
             unit.transform.position = spawnPoint;
-
+            if(team == Team.Team2)
+            {
+                unit.transform.eulerAngles = new Vector3(0,180,0);
+            }
             EventBusController.I.Bus.Publish(new UnitSpawnedEvent(unit));
 
             return unit;

@@ -29,6 +29,7 @@ namespace CastleFight
         [SerializeField] private BuildingStats stats;
         [SerializeField] private BuildingHealthBar healthBar;
         [SerializeField] private BuildingUpgradeButton upgradeButton;
+        [SerializeField] private DestroyBuildingUI destroyButton;
         [SerializeField] private BuildingLevelLabel levelLabel;
         [SerializeField] private Collider col;
         [SerializeField] private NavMeshObstacle obstacle;
@@ -38,10 +39,11 @@ namespace CastleFight
         private int lvl;
         private bool spawnBlocked = false;
         private bool isStanding = true;
-
+        private BuildingsLimitManager buildingsLimitManager;
         private void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
+            buildingsLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
         }
 
         public void Init(BaseBuildingConfig config)
@@ -54,6 +56,13 @@ namespace CastleFight
             UpdateUpgradeLabel();
         }
         
+        public void SellBuilding()
+        {
+            Destroy();
+            goldManager.InitGoldAnim(config.Levels[lvl - 1].SumForSale, transform);
+            goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
+        }
+
         public void UpgradeBuilding()
         {
             if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
@@ -74,6 +83,7 @@ namespace CastleFight
 
         public void Select()
         {
+            destroyButton.Show();
             if (lvl == config.Levels.Count) return;
             upgradeButton.Show();
         }
@@ -81,6 +91,7 @@ namespace CastleFight
         public void Deselect()
         {
             upgradeButton.Hide();
+            destroyButton.Hide();
         }
 
         private void UpdateUpgradeLabel()
@@ -93,9 +104,12 @@ namespace CastleFight
 
         public void Destroy()
         {
+            if (!isStanding) return;
             isStanding = false;
             col.enabled = false;
             obstacle.enabled = false;
+            buildingsLimitManager.DeleteBuilding((Team)gameObject.layer);
+            Deselect();
             StartCoroutine(DestroyCoroutine());
         }
 
@@ -117,6 +131,8 @@ namespace CastleFight
                 transform.Translate(0,-1 * Time.deltaTime,0);//TODO: delete the magic number
                 yield return null;
             }
+            gameObject.SetActive(false);
+            Destroy(this);
         }
     }
 }
