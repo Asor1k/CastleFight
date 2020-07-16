@@ -118,7 +118,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.5, z: 0.8}
+  m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &4963583607149331834
 GameObject:
@@ -341,8 +341,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4963583607940314879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.28412583, y: 0.64751256, z: 0.28412583, w: 0.64751256}
+  m_LocalPosition: {x: 0, y: 0, z: 0.016}
   m_LocalScale: {x: 0.1, y: 0.05, z: 0.2}
   m_Children:
   - {fileID: 4963583607341026075}
@@ -352,7 +352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.6}
+  m_AnchoredPosition: {x: -0.182, y: 0.741}
   m_SizeDelta: {x: 156, y: 58.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4963583607940314874
@@ -644,7 +644,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 36c0576485ef74b48bca48db4e3c93e4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 36c0576485ef74b48bca48db4e3c93e4,
         type: 3}

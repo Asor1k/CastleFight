@@ -69,7 +69,11 @@ namespace CastleFight
 
         public bool CanBePlaced()
         {
-            if (rend == null) return true;
+            if (rend == null)
+            {
+                Debug.Log("null");
+                return true;
+            }
             if (collisions.Count == 0)  
             {
                 rend.material.color = Color.white; //Make color changes using shaders
