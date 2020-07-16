@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6909309e671444f47a35fb65b2b5a246, type: 3}
   m_Name: SkeletonLvl3
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   attackDistance: 2
   maxHp: 600
   prefab: {fileID: 7938966819504230350, guid: 5624533d75fec7f498c579f60ce56837, type: 3}
