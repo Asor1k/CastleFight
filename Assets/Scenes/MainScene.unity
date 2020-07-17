@@ -4690,7 +4690,7 @@ PrefabInstance:
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: maxBlocksBuilt
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
@@ -4781,7 +4781,7 @@ PrefabInstance:
     - target: {fileID: 8593011944078959235, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8593011944078959235, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}

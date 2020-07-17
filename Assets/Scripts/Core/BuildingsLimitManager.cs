@@ -20,8 +20,9 @@ namespace CastleFight
         {
             ManagerHolder.I.AddManager(this);
             buildingsBuilt = new Dictionary<Team, int>();
+            buildingsBuilt[Team.Team1] = 0;
+            buildingsBuilt[Team.Team2] = 0;
         }
-
         public void AddBuilding(Team team)
         {
             if (!buildingsBuilt.ContainsKey(team))

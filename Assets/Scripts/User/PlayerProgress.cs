@@ -48,7 +48,7 @@ namespace CastleFight
         {
             SaveManager.Save(playerProgressFileName, data);
         }
-        public void OnGameEnd(GameEndEvent gameEndEvent)
+         private void OnGameEnd(GameEndEvent gameEndEvent)
         {
             if(gameEndEvent.winnerTeam == Team.Team2)
             {
@@ -58,6 +58,7 @@ namespace CastleFight
             {
                 data.Rating -= data.Rating >= ratingDelta ? ratingDelta : data.Rating;
             }
+            Save();
         }
 
     }

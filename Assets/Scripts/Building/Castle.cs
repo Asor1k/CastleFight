@@ -48,6 +48,7 @@ namespace CastleFight
         //TODO: refactor remove IDamageable from this class
         public void TakeDamage(int damage)
         {
+            if (!isStanding) return;
             stats.TakeDamage(damage);
 
             if (stats.Hp <= 0)
