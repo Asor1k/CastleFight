@@ -3982,12 +3982,22 @@ PrefabInstance:
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: delta
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: speed
-      value: 7200
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: minZ
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: maxZ
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 2125970061034513812, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}

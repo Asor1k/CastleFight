@@ -91,14 +91,17 @@ namespace CastleFight
                 buildingBehavior.MoveTo(position);
                 bool canPlace = buildingBehavior.CanBePlaced();
                 
-                if (Input.GetMouseButtonUp(0) && canPlace)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    if (userController.IsRaycastUI())
+                    if (!userController.IsRaycastUI() && canPlace)
                     {
+                        Build();
+                    }
+                    else
+                    { 
                         CancelBuilding();
                         return;
                     }
-                    Build();
                 }
             }
         }

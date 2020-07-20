@@ -15,13 +15,11 @@ namespace CastleFight
         private float yPercentCursorPos;
 
         [SerializeField] private float delta;
-        [SerializeField] private float minX;
-        [SerializeField] private float maxX;
+        [SerializeField] private float minZ;
+        [SerializeField] private float maxZ;
         [SerializeField] float speed = 60;
         private bool isBlockedRight;
-        private bool isBlockedUp;
         private bool isBlockedLeft;
-        private bool isBlockedDown;
         private float timer;
         bool isMoving = false;
         bool isBoosting = false;
@@ -52,12 +50,32 @@ namespace CastleFight
                     return;
                 }
                 float x = Input.GetAxis("Mouse X");
-                
-                x = x >= maxX ? maxX : x;
-                x = x <= minX ? minX : x;
-               // x = Mathf.Abs(x) > delta ? x : 0f;
-                
-                Vector3 pos = (new Vector3(0, 0, x) * speed) * Time.deltaTime / Screen.dpi;
+                if (camTr.position.z <= minZ)
+                {
+                    isBlockedRight = true;
+                }
+                else
+                {
+                    isBlockedRight = false;
+                }
+                if (camTr.position.z >= maxZ)
+                {
+                    isBlockedLeft = true;
+                }
+                else
+                {
+                    isBlockedLeft = false;
+                }
+                x = Mathf.Abs(x) > delta ? delta*x/Mathf.Abs(x) : x;
+                if(isBlockedLeft && x < 0)
+                {
+                    x = 0;
+                }
+                if(isBlockedRight && x > 0)
+                {
+                    x = 0;
+                }
+                Vector3 pos = (new Vector3(0, 0, x) * settings.Speed) * Time.deltaTime / Screen.dpi;
                 camTr.position -= pos;
             }
 
@@ -85,14 +103,14 @@ namespace CastleFight
         
         private void CheckForBorders()
         {
-            if (camTr.position.z >= maxX) isBlockedRight = true;
-            if (camTr.position.z <= minX) isBlockedLeft = true;
+            if (camTr.position.z >= maxZ) isBlockedRight = true;
+            if (camTr.position.z <= minZ) isBlockedLeft = true;
     /*        if (camTr.position.x >= maxY) isBlockedDown = true;
             if (camTr.position.x <= minY) isBlockedUp = true;
     */   
         }
 
-        private void CheckCursorPosition()
+      /*  private void CheckCursorPosition()
         {
             cursorPos.Set(Input.mousePosition);
             xPercentCursorPos = 1f / Screen.width * cursorPos.x;
@@ -126,7 +144,7 @@ namespace CastleFight
                 isMoving = true;
             }
         }
-
+        */
         private void MoveCamera(Vector3 direction)
         {
             timer += Time.deltaTime;
