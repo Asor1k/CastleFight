@@ -11,13 +11,16 @@ namespace CastleFight
 {
     public class BotController : MonoBehaviour
     {
-        [SerializeField] private List<BotBuildStep> buildSteps;
+        [SerializeField] private List<BotBuildPoint> buildSteps;
         [SerializeField] private CastlesPosProvider castlesPosProvider;
         [SerializeField] private float turnTime;
         [SerializeField] private Vector3 stepOffset;
         [SerializeField] private int currBuildIndex;
         [SerializeField] private int maxBlocksBuilt;
+        [SerializeField] private RaceSet raceSet;
+        [SerializeField] private BotBehaviour botBehaviour;
 
+        private RaceConfig raceConfig;
         private int blocksBuilt = 0;
         private GoldManager goldManager;
         private BuildingsLimitManager buildingsLimitManager;
@@ -41,6 +44,8 @@ namespace CastleFight
                 //DO something when your unit dies
             }
         }
+
+        
         private void CreateCastle(CastleConfig castleConfig)
         {
             var castleHolder = castlesPosProvider.GetCastlePos(this);
@@ -95,7 +100,7 @@ namespace CastleFight
     }
 
     [Serializable]
-    public class BotBuildStep
+    public class BotBuildPoint
     {
         public Transform Point;
         public BaseBuildingConfig BuildingConfig;

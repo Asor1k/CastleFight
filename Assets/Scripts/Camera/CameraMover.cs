@@ -25,7 +25,11 @@ namespace CastleFight
         private float timer;
         bool isMoving = false;
         bool isBoosting = false;
-       
+
+        public void Start()
+        {
+
+        }
 
         private void Update()
         {
@@ -39,7 +43,7 @@ namespace CastleFight
                     return;
                 }
                 float x = Input.GetAxis("Mouse X");
-              
+                Debug.Log(x);
                 x = x >= maxX ? maxX : x;
                 x = x <= minX ? minX : x;
                // x = Mathf.Abs(x) > delta ? x : 0f;
