@@ -3959,6 +3959,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 7573274762857164962}
+    - target: {fileID: 1563699999869710840, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: userController
+      value: 
+      objectReference: {fileID: 4934858381824743414}
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: camTr
@@ -3978,6 +3983,11 @@ PrefabInstance:
         type: 3}
       propertyPath: delta
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: speed
+      value: 7200
       objectReference: {fileID: 0}
     - target: {fileID: 2125970061034513812, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}

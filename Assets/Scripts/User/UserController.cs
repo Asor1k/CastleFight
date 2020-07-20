@@ -74,7 +74,7 @@ namespace CastleFight
             }
         }
 
-        private bool IsRaycastUI()
+        public bool IsRaycastUI()
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
 

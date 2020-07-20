@@ -1,11 +1,12 @@
 ﻿using System;
 using CastleFight.Config;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace CastleFight.GameUI
 {
-    public class BuildingButton : MonoBehaviour
+    public class BuildingButton : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
     {
         public event Action<BuildingButton> Click;
         
@@ -14,7 +15,27 @@ namespace CastleFight.GameUI
         [SerializeField] private Text priceText;
         [SerializeField] private Text nameText;
         private BaseBuildingConfig buildingConfig;
-        
+        private bool isBuilding = false;
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            isBuilding = false;
+        }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            isBuilding = true;
+        }
+        public void OnMouseDown()
+        {
+            Debug.Log("Hi");
+        }
+        public void Update()
+        {
+            if (Input.GetMouseButtonDown(0)&&isBuilding)
+            {
+                OnClick();
+            }
+        }
         private void Start()
         {
             btn.onClick.AddListener(OnClick);

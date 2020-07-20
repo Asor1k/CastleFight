@@ -25,15 +25,24 @@ namespace CastleFight
         private float timer;
         bool isMoving = false;
         bool isBoosting = false;
-
-        public void Start()
+        bool canMove = true;
+        public void Awake()
         {
+            ManagerHolder.I.AddManager(this);
 
+        }
+        public void StopMoving()
+        {
+            canMove = false;
+        }
+        public void ConinueMoving()
+        {
+            canMove = true;
         }
 
         private void Update()
         {
-            
+            if (!canMove) return;
 
             if (Input.GetMouseButton(0))
             {
@@ -43,12 +52,12 @@ namespace CastleFight
                     return;
                 }
                 float x = Input.GetAxis("Mouse X");
-                Debug.Log(x);
+                
                 x = x >= maxX ? maxX : x;
                 x = x <= minX ? minX : x;
                // x = Mathf.Abs(x) > delta ? x : 0f;
                 
-                Vector3 pos = (new Vector3(0, 0, x) * speed) * Time.deltaTime;
+                Vector3 pos = (new Vector3(0, 0, x) * speed) * Time.deltaTime / Screen.dpi;
                 camTr.position -= pos;
             }
 
