@@ -10,9 +10,11 @@ namespace CastleFight.Core
         [SerializeField] private UILayout mainMenu;
         [SerializeField] private GameController gameController;
 
+
         private void Awake()
         {
             BuildingManager.I.Init();
+            ManagerHolder.I.AddManager(this);
             EventBusController.I.Bus.Subscribe<OpenMainMenuEvent>(OnOpenMainMenuEventHandler);
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
             EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
@@ -29,7 +31,7 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Unsubscribe<GameSetReadyEvent>(OnGameSetReady);
             ManagerHolder.I.Clear();
         }
-
+     
         private void OnOpenMainMenuEventHandler(OpenMainMenuEvent openMainMenuEvent)
         {
             OpenMainMenu();
