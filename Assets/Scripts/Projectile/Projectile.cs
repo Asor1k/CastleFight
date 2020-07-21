@@ -50,6 +50,7 @@ namespace CastleFight.Projectiles
 
         protected virtual void OnHit()
         {
+            transform.parent = target.transform;
             RunEffect(hitEffect);
             StopEffect(runEffect);
         }
@@ -76,7 +77,7 @@ namespace CastleFight.Projectiles
         public void Update()
         {
             if (!isMoving) return;
-            
+            transform.parent = null;
             var targetPosition = target.transform.position;
             var projectilePosition = transform.position;
             var distance = Vector3.Distance(projectilePosition, targetPosition);

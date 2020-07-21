@@ -11,13 +11,12 @@ namespace CastleFight
 
         void Start()
         {
-            stats.OnDamaged += UpdateHealthBar;
-            stats.OnReset += UpdateHealthBar;
+            stats.OnHpChanged += UpdateHealthBar;
         }
 
-        private void UpdateHealthBar()
+        private void UpdateHealthBar(Stat hpStat)
         {
-            SetBarValue((float)stats.Hp / stats.MaxHp);
+            SetBarValue((float)hpStat.Value / (float)hpStat.MaxValue);
         }
         
         public void Update()

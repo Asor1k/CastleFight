@@ -11,7 +11,15 @@ namespace CastleFight.Skills
         [SerializeField] private Transform launchPoint;
 
         private Dictionary<Projectile, IDamageable> targetsCache = new Dictionary<Projectile, IDamageable>();
-        
+        private Stat damage;
+
+        public override void Init(Unit unit)
+        {
+            base.Init(unit);
+            damage =(Stat) unit.Stats.GetStat(StatType.Damage);
+
+        }
+
         public override void Execute()
         {
             var projectile = projectileConfig.Create();
@@ -28,7 +36,7 @@ namespace CastleFight.Skills
             else
                 targetsCache.Remove(projectile);
 
-            cachedTarget.TakeDamage(unitConfig.Damage);
+            cachedTarget.TakeDamage(damage.Value);
         }
     }
 }

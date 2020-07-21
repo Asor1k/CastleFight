@@ -18,6 +18,7 @@ namespace CastleFight.Projectiles
         private IEnumerator DelayDestroy()
         {
             yield return new WaitForSeconds(destroyDelay);
+            transform.parent = null;
             gameObject.SetActive(false);
             Pool.I.Put<ElectricBall>(this);
         }

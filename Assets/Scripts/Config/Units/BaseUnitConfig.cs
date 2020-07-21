@@ -1,69 +1,53 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CastleFight.Config
 {
+    [CreateAssetMenu]
     public abstract class BaseUnitConfig : ScriptableObject
     {
-        public int MaxHp
-        {
-            get { return maxHp; }
-        }
-
-        public float Speed
-        {
-            get { return speed; }
-        }
-
-        public float EnemyDetectRange
-        {
-            get { return enemyDetectRange; }
-        }
-
-        public float AttackDistance
-        {
-            get { return attackDistance; }
-        }
-
-        public int Damage
-        {
-            get { return damage; }
-        }
-
         public int Cost
         {
             get { return cost; }
         }
         public float goldDmgFraction
         {
-            get { return goldDmgPercent/100f; }
+            get { return goldDmgPercent / 100f; }
         }
 
-        public float AttackDelay
-        {
-            get => attackDelay;
+        public List<Stat> Stats
+        { 
+            get
+            { 
+                return stats;
+            }
         }
-        
+
         [SerializeField]
-        protected float speed;
-        [SerializeField]
-        protected float attackDistance;
-        [SerializeField]
-        protected int maxHp;
+        protected List<Stat> stats;
         [SerializeField]
         protected Unit prefab;
         [SerializeField]
         protected Sprite icon;
         [SerializeField]
-        protected float enemyDetectRange;
-        [SerializeField]
-        protected float attackDelay;
-        [SerializeField]
-        protected int damage;
-        [SerializeField]
         protected int cost;
         [SerializeField]
         protected float goldDmgPercent;
+
+
         public abstract Unit Create(Team team);
+
+        [ContextMenu("Fill stats")]
+        public void FillDefaultStats() 
+        {
+            stats = new List<Stat>();
+            stats.Add(new Stat(500,500, StatType.Health));
+            stats.Add(new Stat(3, 0, StatType.Speed));
+            stats.Add(new Stat(100, 0, StatType.Damage));
+            stats.Add(new Stat(1, 0, StatType.AttackDelay));
+            stats.Add(new Stat(10, 0, StatType.EnemyDetectRange));
+            stats.Add(new Stat(3, 0, StatType.AttackRange));
+        }
     }
 }

@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfebdd56b86aa74c9cc137c8507aa5a, type: 3}
   m_Name: KnightLevel2
   m_EditorClassIdentifier: 
-  speed: 2
-  attackDistance: 3
-  maxHp: 1100
+  stats:
+  - Type: 0
+    Value: 500
+    startValue: 500
+    maxValue: 500
+  - Type: 4
+    Value: 3
+    startValue: 3
+    maxValue: 0
+  - Type: 3
+    Value: 100
+    startValue: 100
+    maxValue: 0
+  - Type: 5
+    Value: 1
+    startValue: 1
+    maxValue: 0
+  - Type: 7
+    Value: 1
+    startValue: 1
+    maxValue: 0
   prefab: {fileID: 4270599114500825533, guid: fa7526c2ee6ab1a43aad528e87e9f957, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 10
-  attackDelay: 2
-  damage: 200
   cost: 30
   goldDmgPercent: 10

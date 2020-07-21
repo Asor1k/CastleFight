@@ -7,34 +7,57 @@ namespace CastleFight
 {
     public class UnitStats : MonoBehaviour
     {
-        public event Action OnDamaged;
-        public event Action OnReset;
+        public event Action<Stat> OnHpChanged;
+        public event Action<Stat> OnStatChanged;
 
-        public int Hp{get{return hp;}}
-        public int MaxHp{get{return maxHp;}}
-        public float Speed {get{return speed;}}
-
-        private int hp;
-        private int maxHp;
-        private float speed;
+        private Stat hpStat;
+        private Dictionary<StatType, Stat> stats;
 
         public void TakeDamage(int damage)
         {
-            hp -= damage;
-            OnDamaged?.Invoke();
+            hpStat.Value -= damage;
+            OnHpChanged?.Invoke(hpStat);
         }
 
-        public void Init(int maxHp, float speed)
+        public Stat? GetStat(StatType type)
         {
-            this.maxHp = maxHp;
-            hp = maxHp;
-            this.speed = speed;
+            if (stats.ContainsKey(type))
+                return stats[type];
+            else
+                return null;
+        }
+
+        public void Init(Stat[] stats)
+        {
+            this.stats = new Dictionary<StatType, Stat>();
+
+            foreach (var stat in stats)
+            {
+                stat.Init();
+
+                if (stat.Type == StatType.Health)
+                {
+                    hpStat = stat;
+                    continue;
+                }
+
+                this.stats.Add(stat.Type, stat);
+            }
         }
 
         public void Reset()
         {
-            hp = maxHp;
-            OnReset?.Invoke();
+            foreach (var statEntry in stats)
+            {
+                if (statEntry.Value.Type == StatType.Health)
+                {
+                    OnHpChanged?.Invoke(hpStat);
+                    continue;
+                }
+
+                statEntry.Value.Reset();
+                OnStatChanged?.Invoke(statEntry.Value);
+            }
         }
     }
 }

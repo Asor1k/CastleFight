@@ -8,15 +8,20 @@ namespace CastleFight
     {
         [SerializeField]
         private Unit unit;
+        [SerializeField]
+        private bool ignoreAir;
         private TargetProvider targetProvider = new TargetProvider();
         private IDamageable currentTarget;
         private LayerMask enemyLayer;
         private float targetUpdateDelay = 0.5f;
         private Coroutine updateTargetCoroutine;
-
+        private Stat attackRange;
+        private Stat enemyDetectRange;
+        
         private void Awake()
         {
             unit.OnInit += OnUnitInitted;
+
         }
 
         private void OnUnitInitted()
@@ -27,6 +32,9 @@ namespace CastleFight
             else{
                 enemyLayer = LayerMask.GetMask("Team1");
             }
+
+            attackRange = (Stat)unit.Stats.GetStat(StatType.AttackRange);
+            enemyDetectRange = (Stat)unit.Stats.GetStat(StatType.EnemyDetectRange);
 
             updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
         }
@@ -59,13 +67,13 @@ namespace CastleFight
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
                 distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
-                
-                if(distanceToTarget <= unit.AttackDistance)
+
+                if(distanceToTarget <= attackRange.Value)
                 {
                     unit.Stop();
                     unit.Attack(currentTarget);
                 }
-                else if (distanceToTarget > unit.EnemyDetectRange)
+                else if (distanceToTarget > enemyDetectRange.Value)
                     currentTarget = null;
                 else   
                     unit.MoveTo(currentTarget.Transform.position);
@@ -78,7 +86,7 @@ namespace CastleFight
             while(true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = targetProvider.GetTarget(enemyLayer, transform.position, unit.EnemyDetectRange);
+                var target = targetProvider.GetTarget(enemyLayer, transform.position, enemyDetectRange.Value, ignoreAir);
 
                 if(target != null)
                 {

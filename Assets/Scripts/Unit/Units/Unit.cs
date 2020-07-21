@@ -18,11 +18,8 @@ namespace CastleFight
 
         public bool Alive{get{return alive;}}
         public BaseUnitConfig Config{get{return config;}}
-        public float CurrentSpeed{get{return agent.Speed;}}
-        public virtual float Speed{get{return stats.Speed;}}
-        public virtual float EnemyDetectRange{get{return config.EnemyDetectRange;}}
-        public virtual float AttackDistance{get{return config.AttackDistance;}}
-        
+        public float CurrentSpeed { get { return agent.Speed; } }
+        public UnitStats Stats { get { return stats; } }
         [SerializeField]
         protected Agent agent; 
         [SerializeField]
@@ -40,26 +37,26 @@ namespace CastleFight
         
         protected Team team;
         protected IDamageable target;
-        protected int hp;
-        protected int maxHp;
         protected bool alive = true;
         protected bool readyToAttack = true;
 
         private GoldManager goldManager;
-        
+        private Stat attackDelay;
+        private Stat damage;
+
         public virtual void Init(BaseUnitConfig config, Team team)
         {
             this.team = team;
             gameObject.layer = (int)team;
             this.config = config;
-            maxHp = config.MaxHp;
-            hp = maxHp;
             alive = true;
-            stats.Init(config.MaxHp, config.Speed);
-            stats.OnDamaged += OnUnitDamaged;
+            stats.Init(config.Stats.ToArray());
+            stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
-            agent.Init(config);
-            attackSkill.Init(config);
+            agent.Init(this);
+            attackSkill.Init(this);
+            attackDelay = (Stat)stats.GetStat(StatType.AttackDelay);
+            damage = (Stat)stats.GetStat(StatType.Damage);
             OnInit?.Invoke();
         }
 
@@ -100,7 +97,7 @@ namespace CastleFight
         
         private int GetGoldPerHit()
         {
-            return Mathf.RoundToInt(config.Damage * config.goldDmgFraction);
+            return Mathf.RoundToInt(damage.Value * config.goldDmgFraction);
         }
         
         private void Kill()
@@ -130,13 +127,14 @@ namespace CastleFight
             OnReset?.Invoke();
         }
 
-        private void OnUnitDamaged()
+        private void OnUnitDamaged(Stat stat)
         {
-            if(stats.Hp <= 0)
+            if(stat.Value <= 0)
             {
                 Kill();
             }
         }
+
         private void InitGoldAnim(int gold)
         {
             GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
@@ -161,7 +159,7 @@ namespace CastleFight
         }
         private async Task StartAttackCooldown()
         {
-            var miliseconds = config.AttackDelay * 1000;
+            var miliseconds = attackDelay.Value * 1000;
             await Task.Delay((int)miliseconds);
 
             readyToAttack = true;

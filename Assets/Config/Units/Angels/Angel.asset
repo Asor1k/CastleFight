@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f525306ede65222489de28992d979724, type: 3}
   m_Name: Angel
   m_EditorClassIdentifier: 
-  speed: 2
-  attackDistance: 3
-  maxHp: 800
+  stats:
+  - Type: 0
+    Value: 500
+    startValue: 500
+    maxValue: 500
+  - Type: 4
+    Value: 3
+    startValue: 3
+    maxValue: 0
+  - Type: 3
+    Value: 100
+    startValue: 100
+    maxValue: 0
+  - Type: 5
+    Value: 1
+    startValue: 1
+    maxValue: 0
+  - Type: 7
+    Value: 1
+    startValue: 1
+    maxValue: 0
   prefab: {fileID: 3039512680202058138, guid: 12cf16695ceb29744a96b3e883dfa2fa, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 10
-  attackDelay: 1
-  damage: 150
   cost: 30
   goldDmgPercent: 10

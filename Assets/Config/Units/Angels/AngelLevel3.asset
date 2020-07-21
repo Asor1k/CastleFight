@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ea60823bfbc0d4d95f42fd4cebd756, type: 3}
   m_Name: AngelLevel3
   m_EditorClassIdentifier: 
-  speed: 2
-  attackDistance: 3
-  maxHp: 1300
+  stats:
+  - Type: 0
+    Value: 500
+    startValue: 500
+    maxValue: 500
+  - Type: 4
+    Value: 3
+    startValue: 3
+    maxValue: 0
+  - Type: 3
+    Value: 100
+    startValue: 100
+    maxValue: 0
+  - Type: 5
+    Value: 1
+    startValue: 1
+    maxValue: 0
+  - Type: 7
+    Value: 1
+    startValue: 1
+    maxValue: 0
   prefab: {fileID: 2210365828415378932, guid: 1ae5b413c1dc0f74282edc3d64e5ebd5, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 10
-  attackDelay: 0.6
-  damage: 190
   cost: 60
   goldDmgPercent: 10

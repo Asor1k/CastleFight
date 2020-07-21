@@ -535,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 5731746206018142242}
+  ignoreAir: 1
 --- !u!114 &5731746206018142242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileConfig: {fileID: 0}
+  launchPoint: {fileID: 0}
 --- !u!114 &3352276842567606145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 3352276842567606159}
   unit: {fileID: 5731746206018142242}
+  type: 0
 --- !u!114 &3352276842567606159
 MonoBehaviour:
   m_ObjectHideFlags: 0

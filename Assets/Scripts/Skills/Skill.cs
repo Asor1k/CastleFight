@@ -7,7 +7,7 @@ namespace CastleFight.Skills
 {
     public abstract class Skill : MonoBehaviour
     {
-        protected BaseUnitConfig unitConfig;
+        protected Unit unit;
         protected IDamageable target;
         
         public void SetTarget(IDamageable target)
@@ -15,9 +15,9 @@ namespace CastleFight.Skills
             this.target = target;
         }
         
-        public void Init(BaseUnitConfig unitConfig)
+        public virtual void Init(Unit unit)
         {
-            this.unitConfig = unitConfig;
+            this.unit = unit;
         }
 
         public abstract void Execute();

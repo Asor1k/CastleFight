@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 2210365828415378932}
+  ignoreAir: 1
 --- !u!114 &2210365828415378932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 7046774743283752899}
   unit: {fileID: 2210365828415378932}
+  type: 0
 --- !u!114 &7046774743283752899
 MonoBehaviour:
   m_ObjectHideFlags: 0

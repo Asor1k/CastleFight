@@ -15,6 +15,7 @@ namespace CastleFight
     public enum TargetType
     {
         GroundUnit,
+        AirUnit,
         Building,
         Castle
     }

@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a8588969a460940b5ec68ca80134e4, type: 3}
   m_Name: GhostLevel2
   m_EditorClassIdentifier: 
-  speed: 2
-  attackDistance: 6
-  maxHp: 700
+  stats:
+  - Type: 0
+    Value: 500
+    startValue: 500
+    maxValue: 500
+  - Type: 4
+    Value: 3
+    startValue: 3
+    maxValue: 0
+  - Type: 3
+    Value: 100
+    startValue: 100
+    maxValue: 0
+  - Type: 5
+    Value: 1
+    startValue: 1
+    maxValue: 0
+  - Type: 7
+    Value: 1
+    startValue: 1
+    maxValue: 0
   prefab: {fileID: 5731746206018142242, guid: bd9c85a86c6c9594b9a90387785b1346, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 10
-  attackDelay: 1.5
-  damage: 200
   cost: 30
   goldDmgPercent: 10

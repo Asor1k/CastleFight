@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CastleFight.Config;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,15 +19,17 @@ namespace CastleFight
         protected NavMeshAgent agent;
         [SerializeField]
         protected NavMeshObstacle obstacle;
-        private BaseUnitConfig unitConfig;
-        
-        public void Init(BaseUnitConfig unitConfig)
+        private Unit unit;
+        private Stat speed;
+
+        public void Init(Unit unit)
         {
+            speed = (Stat)unit.Stats.GetStat(StatType.Speed);
             agent.autoBraking = true;
             agent.autoRepath = true;
             obstacle.carving = true;
             NavMesh.avoidancePredictionTime = 0.5f;
-            agent.speed = unitConfig.Speed;
+            agent.speed = speed.Value;
         }
         
         public virtual void MoveTo(Vector3 position)
