@@ -2273,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: speed
-      value: 10000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
