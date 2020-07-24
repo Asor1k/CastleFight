@@ -22,7 +22,7 @@ namespace CastleFight
         [SerializeField] private BuildingStats stats;
         [SerializeField] private Building building;
         
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             stats.TakeDamage(damage);
         }

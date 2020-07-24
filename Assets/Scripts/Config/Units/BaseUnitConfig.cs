@@ -24,6 +24,11 @@ namespace CastleFight.Config
             }
         }
 
+        public Ability[] Abilities
+        {
+            get { return abilities; }
+        }
+
         [SerializeField]
         protected List<Stat> stats;
         [SerializeField]
@@ -34,7 +39,8 @@ namespace CastleFight.Config
         protected int cost;
         [SerializeField]
         protected float goldDmgPercent;
-
+        [SerializeField]
+        protected Ability[] abilities;
 
         public abstract Unit Create(Team team);
 
@@ -42,12 +48,14 @@ namespace CastleFight.Config
         public void FillDefaultStats() 
         {
             stats = new List<Stat>();
-            stats.Add(new Stat(500,500, StatType.Health));
-            stats.Add(new Stat(3, 0, StatType.Speed));
-            stats.Add(new Stat(100, 0, StatType.Damage));
-            stats.Add(new Stat(1, 0, StatType.AttackDelay));
-            stats.Add(new Stat(10, 0, StatType.EnemyDetectRange));
-            stats.Add(new Stat(3, 0, StatType.AttackRange));
+            stats.Add(new Stat(500, StatType.Health));
+            stats.Add(new Stat(500, StatType.MaxHealth));
+            stats.Add(new Stat(3, StatType.Speed));
+            stats.Add(new Stat(100, StatType.Damage));
+            stats.Add(new Stat(1, StatType.AttackDelay));
+            stats.Add(new Stat(10, StatType.EnemyDetectRange));
+            stats.Add(new Stat(3, StatType.AttackRange));
+            stats.Add(new Stat(1.3f, StatType.Vampirism));
         }
     }
 }

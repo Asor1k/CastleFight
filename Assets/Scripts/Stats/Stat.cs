@@ -9,47 +9,40 @@ namespace CastleFight
     public struct Stat
     {
         public StatType Type;
-        public int Value;
-        public int? MaxValue { get { if (maxValue == null) return null; else return maxValue; } }
-        private int startValue;
-        [SerializeField]
-        private int maxValue;
+        public float Value;
+        private float startValue;
+        private List<StatModifier> modifiers;
 
         public void Init()
         {
             startValue = Value;
         }
 
-        public Stat(int value, int maxValue, StatType type)
+        public Stat(float value, StatType type)
         {
             this.Value = value;
-            this.maxValue = maxValue;
             startValue = value;
             Type = type;
+            modifiers = new List<StatModifier>();
         }
 
         public void Reset() 
         {
-            if (MaxValue == null)
-            {
-                Value = startValue;
-            }
-            else
-            {
-                Value = (int)MaxValue;
-            }
+            Value = startValue;
         }
     }
 
     public enum StatType
     {
         Health,
+        MaxHealth,
         Mana,
         Armor,
         Damage,
         Speed,
         AttackDelay,
         EnemyDetectRange,
-        AttackRange
+        AttackRange,
+        Vampirism
     }
 }

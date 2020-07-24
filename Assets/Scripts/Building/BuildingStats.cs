@@ -31,9 +31,9 @@ namespace Castlefight
             OnInit?.Invoke();
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
-            hp -= damage;
+            hp -= (int)damage;
             OnDamaged?.Invoke();
         }
 
