@@ -33,6 +33,10 @@ namespace CastleFight
         {
             this.config = config;
             stats.Init(config.MaxHp);
+            if((Team)gameObject.layer == Team.Team2)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
         }
 
         public void Build()

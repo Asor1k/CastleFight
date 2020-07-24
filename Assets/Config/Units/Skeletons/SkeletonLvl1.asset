@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf721adf102ec3e47a78a62a712a2bef, type: 3}
+  m_Name: SkeletonLvl1
+  m_EditorClassIdentifier: 
+  speed: 2
+  attackDistance: 2
+  maxHp: 400
+  prefab: {fileID: 505496572674241449, guid: b46740435ad865445aae29a6869d6ac9, type: 3}
+  icon: {fileID: 0}
+  enemyDetectRange: 10
+  attackDelay: 1.5
+  damage: 100
+  cost: 26
+  goldDmgPercent: 10

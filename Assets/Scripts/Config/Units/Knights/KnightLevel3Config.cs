@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using CastleFight.Core;
-using UnityEngine;
 
 namespace CastleFight.Config
 {

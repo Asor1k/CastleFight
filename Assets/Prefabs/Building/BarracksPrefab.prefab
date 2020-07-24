@@ -167,6 +167,7 @@ MonoBehaviour:
   stats: {fileID: 7075326238139344395}
   healthBar: {fileID: 6822570590728596422}
   upgradeButton: {fileID: 1968787009358908542}
+  destroyButton: {fileID: 7337151267578177147}
   levelLabel: {fileID: 8704360785352507737}
   col: {fileID: 3195372241467049036}
   obstacle: {fileID: 2586418493788148281}
@@ -389,6 +390,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 2225725235042911035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24ac4def7d9e6e4eac4f965ba6a4056, type: 3}
 --- !u!224 &9156350111894333950 stripped
@@ -431,5 +437,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebf9af97a568b334b967401ccd51bb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7337151267578177147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043224943784610079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701eacfc513a3f241b128214797f8fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

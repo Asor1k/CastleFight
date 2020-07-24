@@ -82,7 +82,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99, y: 0.99, z: 0.99}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3920394000368700521
 MonoBehaviour:
@@ -119,6 +119,7 @@ MonoBehaviour:
   stats: {fileID: 6967250349649487475}
   healthBar: {fileID: 7999698060653956917}
   upgradeButton: {fileID: 3096376016456870029}
+  destroyButton: {fileID: 6086840271772009096}
   levelLabel: {fileID: 5288944268403565994}
   col: {fileID: 6570015363009870255}
   obstacle: {fileID: 4015087083842480638}
@@ -356,6 +357,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 7608270241480408792}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24ac4def7d9e6e4eac4f965ba6a4056, type: 3}
 --- !u!224 &5673377901213338893 stripped
@@ -398,6 +404,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebf9af97a568b334b967401ccd51bb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6086840271772009096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8757304962057383780, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+    type: 3}
+  m_PrefabInstance: {fileID: 3310425606431272428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701eacfc513a3f241b128214797f8fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5701461324699670051

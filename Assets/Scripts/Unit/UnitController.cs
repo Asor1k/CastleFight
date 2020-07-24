@@ -8,20 +8,15 @@ namespace CastleFight
     {
         [SerializeField]
         private Unit unit;
-        [SerializeField]
-        private bool ignoreAir;
         private TargetProvider targetProvider = new TargetProvider();
         private IDamageable currentTarget;
         private LayerMask enemyLayer;
         private float targetUpdateDelay = 0.5f;
         private Coroutine updateTargetCoroutine;
-        private Stat attackRange;
-        private Stat enemyDetectRange;
-        
+
         private void Awake()
         {
             unit.OnInit += OnUnitInitted;
-
         }
 
         private void OnUnitInitted()
@@ -33,12 +28,8 @@ namespace CastleFight
                 enemyLayer = LayerMask.GetMask("Team1");
             }
 
-            attackRange = (Stat)unit.Stats.GetStat(StatType.AttackRange);
-            enemyDetectRange = (Stat)unit.Stats.GetStat(StatType.EnemyDetectRange);
-
             updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
         }
-
         void Update()
         {
             if (!unit.Alive)
@@ -66,27 +57,27 @@ namespace CastleFight
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
-                distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
-
-                if(distanceToTarget <= attackRange.Value)
+                
+                distanceToTarget -= targetScale.z/2;
+                
+                if(distanceToTarget <= unit.AttackDistance)
                 {
                     unit.Stop();
                     unit.Attack(currentTarget);
                 }
-                else if (distanceToTarget > enemyDetectRange.Value)
+                else if (distanceToTarget > unit.EnemyDetectRange)
                     currentTarget = null;
                 else   
                     unit.MoveTo(currentTarget.Transform.position);
             }
 
         }
-
         private IEnumerator UpdateTargetCoroutine()
         {
             while(true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = targetProvider.GetTarget(enemyLayer, transform.position, enemyDetectRange.Value, ignoreAir);
+                var target = targetProvider.GetTarget(enemyLayer, transform.position, unit.EnemyDetectRange);
 
                 if(target != null)
                 {

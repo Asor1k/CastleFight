@@ -12,7 +12,12 @@ ModelImporter:
   - first:
       74: 1990438470331398446
     second: ghost_dieas
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ghost_RIG_03_Ghost_1
+    second: {fileID: 2100000, guid: 4bc1615bb7b2af241a027cf7f1e056e0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

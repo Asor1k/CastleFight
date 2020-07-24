@@ -43,6 +43,7 @@ namespace CastleFight
         {
             if(attackCallback != null)
             {
+                if (!unit.Alive) return;
                 attackCallback.Invoke();
                 attackCallback = null;
             }

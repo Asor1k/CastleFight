@@ -15,7 +15,17 @@ ModelImporter:
   - first:
       74: 6335978454419151057
     second: Knight_anim_idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_rig_09_aiStandardSurface2
+    second: {fileID: 2100000, guid: 5b23b8009b970144eb0a93468103743d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knight_rig_09_lambert6
+    second: {fileID: 2100000, guid: 99d9722bbd856aa45bf682415b923f9a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

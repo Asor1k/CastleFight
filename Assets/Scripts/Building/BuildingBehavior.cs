@@ -35,11 +35,15 @@ namespace CastleFight
             isPlaced = true;
 
             building.Build();
+            if(team == Team.Team2)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0); 
+            }
             EventBusController.I.Bus.Publish(new BuildingPlacedEvent(this));
             
         }
         
-        private void OnMouseEnter()
+        /*private void OnMouseEnter()
         {
             if (!isPlaced) return;
             rend.material.shader = Shader.Find("Outlined/Custom");
@@ -50,7 +54,7 @@ namespace CastleFight
             if (!isPlaced) return;
             rend.material.shader = Shader.Find("Standard");
         }
-        
+        */
         /*IEnumerator StartMoneyGain()
         {
             yield return new WaitForSeconds(building.Config.Levels[building.Lvl - 1].GoldDelay);
@@ -65,7 +69,11 @@ namespace CastleFight
 
         public bool CanBePlaced()
         {
-            if (rend == null) return true;
+            if (rend == null)
+            {
+                Debug.Log("null");
+                return true;
+            }
             if (collisions.Count == 0)  
             {
                 rend.material.color = Color.white; //Make color changes using shaders

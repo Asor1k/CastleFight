@@ -52,7 +52,7 @@ namespace CastleFight
             {
                 ray = cam.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out var hit, 100))
+                if (Physics.Raycast(ray, out var hit, 100) && !IsRaycastUI())
                 {
                     if (hit.collider.CompareTag("Building"))
                     {
@@ -65,7 +65,7 @@ namespace CastleFight
                         EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
                         EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>()));
                     }
-                    else if(!IsRaycastUI())
+                    else 
                     {
                         EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
                     }

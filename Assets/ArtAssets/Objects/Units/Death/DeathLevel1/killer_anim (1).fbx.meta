@@ -12,7 +12,17 @@ ModelImporter:
   - first:
       74: 5510322719578644108
     second: killer_dies
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: killer_RIG_04_DefaultMaterial
+    second: {fileID: 2100000, guid: 949678b8e647a024bb843cdd052340dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: killer_RIG_04_kosa_mtl
+    second: {fileID: 2100000, guid: f092fa8806832a941acf971448ffe62d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
