@@ -930,12 +930,17 @@ PrefabInstance:
     - target: {fileID: 2131272232647404735, guid: 0ef8070492d8bff4b9a8c4dc07ae3e65,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335039063178987300, guid: 0ef8070492d8bff4b9a8c4dc07ae3e65,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4441040465306363118, guid: 0ef8070492d8bff4b9a8c4dc07ae3e65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7214099475893449916, guid: 0ef8070492d8bff4b9a8c4dc07ae3e65,
         type: 3}
@@ -1216,7 +1221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1658925200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2279,6 +2284,21 @@ PrefabInstance:
         type: 3}
       propertyPath: maxZ
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 7573274762857164962}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: gravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943153797941935103, guid: c8f85e31bc81e459a82297d3ab460566,
+        type: 3}
+      propertyPath: dead
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2125970061034513812, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
