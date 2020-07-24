@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CameraMoverSettings
   m_EditorClassIdentifier: 
   screenSensibility: 0.008
-  speed: 10000
+  speed: 3600
   timeUntillBoost: 2
   boostedSpeed: 12
+  Speed: 7400

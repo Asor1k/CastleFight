@@ -7,27 +7,36 @@ namespace CastleFight
 {
     public class CameraMover : UserAbility
     {
+        [SerializeField] private Camera Camera;
         [SerializeField] private Transform camTr;
-        [SerializeField] private CameraMoverSettings settings;
+        [SerializeField] private CameraMoverSettings settings;  
+        [SerializeField] private float delta;
+        [SerializeField] private float minZ;
+        [SerializeField] private float maxZ;
+        [SerializeField] private float gravity;
+        [SerializeField] private float dead;
+
+
+        protected Plane plane;
         
+        private bool isBlockedRight;
+        private bool isBlockedLeft;
+        private bool isMoving = false;
+        private bool canMove = true;
+        private float inertZ;
+
+        #region Pevious fields
         private Vector3 cursorPos;
         private float xPercentCursorPos;
         private float yPercentCursorPos;
 
-        [SerializeField] private float delta;
-        [SerializeField] private float minZ;
-        [SerializeField] private float maxZ;
         [SerializeField] float speed = 60;
-        private bool isBlockedRight;
-        private bool isBlockedLeft;
-        private float timer;
-        bool isMoving = false;
-        bool isBoosting = false;
-        bool canMove = true;
+
+        #endregion
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
-
+            inertZ = 0;
         }
         public void StopMoving()
         {
@@ -38,8 +47,11 @@ namespace CastleFight
             canMove = true;
         }
 
+
         private void Update()
         {
+            #region Unity movement
+#if UNITY_EDITOR
             if (!canMove) return;
 
             if (Input.GetMouseButton(0))
@@ -50,22 +62,9 @@ namespace CastleFight
                     return;
                 }
                 float x = Input.GetAxis("Mouse X");
-                if (camTr.position.z <= minZ)
-                {
-                    isBlockedRight = true;
-                }
-                else
-                {
-                    isBlockedRight = false;
-                }
-                if (camTr.position.z >= maxZ)
-                {
-                    isBlockedLeft = true;
-                }
-                else
-                {
-                    isBlockedLeft = false;
-                }
+
+                CheckForBorders();
+
                 x = Mathf.Abs(x) > delta ? delta*x/Mathf.Abs(x) : x;
                 if(isBlockedLeft && x < 0)
                 {
@@ -75,15 +74,32 @@ namespace CastleFight
                 {
                     x = 0;
                 }
+                inertZ = x;
                 Vector3 pos = (new Vector3(0, 0, x) * settings.Speed) * Time.deltaTime / Screen.dpi;
                 camTr.position -= pos;
+            }
+            else
+            {
+                CheckForBorders();
+                if (inertZ != 0 && !isBlockedLeft && !isBlockedRight)
+                {
+                    Debug.Log("SSSSSS");
+                    Vector3 delta2 = new Vector3(0, 0, inertZ);
+                    inertZ = inertZ > 0 ? inertZ - Time.deltaTime * gravity : inertZ + Time.deltaTime * gravity;
+                    if (Mathf.Abs(inertZ) <= dead)
+                    {
+                        inertZ = 0;
+                    }
+                    camTr.transform.Translate(-delta2, Space.World);
+
+                }
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 isMoving = false;
             }
-
+#endif
             /*CheckCursorPosition();
             if (isMoving)
             {
@@ -97,17 +113,103 @@ namespace CastleFight
                 timer = 0;
                 isBoosting = false;
             }*/
+            #endregion
+
+            #region Phone movement
+#if UNITY_IOS || UNITY_ANDROID && !UNITY_EDITOR
+            if (Input.touchCount >= 1)
+            {
+                plane.SetNormalAndPosition(transform.up, transform.position);
+            }
+            Vector3 delta1 = Vector3.zero;
+
+            CheckForBorders();
+            if (Input.touchCount >= 1)
+            {
+                delta1 = PlanePositionDelta(Input.GetTouch(0));
+                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                {
+                    float z = delta1.z;
+                    if (isBlockedRight && z < 0)
+                    {
+                        z = 0;
+                    }
+                    if (isBlockedLeft && z > 0)
+                    {
+                        z = 0;
+                    }
+                    delta1 = new Vector3(0, 0, z);
+                    camTr.transform.Translate(delta1, Space.World);
+                    inertZ = z;
+                }
+                if (Input.GetTouch(0).phase == TouchPhase.Stationary)
+                {
+                    inertZ = 0;
+                }
+            
+            }
+            else
+            {
+                if (Input.touchCount == 0 && inertZ !=0 && !isBlockedRight && !isBlockedLeft)
+                {
+                    delta1 = new Vector3(0, 0, inertZ);
+
+                    inertZ = inertZ > 0 ? inertZ - Time.deltaTime * gravity: inertZ + Time.deltaTime*gravity;
+                    if (Mathf.Abs(inertZ) <= dead)
+                    {
+                        inertZ = 0;
+                    }
+                    camTr.transform.Translate(delta1, Space.World);
+
+                }
+            }
+#endif
+            #endregion
         }
 
-        
-        
-        private void CheckForBorders()
+        protected Vector3 PlanePositionDelta(Touch touch)
         {
-            if (camTr.position.z >= maxZ) isBlockedRight = true;
-            if (camTr.position.z <= minZ) isBlockedLeft = true;
-    /*        if (camTr.position.x >= maxY) isBlockedDown = true;
-            if (camTr.position.x <= minY) isBlockedUp = true;
-    */   
+            if(touch.phase != TouchPhase.Moved)
+            {
+                return Vector3.zero;
+            }
+
+            Ray rayBefore = Camera.ScreenPointToRay(touch.position - touch.deltaPosition);
+            Ray rayNow = Camera.ScreenPointToRay(touch.position);
+            if(plane.Raycast(rayBefore, out float enterBefore)&& plane.Raycast(rayNow,out float enterNow))
+            {
+                return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
+            }
+            return Vector3.zero;
+        }
+        protected Vector3 PlanePosition(Vector2 screenPos)
+        {
+            Ray rayNow = Camera.ScreenPointToRay(screenPos);
+            if(plane.Raycast(rayNow, out float enterNow))
+            {
+                return rayNow.GetPoint(enterNow);
+            }
+            return Vector3.zero;
+        }
+
+         private void CheckForBorders()
+        {
+            if (camTr.position.z <= minZ)
+            {
+                isBlockedRight = true;
+            }
+            else
+            {
+                isBlockedRight = false;
+            }
+            if (camTr.position.z >= maxZ)
+            {
+                isBlockedLeft = true;
+            }
+            else
+            {
+                isBlockedLeft = false;
+            }
         }
 
       /*  private void CheckCursorPosition()
@@ -145,19 +247,6 @@ namespace CastleFight
             }
         }
         */
-        private void MoveCamera(Vector3 direction)
-        {
-            timer += Time.deltaTime;
-            if (isBoosting)
-            {
-                speed = settings.BoostedSpeed;
-            }
-            else
-            {
-                speed = settings.Speed;
-            }
-            camTr.Translate(direction * speed * Time.deltaTime);
-        }
 
         public override void Unlock()
         {
