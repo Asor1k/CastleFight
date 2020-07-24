@@ -42,7 +42,7 @@ namespace CastleFight
         }
         
         //TODO: refactor remove IDamageable from this class
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             stats.TakeDamage(damage);
 

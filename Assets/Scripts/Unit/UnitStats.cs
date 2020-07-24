@@ -12,8 +12,10 @@ namespace CastleFight
 
         private Stat hpStat;
         private Dictionary<StatType, Stat> stats;
+        private Dictionary<StatType, List<StatModifier>> statModifiers
+            = new Dictionary<StatType, List<StatModifier>>();
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             hpStat.Value -= damage;
             OnHpChanged?.Invoke(hpStat);
@@ -27,6 +29,41 @@ namespace CastleFight
                 return null;
         }
 
+        public void AddStatValue(StatType type, float value)
+        {
+            if (!stats.ContainsKey(type)) return;
+
+            var stat = stats[type];
+            stat.Value += value;
+
+            stats[type] = stat;
+
+            OnStatChanged?.Invoke(stat);
+        }
+
+        public void AddModifier(StatModifier modifier)
+        {
+            if (!stats.ContainsKey(modifier.StatType)) return;
+
+            var stat = stats[modifier.StatType];
+            modifier.Modify(ref stat);
+            stats[modifier.StatType] = stat;
+
+            OnStatChanged?.Invoke(stat);
+        }
+
+        public void RemoveModifier(StatModifier modifier)
+        {
+            if (!stats.ContainsKey(modifier.StatType)) return;
+
+            var stat = stats[modifier.StatType];
+            modifier.DeModify(ref stat);
+            stats[modifier.StatType] = stat;
+
+            OnStatChanged?.Invoke(stat);
+
+        }
+
         public void Init(Stat[] stats)
         {
             this.stats = new Dictionary<StatType, Stat>();
@@ -38,7 +75,6 @@ namespace CastleFight
                 if (stat.Type == StatType.Health)
                 {
                     hpStat = stat;
-                    continue;
                 }
 
                 this.stats.Add(stat.Type, stat);

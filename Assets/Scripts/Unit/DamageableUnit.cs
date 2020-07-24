@@ -17,7 +17,7 @@ namespace CastleFight
         [SerializeField]
         private TargetType type = TargetType.GroundUnit;
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             if(unit.Alive)
                 unitStats.TakeDamage(damage);

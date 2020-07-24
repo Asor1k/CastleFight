@@ -9,7 +9,7 @@ namespace CastleFight
         bool Alive { get; }
         TargetType Type { get; }
         Transform Transform{get;}
-        void TakeDamage(int damage);
+        void TakeDamage(float damage);
     }
 
     public enum TargetType

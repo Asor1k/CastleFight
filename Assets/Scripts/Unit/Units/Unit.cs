@@ -51,6 +51,7 @@ namespace CastleFight
             this.config = config;
             alive = true;
             stats.Init(config.Stats.ToArray());
+            InitPassiveAbilities();
             stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             agent.Init(this);
@@ -58,6 +59,14 @@ namespace CastleFight
             attackDelay = (Stat)stats.GetStat(StatType.AttackDelay);
             damage = (Stat)stats.GetStat(StatType.Damage);
             OnInit?.Invoke();
+        }
+
+        private void InitPassiveAbilities()
+        {
+            foreach (var ability in config.Abilities)
+            { 
+                ability.Activate(this);
+            }
         }
 
         public virtual void MoveTo(Vector3 point)
