@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 3126232713829400780}
   - component: {fileID: 5009000891391215500}
   - component: {fileID: 6613721178652002944}
+  - component: {fileID: 1680103467088871816}
   - component: {fileID: 1869195960649788126}
   - component: {fileID: 6493252341058373573}
+  - component: {fileID: 8746392233878854506}
   - component: {fileID: 5742255829533414632}
   - component: {fileID: 8290270885750025493}
   - component: {fileID: 3967338750054736955}
   - component: {fileID: 6914273027788672325}
-  - component: {fileID: 1680103467088871816}
   m_Layer: 0
   m_Name: SkeletonLvl2
   m_TagString: Unit
@@ -74,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 1680103467088871816}
+  ignoreAir: 1
 --- !u!114 &6613721178652002944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 1680103467088871816}
   animator: {fileID: 3126232713829400780}
+--- !u!114 &1680103467088871816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519412516281278174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0f29d071cddd5478dddd73a84d774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1869195960649788126}
+  collider: {fileID: 3967338750054736955}
+  animationController: {fileID: 6613721178652002944}
+  stats: {fileID: 5742255829533414632}
+  config: {fileID: 0}
+  healthBarCanvas: {fileID: 730463454147631121}
+  attackSkill: {fileID: 8746392233878854506}
 --- !u!114 &1869195960649788126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +137,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 5742255829533414632}
   unit: {fileID: 1680103467088871816}
+  type: 0
+--- !u!114 &8746392233878854506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519412516281278174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097128ee93e40d847ac17413575b6499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5742255829533414632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,24 +214,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &1680103467088871816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519412516281278174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0f29d071cddd5478dddd73a84d774d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1869195960649788126}
-  collider: {fileID: 3967338750054736955}
-  animationController: {fileID: 6613721178652002944}
-  stats: {fileID: 5742255829533414632}
-  config: {fileID: 0}
-  healthBarCanvas: {fileID: 730463454147631121}
 --- !u!1 &6827023185992122727
 GameObject:
   m_ObjectHideFlags: 0

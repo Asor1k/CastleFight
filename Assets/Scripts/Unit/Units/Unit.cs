@@ -20,6 +20,8 @@ namespace CastleFight
         public BaseUnitConfig Config{get{return config;}}
         public float CurrentSpeed { get { return agent.Speed; } }
         public UnitStats Stats { get { return stats; } }
+        public Skill AttackSkill { get { return attackSkill; } }
+
         [SerializeField]
         protected Agent agent; 
         [SerializeField]

@@ -8,11 +8,15 @@ namespace CastleFight
     {
         [SerializeField]
         private Unit unit;
+        [SerializeField]
+        private bool ignoreAir;
         private TargetProvider targetProvider = new TargetProvider();
         private IDamageable currentTarget;
         private LayerMask enemyLayer;
         private float targetUpdateDelay = 0.5f;
         private Coroutine updateTargetCoroutine;
+        private Stat attackRange;
+        private Stat enemyDetectRange;
 
         private void Awake()
         {
@@ -21,15 +25,21 @@ namespace CastleFight
 
         private void OnUnitInitted()
         {
-            if(gameObject.layer == (int)Team.Team1){
+            if (gameObject.layer == (int)Team.Team1)
+            {
                 enemyLayer = LayerMask.GetMask("Team2");
             }
-            else{
+            else
+            {
                 enemyLayer = LayerMask.GetMask("Team1");
             }
 
+            attackRange = (Stat)unit.Stats.GetStat(StatType.AttackRange);
+            enemyDetectRange = (Stat)unit.Stats.GetStat(StatType.EnemyDetectRange);
+
             updateTargetCoroutine = StartCoroutine(UpdateTargetCoroutine());
         }
+
         void Update()
         {
             if (!unit.Alive)
@@ -42,14 +52,14 @@ namespace CastleFight
 
                 return;
             }
-            
-            if(currentTarget == null)
+
+            if (currentTarget == null)
             {
                 unit.MoveTo(GetEnemyCastlePosition());
             }
-            else 
+            else
             {
-                if(!currentTarget.Alive)
+                if (!currentTarget.Alive)
                 {
                     currentTarget = null;
                     return;
@@ -57,29 +67,29 @@ namespace CastleFight
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
                 var targetScale = currentTarget.Transform.localScale;
-                
-                distanceToTarget -= targetScale.z/2;
-                
-                if(distanceToTarget <= unit.AttackDistance)
+                distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
+
+                if (distanceToTarget <= attackRange.Value)
                 {
                     unit.Stop();
                     unit.Attack(currentTarget);
                 }
-                else if (distanceToTarget > unit.EnemyDetectRange)
+                else if (distanceToTarget > enemyDetectRange.Value)
                     currentTarget = null;
-                else   
+                else
                     unit.MoveTo(currentTarget.Transform.position);
             }
 
         }
+
         private IEnumerator UpdateTargetCoroutine()
         {
-            while(true)
+            while (true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = targetProvider.GetTarget(enemyLayer, transform.position, unit.EnemyDetectRange);
+                var target = targetProvider.GetTarget(enemyLayer, transform.position, enemyDetectRange.Value, ignoreAir);
 
-                if(target != null)
+                if (target != null)
                 {
                     currentTarget = target;
                 }
@@ -88,10 +98,10 @@ namespace CastleFight
 
         private Vector3 GetEnemyCastlePosition()
         {
-            if(gameObject.layer == (int)Team.Team1)
-                return new Vector3(0,0,30);
+            if (gameObject.layer == (int)Team.Team1)
+                return new Vector3(0, 0, 30);
             else
-                 return new Vector3(0,0, -30);
+                return new Vector3(0, 0, -30);
         }
 
         void OnDisable()

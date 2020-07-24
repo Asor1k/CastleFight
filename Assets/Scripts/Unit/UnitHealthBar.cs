@@ -9,6 +9,7 @@ namespace CastleFight
         [SerializeField]
         private UnitStats stats;
         private Stat maxHp;
+
         void Start()
         {
             stats.OnHpChanged += UpdateHealthBar;
