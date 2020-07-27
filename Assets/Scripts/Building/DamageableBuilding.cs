@@ -13,16 +13,17 @@ namespace CastleFight
         }
 
         public TargetType Type => TargetType.Building;
+        public Vector3 ViewOffset => Vector3.zero;
 
         public Transform Transform
         {
             get { return transform; }
-        } 
+        }
 
         [SerializeField] private BuildingStats stats;
         [SerializeField] private Building building;
         
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             stats.TakeDamage(damage);
         }

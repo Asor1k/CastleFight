@@ -16,6 +16,7 @@ namespace CastleFight
         private Animator animator;
         private Action attackCallback;
         private BaseUnitConfig unitConfig;
+
         void Start()
         {
             unit.OnKilled += OnUnitKilled;
@@ -47,7 +48,6 @@ namespace CastleFight
                 attackCallback = null;
             }
         }
-
         private void UpdateSpeed(float speed)
         {
             animator.SetFloat("Speed", speed);

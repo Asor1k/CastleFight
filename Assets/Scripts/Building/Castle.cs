@@ -18,10 +18,13 @@ namespace CastleFight
             get { return isStanding; }
         }
 
+
         public TargetType Type => TargetType.Castle;
 
         public Transform Transform => transform;
-        
+
+        public Vector3 ViewOffset => Vector3.zero;
+
         [SerializeField] private BuildingStats stats;
         [SerializeField] private Collider collider;
         [SerializeField] private NavMeshObstacle obstacle;
@@ -46,7 +49,7 @@ namespace CastleFight
         }
         
         //TODO: refactor remove IDamageable from this class
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             stats.TakeDamage(damage);
 

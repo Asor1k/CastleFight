@@ -791,6 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 7708090014004201080}
+  ignoreAir: 1
 --- !u!114 &7708090014004201080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +810,7 @@ MonoBehaviour:
   stats: {fileID: 5742255829533414632}
   config: {fileID: 11400000, guid: 2c929404c2896e049b7b4622e70a8f3b, type: 2}
   healthBarCanvas: {fileID: 730463454147631121}
+  attackSkill: {fileID: 0}
 --- !u!114 &6613721178652002944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 5742255829533414632}
   unit: {fileID: 7708090014004201080}
+  type: 0
 --- !u!114 &5742255829533414632
 MonoBehaviour:
   m_ObjectHideFlags: 0

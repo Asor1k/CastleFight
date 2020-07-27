@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebaa7c9eb763a114083c0901ff6c2ac9, type: 3}
   m_Name: GryphonLevel1
   m_EditorClassIdentifier: 
-  speed: 2
-  attackDistance: 6
-  maxHp: 400
+  stats:
+  - Type: 0
+    Value: 500
+  - Type: 1
+    Value: 500
+  - Type: 5
+    Value: 3
+  - Type: 4
+    Value: 100
+  - Type: 6
+    Value: 2
+  - Type: 7
+    Value: 20
+  - Type: 8
+    Value: 20
+  - Type: 9
+    Value: 1.3
   prefab: {fileID: 4893965998705981292, guid: f59830293a2f9154ea5866df15f4638b, type: 3}
   icon: {fileID: 0}
-  enemyDetectRange: 10
-  attackDelay: 2
-  damage: 80
-  cost: 27
+  cost: 15
   goldDmgPercent: 10
+  abilities: []
