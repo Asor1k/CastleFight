@@ -607,14 +607,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837574377142718898}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.0144174695, y: -1.4427867, z: -0.11894119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4297609587011844755}
   - {fileID: 218436898941328716}
   - {fileID: 745819686410760870}
-  m_Father: {fileID: 5879026553554643012}
+  m_Father: {fileID: 6388631725119038363}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &1746558606253390200
@@ -857,6 +857,37 @@ Transform:
   m_Father: {fileID: 3911263514417537256}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2206530252698955085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6388631725119038363}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6388631725119038363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206530252698955085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0144174695, y: 4.4427867, z: 0.11894119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4167958694264747136}
+  m_Father: {fileID: 5879026553554643012}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2347786154196836901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2759381756765844654}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.2730669, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 82.20211, y: 82.20211, z: 82.20211}
   m_Children:
   - {fileID: 6796909580303037614}
@@ -1445,7 +1476,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4167958694264747136}
+  - {fileID: 6388631725119038363}
   - {fileID: 5745986390930731349}
   - {fileID: 3750695660786111763}
   m_Father: {fileID: 0}
@@ -1546,6 +1577,8 @@ MonoBehaviour:
   unitStats: {fileID: 5853490943356552275}
   unit: {fileID: 6789630306314732085}
   type: 1
+  viewTransform: {fileID: 6388631725119038363}
+  viewOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &5853490943356552275
 MonoBehaviour:
   m_ObjectHideFlags: 0

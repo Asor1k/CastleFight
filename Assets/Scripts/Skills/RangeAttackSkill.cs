@@ -32,6 +32,8 @@ namespace CastleFight.Skills
         {
             var cachedTarget = targetsCache[projectile];
 
+            projectile.transform.parent = cachedTarget.Transform;
+
             if (cachedTarget == null)
                 return;
             else

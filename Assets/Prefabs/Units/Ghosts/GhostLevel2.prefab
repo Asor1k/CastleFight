@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1733401814069685498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2861688905663358742}
+  m_Layer: 0
+  m_Name: ProjectileLaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2861688905663358742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733401814069685498}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3352276842567606146}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3352276840679345275
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +185,7 @@ RectTransform:
   - {fileID: 3352276841352134329}
   - {fileID: 3352276840679345274}
   m_Father: {fileID: 3352276842567606146}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -471,7 +501,6 @@ GameObject:
   - component: {fileID: 3352276842567606147}
   - component: {fileID: 3352276842567606144}
   - component: {fileID: 5731746206018142242}
-  - component: {fileID: 9081912878705060345}
   - component: {fileID: 5922762931656291533}
   - component: {fileID: 3352276842567606145}
   - component: {fileID: 3352276842567606158}
@@ -499,6 +528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7781968127880706941}
+  - {fileID: 2861688905663358742}
   - {fileID: 3352276841017450759}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -535,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 5731746206018142242}
-  ignoreAir: 1
+  ignoreAir: 0
 --- !u!114 &5731746206018142242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,18 +585,6 @@ MonoBehaviour:
   config: {fileID: 0}
   healthBarCanvas: {fileID: 3352276841017450758}
   attackSkill: {fileID: 5922762931656291533}
---- !u!114 &9081912878705060345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352276842567606152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097128ee93e40d847ac17413575b6499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5922762931656291533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,8 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538029e5283fca04c825fdce6afdb6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileConfig: {fileID: 0}
-  launchPoint: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: c18ad170821eb8548b2c63b53aeb80a5, type: 2}
+  launchPoint: {fileID: 2861688905663358742}
 --- !u!114 &3352276842567606145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +628,8 @@ MonoBehaviour:
   unitStats: {fileID: 3352276842567606159}
   unit: {fileID: 5731746206018142242}
   type: 0
+  viewTransform: {fileID: 0}
+  viewOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &3352276842567606159
 MonoBehaviour:
   m_ObjectHideFlags: 0
