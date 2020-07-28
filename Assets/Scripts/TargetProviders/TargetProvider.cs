@@ -4,7 +4,7 @@ namespace CastleFight
 {
     public class TargetProvider
     {
-        public IDamageable GetTarget(LayerMask targetLayer,Vector3 originPoint, float radius)
+        public IDamageable GetTarget(LayerMask targetLayer,Vector3 originPoint, float radius, bool ignoreAir = true)
         {
             Collider[] hitColliders = Physics.OverlapSphere(originPoint, radius, targetLayer);
 
@@ -20,10 +20,15 @@ namespace CastleFight
                     var distance = Vector2.Distance(new Vector2(originPoint.x, originPoint.z),
                         new Vector2(damageable.Transform.position.x, damageable.Transform.position.z));
 
+
                     if (closest != null && closest.Type == TargetType.Building && damageable.Type != TargetType.Building)
                     {
                         closest = damageable;
                         closestDistance = distance;
+                    }
+                    else if (ignoreAir && damageable.Type == TargetType.AirUnit)
+                    {
+                        continue;
                     }
                     else if (closestDistance == -1 || closestDistance > distance)
                     {

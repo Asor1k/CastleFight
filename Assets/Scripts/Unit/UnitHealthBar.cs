@@ -8,16 +8,17 @@ namespace CastleFight
     {
         [SerializeField]
         private UnitStats stats;
+        private Stat maxHp;
 
         void Start()
         {
-            stats.OnDamaged += UpdateHealthBar;
-            stats.OnReset += UpdateHealthBar;
+            stats.OnHpChanged += UpdateHealthBar;
+            maxHp = (Stat)stats.GetStat(StatType.MaxHealth);
         }
 
-        private void UpdateHealthBar()
+        private void UpdateHealthBar(Stat hpStat)
         {
-            SetBarValue((float)stats.Hp / stats.MaxHp);
+            SetBarValue(hpStat.Value / maxHp.Value);
         }
         
         public void Update()

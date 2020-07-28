@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8542836384912682053}
   - component: {fileID: 3642396761852716395}
   - component: {fileID: 6518639073325517845}
+  - component: {fileID: -2216666574854957160}
   m_Layer: 0
   m_Name: Angel
   m_TagString: Unit
@@ -74,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 3039512680202058138}
+  ignoreAir: 1
 --- !u!114 &3039512680202058138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
   stats: {fileID: 5346373488676787640}
   config: {fileID: 11400000, guid: 485c976aef566bb4d8da57ba46adab71, type: 2}
   healthBarCanvas: {fileID: 7397435238559249620}
+  attackSkill: {fileID: -2216666574854957160}
 --- !u!114 &6794275160315907024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 5346373488676787640}
   unit: {fileID: 3039512680202058138}
+  type: 0
 --- !u!114 &5346373488676787640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +202,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &-2216666574854957160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3843191253401755534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097128ee93e40d847ac17413575b6499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6574341171294174674
 GameObject:
   m_ObjectHideFlags: 0
