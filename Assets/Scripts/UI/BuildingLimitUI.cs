@@ -11,15 +11,20 @@ namespace CastleFight {
         [SerializeField] private Text limitText;
         [SerializeField] Transform gameUITr;
         private BuildingsLimitManager buildingManager;
-        
 
+        public void Awake()
+        {
+        }
         public void Start()
         {
             buildingManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
+
+            OnUpdateLable();
             buildingManager.UserUpdateLabel += OnUpdateLable;
             buildingManager.UserTryWithMaximum += OnUserTryWithMaximum;
-       
         }
+
+ 
 
         private void OnUserTryWithMaximum()
         {

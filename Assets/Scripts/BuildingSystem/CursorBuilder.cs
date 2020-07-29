@@ -11,6 +11,8 @@ namespace CastleFight
         [SerializeField] private Team team;
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
+        [SerializeField] UserController userController;
+        private CameraMover cameraMover;
         private BuildingsLimitManager buildingLimitManager;
         private GoldManager goldManager;
         private Ray ray;
@@ -21,6 +23,7 @@ namespace CastleFight
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             buildingLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
+            cameraMover = ManagerHolder.I.GetManager<CameraMover>();
         }
 
         private void OnDestroy()
@@ -61,13 +64,20 @@ namespace CastleFight
         {
             Destroy(buildingBehavior.gameObject);
             buildingBehavior = null;
+            cameraMover.ConinueMoving();
         }
         
+        private bool IsCancelling()
+        {
+            return !goldManager.IsEnough(buildingBehavior.Building.Config.Cost)  ||Input.GetMouseButtonDown(1) || !buildingLimitManager.CanBuild(team);
+        }
+
         private void Update()
         { 
            
             if (buildingBehavior == null) return;
-            if (!goldManager.IsEnough(buildingBehavior.Building.Config.Cost) || Input.GetMouseButtonDown(1) || !buildingLimitManager.CanBuild(team)) 
+            cameraMover.StopMoving();
+            if (IsCancelling()) 
             {
                 CancelBuilding();
                 return;
@@ -81,9 +91,17 @@ namespace CastleFight
                 buildingBehavior.MoveTo(position);
                 bool canPlace = buildingBehavior.CanBePlaced();
                 
-                if (Input.GetMouseButtonDown(0) && canPlace)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    Build();
+                    if (!userController.IsRaycastUI() && canPlace)
+                    {
+                        Build();
+                    }
+                    else
+                    { 
+                        CancelBuilding();
+                        return;
+                    }
                 }
             }
         }
@@ -94,6 +112,8 @@ namespace CastleFight
             goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost, Team.Team1);
             buildingBehavior.Place(team);
             buildingBehavior = null;
+
+            cameraMover.ConinueMoving();
         }
 
         public override void Unlock()

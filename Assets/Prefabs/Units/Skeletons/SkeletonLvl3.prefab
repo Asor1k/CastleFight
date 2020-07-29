@@ -39,7 +39,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6827023185992122723}
-  - {fileID: 7100803461109033923}
+  - {fileID: 7704008186703604366}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &2878270679027613913
+--- !u!1001 &3427404717006963092
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -590,16 +590,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: skeleton_10lvl_anim
       objectReference: {fileID: 0}
-    - target: {fileID: 4947382306295051578, guid: 188f08ff9ff77db44a58e11c3c864f1e,
+    - target: {fileID: 5685760466209919585, guid: 188f08ff9ff77db44a58e11c3c864f1e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a38c806d81b894f45bfd9088313238d0, type: 2}
+      objectReference: {fileID: 2100000, guid: 1c6b7f427e29262499315b4028ef04f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188f08ff9ff77db44a58e11c3c864f1e, type: 3}
---- !u!4 &7100803461109033923 stripped
+--- !u!4 &7704008186703604366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 188f08ff9ff77db44a58e11c3c864f1e,
     type: 3}
-  m_PrefabInstance: {fileID: 2878270679027613913}
+  m_PrefabInstance: {fileID: 3427404717006963092}
   m_PrefabAsset: {fileID: 0}

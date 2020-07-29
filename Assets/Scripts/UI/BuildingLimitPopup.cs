@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-
-public class BuildingLimitPopup : MonoBehaviour
+namespace CastleFight
 {
-    
+    public class BuildingLimitPopup : MonoBehaviour
+    {
+
+    }
 }

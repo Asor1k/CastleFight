@@ -71,7 +71,7 @@ namespace CastleFight
         {
             if (rend == null)
             {
-                Debug.Log("null");
+                Debug.LogError("There no renderer reference on this building!");
                 return true;
             }
             if (collisions.Count == 0)  
@@ -85,6 +85,7 @@ namespace CastleFight
 
         private void OnTriggerEnter(Collider collider)
         {
+            if (collider.CompareTag("Map")) return;
             collisions.Add(collider);
         }
 

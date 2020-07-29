@@ -39,7 +39,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6827023185992122723}
-  - {fileID: 5427760883484890591}
+  - {fileID: 6076737168182754388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -673,13 +673,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &1020614017409433285
+--- !u!1001 &1238028706881705806
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 471803538777091277}
     m_Modifications:
+    - target: {fileID: -4916234310865200276, guid: 374cce24da6a0894ea908934d6125431,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00b3bfb445f041a448c23aacafe6b033, type: 2}
     - target: {fileID: -4216859302048453862, guid: 374cce24da6a0894ea908934d6125431,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -740,17 +745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: skeleton_1lvl_anim
       objectReference: {fileID: 0}
-    - target: {fileID: 7909432134951405382, guid: 374cce24da6a0894ea908934d6125431,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 00b3bfb445f041a448c23aacafe6b033, type: 2}
-    m_RemovedComponents:
-    - {fileID: -6057140222963153312, guid: 374cce24da6a0894ea908934d6125431, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374cce24da6a0894ea908934d6125431, type: 3}
---- !u!4 &5427760883484890591 stripped
+--- !u!4 &6076737168182754388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 374cce24da6a0894ea908934d6125431,
     type: 3}
-  m_PrefabInstance: {fileID: 1020614017409433285}
+  m_PrefabInstance: {fileID: 1238028706881705806}
   m_PrefabAsset: {fileID: 0}

@@ -2,7 +2,8 @@
 using System.Collections;
 using CastleFight.Config;
 using CastleFight.Core;
-using Core;
+using CastleFight.Core.EventsBus;
+using CastleFight.Core.EventsBus.Events;
 using UnityEngine;
 using CastleFight.UI;
 using UnityEngine.AI;
@@ -63,13 +64,15 @@ namespace CastleFight
             goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
         }
 
-        public void UpgradeBuilding()
+        public void UpgradeBuilding(Team team = Team.Team1)
         {
-            if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
+            if(team==Team.Team1)
+                if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
 
             lvl++;  
-            goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost,Team.Team1);
+            goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost, team);
             stats.Init(config.Levels[lvl-1].MaxHp);
+            EventBusController.I.Bus.Publish(new BuildingUpgradedEvent(this));
             levelLabel.SetLevel(lvl);
             UpdateUpgradeLabel();
         }
@@ -109,6 +112,7 @@ namespace CastleFight
             col.enabled = false;
             obstacle.enabled = false;
             buildingsLimitManager.DeleteBuilding((Team)gameObject.layer);
+            EventBusController.I.Bus.Publish(new BuildingDestroyedEvent(this));
             Deselect();
             StartCoroutine(DestroyCoroutine());
         }

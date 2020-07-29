@@ -10,7 +10,7 @@ namespace CastleFight
         [SerializeField] private float timeUntillBoost = 2f;
         [SerializeField] private float boostedSpeed = 4f;
         public float ScreenSensibility => screenSensibility;
-        public float Speed => speed;
+        public float Speed;
 
         public float BoostedSpeed => boostedSpeed;
 
