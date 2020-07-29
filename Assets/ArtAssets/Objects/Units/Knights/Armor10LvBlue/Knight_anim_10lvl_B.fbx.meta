@@ -115,6 +115,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.6491372
+        functionName: AttackAnimEndCallback
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f7970178be9f3b54ca260e227db48107,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

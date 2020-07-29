@@ -14,21 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - Type: 0
-    Value: 500
+    Value: 1300
   - Type: 1
-    Value: 500
+    Value: 1300
   - Type: 5
     Value: 3
   - Type: 4
-    Value: 100
+    Value: 190
   - Type: 6
     Value: 1
   - Type: 7
-    Value: 10
+    Value: 0.8
   - Type: 8
     Value: 3
   - Type: 9
-    Value: 1.3
+    Value: 2
+  - Type: 3
+    Value: 0
   prefab: {fileID: 2210365828415378932, guid: 1ae5b413c1dc0f74282edc3d64e5ebd5, type: 3}
   icon: {fileID: 0}
   cost: 60

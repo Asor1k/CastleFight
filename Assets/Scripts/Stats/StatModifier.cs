@@ -10,7 +10,7 @@ namespace CastleFight
     {
         public StatType StatType { get { return statType; } }
         [SerializeField]
-        private int value;
+        private float value;
         [SerializeField]
         private StatType statType;
         [SerializeField]
