@@ -124,7 +124,7 @@ namespace CastleFight
             Vector3 delta1 = Vector3.zero;
 
             CheckForBorders();
-            if (Input.touchCount >= 1)
+            if (Input.touchCount >= 1 && canMove)
             {
                 delta1 = PlanePositionDelta(Input.GetTouch(0));
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)

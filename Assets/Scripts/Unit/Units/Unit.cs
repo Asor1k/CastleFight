@@ -104,6 +104,7 @@ namespace CastleFight
             agent.Disable();
             healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer==Team.Team1?Team.Team2:Team.Team1);
+            EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
             if (gameObject.layer == (int)Team.Team2)
             {
                 goldManager.InitGoldAnim(config.Cost, transform);
@@ -115,7 +116,9 @@ namespace CastleFight
         private async Task DelayDestroy()
         {
             await Task.Delay(3000);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            Pool.I.Put(this);
         }
         
         public void Reset()
