@@ -24,9 +24,9 @@ MonoBehaviour:
   - Type: 6
     Value: 2
   - Type: 7
-    Value: 20
+    Value: 10
   - Type: 8
-    Value: 20
+    Value: 10
   - Type: 9
     Value: 1.3
   prefab: {fileID: 6789630306314732085, guid: 3a11217a9d4fbfb4b94bfd782c04dfd4, type: 3}
