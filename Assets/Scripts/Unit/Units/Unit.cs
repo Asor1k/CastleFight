@@ -130,7 +130,9 @@ namespace CastleFight
         private async Task DelayDestroy()
         {
             await Task.Delay(3000);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            Pool.I.Put(this);
         }
 
         public void Reset()
