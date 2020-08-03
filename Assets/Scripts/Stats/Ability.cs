@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CastleFight
 {
     [Serializable]
-    public class Ability
+    public class Ability 
     {
         public bool IsActive { get { return isActive; } }
         public StatModifier[] Modifiers { get { return modifiers.ToArray(); } }

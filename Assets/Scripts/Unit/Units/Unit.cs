@@ -53,7 +53,10 @@ namespace CastleFight
             this.config = config;
             alive = true;
             stats.Init(config.Stats.ToArray());
-            InitPassiveAbilities();
+
+            if(team==Team.Team1)
+                InitPassiveAbilities();
+            
             stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             agent.Init(this);
@@ -70,7 +73,10 @@ namespace CastleFight
                 ability.Activate(this);
             }
         }
+        public void Evade()
+        {
 
+        }
         public virtual void MoveTo(Vector3 point)
         {
             if (!alive) return;
