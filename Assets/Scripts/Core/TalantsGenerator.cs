@@ -17,14 +17,11 @@ namespace CastleFight
         [SerializeField] public int DefaultFraction => defaultFraction;
         public int UnitCount => unitCount;
         [SerializeField] private List<UnitConfigsConfig> unitConfigs = new List<UnitConfigsConfig>();
-       // public static TalantsGenerator I => instance ?? (instance = new TalantsGenerator());
 
         public int unitCount;
         [SerializeField]private int defaultHighest;
         [SerializeField]private int defaultFraction;
         private PlayerProgress playerProgress;
-        //private static TalantsGenerator instance;
-        //private Dictionary<UnitKind, List<BaseUnitConfig>> unitConfigs = new Dictionary<UnitKind, List<BaseUnitConfig>>();
         private List<int> weights = new List <int>();
         private List <int> talantLevels = new List<int>();
         private int maxLevels = 0;
@@ -36,10 +33,12 @@ namespace CastleFight
             }
             return n;
         }
+
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
         }
+
         public void Start()
         {
             playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
@@ -50,20 +49,6 @@ namespace CastleFight
             {
                 maxLevels += pa.abilities.Count-1;   
             }
-           // Debug.Log(maxLevels);
-           /* for (int i = 0; i < unitConfigs.Count; i++)
-            {
-                if (weights.ContainsKey((UnitKind)i))
-                {
-                    weights[(UnitKind)i] = defaultHighest;
-                }
-                else
-                {
-                    weights.Add((UnitKind)i, defaultHighest);
-                }
-                talantLevels.Add((UnitKind)i, 0);
-            }
-            */
         }
 
         [ContextMenu("Reset configs")]
@@ -85,9 +70,9 @@ namespace CastleFight
         
         public void DebugGenerate()
         {
-           // Debug.Log(unitConfigs.Count);   
             StartGenerating();
         }
+
         public void StartGenerating()
         {
             int maxWeight = 1;
@@ -108,7 +93,6 @@ namespace CastleFight
                    
                     return;
                 }
-                //Debug.Log(weights[i]);
             }
         }
 
@@ -131,7 +115,6 @@ namespace CastleFight
                             return;
                         }
                         StartGenerating();
-                       // Debug.Log("There is no talant");
                         return;
                     }
                         ability = passiveAbilities[i].abilities[talantLevels[(int)unitKind]];
@@ -165,7 +148,6 @@ namespace CastleFight
                 return;
             }
             EventBusController.I.Bus.Publish(new AbilityGeneratedEvent(ability, unitKind));
-//            Debug.Log(ability.ToString() +" "+  ability.Modifiers[0].StatType);
         }
     }
 }

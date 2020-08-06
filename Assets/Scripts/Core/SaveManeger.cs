@@ -17,15 +17,19 @@ namespace CastleFight {
                 return default;
             }
         }
+
         public static bool FileExists(string filename)
         {
             return File.Exists(PathForFilename(filename));
         }
+
         public static void Save<T>(string filename, T data) where T : class
         {
             string path = PathForFilename(filename);
+            Debug.Log(path);
             File.WriteAllText(path, JsonUtility.ToJson(data));
         }
+
         private static string PathForFilename(string filename)
         {
             string path = filename; 

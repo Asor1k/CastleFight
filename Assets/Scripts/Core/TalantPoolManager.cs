@@ -10,12 +10,11 @@ namespace CastleFight
 {
     public class TalantPoolManager : MonoBehaviour
     {
+        public int workingIndex { get; private set; }
 
         [SerializeField] private TalantCard[] talantCards;
         [SerializeField] private int standartTime;
         [SerializeField] private int maxOcupied;
-
-        public int workingIndex { get; private set; }
 
         private PlayerProgress playerProgress;
 
@@ -25,36 +24,41 @@ namespace CastleFight
             maxOcupied = talantCards.Length;
             for(int i = 0; i < maxOcupied; i++)
             {
-                if (talantCards[i].timeUntilOpened <= 0)
+                if (talantCards[i].timeUntilOpened < 0)
                 {
                     talantCards[i].Init(standartTime, i);
                     return;
                 }
             }
         }
+
         public void OnDestroy()
         {
             playerProgress.Data.ticks = DateTime.Now.Ticks;
+            playerProgress.Data.openingIndex = workingIndex;
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEnd);
         }
 
-        public void ResetIndex()
+        public void ResetIndex(int ind)
         {
+            if (ind != workingIndex) return;
             workingIndex = -1;
         }
+
         private void InitExistingCard(int index)
         {
             if (playerProgress.Data.CardsTimeToOpen[index] <= 0) return;
+            
             int timeToSend = playerProgress.Data.CardsTimeToOpen[index];
             
             DateTime dateTimeNow = DateTime.Now;
-            
             DateTime dateTimeThen = new DateTime(playerProgress.Data.ticks);
+            
             long elapsedTicks = dateTimeNow.Ticks - dateTimeThen.Ticks;
             TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
             int secondsPassed = (int)Math.Round(elapsedSpan.TotalSeconds);
-            // Debug.Log(secondsPassed);
-            if (index==-1||index!=workingIndex) secondsPassed = 0;
+
+            if (index == -1 || index != workingIndex) secondsPassed = 0;
             talantCards[index].Init(timeToSend - secondsPassed, index);
         }
 
@@ -78,6 +82,7 @@ namespace CastleFight
         {
             ManagerHolder.I.AddManager(this);
         }
+
         public void Start()
         {
             playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();

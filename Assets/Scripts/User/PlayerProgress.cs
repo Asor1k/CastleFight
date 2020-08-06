@@ -39,14 +39,17 @@ namespace CastleFight
             data = new PlayerData();
             SaveManager.Save(playerProgressFileName, data);
         }
+
         public void OnApplicationQuit()
         {
             Save();
         }
+        
         public void OnDestroy()
         {
             Save();
         }
+        
         public void Save()
         {
             SaveManager.Save(playerProgressFileName, data);

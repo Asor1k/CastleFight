@@ -96,6 +96,7 @@ namespace CastleFight
 
         public void Destroy()
         {
+            if (gameObject == null) return;
             Destroy(gameObject); // TODO: move to pool
         }
     }

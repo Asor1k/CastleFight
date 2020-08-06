@@ -8,14 +8,15 @@ namespace CastleFight
 {
     public class TalantCard : MonoBehaviour
     {
+        public int timeUntilOpened { get; private set; } = -1;
+
         [SerializeField] private Text timeText;
         [SerializeField] private Text attentionText;
         [SerializeField] private TalantPoolManager poolManager;
-        public int timeUntilOpened { get; private set; }
-
+        
         private PlayerProgress playerProgress;
-        private int index;
         private TalantsGenerator talantsGenerator;
+        private int index;
         private bool isReady = false;
 
         private const int SECONDS_IN_DAY = 60 * 60 * 24;
@@ -24,8 +25,8 @@ namespace CastleFight
         {
             playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
             talantsGenerator = ManagerHolder.I.GetManager<TalantsGenerator>();
-           // poolManager = ManagerHolder.I.GetManager<TalantPoolManager>();
         }
+
         public void Init(int time, int index)
         {
             Activate();
@@ -46,9 +47,9 @@ namespace CastleFight
 
         private void ShowTime()
         {
-            //Debug.Log(timeUntilOpened);
             timeText.text = IntToRealTimeString(timeUntilOpened);
         }
+
         public void OnDestroy()
         {
             playerProgress.Data.CardsTimeToOpen[index] = timeUntilOpened;
@@ -58,21 +59,26 @@ namespace CastleFight
         private string IntToRealTimeString(int number)
         {
             string ans = "";
+            bool isHours = false;
+            bool isDays = false;
             if (number >= SECONDS_IN_DAY)
             {
                 ans += number / SECONDS_IN_DAY + "D ";
                 number /= 24;
+                isDays = true;
             }
             if (number > SECONDS_IN_DAY / 24)
             {
                 ans += number / (SECONDS_IN_DAY / 24) + "h ";
-                number /= 60;
+                number %= 60;
+                isHours = true;
             }
             if (number >= SECONDS_IN_DAY / 24 / 60)
             {
-                ans += number / (SECONDS_IN_DAY / 24 / 60) + "m";
+                ans += number / (SECONDS_IN_DAY / 24 / 60) + "m ";
+                number %= 60;
             }
-            else
+            if(!isHours)
             {
                 ans += number + "s";
             }
@@ -83,6 +89,7 @@ namespace CastleFight
         {
             if (!isReady)
             {
+                if (index == poolManager.workingIndex) return;
                 if (poolManager.CanWork(index))
                 {
                     StartCoroutine(TimeCouroutine());
@@ -91,7 +98,7 @@ namespace CastleFight
             }
             GenerateTalant();
             Deactivate();
-            poolManager.ResetIndex();
+            poolManager.ResetIndex(index);
         }
 
         private IEnumerator TimeCouroutine()
@@ -106,12 +113,16 @@ namespace CastleFight
             }
             StartCoroutine(TimeCouroutine());
         }
+
         private void ChangeStatus()
         {
             timeText.gameObject.SetActive(false);
             isReady = true;
             attentionText.gameObject.SetActive(true);
+            
+            poolManager.ResetIndex(index);
         }
+
         private void Deactivate()
         {
             gameObject.SetActive(false);
@@ -123,10 +134,10 @@ namespace CastleFight
             attentionText.gameObject.SetActive(false);
             timeText.gameObject.SetActive(true);
         }
+
         private void GenerateTalant()
         {
             talantsGenerator.StartGenerating();
         }
-
     }
 }
