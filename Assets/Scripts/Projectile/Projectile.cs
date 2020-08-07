@@ -15,8 +15,8 @@ namespace CastleFight.Projectiles
         
         protected Action<Projectile> targetReachCallback;
         
-        private GameObject target;
-        private bool isMoving = false;
+        protected GameObject target;
+        protected bool isMoving = false;
         
         public void Init(ProjectileConfig config)
         {
@@ -74,6 +74,14 @@ namespace CastleFight.Projectiles
             }
         }
 
+        protected virtual void Move()
+        {
+            var projectilePosition = transform.position;
+            var targetTransform = target.transform;
+            transform.LookAt(targetTransform);
+            transform.position = Vector3.MoveTowards(projectilePosition, targetTransform.position, speed * Time.deltaTime);
+        }
+
         public void Update()
         {
             if (!isMoving) return;
@@ -89,9 +97,8 @@ namespace CastleFight.Projectiles
                 OnHit();
                 targetReachCallback?.Invoke(this);
             }
-            
-            transform.LookAt(target.transform);
-            transform.position = Vector3.MoveTowards(projectilePosition, targetPosition, speed * Time.deltaTime);
+
+            Move();
         }
     }
 }

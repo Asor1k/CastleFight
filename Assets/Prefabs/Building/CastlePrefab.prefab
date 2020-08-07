@@ -33,6 +33,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
+  - {fileID: 8010206232013904640}
   - {fileID: 4963583607940314875}
   - {fileID: 1977382329338891970}
   m_Father: {fileID: 0}
@@ -53,6 +54,8 @@ MonoBehaviour:
   stats: {fileID: 1157267239654619611}
   collider: {fileID: 3567421265932857767}
   obstacle: {fileID: 1490417540363586034}
+  projectileConfig: {fileID: 11400000, guid: 10fc26111d1c69448840a161e5105600, type: 2}
+  launchPoint: {fileID: 8010206232013904640}
 --- !u!114 &2595719727865546921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +123,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!1 &4195751425994392555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8010206232013904640}
+  m_Layer: 0
+  m_Name: LaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8010206232013904640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195751425994392555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0174, y: 0.787, z: 0.089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3023964408319332492}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4963583607149331834
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +381,7 @@ RectTransform:
   - {fileID: 4963583607341026075}
   - {fileID: 4936559212764998161}
   m_Father: {fileID: 3023964408319332492}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -619,7 +652,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 36c0576485ef74b48bca48db4e3c93e4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 36c0576485ef74b48bca48db4e3c93e4,
         type: 3}

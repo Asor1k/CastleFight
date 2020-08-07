@@ -16,3 +16,6 @@ MonoBehaviour:
   goldDelay: 1
   goldIncome: 1
   maxHp: 5000
+  attackRange: 10
+  attackDelay: 3
+  damage: 100
