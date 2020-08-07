@@ -44,6 +44,8 @@ namespace CastleFight
         AttackDelay,
         EnemyDetectRange,
         AttackRange,
-        Vampirism
+        Vampirism,
+        Evasion,
+        Crit
     }
 }

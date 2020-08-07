@@ -1,7 +1,10 @@
 ﻿using CastleFight.Core.EventsBus.Events;
+using System.Collections.Generic;
 using CastleFight.Core.EventsBus;
+using CastleFight.Config;
 using CastleFight.Core;
 using UnityEngine;
+using System.Linq;
 
 namespace CastleFight
 {
@@ -12,7 +15,7 @@ namespace CastleFight
         private PlayerData data;
         [SerializeField] private string playerProgressFileName;
         [SerializeField] private int ratingDelta;
-       
+
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);
@@ -36,19 +39,33 @@ namespace CastleFight
             data = new PlayerData();
             SaveManager.Save(playerProgressFileName, data);
         }
+
         public void OnApplicationQuit()
         {
             Save();
         }
+        
         public void OnDestroy()
         {
             Save();
         }
-        private void Save()
+        
+        public void Save()
         {
             SaveManager.Save(playerProgressFileName, data);
         }
-         private void OnGameEnd(GameEndEvent gameEndEvent)
+
+        public void SetWeigths(List<int> weights)
+        {
+            data.Weights = weights;
+            Save();
+        }
+        public void SetTalants(List<int> talants)
+        {
+            data.TalantLevels = talants;
+            Save();
+        }
+        private void OnGameEnd(GameEndEvent gameEndEvent)
         {
             if(gameEndEvent.winnerTeam == Team.Team2)
             {

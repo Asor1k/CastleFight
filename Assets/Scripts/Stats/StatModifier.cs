@@ -9,6 +9,8 @@ namespace CastleFight
     public class StatModifier
     {
         public StatType StatType { get { return statType; } }
+        public float Value => value;
+
         [SerializeField]
         private float value;
         [SerializeField]

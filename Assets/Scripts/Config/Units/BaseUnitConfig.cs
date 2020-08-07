@@ -4,6 +4,16 @@ using UnityEngine;
 
 namespace CastleFight.Config
 {
+    public enum UnitKind
+    {
+        Skeleton,
+        Ghost,
+        Death,
+        Knight,
+        Gryphon,
+        Angel
+    }
+
     [CreateAssetMenu]
     public abstract class BaseUnitConfig : ScriptableObject
     {
@@ -24,9 +34,14 @@ namespace CastleFight.Config
             }
         }
 
-        public Ability[] Abilities
+        public List<Ability> Abilities
         {
             get { return abilities; }
+        }
+
+        public UnitKind UnitKind
+        {
+            get { return unitKind; }
         }
 
         [SerializeField]
@@ -40,9 +55,16 @@ namespace CastleFight.Config
         [SerializeField]
         protected float goldDmgPercent;
         [SerializeField]
-        protected Ability[] abilities;
-
+        protected List<Ability> abilities;
+        [SerializeField]
+        protected UnitKind unitKind;
         public abstract Unit Create(Team team);
+ 
+      /*  [ContextMenu("Add To Generator")]
+        public void AddToGenerator()
+        {
+            TalantsGenerator.I.AddConfig(this);
+        }*/
 
         [ContextMenu("Fill stats")]
         public void FillDefaultStats() 
@@ -55,7 +77,9 @@ namespace CastleFight.Config
             stats.Add(new Stat(1, StatType.AttackDelay));
             stats.Add(new Stat(10, StatType.EnemyDetectRange));
             stats.Add(new Stat(3, StatType.AttackRange));
-            stats.Add(new Stat(1.3f, StatType.Vampirism));
+            stats.Add(new Stat(0, StatType.Vampirism));
+            stats.Add(new Stat(0, StatType.Armor));
+            stats.Add(new Stat(0, StatType.Evasion));
         }
     }
 }

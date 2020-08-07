@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4232163c5fab19149802a27c1485d628, type: 3}
+  m_Name: DeathPassive
+  m_EditorClassIdentifier: 
+  unitKind: 2
+  abilities:
+  - modifiers: []
+    isActive: 0
+  - modifiers:
+    - value: 10
+      statType: 4
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 5
+      statType: 9
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 1
+      statType: 3
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 60
+      statType: 1
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 15
+      statType: 4
+      Type: 0
+    isActive: 0
