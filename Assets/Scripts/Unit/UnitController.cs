@@ -66,8 +66,12 @@ namespace CastleFight
                 }
 
                 var distanceToTarget = Vector3.Distance(transform.position, currentTarget.Transform.position);
-                var targetScale = currentTarget.Transform.localScale;
-                distanceToTarget -= new Vector2(targetScale.x, targetScale.z).magnitude - 2;
+
+                if (currentTarget.Type == TargetType.Building || currentTarget.Type == TargetType.Castle)
+                {
+                    var targetTransform = currentTarget.Transform.localScale;
+                    distanceToTarget -= Mathf.Max(0, currentTarget.Transform.localScale.x - attackRange.Value);
+                }
 
                 if (distanceToTarget <= attackRange.Value)
                 {
