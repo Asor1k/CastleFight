@@ -95,7 +95,6 @@ namespace CastleFight
         {
             if (!target.Alive || !alive || !readyToAttack) return;
             readyToAttack = false;
-            StartAttackCooldown();
             agent.LookAt(target.Transform);
             if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
             {
@@ -105,11 +104,20 @@ namespace CastleFight
                     InitGoldAnim(config.Cost);
             }
 
-            animationController.Attack(() =>
-            {
-                attackSkill.SetTarget(target);
-                attackSkill.Execute();
-            });
+            animationController.Attack
+            (
+                () =>
+                {
+                    if (!alive) return;
+
+                    attackSkill.SetTarget(target);
+                    attackSkill.Execute();
+                },
+                ()=> 
+                {
+                    StartAttackCooldown();
+                }
+            );
         }
 
         private int GetGoldPerHit()
@@ -144,6 +152,7 @@ namespace CastleFight
         public void Reset()
         {
             collider.enabled = true;
+            readyToAttack = true;
             stats.Reset();
             agent.Enable();
             OnReset?.Invoke();
@@ -179,6 +188,7 @@ namespace CastleFight
             yield return new WaitForSeconds(1);
             anim.gameObject.SetActive(false);
         }
+
         private async Task StartAttackCooldown()
         {
             var miliseconds = attackDelay.Value * 1000;

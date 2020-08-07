@@ -11,13 +11,17 @@ namespace CastleFight
         public event Action<Stat> OnStatChanged;
 
         private Stat hpStat;
+        private Stat armotStat;
         private Dictionary<StatType, Stat> stats;
         private Dictionary<StatType, List<StatModifier>> statModifiers
             = new Dictionary<StatType, List<StatModifier>>();
 
         public void TakeDamage(float damage)
         {
+            var damageMultiplier = damage / (damage + armotStat.Value);
+            var finalDamage = damage * damageMultiplier;
             hpStat.Value -= damage;
+
             OnHpChanged?.Invoke(hpStat);
         }
 
@@ -75,6 +79,10 @@ namespace CastleFight
                 if (stat.Type == StatType.Health)
                 {
                     hpStat = stat;
+                }
+                else if (stat.Type == StatType.Armor)
+                {
+                    armotStat = stat;
                 }
 
                 this.stats.Add(stat.Type, stat);
