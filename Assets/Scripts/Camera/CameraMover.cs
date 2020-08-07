@@ -83,7 +83,6 @@ namespace CastleFight
                 CheckForBorders();
                 if (inertZ != 0 && !isBlockedLeft && !isBlockedRight)
                 {
-                    Debug.Log("SSSSSS");
                     Vector3 delta2 = new Vector3(0, 0, inertZ);
                     inertZ = inertZ > 0 ? inertZ - Time.deltaTime * gravity : inertZ + Time.deltaTime * gravity;
                     if (Mathf.Abs(inertZ) <= dead)

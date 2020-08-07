@@ -13,19 +13,21 @@ namespace CastleFight.Skills
         private Dictionary<Projectile, IDamageable> targetsCache = new Dictionary<Projectile, IDamageable>();
         private Stat damage;
         private Stat? vampirism;
+        private Stat? crit;
 
         public override void Init(Unit unit)
         {
             base.Init(unit);
             damage =(Stat) unit.Stats.GetStat(StatType.Damage);
             vampirism = unit.Stats.GetStat(StatType.Vampirism);
+            crit = unit.Stats.GetStat(StatType.Crit);
         }
 
         public override void Execute()
         {
             var projectile = projectileConfig.Create();
             targetsCache.Add(projectile, target);
-            projectile.Launch( launchPoint.position, target.Transform.gameObject, OnTargetReached);
+            projectile.Launch(launchPoint.position, target.Transform.gameObject, OnTargetReached);
         }
 
         private void OnTargetReached(Projectile projectile)
@@ -39,11 +41,21 @@ namespace CastleFight.Skills
             else
                 targetsCache.Remove(projectile);
 
-            cachedTarget.TakeDamage(damage.Value);
+            float damage = this.damage.Value;
+            
+            if(crit != null)
+            {
+                if (Random.Range(0.01f, 100) <= ((Stat)crit).Value)
+                {
+                    damage *= 2;
+                }
+            }
+            
+            cachedTarget.TakeDamage(damage);
 
             if (vampirism != null)
             {
-                var hp = damage.Value * ((Stat)vampirism).Value;
+                var hp = damage * ((Stat)vampirism).Value;
                 unit.Stats.AddStatValue(StatType.Health, hp);
             }
 

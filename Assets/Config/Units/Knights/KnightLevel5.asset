@@ -28,9 +28,14 @@ MonoBehaviour:
   - Type: 8
     Value: 3
   - Type: 9
-    Value: 1.3
+    Value: 0
+  - Type: 3
+    Value: 0
+  - Type: 10
+    Value: 0
   prefab: {fileID: 4306829730814969665, guid: ef49d4afd071ddb44b9470a150de3af0, type: 3}
   icon: {fileID: 0}
   cost: 0
   goldDmgPercent: 0
   abilities: []
+  unitKind: 3
