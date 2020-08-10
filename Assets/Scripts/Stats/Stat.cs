@@ -45,6 +45,7 @@ namespace CastleFight
         AttackRange,
         Vampirism,
         Evasion,
-        Crit
+        Crit,
+        Unknown
     }
 }

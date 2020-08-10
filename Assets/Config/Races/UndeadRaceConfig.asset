@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69d8af6f19ac4ac6ae831b86d068e5a, type: 3}
   m_Name: UndeadRaceConfig
   m_EditorClassIdentifier: 
-  raceName: Undead
+  disabledRaceSprite: {fileID: 21300000, guid: 3af83363c965a1242aa557af2f414d1c, type: 3}
+  enabledRaceSprite: {fileID: 21300000, guid: 74f2f021bb4e7ec49a0f884f66213897, type: 3}
+  enForeGroundSprite: {fileID: 21300000, guid: 58ca8b3d695f5ac4db20355e625f62d4, type: 3}
+  disForeGroundSprite: {fileID: 21300000, guid: 89b00ffa81e71e34fa05c29bbc381439,
+    type: 3}
+  raceName: 
   buildingSet: {fileID: 11400000, guid: 39c29d5e412a24477865a7b0fc847f3f, type: 2}
   castle: {fileID: 11400000, guid: 986fc4f4a4a044c60a055fd8e915de23, type: 2}

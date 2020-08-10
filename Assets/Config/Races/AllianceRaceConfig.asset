@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69d8af6f19ac4ac6ae831b86d068e5a, type: 3}
   m_Name: AllianceRaceConfig
   m_EditorClassIdentifier: 
-  raceName: Alliance
+  disabledRaceSprite: {fileID: 21300000, guid: 17ab8960d28e7e34684044999adc385b, type: 3}
+  enabledRaceSprite: {fileID: 21300000, guid: 20ba53c0283c0b64eafe87eeb390ff9d, type: 3}
+  enForeGroundSprite: {fileID: 21300000, guid: 73fde11f757ca034d9bbfa52913a8627, type: 3}
+  disForeGroundSprite: {fileID: 21300000, guid: d65bf13f632c63149aa9dbb4ce631ec5,
+    type: 3}
+  raceName: 
   buildingSet: {fileID: 11400000, guid: a5efeae6104a5452788f3c2fdc197da0, type: 2}
   castle: {fileID: 11400000, guid: 95c63f8736c2f4659b81ea6c66a07b39, type: 2}

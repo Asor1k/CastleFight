@@ -11,11 +11,12 @@ namespace CastleFight
         public Action UserTryWithMaximum;
         public Action UserUpdateLabel;
         public BuildingLimitConfig BuildingLimitConfig => buildingLimitConfig;
+        public int BuildingsCount(Team team) => buildingsBuilt[team];
 
         [SerializeField] private BuildingLimitConfig buildingLimitConfig;
 
         private Dictionary<Team, int> buildingsBuilt;
-        public int BuildingsCount(Team team) => buildingsBuilt[team];
+
         public void Awake()
         {
             ManagerHolder.I.AddManager(this);

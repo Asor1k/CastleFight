@@ -64,6 +64,7 @@ namespace CastleFight.Core.EventsBus
             lock (SubscriptionsLock)
             {
                 Type type = typeMap.FirstOrDefault(pair => pair.method.Equals(action))?.type;
+                if (type == null) return;
                 if (_subscriptions.ContainsKey(type))
                 {
                     var allSubscriptions = _subscriptions[type];
