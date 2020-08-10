@@ -26,7 +26,7 @@ MonoBehaviour:
   - Type: 7
     Value: 0.8
   - Type: 8
-    Value: 3
+    Value: 10
   - Type: 9
     Value: 2
   - Type: 3
@@ -41,3 +41,4 @@ MonoBehaviour:
       statType: 10
       Type: 1
     isActive: 1
+  unitKind: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnightTent
   m_EditorClassIdentifier: 
   levels:
-  - Unit: {fileID: 11400000, guid: f60fa829859ebe84682e2871925f6364, type: 2}
+  - Unit: {fileID: 11400000, guid: 74d46f08c47b60544becd74968bce6b0, type: 2}
     MaxHp: 1000
     GoldIncome: 10
     GoldDelay: 10

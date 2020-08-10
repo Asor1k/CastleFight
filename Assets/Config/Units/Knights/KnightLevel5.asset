@@ -26,7 +26,7 @@ MonoBehaviour:
   - Type: 7
     Value: 0.8
   - Type: 8
-    Value: 3
+    Value: 10
   - Type: 9
     Value: 2
   - Type: 3
@@ -36,3 +36,4 @@ MonoBehaviour:
   cost: 0
   goldDmgPercent: 0
   abilities: []
+  unitKind: 0
