@@ -51,7 +51,7 @@ namespace CastleFight
         private void Update()
         {
             #region Unity movement
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE	
             if (!canMove) return;
 
             if (Input.GetMouseButton(0))
