@@ -33,4 +33,10 @@ namespace CastleFight
             return raceName.Equals(config.raceName);
         }
     }
+
+    public enum Race
+    {
+        Immortals,
+        Kingdom
+    }
 }
