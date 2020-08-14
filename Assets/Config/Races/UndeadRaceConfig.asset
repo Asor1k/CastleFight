@@ -20,3 +20,4 @@ MonoBehaviour:
   raceName: 
   buildingSet: {fileID: 11400000, guid: 39c29d5e412a24477865a7b0fc847f3f, type: 2}
   castle: {fileID: 11400000, guid: 986fc4f4a4a044c60a055fd8e915de23, type: 2}
+  race: 0

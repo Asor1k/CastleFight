@@ -14,8 +14,9 @@ namespace CastleFight
 
         [SerializeField] private BuildingSet buildingSet;
         [SerializeField] private CastleConfig castle;
-
+        [SerializeField] private Race race;
         public string RaceName => raceName;
+        public Race Race =>race;
         public Sprite DisabledRaceSprite => disabledRaceSprite;
         public Sprite EnabledRaceSprite => enabledRaceSprite;
         public Sprite EnForeGroundSprite => enForeGroundSprite;

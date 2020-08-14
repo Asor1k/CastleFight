@@ -9,9 +9,10 @@ namespace CastleFight.Core
         [SerializeField] private Image image;
         [SerializeField] private RectTransform timerVfxTransform;
         [SerializeField] private RectTransform timerTransform;
-        [SerializeField] private float speed;
+        [SerializeField] private float distance;
+        [SerializeField] private Vector2 endPosition;
         private float maxTime;
-        private Vector2 beginPos;
+        private Vector2 beginPosition;
         private UnitSpawnController unitSpawnController;
         private bool hasVf = false;
         public void Start()
@@ -27,21 +28,19 @@ namespace CastleFight.Core
             else
             {
                 hasVf = true;
-                beginPos = timerVfxTransform.anchoredPosition;
-                speed = timerVfxTransform.sizeDelta.x / maxTime;
+                beginPosition = timerVfxTransform.anchoredPosition;
+                endPosition = -timerTransform.sizeDelta;
+                distance = Mathf.Abs(beginPosition.x - endPosition.x);
             }
         }
         
         public void Update()
         {
-            image.fillAmount = unitSpawnController.SpawnTimer / maxTime;
+            float fraction = unitSpawnController.SpawnTimer / maxTime;
+            image.fillAmount = fraction;
             if (hasVf)
             {
-                timerVfxTransform.anchoredPosition -= new Vector2(speed * Time.deltaTime, 0);
-                if (Mathf.Abs(timerVfxTransform.anchoredPosition.x) >= timerTransform.sizeDelta.x-beginPos.x)
-                {
-                    timerVfxTransform.anchoredPosition = beginPos;
-                }
+                timerVfxTransform.anchoredPosition = new Vector2(beginPosition.x - (1 - fraction) * distance, 0);
             }
         }
     }
