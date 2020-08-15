@@ -40,6 +40,7 @@ namespace CastleFight
         Armor,
         Damage,
         Speed,
+        AttackSpeed,
         AttackDelay,
         EnemyDetectRange,
         AttackRange,

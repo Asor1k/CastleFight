@@ -8,24 +8,27 @@ namespace CastleFight
 {
     public class UnitAnimationController : MonoBehaviour
     {
-        public event Action OnAnimationAttackCallback;
-        
+        public event Action OnAttackAnimationHit;
+        public event Action OnAttackAnimationEnd;
+
         [SerializeField]
         private Unit unit;
         [SerializeField]
         private Animator animator;
         private Action attackCallback;
+        private Action attackEndCallback;
         private BaseUnitConfig unitConfig;
-
+        private Stat attackSpeed;
         void Start()
         {
             unit.OnKilled += OnUnitKilled;
             unit.OnReset += OnUnitReset;
+            attackSpeed = (Stat)unit.Stats.GetStat(StatType.AttackSpeed);
         }
         
         public void AnimAttackCallback()
         {
-            OnAnimationAttackCallback?.Invoke();
+            OnAttackAnimationHit?.Invoke();
         }
 
         void Update()
@@ -33,9 +36,10 @@ namespace CastleFight
             UpdateSpeed(unit.CurrentSpeed);
         }
 
-        public void Attack(Action callback)
+        public void Attack(Action attackCallback, Action attackEndCallback)
         {
-            attackCallback = callback;
+            this.attackCallback = attackCallback;
+            this.attackEndCallback = attackEndCallback;
             animator.SetTrigger("Attack");
         }
 
@@ -48,6 +52,17 @@ namespace CastleFight
                 attackCallback = null;
             }
         }
+
+        public void AttackAnimEndCallback()
+        {
+            if (attackEndCallback != null)
+            {
+                if (!unit.Alive) return;
+                attackEndCallback.Invoke();
+                attackEndCallback = null;
+            }
+        }
+
         private void UpdateSpeed(float speed)
         {
             animator.SetFloat("Speed", speed);

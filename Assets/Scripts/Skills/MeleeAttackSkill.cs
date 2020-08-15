@@ -12,7 +12,7 @@ namespace CastleFight.Skills
         {
             base.Init(unit);
             damage = (Stat)unit.Stats.GetStat(StatType.Damage);
-            vampirism = (Stat)unit.Stats.GetStat(StatType.Vampirism);
+            vampirism = unit.Stats.GetStat(StatType.Vampirism);
         }
 
         public override void Execute()
