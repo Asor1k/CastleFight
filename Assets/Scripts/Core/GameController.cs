@@ -26,6 +26,7 @@ namespace CastleFight.Core
         public void StartGame(GameSet gameSet)
         {
             botController.Init(gameSet.botRaceConfig);
+           // Debug.Log(gameSet.botRaceConfig.RaceName);
             userController.Init(gameSet.userRaceConfig);
             userController.StartGame();
             // TODO: start bot            

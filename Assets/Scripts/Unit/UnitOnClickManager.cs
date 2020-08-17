@@ -49,7 +49,7 @@ namespace CastleFight
         public void ShowCircle(Image image)
         {
             
-            image.enabled = true;
+            //image.enabled = true;
         }
 
         void OnDeselect(BuildingDeselectedEvent buildingDeselectedEvent)

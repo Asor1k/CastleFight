@@ -31,6 +31,8 @@ MonoBehaviour:
     Value: 2
   - Type: 3
     Value: 0
+  - Type: 13
+    Value: 1
   prefab: {fileID: 505496572674241449, guid: b46740435ad865445aae29a6869d6ac9, type: 3}
   icon: {fileID: 0}
   cost: 26

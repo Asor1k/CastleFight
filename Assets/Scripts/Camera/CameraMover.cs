@@ -38,10 +38,12 @@ namespace CastleFight
             ManagerHolder.I.AddManager(this);
             inertZ = 0;
         }
+
         public void StopMoving()
         {
             canMove = false;
         }
+        
         public void ConinueMoving()
         {
             canMove = true;
@@ -52,8 +54,11 @@ namespace CastleFight
         {
             #region Unity movement
 #if UNITY_EDITOR
-            if (!canMove) return;
-
+            if (!canMove)
+            {
+                inertZ = 0;
+                return;
+            }
             if (Input.GetMouseButton(0))
             {
                 if (!isMoving)
