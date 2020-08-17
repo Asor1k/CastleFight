@@ -24,6 +24,7 @@ namespace CastleFight
         public Transform SpawnPoint => spawnPoint;
         public int Lvl => lvl;
         public bool IsStanding => isStanding;
+        public IDamageable Damageable => damageable;
 
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private BuildingBehavior behavior;
@@ -34,13 +35,20 @@ namespace CastleFight
         [SerializeField] private BuildingLevelLabel levelLabel;
         [SerializeField] private Collider col;
         [SerializeField] private NavMeshObstacle obstacle;
-        
+
+        private IDamageable damageable;
         private GoldManager goldManager;
         private BaseBuildingConfig config;
         private int lvl;
         private bool spawnBlocked = false;
         private bool isStanding = true;
         private BuildingsLimitManager buildingsLimitManager;
+
+        private void Awake()
+        {
+            damageable = GetComponent<IDamageable>();
+        }
+
         private void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();

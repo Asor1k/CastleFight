@@ -13,7 +13,7 @@ namespace CastleFight
         private TargetProvider targetProvider = new TargetProvider();
         private IDamageable currentTarget;
         private LayerMask enemyLayer;
-        private float targetUpdateDelay = 0.5f;
+        private float targetUpdateDelay = 0.1f;
         private Coroutine updateTargetCoroutine;
         private Stat attackRange;
         private Stat enemyDetectRange;
@@ -91,11 +91,20 @@ namespace CastleFight
             while (true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = targetProvider.GetTarget(enemyLayer, transform.position, enemyDetectRange.Value, ignoreAir);
+                var target = UnitManager.I.GetClossestUnit(transform.position, (Team)gameObject.layer, ignoreAir);
 
                 if (target != null)
                 {
                     currentTarget = target;
+                }
+                else
+                {
+                    var buildingTarget = UnitManager.I.GetClossestBuilding(transform.position, (Team)gameObject.layer);
+
+                    if (buildingTarget != null)
+                    {
+                        currentTarget = buildingTarget;
+                    }
                 }
             }
         }
