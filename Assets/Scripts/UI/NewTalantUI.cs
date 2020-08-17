@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using CastleFight.Core.EventsBus;
-using CastleFight.Core.EventsBus.Events;
+using CastleFight.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +9,19 @@ namespace CastleFight
 {
     public class NewTalantUI : MonoBehaviour
     {
+        public List<Sprite> SkillSprites => skillsSprites;
+
         [SerializeField] private Text unitNameText;
         [SerializeField] private Text modifierText;
         [SerializeField] private Image skillImage;
         [SerializeField] private List<Sprite> skillsSprites;
         private bool isActive = false;
+
+        private void Awake()
+        {
+            ManagerHolder.I.AddManager(this);
+        }
+
         void Start()
         {
             EventBusController.I.Bus.Subscribe<AbilityGeneratedEvent>(OnAbilityGenerated);

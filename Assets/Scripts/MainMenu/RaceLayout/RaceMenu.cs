@@ -1,4 +1,5 @@
 using CastleFight.Config;
+using System.Collections.Generic;
 using CastleFight.Core.EventsBus;
 using UnityEngine;
 
@@ -13,7 +14,9 @@ namespace CastleFight.MainMenu
         private RaceChosenEvent RaceChosenEvent => raceChosenEvent ?? (raceChosenEvent = new RaceChosenEvent());
         
         private RaceChosenEvent raceChosenEvent;
-        
+
+        private List<RaceButton> raceButtons = new List<RaceButton>();
+
         private void Start()
         {
             PrepareRaces();
@@ -26,11 +29,16 @@ namespace CastleFight.MainMenu
                 var btn = InstantiateBtn();
                 btn.Init(config);
                 btn.Click += OnRaceChosen;
+                raceButtons.Add(btn);
             }
         }
 
         private void OnRaceChosen(RaceConfig config)
         {
+            foreach(RaceButton btn in raceButtons)
+            {
+                btn.SetDisabled();
+            }
             RaceChosenEvent.SetUserConfig(config);
             EventBusController.I.Bus.Publish<RaceChosenEvent>(RaceChosenEvent);
         }

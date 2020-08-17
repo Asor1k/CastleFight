@@ -164,7 +164,7 @@ namespace CastleFight
             if (stats.Hp <= 0)
             {
                 isStanding = false;
-                EventBusController.I.Bus.Publish(new GameEndEvent((Team)gameObject.layer));
+                EventBusController.I.Bus.Publish(new GameEndEvent((Team)gameObject.layer,config.Race));
                 Destroy();
             }
         }

@@ -21,6 +21,8 @@ namespace CastleFight
         public float CurrentSpeed { get { return agent.Speed; } }
         public UnitStats Stats { get { return stats; } }
         public Skill AttackSkill { get { return attackSkill; } }
+        public Team Team => team;
+        public IDamageable DamageBehaviour;
 
         [SerializeField]
         protected Agent agent;
@@ -48,6 +50,8 @@ namespace CastleFight
 
         public virtual void Init(BaseUnitConfig config, Team team)
         {
+            DamageBehaviour = GetComponent<IDamageable>();
+
             this.team = team;
             gameObject.layer = (int)team;
             this.config = config;

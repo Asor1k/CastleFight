@@ -2,10 +2,12 @@ namespace CastleFight.Core.EventsBus.Events
 {
     public class GameEndEvent : EventBase
     {
-        public readonly Team winnerTeam;
-        public GameEndEvent (Team winnerTeam)
+        public readonly Team loserTeam;
+        public readonly Race loserRace;
+        public GameEndEvent (Team loserTeam, Race race)
         {
-            this.winnerTeam = winnerTeam;
+            this.loserTeam = loserTeam;
+            loserRace = race;
         }
     }
 }
