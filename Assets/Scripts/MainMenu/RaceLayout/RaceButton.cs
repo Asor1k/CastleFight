@@ -43,7 +43,7 @@ namespace CastleFight.MainMenu
             this.config = config;
             backgroundImg.sprite = config.DisabledRaceSprite;
             foreGroungImg.sprite = config.DisForeGroundSprite;
-            SetText(config.RaceName);
+           // SetText(config.RaceName);
         }
 
         private void SetText(string text)

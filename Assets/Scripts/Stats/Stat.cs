@@ -40,13 +40,13 @@ namespace CastleFight
         Armor,
         Damage,
         Speed,
-        AttackSpeed,
         AttackDelay,
         EnemyDetectRange,
         AttackRange,
         Vampirism,
         Evasion,
         Crit,
-        Unknown
+        Unknown,
+        AttackSpeed
     }
 }

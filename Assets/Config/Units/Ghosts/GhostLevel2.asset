@@ -31,8 +31,8 @@ MonoBehaviour:
     Value: 0
   - Type: 9
     Value: 0
-  - Type: 3
-    Value: 0
+  - Type: 13
+    Value: 1
   - Type: 10
     Value: 0
   prefab: {fileID: 5731746206018142242, guid: bd9c85a86c6c9594b9a90387785b1346, type: 3}

@@ -17,7 +17,7 @@ MonoBehaviour:
   enForeGroundSprite: {fileID: 21300000, guid: 73fde11f757ca034d9bbfa52913a8627, type: 3}
   disForeGroundSprite: {fileID: 21300000, guid: d65bf13f632c63149aa9dbb4ce631ec5,
     type: 3}
-  raceName: 
+  raceName: Kingdom
   buildingSet: {fileID: 11400000, guid: a5efeae6104a5452788f3c2fdc197da0, type: 2}
   castle: {fileID: 11400000, guid: 95c63f8736c2f4659b81ea6c66a07b39, type: 2}
   race: 1

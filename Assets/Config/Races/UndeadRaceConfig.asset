@@ -17,7 +17,7 @@ MonoBehaviour:
   enForeGroundSprite: {fileID: 21300000, guid: 58ca8b3d695f5ac4db20355e625f62d4, type: 3}
   disForeGroundSprite: {fileID: 21300000, guid: 89b00ffa81e71e34fa05c29bbc381439,
     type: 3}
-  raceName: 
+  raceName: Immortals
   buildingSet: {fileID: 11400000, guid: 39c29d5e412a24477865a7b0fc847f3f, type: 2}
   castle: {fileID: 11400000, guid: 986fc4f4a4a044c60a055fd8e915de23, type: 2}
   race: 0

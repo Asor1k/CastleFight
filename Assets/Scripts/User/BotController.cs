@@ -40,7 +40,7 @@ namespace CastleFight
             StartGame();
             buildingsLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
             int k = (int)config.Race * 2;
-            //Debug.Log(k);
+            //Debug.Log(config.Race);
             strategyInd = UnityEngine.Random.Range(k, k + strategiesForRace);
             
 
