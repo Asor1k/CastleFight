@@ -67,7 +67,7 @@ namespace CastleFight
         }
         private void OnGameEnd(GameEndEvent gameEndEvent)
         {
-            if(gameEndEvent.winnerTeam == Team.Team2)
+            if(gameEndEvent.loserTeam == Team.Team2)
             {
                 data.Rating += ratingDelta;
             }

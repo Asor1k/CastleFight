@@ -20,8 +20,9 @@ namespace CastleFight
 
             if (factor > colorChangeThreshold)
             {
+                if (progressBar == null) return;
                 var colorFactor = (factor - colorChangeThreshold) / colorChangeThreshold;
-
+                
                 progressBar.color = Color.Lerp(Color.yellow, Color.green, colorFactor);
             }
             else

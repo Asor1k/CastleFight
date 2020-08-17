@@ -23,7 +23,7 @@ namespace CastleFight
         [SerializeField] private int maxBlocksBuilt;
         [SerializeField] private RaceSet raceSet;
         [SerializeField] private BotBehaviour botBehaviour;
-
+        [SerializeField] private int strategiesForRace;
 
         private List<BotBuildPoint> destroyedSteps = new List<BotBuildPoint>();
         private RaceConfig raceConfig;
@@ -39,7 +39,11 @@ namespace CastleFight
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             StartGame();
             buildingsLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
-            strategyInd = UnityEngine.Random.Range(0, botStrategies.Count);
+            int k = (int)config.Race * 2;
+            //Debug.Log(config.Race);
+            strategyInd = UnityEngine.Random.Range(k, k + strategiesForRace);
+            
+
             EventBusController.I.Bus.Subscribe<BuildingDestroyedEvent>(OnBuildingDestroyed);
         }
         private void OnUnitDie(UnitDiedEvent unitDiedEvent)

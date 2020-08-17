@@ -5,54 +5,101 @@ using CastleFight.Core.EventsBus;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using CastleFight.Config;
 
 namespace CastleFight.Core {
     public class EndGameUI : UILayout 
     {
-        [SerializeField] private Text endText;
         [SerializeField] private Text ratingDeltaText;
-        
-        [SerializeField] private string winMessage;
-        [SerializeField] private string looseMessage;
-
         [SerializeField] private PlayerProgress playerProgress;
+        [SerializeField] private RaceConfig[] raceConfigs;
+
+        [SerializeField] private Image[] finalTextImages;
+        [SerializeField] private Image[] buttonImages;
+        [SerializeField] private Image[] buttonDescriptionImages;
+        [SerializeField] private Image unitImage;
+
+        [SerializeField] private Sprite[] finalTextSprites;
+        [SerializeField] private Sprite[] unitSprites;
+        [SerializeField] private Sprite[] buttonSprites;
+        [SerializeField] private Sprite[] decriptionSprites;
+        [SerializeField] private RaceSet raceSet;
+
+        private RaceConfig playerRace;
 
         public void Start()
         {
             EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
+            EventBusController.I.Bus.Subscribe<RaceChosenEvent>(OnRaceChosen);
             Hide();
         }
-       
+        
+        private void OnRaceChosen(RaceChosenEvent raceChosenEvent)
+        {
+            playerRace = raceChosenEvent.UserRaceConfig;
+        }
+        private RaceConfig GetBotConfig()
+        {
+            foreach (var config in raceSet.RaceConfigs)
+            {
+                if (!config.Equals(playerRace))
+                {
+                    return config;
+                }
+            }
+
+            return null;
+        }
         private void OnGameEnd(GameEndEvent gameEndEvent)
         {
             Show();
-            if (gameEndEvent.winnerTeam == Team.Team2)
+            if (gameEndEvent.loserRace == Race.Kingdom)
             {
-                InitWin();
+                InitImmortals();
             }
-            else
+            if(gameEndEvent.loserRace == Race.Immortals)
             {
-                InitLoss();
+                InitKingdom();
             }
         }
+
         public void Continue()
         {
             SceneManager.LoadScene(0);
         }
-        private void InitWin()
+        public void Replay()
         {
-            endText.text = winMessage;
-            ratingDeltaText.text = "+"+playerProgress.RatingDelta.ToString();
+            EventBusController.I.Bus.Publish(new GameSetReadyEvent(playerRace, GetBotConfig()));
         }
-        private void InitLoss()
+
+
+        private void InitImmortals()
         {
-            endText.text = looseMessage;
-            ratingDeltaText.text = "-" + playerProgress.RatingDelta.ToString();
+            for(int i = 0; i < 2; i++)
+            {
+                finalTextImages[i].sprite = finalTextSprites[i];
+                buttonImages[i].sprite = buttonSprites[0];
+                buttonDescriptionImages[i].sprite = decriptionSprites[i];
+            }
+            unitImage.sprite = unitSprites[0];
+        }
+        
+        private void InitKingdom()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                finalTextImages[i].sprite = finalTextSprites[i+2];
+                buttonImages[i].sprite = buttonSprites[1];
+                buttonDescriptionImages[i].sprite = decriptionSprites[i + 2];
+            }
+
+            unitImage.sprite = unitSprites[1];
         }
 
         public void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEnd);
+            EventBusController.I.Bus.Unsubscribe<RaceChosenEvent>(OnRaceChosen);
         }
     }
 }

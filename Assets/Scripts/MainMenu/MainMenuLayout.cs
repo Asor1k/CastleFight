@@ -10,21 +10,25 @@ namespace CastleFight.MainMenu
     public class MainMenuLayout : UILayout
     {
         [SerializeField] private Button playButton;
+        [SerializeField] private Button handButton;
+        [SerializeField] private Button arrowButton;
         [SerializeField] private GameSetProvider setProvider;
         [SerializeField] private Canvas gameSetup;
         [SerializeField] private Canvas startPart;
-        
+        [SerializeField] private Canvas talantsCanvas;
+        [SerializeField] private TalantScreenManager talantScreenManager;
         private void Awake()
         {
             playButton.onClick.AddListener(OnPlayClick);
-    
+            handButton.onClick.AddListener(OnHandPressed);
+            arrowButton.onClick.AddListener(OnArrowPressed);
             
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameSetReady);
             EventBusController.I.Bus.Subscribe<RestartGameEvent>(OnRestartGame);
             SetGameSetupCanvasEnabled(true);
         }
 
-        void OnRestartGame(RestartGameEvent restartGameEvent)
+        private void OnRestartGame(RestartGameEvent restartGameEvent)
         {
             /*playButton = null;
             setProvider = null;
@@ -32,6 +36,25 @@ namespace CastleFight.MainMenu
             startPart = null;
             Destroy(this);*/
         }
+
+        private void OnHandPressed()
+        {
+            SetGameSetupCanvasEnabled(false);
+            SetTalantsCanvasEnabled(true);
+            talantScreenManager.Init();
+        }
+
+        private void OnArrowPressed()
+        {
+            SetGameSetupCanvasEnabled(true);
+            SetTalantsCanvasEnabled(false);
+        }
+
+        private void SetTalantsCanvasEnabled(bool enabled)
+        {
+            talantsCanvas.enabled = enabled;
+        }
+
         private void SetGameSetupCanvasEnabled(bool enabled)
         {
             if(gameSetup == null)

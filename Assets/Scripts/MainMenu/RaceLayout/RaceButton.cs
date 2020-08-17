@@ -9,6 +9,8 @@ namespace CastleFight.MainMenu
         public event Action<RaceConfig> Click;
 
         [SerializeField] private Button btn;
+        [SerializeField] private Image backgroundImg;
+        [SerializeField] private Image foreGroungImg;
         [SerializeField] private Text txt;
 
         private RaceConfig config;
@@ -26,12 +28,22 @@ namespace CastleFight.MainMenu
         private void OnBtnClick()
         {
             Click?.Invoke(config);
+            backgroundImg.sprite = config.EnabledRaceSprite;
+            foreGroungImg.sprite = config.EnForeGroundSprite;
+        }
+
+        public void SetDisabled()
+        {
+            backgroundImg.sprite = config.DisabledRaceSprite;
+            foreGroungImg.sprite = config.DisForeGroundSprite;
         }
 
         public void Init(RaceConfig config)
         {
             this.config = config;
-            SetText(config.RaceName);
+            backgroundImg.sprite = config.DisabledRaceSprite;
+            foreGroungImg.sprite = config.DisForeGroundSprite;
+           // SetText(config.RaceName);
         }
 
         private void SetText(string text)
