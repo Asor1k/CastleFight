@@ -27,7 +27,7 @@ namespace CastleFight.Skills
         {
             var projectile = projectileConfig.Create();
             targetsCache.Add(projectile, target);
-            projectile.Launch(launchPoint.position, target.Transform.gameObject, OnTargetReached);
+            projectile.Launch(launchPoint.position, unit.Team, target.Transform.gameObject, OnTargetReached);
         }
 
         private void OnTargetReached(Projectile projectile)

@@ -131,7 +131,7 @@ namespace CastleFight
         {
             var projectile = projectileConfig.Create();
             targetsCache.Add(projectile, target);
-            projectile.Launch(launchPoint.position, target.Transform.gameObject, (Projectile hitProjectile) =>
+            projectile.Launch(launchPoint.position, (Team)gameObject.layer, target.Transform.gameObject, (Projectile hitProjectile) =>
             {
                 var cachedTarget = targetsCache[hitProjectile];
 

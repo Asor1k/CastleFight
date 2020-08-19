@@ -5,13 +5,12 @@ using UnityEngine;
 using Unity.Jobs;
 using Unity.Collections;
 using CastleFight.Core.EventsBus.Events;
+using CastleFight.Core;
 
 namespace CastleFight
 {
     public class UnitManager : MonoBehaviour
     {
-        public static UnitManager I = null;
-
         private List<IDamageable> westUnits = new List<IDamageable>();
         private List<IDamageable> eastUnits = new List<IDamageable>();
         private List<IDamageable> westBuildings = new List<IDamageable>();
@@ -19,10 +18,7 @@ namespace CastleFight
 
         private void Awake()
         {
-            if (I == null)
-            {
-                I = this;
-            }
+            ManagerHolder.I.AddManager(this);
         }
 
         private void Start()
@@ -87,6 +83,37 @@ namespace CastleFight
             {
                 eastBuildings.Add(buildingBehaviour.Building.Damageable);
             }
+        }
+
+        public List<IDamageable> GetUnitsInRadius(Vector3 point, float radius, Team team, bool ignoreAir) 
+        {
+            List<IDamageable> units;
+
+            if (team == Team.Team1)
+            {
+                units = eastUnits;
+            }
+            else
+            {
+                units = westUnits;
+            }
+
+            List<IDamageable> unitsInRadius = new List<IDamageable>();
+
+            foreach (var unit in units)
+            {
+                if (ignoreAir
+                    && unit.Type == TargetType.AirUnit) continue;
+
+                var distance = Vector3.Distance(point, unit.Transform.position);
+
+                if (distance <= radius)
+                {
+                    unitsInRadius.Add(unit);
+                }
+            }
+
+            return unitsInRadius;
         }
 
         public IDamageable GetClossestUnit(Vector3 point, Team team, bool ignoreAir)

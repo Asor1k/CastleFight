@@ -48,8 +48,10 @@ MonoBehaviour:
   speed: 10
   hitDistance: 1
   destroyDelay: 1
-  runEffect: {fileID: 5118827268072123572}
-  hitEffect: {fileID: 4919385670453501674}
+  runEffects:
+  - {fileID: 5118827268072123572}
+  hitEffects:
+  - {fileID: 4919385670453501674}
 --- !u!1001 &4919385670472499502
 PrefabInstance:
   m_ObjectHideFlags: 0
