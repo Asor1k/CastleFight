@@ -76,8 +76,8 @@ namespace CastleFight
 
                 if (currentTarget.Type == TargetType.Building || currentTarget.Type == TargetType.Castle)
                 {
-                    var targetTransform = currentTarget.Transform.localScale;
-                    distanceToTarget -= Mathf.Max(0, currentTarget.Transform.localScale.x - attackRange.Value);
+                    var targetTransform = currentTarget.Transform;
+                    distanceToTarget -= Mathf.Max(0, targetTransform.localScale.x / 2);
                 }
 
                 if (distanceToTarget <= attackRange.Value)
@@ -98,7 +98,7 @@ namespace CastleFight
             while (true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = unitManager.GetClossestUnit(transform.position, (Team)gameObject.layer, ignoreAir);
+                var target = unitManager.GetClossestUnit(transform.position, enemyDetectRange.Value, (Team)gameObject.layer, ignoreAir);
 
                 if (target != null)
                 {
@@ -106,7 +106,7 @@ namespace CastleFight
                 }
                 else
                 {
-                    var buildingTarget = unitManager.GetClossestBuilding(transform.position, (Team)gameObject.layer);
+                    var buildingTarget = unitManager.GetClossestBuilding(transform.position, enemyDetectRange.Value, (Team)gameObject.layer);
 
                     if (buildingTarget != null)
                     {

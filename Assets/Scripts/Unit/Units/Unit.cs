@@ -24,6 +24,7 @@ namespace CastleFight
         public Team Team => team;
         public IDamageable DamageBehaviour;
         public bool ReadyToAttack => readyToAttack;
+        public Transform EffectPoint => effectPoint;
 
         [SerializeField]
         protected Agent agent;
@@ -39,6 +40,8 @@ namespace CastleFight
         protected UnitHealthBar healthBarCanvas;
         [SerializeField]
         protected Skill attackSkill;
+        [SerializeField]
+        protected Transform effectPoint;
 
         protected Team team;
         protected IDamageable target;

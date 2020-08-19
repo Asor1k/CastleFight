@@ -22,7 +22,7 @@ namespace CastleFight
             get { return isStanding; }
         }
 
-
+        public Team Team => team;
         public TargetType Type => TargetType.Castle;
 
         public Transform Transform => transform;
@@ -42,6 +42,7 @@ namespace CastleFight
         private Coroutine updateTargetCoroutine;
         private float targetUpdateDelay = 0.1f;
         private LayerMask enemyLayer;
+        private Team team;
         private bool readyToAttack = true;
         private Dictionary<Projectile, IDamageable> targetsCache = new Dictionary<Projectile, IDamageable>();
 
@@ -53,6 +54,8 @@ namespace CastleFight
             {
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
+
+            team = (Team)gameObject.layer;
 
             if (gameObject.layer == (int)Team.Team1)
             {

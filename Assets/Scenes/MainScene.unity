@@ -591,6 +591,19 @@ MonoBehaviour:
   unitCount: 6
   defaultHighest: 256
   defaultFraction: 4
+--- !u!114 &1051771384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051771381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8295f5f056ffb784b9f79451edf98dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: c1b4e45173e2385488c558ffb952ae9b, type: 2}
 --- !u!114 &1051771388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,7 +1519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 707966229, guid: fe39232c150974ec4a2087070d28b39d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 90.546875
+      value: 90.547
       objectReference: {fileID: 0}
     - target: {fileID: 1428009563, guid: fe39232c150974ec4a2087070d28b39d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2196,7 +2209,7 @@ PrefabInstance:
     - target: {fileID: 2144356192369437380, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2144356192369437380, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
@@ -5239,7 +5252,7 @@ PrefabInstance:
     - target: {fileID: 4005887998574228268, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4005887998574228268, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
@@ -5265,7 +5278,7 @@ PrefabInstance:
         type: 3}
       propertyPath: castlesPosProvider
       value: 
-      objectReference: {fileID: 5056038204184963045}
+      objectReference: {fileID: 6154745206376326221}
     - target: {fileID: 5525622564571893519, guid: c8f85e31bc81e459a82297d3ab460566,
         type: 3}
       propertyPath: cam
@@ -5403,7 +5416,7 @@ PrefabInstance:
         type: 3}
       propertyPath: castlesPosProvider
       value: 
-      objectReference: {fileID: 5056038204184963045}
+      objectReference: {fileID: 6154745206376326221}
     - target: {fileID: 4866527934017421010, guid: 067a64d9616a74e759b4a29ce0395e75,
         type: 3}
       propertyPath: buildSteps.Array.data[1].Point
@@ -6373,20 +6386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c056a5a3764c2fb5ef3d8983f91805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5056038204184963045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6154745206376326220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc2f6c12e92427592ed5d1db75aebdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userCastlePos: {fileID: 7609517051686543360}
-  botCastlePos: {fileID: 1718295606418566899}
 --- !u!1 &5840327516052401063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,8 +6442,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7147588637361673823}
   - component: {fileID: 2401766925138203424}
-  - component: {fileID: 5056038204184963045}
   - component: {fileID: 1949324790}
+  - component: {fileID: 6154745206376326221}
   m_Layer: 8
   m_Name: Landscape2
   m_TagString: Untagged
@@ -6452,6 +6451,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6154745206376326221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154745206376326220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186f5953c8f0fea4cb6ceba2be0c3040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userCastlePos: {fileID: 7609517051686543360}
+  botCastlePos: {fileID: 1718295606418566899}
 --- !u!4 &7147588637361673823
 Transform:
   m_ObjectHideFlags: 0

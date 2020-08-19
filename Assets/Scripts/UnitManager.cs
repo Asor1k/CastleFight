@@ -27,6 +27,7 @@ namespace CastleFight
             EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDied);
             EventBusController.I.Bus.Subscribe<BuildingPlacedEvent>(OnBuildingPlaced);
             EventBusController.I.Bus.Subscribe<BuildingDestroyedEvent>(OnBuildingDestroyed);
+            EventBusController.I.Bus.Subscribe<CastleBuildEvent>(OnCastleBuilt);
         }
 
         private void OnUnitDied(UnitDiedEvent unitDiedEvent)
@@ -40,6 +41,18 @@ namespace CastleFight
             else
             {
                 eastUnits.Remove(unit.DamageBehaviour);
+            }
+        }
+
+        private void OnCastleBuilt(CastleBuildEvent eventData)
+        {
+            if (eventData.castle.Team == Team.Team1)
+            {
+                westBuildings.Add(eventData.castle);
+            }
+            else
+            {
+                eastBuildings.Add(eventData.castle);
             }
         }
 
@@ -116,7 +129,7 @@ namespace CastleFight
             return unitsInRadius;
         }
 
-        public IDamageable GetClossestUnit(Vector3 point, Team team, bool ignoreAir)
+        public IDamageable GetClossestUnit(Vector3 point, float maxDistance, Team team, bool ignoreAir)
         {
             List<IDamageable> units;
 
@@ -146,10 +159,15 @@ namespace CastleFight
                 }
             }
 
+            if (maxDistance < closestDistance)
+            {
+                return null;
+            }
+
             return closest;
         }
 
-        public IDamageable GetClossestBuilding(Vector3 point, Team team)
+        public IDamageable GetClossestBuilding(Vector3 point, float maxDistance, Team team)
         {
             List<IDamageable> buildings;
 
@@ -175,6 +193,11 @@ namespace CastleFight
                     closestDistance = distance;
                     closest = building;
                 }
+            }
+
+            if (maxDistance < closestDistance)
+            {
+                return null;
             }
 
             return closest;

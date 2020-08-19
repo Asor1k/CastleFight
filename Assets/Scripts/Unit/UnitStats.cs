@@ -20,8 +20,9 @@ namespace CastleFight
         {
             var damageMultiplier = damage / (damage + armotStat.Value);
             var finalDamage = damage * damageMultiplier;
-            hpStat.Value -= damage;
 
+
+            hpStat.Value -= damage;
             OnHpChanged?.Invoke(hpStat);
         }
 
