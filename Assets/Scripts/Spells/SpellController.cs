@@ -28,8 +28,6 @@ namespace CastleFight
 
         public void SetSpell(Spell spell)
         {
-            if (spell != null) return;
-
             this.spell = spell;
         }
 
