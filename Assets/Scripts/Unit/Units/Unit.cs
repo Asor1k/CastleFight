@@ -23,6 +23,7 @@ namespace CastleFight
         public Skill AttackSkill { get { return attackSkill; } }
         public Team Team => team;
         public IDamageable DamageBehaviour;
+        public bool ReadyToAttack => readyToAttack;
 
         [SerializeField]
         protected Agent agent;
@@ -97,9 +98,12 @@ namespace CastleFight
 
         public virtual void Attack(IDamageable target)
         {
-            if (!target.Alive || !alive || !readyToAttack) return;
-            readyToAttack = false;
+            if (!target.Alive || !alive) return;
+
             agent.LookAt(target.Transform);
+            if (!readyToAttack) return;
+
+            readyToAttack = false;
             if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
             {
                 int gold = GetGoldPerHit();
