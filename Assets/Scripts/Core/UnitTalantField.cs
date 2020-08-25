@@ -14,12 +14,6 @@ namespace CastleFight
         [SerializeField] private TalantScreenCard[] upperTalantScreenCards;
         [SerializeField] private TalantScreenCard[] bottomTalantScreenCards;
         
-        /*[SerializeField] private Image upperUnitImage;
-        [SerializeField] private Image bottomUnitImage;
-        [SerializeField] private TextMeshProUGUI[] upperTextDecriptions;
-        [SerializeField] private TextMeshProUGUI[] bottomTextDecriptions;
-        [SerializeField] private NewTalantUI talantUI;
-        */
         public void Init(UnitConfigsConfig upperUnit, UnitConfigsConfig bottomUnit)
         {
             for (int i = 0; i < upperTalantScreenCards.Length; i++)

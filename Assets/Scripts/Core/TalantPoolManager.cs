@@ -20,7 +20,7 @@ namespace CastleFight
 
         public void InitNewCard()
         {
-            playerProgress.Data.ticks = DateTime.Now.Ticks;
+            playerProgress.Data.Ticks = DateTime.Now.Ticks;
             maxOcupied = talantCards.Length;
             for(int i = 0; i < maxOcupied; i++)
             {
@@ -34,8 +34,8 @@ namespace CastleFight
 
         public void OnDestroy()
         {
-            playerProgress.Data.ticks = DateTime.Now.Ticks;
-            playerProgress.Data.openingIndex = workingIndex;
+            playerProgress.Data.Ticks = DateTime.Now.Ticks;
+            playerProgress.Data.OpeningIndex = workingIndex;
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEnd);
         }
 
@@ -51,15 +51,17 @@ namespace CastleFight
             
             int timeToSend = playerProgress.Data.CardsTimeToOpen[index];
             
+            talantCards[index].Init(timeToSend - GetSecondsPaseed(), index);
+        }
+
+        private int GetSecondsPaseed()
+        {
             DateTime dateTimeNow = DateTime.Now;
-            DateTime dateTimeThen = new DateTime(playerProgress.Data.ticks);
-            
+            DateTime dateTimeThen = new DateTime(playerProgress.Data.Ticks);
+
             long elapsedTicks = dateTimeNow.Ticks - dateTimeThen.Ticks;
             TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
-            int secondsPassed = (int)Math.Round(elapsedSpan.TotalSeconds);
-
-            if (index == -1 || index != workingIndex) secondsPassed = 0;
-            talantCards[index].Init(timeToSend - secondsPassed, index);
+            return (int)Math.Round(elapsedSpan.TotalSeconds);
         }
 
         private void OnGameEnd(GameEndEvent gameEndEvent)
@@ -72,7 +74,7 @@ namespace CastleFight
             if (workingIndex == -1 || index == workingIndex)
             {
                 workingIndex = index;
-                playerProgress.Data.openingIndex = workingIndex;
+                playerProgress.Data.OpeningIndex = workingIndex;
                 return true;
             }
             else return false;
@@ -87,7 +89,7 @@ namespace CastleFight
         {
             playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
             EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
-            workingIndex = playerProgress.Data.openingIndex;
+            workingIndex = playerProgress.Data.OpeningIndex;
             for (int i = 0; i < maxOcupied; i++)
             {
                 InitExistingCard(i);

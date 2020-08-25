@@ -10,11 +10,11 @@ namespace CastleFight
 {
     public class PlayerProgress : MonoBehaviour
     {
+        [SerializeField] private string playerProgressFileName;
+        [SerializeField] private int ratingDelta;
         public PlayerData Data => data;
         public int RatingDelta => ratingDelta;
         private PlayerData data;
-        [SerializeField] private string playerProgressFileName;
-        [SerializeField] private int ratingDelta;
 
         public void Awake()
         {
@@ -67,7 +67,7 @@ namespace CastleFight
         }
         private void OnGameEnd(GameEndEvent gameEndEvent)
         {
-            if(gameEndEvent.loserTeam == Team.Team2)
+            if(gameEndEvent.won)
             {
                 data.Rating += ratingDelta;
             }

@@ -26,11 +26,12 @@ namespace CastleFight.Core {
         [SerializeField] private RaceSet raceSet;
 
         private RaceConfig playerRace;
-
+        private AudioManager audioManager;
         public void Start()
         {
             EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEnd);
             EventBusController.I.Bus.Subscribe<RaceChosenEvent>(OnRaceChosen);
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
             Hide();
         }
         
@@ -53,6 +54,14 @@ namespace CastleFight.Core {
         private void OnGameEnd(GameEndEvent gameEndEvent)
         {
             Show();
+            if (gameEndEvent.won)
+            {
+                audioManager.Play("Win");
+            }
+            else
+            {
+                audioManager.Play("Loose");
+            }
             if (gameEndEvent.loserRace == Race.Kingdom)
             {
                 InitImmortals();

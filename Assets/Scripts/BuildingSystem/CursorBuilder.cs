@@ -12,18 +12,20 @@ namespace CastleFight
         [SerializeField] private Camera cam;
         [SerializeField] LayerMask buildingAreaLayer;
         [SerializeField] UserController userController;
+        [SerializeField] private BuildingBehavior buildingBehavior;
+
         private CameraMover cameraMover;
         private BuildingsLimitManager buildingLimitManager;
         private GoldManager goldManager;
         private Ray ray;
         private GameObject currentGo;
-        [SerializeField] private BuildingBehavior buildingBehavior;
-
+        private AudioManager audioManager;
         private void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             buildingLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
             cameraMover = ManagerHolder.I.GetManager<CameraMover>();
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
         }
 
         private void OnDestroy()
@@ -58,12 +60,14 @@ namespace CastleFight
         public void SetBuilding(BuildingBehavior buildingBehavior)
         {
             this.buildingBehavior = buildingBehavior;
+            audioManager.Play("Take building");
         }
         
         private void CancelBuilding()
         {
             Destroy(buildingBehavior.gameObject);
             buildingBehavior = null;
+            audioManager.Play("Build failure");
             cameraMover.ConinueMoving();
         }
         
@@ -90,18 +94,25 @@ namespace CastleFight
                 var position = new Vector3(Mathf.RoundToInt(hit.point.x*2)/2f, hit.point.y + buildingBehavior.OffsetY, Mathf.RoundToInt(hit.point.z*2)/2f);
                 buildingBehavior.MoveTo(position);
                 bool canPlace = buildingBehavior.CanBePlaced();
-                
-               if (Input.GetMouseButtonUp(0))
+
+                if (Input.GetMouseButtonDown(0) && !canPlace)
+                {
+                    CancelBuilding();
+                    return;
+                }
+
+                if (Input.GetMouseButtonUp(0))
                 {
                     if (!userController.IsRaycastUI() && canPlace)
                     {
                         Build();
                     }
-                    else
-                    { 
-                     //   CancelBuilding();
+                    if (!canPlace)
+                    {
+                        CancelBuilding();
                     }
                 }
+               
             }
         }
 
@@ -111,7 +122,7 @@ namespace CastleFight
             goldManager.MakeGoldChange(-buildingBehavior.Building.Config.Cost, Team.Team1);
             buildingBehavior.Place(team);
             buildingBehavior = null;
-
+            audioManager.Play("Build successfull");
             cameraMover.ConinueMoving();
         }
 

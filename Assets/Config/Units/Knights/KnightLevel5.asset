@@ -38,4 +38,4 @@ MonoBehaviour:
   cost: 0
   goldDmgPercent: 0
   abilities: []
-  unitKind: 0
+  unitKind: 3

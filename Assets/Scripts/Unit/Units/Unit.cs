@@ -44,6 +44,7 @@ namespace CastleFight
         protected bool alive = true;
         protected bool readyToAttack = true;
 
+        private AudioManager audioManager;
         private GoldManager goldManager;
         private Stat attackDelay;
         private Stat damage;
@@ -63,6 +64,7 @@ namespace CastleFight
             
             stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
             agent.Init(this);
             attackSkill.Init(this);
             attackDelay = (Stat)stats.GetStat(StatType.AttackDelay);
@@ -107,7 +109,7 @@ namespace CastleFight
                 if (gameObject.layer == (int)Team.Team1)
                     InitGoldAnim(config.Cost);
             }
-
+            MakeAttackSound();
             animationController.Attack
             (
                 () =>
@@ -116,12 +118,34 @@ namespace CastleFight
 
                     attackSkill.SetTarget(target);
                     attackSkill.Execute();
+                    MakeHitSound();
                 },
                 ()=> 
                 {
                     StartAttackCooldown();
                 }
             );
+        }
+
+        private void MakeAttackSound()
+        { 
+            audioManager.Play(config.UnitKind + " attack");
+        }
+
+        private void MakeHitSound()
+        {
+            if(config.UnitKind == UnitKind.Death)
+            {
+                audioManager.Play("Spit hit");
+            }
+            if (config.UnitKind == UnitKind.Knight)
+            {
+                audioManager.Play("Sword hit");
+            }
+            if (config.UnitKind == UnitKind.Skeleton)
+            {
+                audioManager.Play("Axe hit");
+            }
         }
 
         private int GetGoldPerHit()
@@ -137,12 +161,24 @@ namespace CastleFight
             healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer == Team.Team1 ? Team.Team2 : Team.Team1);
             EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
+            MakeDeathSound();
             if (gameObject.layer == (int)Team.Team2)
             {
                 goldManager.InitGoldAnim(config.Cost, transform);
+                MakeGoldSound();
             }
             OnKilled?.Invoke();
             DelayDestroy();
+        }
+
+        private void MakeDeathSound()
+        {
+            audioManager.Play(config.UnitKind+" death");
+        }
+
+        private void MakeGoldSound()
+        {
+            audioManager.Play("Gold for kill");
         }
 
         private async Task DelayDestroy()

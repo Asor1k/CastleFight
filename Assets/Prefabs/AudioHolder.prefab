@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2198728461725248586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9006277171386033299}
+  - component: {fileID: 4050368526969006343}
+  m_Layer: 0
+  m_Name: AudioHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9006277171386033299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198728461725248586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4050368526969006343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198728461725248586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d603c48c40a3bc429b513818243a409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Menu Theme1
+    clip: {fileID: 8300000, guid: 601680e6f15ee8b47bdf369ae77c4501, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Menu Theme2
+    clip: {fileID: 8300000, guid: f479e4656b3f9864fa812ba254e86c2a, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Menu Theme3
+    clip: {fileID: 8300000, guid: 97f06dc9d8f60714fa1737107b7053bb, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Battle Theme1
+    clip: {fileID: 8300000, guid: d8941ff213b6f03479ae74e13618df80, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Battle Theme2
+    clip: {fileID: 8300000, guid: b8504ff993ac02343a72125ab6dd42aa, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Battle Theme3
+    clip: {fileID: 8300000, guid: 0d86b7153181149469a054a03ce26019, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Building Upgrade
+    clip: {fileID: 8300000, guid: e9b5837dcdc02544ab53df7f4af56ccd, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Angel attack
+    clip: {fileID: 8300000, guid: 3614118cc1934484aafcfaf1c401aca8, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Griphon attack
+    clip: {fileID: 8300000, guid: b08b8c0b0c46b7f40b1d38743878e9d7, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Ghost attack
+    clip: {fileID: 8300000, guid: 16e9004d043cd77408ba9f3e1fe0500f, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Knight attack
+    clip: {fileID: 8300000, guid: 96a65a3901a1ee34ca789e3a070690bd, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Skeleton attack
+    clip: {fileID: 8300000, guid: 6e0a4b410649b3347ab9799361263770, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Death attack
+    clip: {fileID: 8300000, guid: bcf124bcbbd4aae45994c8412f5361e1, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Take building
+    clip: {fileID: 8300000, guid: 810901ee3e411ca499f6eb23d7bcc342, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Gold for kill
+    clip: {fileID: 8300000, guid: 78bbbb1eaa2ca074590a9a3782afb739, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: 33171c65666a85244b1fb24a9fa1e16f, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Book start reserching
+    clip: {fileID: 8300000, guid: 0c72bd0e663e3aa4baf52ea12489a2fc, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Book researched
+    clip: {fileID: 8300000, guid: 2b2cb7a5b548e0c44b4cc75579cf3a2d, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Battle begins
+    clip: {fileID: 8300000, guid: 123797c62a4f8c64a848b714a1dc22c6, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Build failure
+    clip: {fileID: 8300000, guid: 095a327daa92d87469ac559db6ce7c06, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Build sucsesfull
+    clip: {fileID: 8300000, guid: 3d200f3f47dbbaa47808e6e016204dff, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 931f234975a9b514a832ebe473ea1b74, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Loose
+    clip: {fileID: 8300000, guid: e3567fc991f95c4408ede6587479671f, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Sell building
+    clip: {fileID: 8300000, guid: 676a9680cc3d6e046b3fa61678f62a4b, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Castle destroyed
+    clip: {fileID: 8300000, guid: eb59214ad20c11f4ea5aba796da71b73, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Angel death
+    clip: {fileID: 8300000, guid: 146aa6794ba5ebf47953ab2f4a152dde, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Griphon death
+    clip: {fileID: 8300000, guid: e5a22f5f3afdb564e99edb5680cc6719, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Ghost death
+    clip: {fileID: 8300000, guid: c0c7a5dcbe205094d9bb91b602dc440d, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Knight death
+    clip: {fileID: 8300000, guid: 792fd70d2a0b8f14cade57d74d377ea5, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Skeleton death
+    clip: {fileID: 8300000, guid: 2558cdf97895dc2488cc6049936de593, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Reaper death
+    clip: {fileID: 8300000, guid: ed208dedae884c24a8516d4d2e5d6c24, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Unit spawn
+    clip: {fileID: 8300000, guid: e4355b61e9eba4f4d8d0f5e9b1e4316f, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Castle shoot
+    clip: {fileID: 8300000, guid: f00a9238b11f3294789d60706bf0fa96, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Spit hit
+    clip: {fileID: 8300000, guid: 2f42f28352072e84eac6d098827215f1, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Sword hit
+    clip: {fileID: 8300000, guid: 4c51ae08df37d1641a4060aa73a77fcc, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}
+  - name: Axe hit
+    clip: {fileID: 8300000, guid: 9b9a57bdb868b614185a9ba9b961c26d, type: 3}
+    volume: 1
+    pitch: 0.1
+    source: {fileID: 0}

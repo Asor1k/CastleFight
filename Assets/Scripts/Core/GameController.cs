@@ -1,6 +1,8 @@
 ﻿using CastleFight.Core.Data;
 using CastleFight.Core.EventsBus;
 using CastleFight.Core.EventsBus.Events;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 namespace CastleFight.Core
@@ -10,6 +12,10 @@ namespace CastleFight.Core
         [SerializeField] private UserController userController;
         [SerializeField] private BotController botController;
 
+        private AudioManager audioManager;
+        private string currentTheme;
+        
+
         private void Awake()
         {
             ManagerHolder.I.AddManager(this);
@@ -17,6 +23,41 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Subscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
+        public void Start()
+        {
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
+            PlayMenuTheme();
+            StartCoroutine(MenuThemeCourutine());
+        }
+
+        private IEnumerator MenuThemeCourutine()
+        {
+            yield return new WaitForSeconds(audioManager.GetLength(currentTheme));
+            PlayMenuTheme();
+            StartCoroutine(MenuThemeCourutine());
+        }
+
+        private void PlayMenuTheme()
+        {
+            currentTheme = "Menu Theme"+Random.Range(1, 4);
+            audioManager.Play(currentTheme); 
+            Debug.Log("Started playing" + currentTheme);
+        }
+
+        private IEnumerator BattleThemeCourutine(int themeNumber)
+        {
+            currentTheme = "Battle Theme"+themeNumber;
+            audioManager.Play(currentTheme);
+            yield return new WaitForSeconds(audioManager.GetLength(currentTheme));
+            themeNumber = themeNumber == 3 ? 1 : themeNumber+1;
+            StartCoroutine(BattleThemeCourutine(themeNumber));
+        }
+
+        private void StopTheme()
+        {
+            audioManager.Stop(currentTheme);
+        }
+        
         private void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<ExitToMainMenuEvent>(OnExitToMainMenuEventHandler);
@@ -29,6 +70,9 @@ namespace CastleFight.Core
            // Debug.Log(gameSet.botRaceConfig.RaceName);
             userController.Init(gameSet.userRaceConfig);
             userController.StartGame();
+            StopTheme();
+            audioManager.Play("Battle begins");
+            StartCoroutine(BattleThemeCourutine(1));
             // TODO: start bot            
         }
 
@@ -44,10 +88,12 @@ namespace CastleFight.Core
             RiseOpenMainMenu();
         }
 
+
         private void OnGameEndEventHandler(GameEndEvent gameEndEvent)
         {
             StopGame();
             RiseOpenMainMenu();
+            audioManager.Stop(currentTheme);
         }
     
         private void RiseOpenMainMenu()
