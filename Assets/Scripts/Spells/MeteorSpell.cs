@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace CastleFight.Spells
 {
-    [CreateAssetMenu(fileName = "Meteor", menuName = "Spells/MeteorSpell", order = 0)]
     public class MeteorSpell : Spell
     {
         [SerializeField]

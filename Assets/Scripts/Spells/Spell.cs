@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CastleFight.Spells
 {
-    public abstract class Spell : ScriptableObject
+    public abstract class Spell : MonoBehaviour
     {
         public float Cooldown { get { return cooldown; } }
         [SerializeField]

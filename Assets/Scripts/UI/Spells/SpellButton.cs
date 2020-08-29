@@ -12,7 +12,6 @@ namespace CastleFight.UI
     {
         [SerializeField]
         private Image cooldownImage;
-        [SerializeField]
         private Spell spell;
         private SpellController spellController;
         private bool isPointerHover;
@@ -24,6 +23,11 @@ namespace CastleFight.UI
             {
                 OnBtnClick();
             }
+        }
+
+        public void Init(Spell spell)
+        {
+            this.spell = spell;   
         }
 
         private void Start()
