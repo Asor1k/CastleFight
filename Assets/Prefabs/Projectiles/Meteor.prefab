@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 8832988473216386081}
   hitEffects:
   - {fileID: 7072541557114210164}
+  meteorMesh: {fileID: 829064890932541653}
 --- !u!1001 &3315438157206540604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,6 +129,12 @@ PrefabInstance:
 --- !u!4 &5636659594881172114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6934344381535277998, guid: fc938208bbe4a9049aefe9d045b6d711,
+    type: 3}
+  m_PrefabInstance: {fileID: 3315438157206540604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &829064890932541653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2703183765560781289, guid: fc938208bbe4a9049aefe9d045b6d711,
     type: 3}
   m_PrefabInstance: {fileID: 3315438157206540604}
   m_PrefabAsset: {fileID: 0}

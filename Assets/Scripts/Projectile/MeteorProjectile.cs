@@ -8,9 +8,13 @@ namespace CastleFight.Projectiles
 {
     public class MeteorProjectile : Projectile
     {
+        [SerializeField]
+        private GameObject meteorMesh;
+
         protected override void OnHit()
         {
             base.OnHit();
+            meteorMesh.gameObject.SetActive(false);
             StartCoroutine(DelayDestroy());
         }
 
@@ -20,6 +24,11 @@ namespace CastleFight.Projectiles
             transform.parent = null;
             gameObject.SetActive(false);
             Pool.I.Put<MeteorProjectile>(this);
+        }
+
+        private void OnEnable()
+        {
+            meteorMesh.gameObject.SetActive(true);
         }
     }
 }

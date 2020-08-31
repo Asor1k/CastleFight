@@ -829,7 +829,6 @@ MonoBehaviour:
   - {fileID: 8978394073446751626}
   - {fileID: 8978394075108937695}
   - {fileID: 8978394074893699600}
-  - {fileID: 6578659661444602283}
   origin: {fileID: 8978394073558620553}
   startOffset: {x: 0, y: 6, z: 0}
   damage: 100
@@ -1688,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 707966229, guid: fe39232c150974ec4a2087070d28b39d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 91.050415
+      value: 89.96594
       objectReference: {fileID: 0}
     - target: {fileID: 1037075590, guid: fe39232c150974ec4a2087070d28b39d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6890,12 +6889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userCastlePos: {fileID: 7609517051686543360}
   botCastlePos: {fileID: 1718295606418566899}
---- !u!198 &6578659661444602283 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8613615741028676428, guid: a4ea8fb619d5a44edba3fbc7d2ab0eb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3226175999232371431}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7147588637361673823
 Transform:
   m_ObjectHideFlags: 0
