@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CastleFight.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,10 +18,16 @@ namespace CastleFight
         private Coroutine updateTargetCoroutine;
         private Stat attackRange;
         private Stat enemyDetectRange;
+        private UnitManager unitManager;
 
         private void Awake()
         {
             unit.OnInit += OnUnitInitted;
+        }
+
+        private void Start()
+        {
+            unitManager = ManagerHolder.I.GetManager<UnitManager>();
         }
 
         private void OnUnitInitted()
@@ -69,8 +76,8 @@ namespace CastleFight
 
                 if (currentTarget.Type == TargetType.Building || currentTarget.Type == TargetType.Castle)
                 {
-                    var targetTransform = currentTarget.Transform.localScale;
-                    distanceToTarget -= Mathf.Max(0, currentTarget.Transform.localScale.x - attackRange.Value);
+                    var targetTransform = currentTarget.Transform;
+                    distanceToTarget -= Mathf.Max(0, targetTransform.localScale.x / 2);
                 }
 
                 if (distanceToTarget <= attackRange.Value)
@@ -91,7 +98,7 @@ namespace CastleFight
             while (true)
             {
                 yield return new WaitForSeconds(targetUpdateDelay);
-                var target = UnitManager.I.GetClossestUnit(transform.position, (Team)gameObject.layer, ignoreAir);
+                var target = unitManager.GetClossestUnit(transform.position, enemyDetectRange.Value, (Team)gameObject.layer, ignoreAir);
 
                 if (target != null)
                 {
@@ -99,7 +106,7 @@ namespace CastleFight
                 }
                 else
                 {
-                    var buildingTarget = UnitManager.I.GetClossestBuilding(transform.position, (Team)gameObject.layer);
+                    var buildingTarget = unitManager.GetClossestBuilding(transform.position, enemyDetectRange.Value, (Team)gameObject.layer);
 
                     if (buildingTarget != null)
                     {

@@ -64,7 +64,7 @@ namespace CastleFight
         {
             Destroy(buildingBehavior.gameObject);
             buildingBehavior = null;
-            cameraMover.ConinueMoving();
+            cameraMover.ContinueMoving();
         }
         
         private bool IsCancelling()
@@ -112,7 +112,7 @@ namespace CastleFight
             buildingBehavior.Place(team);
             buildingBehavior = null;
 
-            cameraMover.ConinueMoving();
+            cameraMover.ContinueMoving();
         }
 
         public override void Unlock()

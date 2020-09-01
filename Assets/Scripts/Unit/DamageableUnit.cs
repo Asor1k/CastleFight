@@ -49,6 +49,7 @@ namespace CastleFight
         {
             if (unit.Alive)
             {
+
                 float finalDamage = GetFinalDamage(damage);
                 evasion = unitStats.GetStat(StatType.Evasion);
                 float chanceToEvade = 0;
@@ -62,6 +63,7 @@ namespace CastleFight
                     unit.Evade();
                     finalDamage = 0;
                 }
+
                 unitStats.TakeDamage(finalDamage);
             }
         }
