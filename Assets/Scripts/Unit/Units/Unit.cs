@@ -102,20 +102,19 @@ namespace CastleFight
             if (!target.Alive || !alive || !readyToAttack) return;
             readyToAttack = false;
             agent.LookAt(target.Transform);
-            if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
-            {
-                int gold = GetGoldPerHit();
-                goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
-                if (gameObject.layer == (int)Team.Team1)
-                    InitGoldAnim(config.Cost);
-            }
+            
             MakeAttackSound();
             animationController.Attack
             (
                 () =>
                 {
                     if (!alive) return;
-
+                    if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
+                    {
+                        int gold = GetGoldPerHit();
+                        goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
+                        goldManager.InitGoldAnim(gold, target.Transform);
+                    }
                     attackSkill.SetTarget(target);
                     attackSkill.Execute();
                     MakeHitSound();
@@ -155,11 +154,11 @@ namespace CastleFight
 
         private void Kill()
         {
+            if (!alive) return;
             alive = false;
             collider.enabled = false;
             agent.Disable();
             healthBarCanvas.Show(false);
-            goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer == Team.Team1 ? Team.Team2 : Team.Team1);
             EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
             MakeDeathSound();
             if (gameObject.layer == (int)Team.Team2)
@@ -204,29 +203,6 @@ namespace CastleFight
             {
                 Kill();
             }
-        }
-
-        private void InitGoldAnim(int gold)
-        {
-            GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
-            if (goldAnim == null)
-            {
-                goldAnim = Instantiate(goldManager.goldAnimPrefab, transform);
-            }
-            else
-            {
-                goldAnim.gameObject.SetActive(true);
-                goldAnim.transform.SetParent(transform);
-                goldAnim.transform.localPosition = Vector3.zero;
-            }
-            goldAnim.Init(gold);
-            StartCoroutine(DelayDestroyAnim(goldAnim));
-        }
-
-        private IEnumerator DelayDestroyAnim(GoldAnim anim)
-        {
-            yield return new WaitForSeconds(1);
-            anim.gameObject.SetActive(false);
         }
 
         private async Task StartAttackCooldown()

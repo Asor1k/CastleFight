@@ -49,7 +49,7 @@ namespace CastleFight.Core
             currentTheme = "Battle Theme"+themeNumber;
             audioManager.Play(currentTheme);
             yield return new WaitForSeconds(audioManager.GetLength(currentTheme));
-            themeNumber = themeNumber == 3 ? 1 : themeNumber+1;
+            themeNumber = themeNumber == 3 ? 1 : themeNumber + 1;
             StartCoroutine(BattleThemeCourutine(themeNumber));
         }
 
@@ -67,8 +67,8 @@ namespace CastleFight.Core
         public void StartGame(GameSet gameSet)
         {
             botController.Init(gameSet.botRaceConfig);
-           // Debug.Log(gameSet.botRaceConfig.RaceName);
             userController.Init(gameSet.userRaceConfig);
+            
             userController.StartGame();
             StopTheme();
             audioManager.Play("Battle begins");

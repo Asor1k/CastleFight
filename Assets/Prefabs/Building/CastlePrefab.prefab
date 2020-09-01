@@ -53,7 +53,7 @@ MonoBehaviour:
   stats: {fileID: 1157267239654619611}
   collider: {fileID: 3567421265932857767}
   obstacle: {fileID: 1490417540363586034}
-  projectileConfig: {fileID: 11400000, guid: 10fc26111d1c69448840a161e5105600, type: 2}
+  projectileConfig: {fileID: 11400000, guid: c18ad170821eb8548b2c63b53aeb80a5, type: 2}
   launchPoint: {fileID: 8010206232013904640}
 --- !u!114 &2595719727865546921
 MonoBehaviour:
