@@ -99,6 +99,7 @@ namespace CastleFight
             castle.transform.position = castlePos;
             castle.gameObject.layer = (int)Team.Team1;
             castle.Init(castleConfig);
+            EventBusController.I.Bus.Publish(new CastleBuildEvent(castle));
         }
 
         public void StartGame()

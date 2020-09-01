@@ -44,7 +44,7 @@ namespace CastleFight
             canMove = false;
         }
         
-        public void ConinueMoving()
+        public void ContinueMoving()
         {
             canMove = true;
         }

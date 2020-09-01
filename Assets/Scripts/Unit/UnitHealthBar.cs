@@ -18,7 +18,7 @@ namespace CastleFight
 
         private void UpdateHealthBar(Stat hpStat)
         {
-            Debug.Log(hpStat.Value);
+            Debug.Log(gameObject.name + " : ");
             SetBarValue(hpStat.Value / maxHp.Value);
         }
         

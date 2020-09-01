@@ -23,6 +23,8 @@ namespace CastleFight
         public Skill AttackSkill { get { return attackSkill; } }
         public Team Team => team;
         public IDamageable DamageBehaviour;
+        public bool ReadyToAttack => readyToAttack;
+        public Transform EffectPoint => effectPoint;
 
         [SerializeField]
         protected Agent agent;
@@ -38,13 +40,14 @@ namespace CastleFight
         protected UnitHealthBar healthBarCanvas;
         [SerializeField]
         protected Skill attackSkill;
+        [SerializeField]
+        protected Transform effectPoint;
 
         protected Team team;
         protected IDamageable target;
         protected bool alive = true;
         protected bool readyToAttack = true;
 
-        private AudioManager audioManager;
         private GoldManager goldManager;
         private Stat attackDelay;
         private Stat damage;
@@ -64,7 +67,6 @@ namespace CastleFight
             
             stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
-            audioManager = ManagerHolder.I.GetManager<AudioManager>();
             agent.Init(this);
             attackSkill.Init(this);
             attackDelay = (Stat)stats.GetStat(StatType.AttackDelay);
@@ -99,52 +101,34 @@ namespace CastleFight
 
         public virtual void Attack(IDamageable target)
         {
-            if (!target.Alive || !alive || !readyToAttack) return;
-            readyToAttack = false;
+            if (!target.Alive || !alive) return;
+
             agent.LookAt(target.Transform);
-            
-            MakeAttackSound();
+            if (!readyToAttack) return;
+
+            readyToAttack = false;
+            if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
+            {
+                int gold = GetGoldPerHit();
+                goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
+                if (gameObject.layer == (int)Team.Team1)
+                    InitGoldAnim(config.Cost);
+            }
+
             animationController.Attack
             (
                 () =>
                 {
                     if (!alive) return;
-                    if (target.Type == TargetType.Building || target.Type == TargetType.Castle)
-                    {
-                        int gold = GetGoldPerHit();
-                        goldManager.MakeGoldChange(gold, (Team)gameObject.layer);
-                        goldManager.InitGoldAnim(gold, target.Transform);
-                    }
+
                     attackSkill.SetTarget(target);
                     attackSkill.Execute();
-                    MakeHitSound();
                 },
                 ()=> 
                 {
                     StartAttackCooldown();
                 }
             );
-        }
-
-        private void MakeAttackSound()
-        { 
-            audioManager.Play(config.UnitKind + " attack");
-        }
-
-        private void MakeHitSound()
-        {
-            if(config.UnitKind == UnitKind.Death)
-            {
-                audioManager.Play("Spit hit");
-            }
-            if (config.UnitKind == UnitKind.Knight)
-            {
-                audioManager.Play("Sword hit");
-            }
-            if (config.UnitKind == UnitKind.Skeleton)
-            {
-                audioManager.Play("Axe hit");
-            }
         }
 
         private int GetGoldPerHit()
@@ -154,30 +138,18 @@ namespace CastleFight
 
         private void Kill()
         {
-            if (!alive) return;
             alive = false;
             collider.enabled = false;
             agent.Disable();
             healthBarCanvas.Show(false);
+            goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer == Team.Team1 ? Team.Team2 : Team.Team1);
             EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
-            MakeDeathSound();
             if (gameObject.layer == (int)Team.Team2)
             {
                 goldManager.InitGoldAnim(config.Cost, transform);
-                MakeGoldSound();
             }
             OnKilled?.Invoke();
             DelayDestroy();
-        }
-
-        private void MakeDeathSound()
-        {
-            audioManager.Play(config.UnitKind+" death");
-        }
-
-        private void MakeGoldSound()
-        {
-            audioManager.Play("Gold for kill");
         }
 
         private async Task DelayDestroy()
@@ -203,6 +175,29 @@ namespace CastleFight
             {
                 Kill();
             }
+        }
+
+        private void InitGoldAnim(int gold)
+        {
+            GoldAnim goldAnim = Pool.I.Get<GoldAnim>();
+            if (goldAnim == null)
+            {
+                goldAnim = Instantiate(goldManager.goldAnimPrefab, transform);
+            }
+            else
+            {
+                goldAnim.gameObject.SetActive(true);
+                goldAnim.transform.SetParent(transform);
+                goldAnim.transform.localPosition = Vector3.zero;
+            }
+            goldAnim.Init(gold);
+            StartCoroutine(DelayDestroyAnim(goldAnim));
+        }
+
+        private IEnumerator DelayDestroyAnim(GoldAnim anim)
+        {
+            yield return new WaitForSeconds(1);
+            anim.gameObject.SetActive(false);
         }
 
         private async Task StartAttackCooldown()

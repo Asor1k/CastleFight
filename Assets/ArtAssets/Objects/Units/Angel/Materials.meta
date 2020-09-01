@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/ArtAssets/Objects/Units/Angel/Materials.meta
 guid: 44a1100e5b073f44e808cc4fe832b4f3
+=======
+guid: 8271cae78a576d44fa338082ce91f407
+>>>>>>> 9606a337b6e264da7697b9b827f49691181b3a4f:Assets/ArtAssets/Effects/AttackEffects/VampirismEffect.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
