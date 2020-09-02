@@ -65,6 +65,15 @@ namespace CastleFight
             {
                 enemyLayer = LayerMask.GetMask("Team1");
             }
+            if(team == Team.Team1)
+                StartCoroutine(GainMoneyCouroutine());
+        }
+
+        private IEnumerator GainMoneyCouroutine()
+        {
+            yield return new WaitForSeconds(1f);
+            EventBusController.I.Bus.Publish(new BuildingEarnMoneyEvent());
+            StartCoroutine(GainMoneyCouroutine());
         }
 
         void Update()
