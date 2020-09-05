@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1fbe86122b854b8c0015c26518795, type: 3}
+  m_Name: GryphonLevel3
+  m_EditorClassIdentifier: 
+  stats:
+  - Type: 0
+    Value: 700
+  - Type: 1
+    Value: 700
+  - Type: 5
+    Value: 3
+  - Type: 4
+    Value: 160
+  - Type: 6
+    Value: 0.6
+  - Type: 7
+    Value: 10
+  - Type: 8
+    Value: 10
+  - Type: 9
+    Value: 0
+  - Type: 13
+    Value: 1
+  - Type: 3
+    Value: 0
+  prefab: {fileID: 7358929195528516059, guid: d60fc90ea3b9f724d8d15efcdd383ef3, type: 3}
+  icon: {fileID: 0}
+  cost: 0
+  goldDmgPercent: 0
+  abilities: []
+  unitKind: 4
