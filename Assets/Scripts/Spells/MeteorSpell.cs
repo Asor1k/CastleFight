@@ -13,8 +13,6 @@ namespace CastleFight.Spells
         [SerializeField]
         private Vector3 startOffset;
         [SerializeField]
-        private float radius;
-        [SerializeField]
         private float damage;
 
         public override void Execute(Vector3 targetPoint, Team team)

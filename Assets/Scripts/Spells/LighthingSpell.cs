@@ -17,8 +17,6 @@ namespace CastleFight.Spells
         [SerializeField]
         private int damage;
         [SerializeField]
-        private int radius;
-        [SerializeField]
         private float damageDelay;
         private Team teamCache;
         private Vector3 targetPointCache;
