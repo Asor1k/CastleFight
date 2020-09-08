@@ -34,8 +34,28 @@ MonoBehaviour:
   - Type: 13
     Value: 1
   prefab: {fileID: 2756720543292162476, guid: 472c9f692d84a0147b29c985e8c21fad, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 07c44c1e3c6c4ad408f5182d7f4e1c55, type: 3}
   cost: 0
   goldDmgPercent: 0
-  abilities: []
+  abilities:
+  - modifiers:
+    - value: 50
+      statType: 1
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 1
+      statType: 3
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 2
+      statType: 3
+      Type: 0
+    isActive: 0
+  - modifiers:
+    - value: 15
+      statType: 4
+      Type: 0
+    isActive: 0
   unitKind: 3

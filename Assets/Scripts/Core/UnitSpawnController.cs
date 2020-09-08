@@ -13,6 +13,7 @@ namespace CastleFight.Core {
         private float spawnTimer;
 
         private AudioManager audioManager;
+        private bool isActive = false;
 
         public void Awake()
         {
@@ -33,10 +34,12 @@ namespace CastleFight.Core {
         public void Init()
         {
             spawnTimer = timerConfig.SpawnTime;
+            isActive = true;
         }
         
         public void Update()
         {
+            if (!isActive) return;
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0)
             {

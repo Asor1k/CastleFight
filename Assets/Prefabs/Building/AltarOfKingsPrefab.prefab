@@ -221,6 +221,11 @@ PrefabInstance:
       propertyPath: building
       value: 
       objectReference: {fileID: 3769575545502128820}
+    - target: {fileID: 506785904405382497, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: myImage
+      value: 
+      objectReference: {fileID: 158909415591101295}
     - target: {fileID: 2161074666723928666, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: m_IsActive
@@ -437,6 +442,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bba626b4214d64c812a97f0e1015fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &158909415591101295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8215208165026728687, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+    type: 3}
+  m_PrefabInstance: {fileID: 8085869023860574592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8592498726177164513 stripped

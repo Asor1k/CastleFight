@@ -49,6 +49,7 @@ namespace CastleFight
         protected bool readyToAttack = true;
 
         private GoldManager goldManager;
+        private AudioManager audioManager;
         private Stat attackDelay;
         private Stat damage;
 
@@ -67,6 +68,7 @@ namespace CastleFight
             
             stats.OnHpChanged += OnUnitDamaged;
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
             agent.Init(this);
             attackSkill.Init(this);
             attackDelay = (Stat)stats.GetStat(StatType.AttackDelay);
@@ -114,13 +116,13 @@ namespace CastleFight
                 if (gameObject.layer == (int)Team.Team1)
                     InitGoldAnim(config.Cost);
             }
-
+            MakeAttackSound();
             animationController.Attack
             (
                 () =>
                 {
                     if (!alive) return;
-
+                    MakeHitSound();
                     attackSkill.SetTarget(target);
                     attackSkill.Execute();
                 },
@@ -143,6 +145,7 @@ namespace CastleFight
             agent.Disable();
             healthBarCanvas.Show(false);
             goldManager.MakeGoldChange(config.Cost, (Team)gameObject.layer == Team.Team1 ? Team.Team2 : Team.Team1);
+            MakeDeathSound();
             EventBusController.I.Bus.Publish(new UnitDiedEvent(this));
             if (gameObject.layer == (int)Team.Team2)
             {
@@ -159,6 +162,34 @@ namespace CastleFight
             gameObject.SetActive(false);
             Pool.I.Put(this);
         }
+        
+        private void MakeDeathSound()
+        {
+            audioManager.Play(config.UnitKind + " death");
+            audioManager.Play("Gold for kill");
+        }
+
+        private void MakeHitSound()
+        {
+            switch(config.UnitKind)
+            {
+                case UnitKind.Knight:
+                    audioManager.Play("Sword hit");
+                    break;
+                case UnitKind.Skeleton:
+                    audioManager.Play("Axe hit");
+                    break;
+                case UnitKind.Death:
+                    audioManager.Play("Spit hit");
+                    break;
+            }
+        }
+
+        private void MakeAttackSound()
+        {
+            audioManager.Play(config.UnitKind + " attack");
+        }
+
 
         public void Reset()
         {

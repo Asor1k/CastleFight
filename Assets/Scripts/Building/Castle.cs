@@ -73,7 +73,7 @@ namespace CastleFight
         {
             yield return new WaitForSeconds(1f);
             EventBusController.I.Bus.Publish(new BuildingEarnMoneyEvent());
-            StartCoroutine(GainMoneyCouroutine());
+            StartCoroutine(GainMoneyCouroutine());  
         }
 
         void Update()

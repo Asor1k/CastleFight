@@ -23,18 +23,31 @@ namespace CastleFight
                 if (progressBar == null) return;
                 var colorFactor = (factor - colorChangeThreshold) / colorChangeThreshold;
                 
-                progressBar.color = Color.Lerp(Color.yellow, Color.green, colorFactor);
+                //progressBar.color = Color.Lerp(Color.yellow, Color.green, colorFactor);
             }
             else
             {
                 var colorFactor = factor / colorChangeThreshold;
-                progressBar.color = Color.Lerp(Color.red, Color.yellow, colorFactor);
+                //progressBar.color = Color.Lerp(Color.red, Color.yellow, colorFactor);
+            }
+        }
+
+        public void SetTeam(Team team)
+        {
+            if( team == Team.Team2)
+            {
+                progressBar.color = Color.red;
+            }
+            if(team == Team.Team1)
+            {
+                progressBar.color = Color.white;
             }
         }
 
         public void Show(bool status)
         {
             canvas.enabled = status;
+
         }
     }
 }

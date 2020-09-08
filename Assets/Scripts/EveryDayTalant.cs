@@ -23,6 +23,7 @@ namespace CastleFight
         private int secondsToOpen;
         private bool canBeOpen = false;
         private AudioManager audioManager;
+
         public void Start()
         {
             playerProgress = ManagerHolder.I.GetManager<PlayerProgress>();
@@ -44,6 +45,13 @@ namespace CastleFight
         private void InitTalant()
         {
             secondsToOpen = playerProgress.Data.BookSecondsToOpen - GetSecondsPaseed();
+            if (secondsToOpen <= 0 || secondsToOpen > SECONDS_IN_DAY)
+            {
+                StopAllCoroutines();
+                SetClikable();
+                DisplayTime();
+                return;
+            }
             canBeOpen = false;
             StartCoroutine(UpdateTimer());
             DisplayTime();
@@ -66,12 +74,8 @@ namespace CastleFight
 
         private void DisplayTime()
         {
-            if (secondsToOpen <= 0)
-            {
-                StopAllCoroutines();
-                SetClikable();
-            }
             timeText.text = IntToDisplayText(secondsToOpen);
+            Debug.Log(secondsToOpen);
         }
 
         private void SetClikable()
@@ -91,7 +95,11 @@ namespace CastleFight
         private string IntToDisplayText(int number)
         {
             string ans = "";
-
+            if (number <= 0 || number > SECONDS_IN_DAY)
+            {
+                ans = "00:00:00";
+                return ans;
+            }
             int t = number / (SECONDS_IN_DAY / 24);
             ans += t >= 10 ? t+"":"0"+t;
             ans += ":";
@@ -104,10 +112,7 @@ namespace CastleFight
             t = number;
             ans += t >= 10 ? t + "" : "0" + t;
 
-            if (number <= 0)
-            {
-                ans = "00:00:00";
-            }
+            
             return ans;
         }         
         private int GetSecondsPaseed()

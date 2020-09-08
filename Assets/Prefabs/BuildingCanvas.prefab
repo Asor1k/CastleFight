@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9367a9dd6c01cdd42965cdb5eda3164b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb3ecf35f56278243b542e29bb656ded, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.99149597, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building: {fileID: 0}
   costLabel: {fileID: 4703396430432513929}
+  myImage: {fileID: 8215208165026728687}
 --- !u!1 &2654329566066240138
 GameObject:
   m_ObjectHideFlags: 0

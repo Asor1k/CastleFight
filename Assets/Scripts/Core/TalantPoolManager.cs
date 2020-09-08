@@ -39,9 +39,8 @@ namespace CastleFight
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEnd);
         }
 
-        public void ResetIndex(int ind)
+        public void ResetIndex()
         {
-            if (ind != workingIndex) return;
             workingIndex = -1;
         }
 
@@ -50,8 +49,8 @@ namespace CastleFight
             if (playerProgress.Data.CardsTimeToOpen[index] <= 0) return;
             
             int timeToSend = playerProgress.Data.CardsTimeToOpen[index];
-            
-            talantCards[index].Init(timeToSend - GetSecondsPaseed(), index);
+            if (index == playerProgress.Data.OpeningIndex) timeToSend -= GetSecondsPaseed();
+            talantCards[index].Init(timeToSend, index);
         }
 
         private int GetSecondsPaseed()

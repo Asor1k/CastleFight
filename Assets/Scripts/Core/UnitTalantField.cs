@@ -8,9 +8,7 @@ namespace CastleFight
 {
     public class UnitTalantField : MonoBehaviour
     {
-        /*[SerializeField] private Image[] upperImages;
-        [SerializeField] private Image[] bottomImages;
-        */
+       
         [SerializeField] private TalantScreenCard[] upperTalantScreenCards;
         [SerializeField] private TalantScreenCard[] bottomTalantScreenCards;
         

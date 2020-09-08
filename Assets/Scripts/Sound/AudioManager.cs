@@ -29,6 +29,7 @@ namespace CastleFight
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
             s.source.Play();
+            Debug.Log("Playing: " + name);
         }
 
         public void Stop(string name)

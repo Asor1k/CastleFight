@@ -41,11 +41,13 @@ namespace CastleFight
                 //DO something when your unit dies
             }
         }
+
         public void Start()
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             EventBusController.I.Bus.Subscribe<UnitDiedEvent>(OnUnitDie);
         }
+
         public void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -61,7 +63,6 @@ namespace CastleFight
                     }
                     else if (hit.collider.CompareTag("Unit"))
                     {
-
                         EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
                         EventBusController.I.Bus.Publish(new UnitClickedEvent(hit.collider.GetComponent<UnitStats>()));
                     }
@@ -70,7 +71,6 @@ namespace CastleFight
                         EventBusController.I.Bus.Publish(new BuildingDeselectedEvent());
                     }
                 }
-
             }
         }
 
@@ -86,6 +86,7 @@ namespace CastleFight
             results.Clear();
             return isUi;
         }
+
         public void OnDestroy()
         {
             EventBusController.I.Bus.Unsubscribe<UnitDiedEvent>(OnUnitDie);

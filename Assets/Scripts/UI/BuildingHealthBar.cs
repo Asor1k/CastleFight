@@ -15,6 +15,7 @@ namespace CastleFight
             stats = GetComponentInParent<BuildingStats>();
             stats.OnDamaged += OnBuildingDamaged;
             stats.OnInit += OnInit;
+            SetTeam((Team)stats.gameObject.layer);
         }
 
         private void OnInit()

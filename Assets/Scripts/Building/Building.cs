@@ -111,10 +111,15 @@ namespace CastleFight
 
         private void UpdateUpgradeLabel()
         {
-            if(lvl < config.Levels.Count)
-               upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
-             else
+            if (lvl < config.Levels.Count)
+            {
+                upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
+                upgradeButton.myImage.sprite = config.Levels[lvl].Unit.Icon;
+            }
+            else
+            {
                 upgradeButton.Hide();
+            }
         }
 
         public void Destroy()
