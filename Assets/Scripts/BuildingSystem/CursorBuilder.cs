@@ -84,23 +84,30 @@ namespace CastleFight
             }
             
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            
+
             if (Physics.Raycast(ray, out var hit, 100, buildingAreaLayer))
             {
-                var position = new Vector3(Mathf.RoundToInt(hit.point.x*2)/2f, hit.point.y + buildingBehavior.OffsetY, Mathf.RoundToInt(hit.point.z*2)/2f);
+                var position = new Vector3(Mathf.RoundToInt(hit.point.x * 2) / 2f, hit.point.y + buildingBehavior.OffsetY, Mathf.RoundToInt(hit.point.z * 2) / 2f);
                 buildingBehavior.MoveTo(position);
                 bool canPlace = buildingBehavior.CanBePlaced();
-                
-               if (Input.GetMouseButtonUp(0))
+
+                if (Input.GetMouseButtonUp(0))
                 {
                     if (!userController.IsRaycastUI() && canPlace)
                     {
                         Build();
                     }
                     else
-                    { 
-                     //   CancelBuilding();
+                    {
+                        CancelBuilding();
                     }
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButtonUp(0))
+                {
+                    CancelBuilding();
                 }
             }
         }
