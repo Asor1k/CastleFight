@@ -16,17 +16,19 @@ namespace CastleFight
         public List<int> TalantLevels = new List<int>();
 
         public int[] CardsTimeToOpen = new int[4];
-        public int openingIndex;
-        public long ticks;
+        public int OpeningIndex;
+        public int BookSecondsToOpen = 0;
+        public long Ticks;
+        
         public PlayerData()
         {
             Wins = 0;
             Loses = 0;
             Rating = 0;
-            openingIndex = -1;
-            for(int i = 0; i < 6; i++) //Deafalt unitkinds count. TODO: Remove the magic number
+            OpeningIndex = -1;
+            for(int i = 0; i < 6; i++) //Deafault unitkinds count. TODO: Remove the magic number
             {
-                Weights.Add(256); //Deafalt max weight. TODO: Remove the magic number
+                Weights.Add(256); //Deafault max weight. TODO: Remove the magic number
                 TalantLevels.Add(0);
             }
         }

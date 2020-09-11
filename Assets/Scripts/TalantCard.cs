@@ -98,7 +98,7 @@ namespace CastleFight
             }
             GenerateTalant();
             Deactivate();
-            poolManager.ResetIndex(index);
+            poolManager.ResetIndex();
         }
 
         private IEnumerator TimeCouroutine()
@@ -120,7 +120,7 @@ namespace CastleFight
             isReady = true;
             attentionText.gameObject.SetActive(true);
             
-            poolManager.ResetIndex(index);
+            poolManager.ResetIndex();
         }
 
         private void Deactivate()

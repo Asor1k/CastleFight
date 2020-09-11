@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7673656490750283154}
   - component: {fileID: 4428899642971308575}
   - component: {fileID: 2863461123095502469}
+  - component: {fileID: 6594352335076429058}
   m_Layer: 10
   m_Name: AltarOfKingsPrefab
   m_TagString: Building
@@ -165,6 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 4428899642971308575}
   building: {fileID: 3769575545502128820}
+--- !u!114 &6594352335076429058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125538442367956725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1798b50ba432494c8297bd949b99204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 3769575545502128820}
 --- !u!1 &1072544156110580286
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +221,11 @@ PrefabInstance:
       propertyPath: building
       value: 
       objectReference: {fileID: 3769575545502128820}
+    - target: {fileID: 506785904405382497, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
+      propertyPath: myImage
+      value: 
+      objectReference: {fileID: 158909415591101295}
     - target: {fileID: 2161074666723928666, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: m_IsActive
@@ -423,6 +442,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bba626b4214d64c812a97f0e1015fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &158909415591101295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8215208165026728687, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+    type: 3}
+  m_PrefabInstance: {fileID: 8085869023860574592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8592498726177164513 stripped

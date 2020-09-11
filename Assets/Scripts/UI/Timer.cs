@@ -36,7 +36,7 @@ namespace CastleFight.Core
         
         public void Update()
         {
-            float fraction = unitSpawnController.SpawnTimer / maxTime;
+            float fraction = 1-(unitSpawnController.SpawnTimer / maxTime);
             image.fillAmount = fraction;
             if (hasVf)
             {
