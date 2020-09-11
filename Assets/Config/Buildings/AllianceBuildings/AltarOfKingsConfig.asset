@@ -38,7 +38,7 @@ MonoBehaviour:
     SumForSale: 1
     GoldPerSecond: 0
   prefab: {fileID: 3769575545502128820, guid: 95bb6a0a139d62a42ab93fd03104ffab, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bea78394102a2b441bd812b2d84e7c16, type: 3}
   buildingName: Altar of Kings
   cost: 160
   sumForSale: 0

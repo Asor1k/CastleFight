@@ -15,6 +15,7 @@ namespace CastleFight
         private CameraMover cameraMover;
         private BuildingsLimitManager buildingLimitManager;
         private GoldManager goldManager;
+        private AudioManager audioManager;
         private Ray ray;
         private GameObject currentGo;
         [SerializeField] private BuildingBehavior buildingBehavior;
@@ -24,6 +25,7 @@ namespace CastleFight
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             buildingLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
             cameraMover = ManagerHolder.I.GetManager<CameraMover>();
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
         }
 
         private void OnDestroy()
@@ -45,6 +47,7 @@ namespace CastleFight
         {
             Clear();
             SetBuilding(buildingChosenEvent.GetBehavior);
+            audioManager.Play("Take building");
         }
 
         private void Clear()

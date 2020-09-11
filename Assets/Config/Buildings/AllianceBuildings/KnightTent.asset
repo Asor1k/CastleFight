@@ -54,7 +54,7 @@ MonoBehaviour:
     SumForSale: 0
     GoldPerSecond: 1
   prefab: {fileID: 7608270241480408792, guid: c32b31f78f506b14e8669ad75a5184f4, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5ef36809831e0bd43950caf56bb7fed6, type: 3}
   buildingName: KnightTent
   cost: 85
   sumForSale: 0
