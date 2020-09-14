@@ -23,7 +23,7 @@ TagManager:
   - Building
   - Team1
   - Team2
-  - 
+  - UI2
   - 
   - 
   - 
@@ -45,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI1
+    uniqueID: 2441682173
+    locked: 0
+  - name: UI2
+    uniqueID: 3506134821
     locked: 0

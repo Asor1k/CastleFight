@@ -9,6 +9,8 @@ namespace CastleFight.Config
     public abstract class BaseBuildingConfig : ScriptableObject
     {
         public Sprite Icon => icon;
+
+        public Sprite Frame => frame;
         public string Name => buildingName;
         public int Cost => cost;
         public List<BuildingLevelConfig> Levels => levels;
@@ -20,6 +22,8 @@ namespace CastleFight.Config
         protected Building prefab;
         [SerializeField]
         protected Sprite icon;
+        [SerializeField]
+        protected Sprite frame;
         [SerializeField]
         protected string buildingName;
         [SerializeField]

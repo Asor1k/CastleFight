@@ -31,6 +31,7 @@ MonoBehaviour:
     GoldPerSecond: 1
   prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
   icon: {fileID: 21300000, guid: d1ae62a5d40a0cb4bb65e6ed1bfdf67c, type: 3}
+  frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
   buildingName: Gryphon Aviary
   cost: 82
   sumForSale: 0

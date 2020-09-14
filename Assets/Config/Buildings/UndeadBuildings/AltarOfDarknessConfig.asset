@@ -22,7 +22,8 @@ MonoBehaviour:
     SumForSale: 0
     GoldPerSecond: 1
   prefab: {fileID: -546456028477452519, guid: 5de68431c904e2843b3a3dc69db287b2, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9680073544b878d4d92b41befbaf7809, type: 3}
+  frame: {fileID: 21300000, guid: 0f13172c300e92f47bdf4dc2573c4a69, type: 3}
   buildingName: Altar of Darkness
   cost: 175
   sumForSale: 0
