@@ -27,6 +27,7 @@ namespace CastleFight.Config
         [SerializeField]
         protected int sumForSale;
 
+
         public virtual Building Create()
         {
             var building = Instantiate(prefab);
@@ -46,5 +47,6 @@ namespace CastleFight.Config
         public int Delay;
         public int Cost;
         public int SumForSale;
+        public int GoldPerSecond;
     }
 }

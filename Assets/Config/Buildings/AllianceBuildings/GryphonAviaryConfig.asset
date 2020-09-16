@@ -20,6 +20,7 @@ MonoBehaviour:
     Delay: 10
     Cost: 0
     SumForSale: 0
+    GoldPerSecond: 1
   - Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
     MaxHp: 1000
     GoldIncome: 1
@@ -27,15 +28,9 @@ MonoBehaviour:
     Delay: 10
     Cost: 80
     SumForSale: 0
-  - Unit: {fileID: 11400000, guid: b505aa5a64de9d24a8715b5b8eb1bf1e, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 80
-    SumForSale: 0
+    GoldPerSecond: 1
   prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d1ae62a5d40a0cb4bb65e6ed1bfdf67c, type: 3}
   buildingName: Gryphon Aviary
   cost: 82
   sumForSale: 0

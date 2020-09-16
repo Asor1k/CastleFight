@@ -1,4 +1,5 @@
 using System;
+using CastleFight.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,17 @@ namespace CastleFight.MainMenu
         [SerializeField] private Text txt;
 
         private RaceConfig config;
+        private AudioManager audioManager;
 
         private void Awake()
         {
             btn.onClick.AddListener(OnBtnClick);
         }
 
+        private void Start()
+        {
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
+        }
         private void OnDestroy()
         {
             btn.onClick.RemoveAllListeners();
@@ -27,6 +33,7 @@ namespace CastleFight.MainMenu
 
         private void OnBtnClick()
         {
+            audioManager.Play("Click");
             Click?.Invoke(config);
             backgroundImg.sprite = config.EnabledRaceSprite;
             foreGroungImg.sprite = config.EnForeGroundSprite;

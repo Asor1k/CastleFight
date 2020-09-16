@@ -43,6 +43,7 @@ namespace CastleFight
         private bool spawnBlocked = false;
         private bool isStanding = true;
         private BuildingsLimitManager buildingsLimitManager;
+        private AudioManager audioManager;
 
         private void Awake()
         {
@@ -53,6 +54,7 @@ namespace CastleFight
         {
             goldManager = ManagerHolder.I.GetManager<GoldManager>();
             buildingsLimitManager = ManagerHolder.I.GetManager<BuildingsLimitManager>();
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
         }
 
         public void Init(BaseBuildingConfig config)
@@ -70,6 +72,7 @@ namespace CastleFight
             Destroy();
             goldManager.InitGoldAnim(config.Levels[lvl - 1].SumForSale, transform);
             goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
+            audioManager.Play("Sell building");
         }
 
         public void UpgradeBuilding(Team team = Team.Team1)
@@ -77,6 +80,7 @@ namespace CastleFight
             if(team==Team.Team1)
                 if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
 
+            audioManager.Play("Building Upgrade");
             lvl++;  
             goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost, team);
             stats.Init(config.Levels[lvl-1].MaxHp);
@@ -107,10 +111,15 @@ namespace CastleFight
 
         private void UpdateUpgradeLabel()
         {
-            if(lvl < config.Levels.Count)
-               upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
-             else
+            if (lvl < config.Levels.Count)
+            {
+                upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
+                upgradeButton.myImage.sprite = config.Levels[lvl].Unit.Icon;
+            }
+            else
+            {
                 upgradeButton.Hide();
+            }
         }
 
         public void Destroy()

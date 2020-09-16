@@ -44,6 +44,8 @@ namespace CastleFight.Config
             get { return unitKind; }
         }
 
+        public Sprite Icon => icon;
+
         [SerializeField]
         protected List<Stat> stats;
         [SerializeField]

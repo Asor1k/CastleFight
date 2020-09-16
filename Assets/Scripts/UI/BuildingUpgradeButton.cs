@@ -9,10 +9,11 @@ namespace CastleFight.UI
     public class BuildingUpgradeButton : BuildingButton
     {
         [SerializeField] private Text costLabel;
+        public Image myImage;
 
         public void Start()
         {
-            Hide();
+            //Hide();
         }
         public void SetCostLabel(string cost)
         {

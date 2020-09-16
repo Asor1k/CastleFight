@@ -18,7 +18,7 @@ MonoBehaviour:
     isActive: 0
   - modifiers:
     - value: 60
-      statType: 0
+      statType: 1
       Type: 0
     isActive: 0
   - modifiers:

@@ -14,7 +14,14 @@ namespace CastleFight
         [SerializeField] private Text unitNameText;
         [SerializeField] private Text modifierText;
         [SerializeField] private Image skillImage;
+        [SerializeField] private Image unitImage;
+        [SerializeField] private Image frameImage;
+        [SerializeField] private Image blur;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private TalantsGenerator talantsGenerator;
+
         [SerializeField] private List<Sprite> skillsSprites;
+
         private bool isActive = false;
 
         private void Awake()
@@ -30,30 +37,31 @@ namespace CastleFight
 
         private void Enable()
         {
-            unitNameText.gameObject.SetActive(true);
-            modifierText.gameObject.SetActive(true);
-            skillImage.gameObject.SetActive(true);
+            canvas.enabled = true;
+            blur.enabled = true;
             isActive = true;
         }
+
         private void Disable()
         {
-            unitNameText.gameObject.SetActive(false);
-            modifierText.gameObject.SetActive(false);
+            canvas.enabled = false;
+            blur.enabled = false;
             modifierText.text = "";
-            skillImage.gameObject.SetActive(false);
             isActive = false;
         }
-        private void OnAbilityGenerated(AbilityGeneratedEvent abilityGeneratedEvent)
+
+        private void OnAbilityGenerated(AbilityGeneratedEvent eventData)
         {
             Enable();
-            unitNameText.text = abilityGeneratedEvent.unitKind.ToString();
-            if(abilityGeneratedEvent.ability.Modifiers[0].Value >= 0)
+            unitNameText.text = eventData.unitKind.ToString();
+            if(eventData.ability.Modifiers[0].Value >= 0)
             {
                 modifierText.text += '+';
             }
-            modifierText.text += abilityGeneratedEvent.ability.Modifiers[0].Value.ToString();
-            if (skillsSprites[(int)abilityGeneratedEvent.ability.Modifiers[0].StatType] == null) return;
-            skillImage.sprite = skillsSprites[(int)abilityGeneratedEvent.ability.Modifiers[0].StatType];
+            modifierText.text += eventData.ability.Modifiers[0].Value.ToString();
+            if (skillsSprites[(int)eventData.ability.Modifiers[0].StatType] == null) return;
+            skillImage.sprite = skillsSprites[(int)eventData.ability.Modifiers[0].StatType];
+            unitImage.sprite = talantsGenerator.UnitConfigs[(int)eventData.unitKind].unitConfigs[0].Icon;
         }
 
         public void OnDestroy()

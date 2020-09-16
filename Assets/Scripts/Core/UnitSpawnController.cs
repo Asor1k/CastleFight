@@ -6,31 +6,45 @@ using UnityEngine;
 namespace CastleFight.Core {
     public class UnitSpawnController : MonoBehaviour
     {
+        [SerializeField] private TimerConfig timerConfig;
         public float SpawnTimer => spawnTimer;
         public TimerConfig TimerConfig => timerConfig;
 
-        [SerializeField] private TimerConfig timerConfig;
         private float spawnTimer;
+
+        private AudioManager audioManager;
+        private bool isActive = false;
 
         public void Awake()
         {
             EventBusController.I.Bus.Subscribe<GameSetReadyEvent>(OnGameStart);
             ManagerHolder.I.AddManager(this);
         }
+
+        public void Start()
+        {
+            audioManager = ManagerHolder.I.GetManager<AudioManager>();
+        }
+
         public void OnGameStart(GameSetReadyEvent gameSetReadyEvent)
         {
             Init();
         }
+
         public void Init()
         {
             spawnTimer = timerConfig.SpawnTime;
+            isActive = true;
         }
+        
         public void Update()
         {
+            if (!isActive) return;
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0)
             {
                 spawnTimer = timerConfig.SpawnTime;
+                audioManager.Play("Unit spawn");
                 EventBusController.I.Bus.Publish(new SpawnUnitsEvent());
             }
         }

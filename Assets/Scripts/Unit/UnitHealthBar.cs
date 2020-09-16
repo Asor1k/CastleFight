@@ -14,6 +14,7 @@ namespace CastleFight
         {
             stats.OnHpChanged += UpdateHealthBar;
             maxHp = (Stat)stats.GetStat(StatType.MaxHealth);
+            SetTeam((Team)stats.gameObject.layer);
         }
 
         private void UpdateHealthBar(Stat hpStat)

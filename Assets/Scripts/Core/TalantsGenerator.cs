@@ -11,20 +11,22 @@ namespace CastleFight
 {
     public class TalantsGenerator : MonoBehaviour
     {
+        public List<UnitConfigsConfig> UnitConfigs => unitConfigs; 
 
         [SerializeField] private List<PassiveAbility> passiveAbilities;
-        [SerializeField] public int DefaultHighest => defaultHighest;
-        [SerializeField] public int DefaultFraction => defaultFraction;
-        public int UnitCount => unitCount;
         [SerializeField] private List<UnitConfigsConfig> unitConfigs = new List<UnitConfigsConfig>();
-
-        public int unitCount;
-        [SerializeField]private int defaultHighest;
-        [SerializeField]private int defaultFraction;
+        [SerializeField] private int defaultHighest;
+        [SerializeField] private int defaultFraction;
+        public int DefaultHighest => defaultHighest;
+        public int DefaultFraction => defaultFraction;
+        public int UnitCount => unitCount;
+        private int unitCount;
+        
         private PlayerProgress playerProgress;
         private List<int> weights = new List <int>();
         private List <int> talantLevels = new List<int>();
         private int maxLevels = 0;
+
         private int CurrLevels() {
             int n = 0;
             foreach (int i in talantLevels)

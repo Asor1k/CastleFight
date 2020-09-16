@@ -9,7 +9,7 @@ namespace CastleFight.MainMenu
     public class GameSetProvider : MonoBehaviour
     {
         [SerializeField] private RaceSet raceSet;
-        
+
         private RaceChosenEvent raceChosenEvent;
 
         private void Awake()

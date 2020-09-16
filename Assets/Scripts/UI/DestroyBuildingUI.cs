@@ -7,7 +7,7 @@ namespace CastleFight {
     {
         public void Start()
         {
-            Hide();
+            //Hide();
         }
         public void OnClick()
         {

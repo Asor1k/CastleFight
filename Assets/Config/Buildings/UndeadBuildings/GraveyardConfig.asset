@@ -20,6 +20,7 @@ MonoBehaviour:
     Delay: 10
     Cost: 50
     SumForSale: 30
+    GoldPerSecond: 1
   - Unit: {fileID: 11400000, guid: 846558e650238ba479b46784dee538d5, type: 2}
     MaxHp: 1000
     GoldIncome: 1
@@ -27,6 +28,7 @@ MonoBehaviour:
     Delay: 10
     Cost: 50
     SumForSale: 30
+    GoldPerSecond: 1
   - Unit: {fileID: 11400000, guid: 9b26244518356404aab7d53316193af7, type: 2}
     MaxHp: 1000
     GoldIncome: 1
@@ -34,13 +36,7 @@ MonoBehaviour:
     Delay: 10
     Cost: 50
     SumForSale: 30
-  - Unit: {fileID: 11400000, guid: 4e064227bb92ce64f974b09f8d888d3e, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 50
-    SumForSale: 30
+    GoldPerSecond: 1
   prefab: {fileID: -546456028477452519, guid: 7398d8d05ae4dea4b99ab709a3525d22, type: 3}
   icon: {fileID: 0}
   buildingName: Graveyard

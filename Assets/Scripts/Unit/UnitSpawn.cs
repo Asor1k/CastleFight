@@ -12,9 +12,10 @@ namespace CastleFight
     {
         [SerializeField]
         private Building building;
+        [SerializeField] private float spawnTimer = 0;
+
         private IUpdateManager updateManager;
         private float spawnDelay;
-        [SerializeField] private float spawnTimer = 0;
         private bool buildingReady = false;
 
         private void Awake()
