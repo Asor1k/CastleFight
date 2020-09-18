@@ -15,7 +15,9 @@ MonoBehaviour:
   prefab: {fileID: 1161378957170409622, guid: 2ceea3cfc4442664a99972dd938425b9, type: 3}
   goldDelay: 1
   goldIncome: 1
+  race: 0
   maxHp: 5000
   attackRange: 10
   attackDelay: 3
   damage: 100
+  material: {fileID: 2100000, guid: 502223b3830017249bc703142dd321b5, type: 2}

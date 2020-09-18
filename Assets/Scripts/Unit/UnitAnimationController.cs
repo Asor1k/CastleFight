@@ -19,6 +19,7 @@ namespace CastleFight
         private Action attackEndCallback;
         private BaseUnitConfig unitConfig;
         private Stat attackSpeed;
+
         void Start()
         {
             unit.OnKilled += OnUnitKilled;

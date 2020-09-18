@@ -11,6 +11,10 @@ namespace CastleFight.Core
     {
         [SerializeField] private UserController userController;
         [SerializeField] private BotController botController;
+        [SerializeField] private Transform plane;
+        [SerializeField] private GameObject darkPlane;
+        
+
 
         private AudioManager audioManager;
         private string currentTheme;
@@ -64,11 +68,25 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
+        private void ReverseSide()
+        {
+            plane.gameObject.SetActive(false);
+            Instantiate(darkPlane, plane);
+
+           //renderer.materials[0] = renderer.materials[1];
+            Debug.Log("Reverse");
+        }
+
         public void StartGame(GameSet gameSet)
         {
             botController.Init(gameSet.botRaceConfig);
             userController.Init(gameSet.userRaceConfig);
-            
+           
+            if (gameSet.userRaceConfig.Race == Race.Immortals)
+            {
+                ReverseSide();
+            }
+
             userController.StartGame();
             StopTheme();
             audioManager.Play("Battle begins");

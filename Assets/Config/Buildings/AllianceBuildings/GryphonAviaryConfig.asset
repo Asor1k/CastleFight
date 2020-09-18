@@ -29,6 +29,14 @@ MonoBehaviour:
     Cost: 80
     SumForSale: 0
     GoldPerSecond: 1
+  - Unit: {fileID: 11400000, guid: 5ba32aba1c96c8941bee94fa5d707903, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 80
+    SumForSale: 0
+    GoldPerSecond: 1
   prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
   icon: {fileID: 21300000, guid: d1ae62a5d40a0cb4bb65e6ed1bfdf67c, type: 3}
   frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
