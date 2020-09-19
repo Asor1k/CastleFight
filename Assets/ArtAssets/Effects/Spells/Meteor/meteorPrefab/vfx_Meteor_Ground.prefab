@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918977844485829946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6, y: 14.19, z: -7.53}
+  m_LocalPosition: {x: -0.9, y: 33.7, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8657548393646386565}
@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8657548393646386565}
   - component: {fileID: 620676992}
   - component: {fileID: 8308697125877201970}
+  - component: {fileID: 1267769093}
   m_Layer: 0
   m_Name: vfx_Meteor_Ground
   m_TagString: Untagged
@@ -88,6 +89,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be8a34cd21b6a47990f61bd3b282da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfx: {fileID: 2133331916058728404, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
+  vfx: {fileID: 8397793226990784340, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
   startPoint: {fileID: 8749557325320207003}
   endPoint: {fileID: 8657548393646386565}
+--- !u!65 &1267769093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279321051987863920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 0.1, z: 60}
+  m_Center: {x: 0, y: 0, z: 0}
