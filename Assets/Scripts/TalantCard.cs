@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CastleFight.Core;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CastleFight
 {
@@ -10,8 +11,8 @@ namespace CastleFight
     {
         public int timeUntilOpened { get; private set; } = -1;
 
-        [SerializeField] private Text timeText;
-        [SerializeField] private Text attentionText;
+        [SerializeField] private TextMeshProUGUI timeText;
+        [SerializeField] private TextMeshProUGUI attentionText;
         [SerializeField] private TalantPoolManager poolManager;
         
         private PlayerProgress playerProgress;
@@ -30,16 +31,15 @@ namespace CastleFight
         public void Init(int time, int index)
         {
             Activate();
-            
+            this.index = index;
             if (time <= 0)
             {
                 ChangeStatus();
-                Debug.Log("Change");
                 return;
             }
             timeUntilOpened = time;
             ShowTime();
-            this.index = index;
+            
             if (poolManager.workingIndex == -1) return;
             if(poolManager.CanWork(index))
                 StartCoroutine(TimeCouroutine());
@@ -119,12 +119,15 @@ namespace CastleFight
             timeText.gameObject.SetActive(false);
             isReady = true;
             attentionText.gameObject.SetActive(true);
-            
-            poolManager.ResetIndex();
+            timeUntilOpened = -1;
         }
 
         private void Deactivate()
         {
+            timeUntilOpened = 0;
+            playerProgress.Data.CardsTimeToOpen[index] = timeUntilOpened;
+            playerProgress.Save();
+            Debug.Log(index);
             gameObject.SetActive(false);
         }
 

@@ -27,7 +27,7 @@ namespace CastleFight {
         public static void Save<T>(string filename, T data) where T : class
         {
             string path = PathForFilename(filename);
-            //Debug.Log(path);
+            Debug.Log(path);
             File.WriteAllText(path, JsonUtility.ToJson(data));
         }
 

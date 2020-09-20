@@ -28,7 +28,9 @@ namespace CastleFight.UI
                 Instantiate(bigCrown, crownParrent);
                 layoutGroup.childControlHeight = false;
                 layoutGroup.childControlWidth = false;
+                layoutGroup.padding.left = 0;
                 bigCrownBackHolder.SetActive(true);
+
             }
             else
             {
@@ -48,13 +50,17 @@ namespace CastleFight.UI
 
         private void InstanceCrowns(int level, int maxLvl)
         {
-            if(maxLvl == 4)
+            if (maxLvl == 3)
             {
-                layoutGroup.padding.left = -10;
+                layoutGroup.padding.left = 5;
+            }
+            if (maxLvl == 4)
+            {
+                layoutGroup.padding.left = -17;
             }
             if(maxLvl == 5)
             {
-                layoutGroup.padding.left = -20;
+                layoutGroup.padding.left = -35;
             }
 
             for (int i = 0; i < maxLvl-level; i++)
