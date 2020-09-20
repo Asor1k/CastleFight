@@ -41,7 +41,7 @@ namespace CastleFight {
         }
         private void OnUpdateLable()
         {
-            limitText.text = buildingManager.BuildingsCount(Team.Team1).ToString() + " / " + buildingManager.BuildingLimitConfig.MaxBuildingsPerTeam;
+            limitText.text = buildingManager.BuildingsCount(Team.Team1).ToString() + "/" + buildingManager.BuildingLimitConfig.MaxBuildingsPerTeam;
         }
         
         private IEnumerator DelayDestroy(BuildingLimitPopup limitPopup)

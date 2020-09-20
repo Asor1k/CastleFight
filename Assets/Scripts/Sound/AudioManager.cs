@@ -28,8 +28,16 @@ namespace CastleFight
         public void Play(string name)
         {
             Sound s = Array.Find(sounds, sound => sound.name == name);
-            if(s != null) s.source.Play();
+            try
+            {
+                s.source.Play();
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.LogError("Invalid song: " + name);
+            }
             Debug.Log("Playing: " + name);
+
         }
 
         public void Stop(string name)

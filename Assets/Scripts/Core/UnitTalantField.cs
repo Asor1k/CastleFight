@@ -19,32 +19,21 @@ namespace CastleFight
                 if (upperUnit.unitConfigs[0].Abilities.Count > i)
                 {
                     StatModifier upperModifier = upperUnit.unitConfigs[0].Abilities[i].Modifiers[0];
-                    upperTalantScreenCards[i].Init(upperModifier);
+                    upperTalantScreenCards[i].Init(upperModifier,i);
                 }
                 else
                 {
-                    upperTalantScreenCards[i].InitDisabled();
+                    upperTalantScreenCards[i].InitDisabled(i);
                 }
                 if (bottomUnit.unitConfigs[0].Abilities.Count > i)
                 {
                     StatModifier bottomModifier = bottomUnit.unitConfigs[0].Abilities[i].Modifiers[0];
-                    bottomTalantScreenCards[i].Init(bottomModifier);
+                    bottomTalantScreenCards[i].Init(bottomModifier,i);
                 }
                 else
                 {
-                    bottomTalantScreenCards[i].InitDisabled();
+                    bottomTalantScreenCards[i].InitDisabled(i);
                 }
-
-                /*
-                 * upperImages[i].sprite = talantUI.SkillSprites[(int)upperModifier.StatType];
-                bottomImages[i].sprite = talantUI.SkillSprites[(int)bottomModifier.StatType];
-
-                upperTextDecriptions[i].text = upperModifier.Value >= 0 ? "+ " + upperModifier.Value : " " + upperModifier.Value.ToString();
-                bottomTextDecriptions[i].text = bottomModifier.Value >= 0 ? "+ " + bottomModifier.Value : " " + bottomModifier.Value.ToString();
-                
-                upperTextDecriptions[i].text += " " + upperModifier.StatType.ToString().ToUpper();
-                bottomTextDecriptions[i].text += " " + bottomModifier.StatType.ToString().ToUpper();
-                */
             }
         }
 

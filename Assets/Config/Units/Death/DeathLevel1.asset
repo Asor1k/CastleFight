@@ -37,35 +37,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ecf79851076fbbc4d8507566c6f2828d, type: 3}
   cost: 30
   goldDmgPercent: 10
-  abilities:
-  - modifiers:
-    - value: 5
-      statType: 9
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 10
-      statType: 4
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 5
-      statType: 9
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 1
-      statType: 3
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 60
-      statType: 1
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 15
-      statType: 4
-      Type: 0
-    isActive: 0
+  abilities: []
   unitKind: 2

@@ -12,45 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: GryphonAviaryConfig
   m_EditorClassIdentifier: 
-  levelUpgradesTree:
-    Config:
-      Unit: {fileID: 11400000, guid: e37023dd5a88d9940863997f48a1c65e, type: 2}
-      Icon: {fileID: 21300000, guid: a9a701a810ff1d7418345dd4659e2409, type: 3}
-      Level: 1
-      MaxHp: 1000
-      GoldIncome: 1
-      GoldDelay: 5
-      Delay: 10
-      Cost: 0
-      SumForSale: 0
-      GoldPerSecond: 1
-    Nodes:
-    - Config:
-        Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
-        Icon: {fileID: 21300000, guid: f45dadae7b205924cb1f1381c267d885, type: 3}
-        Level: 2
-        MaxHp: 1000
-        GoldIncome: 1
-        GoldDelay: 5
-        Delay: 10
-        Cost: 80
-        SumForSale: 0
-        GoldPerSecond: 1
-      Nodes:
-      - Config:
-          Unit: {fileID: 11400000, guid: b505aa5a64de9d24a8715b5b8eb1bf1e, type: 2}
-          Icon: {fileID: 21300000, guid: 7b167ba1793a7364f8c9e2518080b5fc, type: 3}
-          Level: 3
-          MaxHp: 1000
-          GoldIncome: 1
-          GoldDelay: 5
-          Delay: 10
-          Cost: 80
-          SumForSale: 1
-          GoldPerSecond: 0
-        Nodes: []
+  levels:
+  - Unit: {fileID: 11400000, guid: e37023dd5a88d9940863997f48a1c65e, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 0
+    SumForSale: 0
+    GoldPerSecond: 1
+  - Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 80
+    SumForSale: 0
+    GoldPerSecond: 1
+  - Unit: {fileID: 11400000, guid: 5ba32aba1c96c8941bee94fa5d707903, type: 2}
+    MaxHp: 1000
+    GoldIncome: 1
+    GoldDelay: 5
+    Delay: 10
+    Cost: 80
+    SumForSale: 0
+    GoldPerSecond: 1
   prefab: {fileID: 6567052194844129819, guid: 6dc58dd1129a7e943ada29de27416a1b, type: 3}
   icon: {fileID: 21300000, guid: d1ae62a5d40a0cb4bb65e6ed1bfdf67c, type: 3}
+  frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
   buildingName: Gryphon Aviary
   cost: 82
   sumForSale: 0
