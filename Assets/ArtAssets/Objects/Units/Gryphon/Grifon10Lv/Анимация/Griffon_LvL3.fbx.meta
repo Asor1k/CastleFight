@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1c34836a3dacbe4dac8777be230ea14
+guid: 4846ad8e2e4504740b8773b14c34d155
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -15,17 +15,7 @@ ModelImporter:
   - first:
       74: -5864819233777481133
     second: Griffon_LvL3_Attack
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert10
-    second: {fileID: 2100000, guid: 7654571b85b977b4e9e946715f03a31c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tex_LVL3
-    second: {fileID: 2100000, guid: 7a94b8e19f5d8924899dff7cbd78df46, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -65,7 +55,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -94,7 +84,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -165,17 +155,19 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.34482756
+      - time: 0.50714284
         functionName: AttackAnimCallback
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: f7970178be9f3b54ca260e227db48107,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.591133
+      - time: 0.66964287
         functionName: AttackAnimEndCallback
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: f7970178be9f3b54ca260e227db48107,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

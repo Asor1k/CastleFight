@@ -14,6 +14,8 @@ namespace CastleFight
         private Spell spell = null;
         [SerializeField]
         private LayerMask layerMask;
+        [SerializeField]
+        private GameObject spellPointer;
         private CameraMover cameraMover;
 
         private void Awake()
@@ -36,11 +38,17 @@ namespace CastleFight
             if (spell == null) return;
             cameraMover.StopMoving();
 
+            if (!spellPointer.activeSelf)
+            {
+                spellPointer.SetActive(true);
+                spellPointer.transform.localScale = new Vector3(spell.Radius, spell.Radius, spell.Radius);
+            }
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             if (Input.GetMouseButtonUp(0))
             {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
                 if (Physics.Raycast(ray, out hit, layerMask))
                 {
                     spell.Execute(hit.point, Team.Team2);
@@ -48,7 +56,16 @@ namespace CastleFight
 
                 spell = null;
                 cameraMover.ContinueMoving();
+                spellPointer.SetActive(false);
                 OnSpellCasted?.Invoke();
+            }
+            else
+            {
+                if (Physics.Raycast(ray, out hit, layerMask))
+                {
+                    spellPointer.transform.position = hit.point;
+ 
+                }
             }
         }
     }

@@ -25,6 +25,7 @@ namespace CastleFight
             unit.OnKilled += OnUnitKilled;
             unit.OnReset += OnUnitReset;
             attackSpeed = (Stat)unit.Stats.GetStat(StatType.AttackSpeed);
+            animator.SetFloat("AttackSpeed", attackSpeed.Value);
         }
         
         public void AnimAttackCallback()
