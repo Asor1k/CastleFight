@@ -8,11 +8,15 @@ namespace CastleFight
         public float AttackRange { get { return attackRange; } }
         public float AttackDelay { get { return attackDelay; } }
         public float Damage { get { return damage; } }
+        public Material Material { get { return material; } }
+
         [SerializeField]
         private float attackRange;
         [SerializeField]
         private float attackDelay;
         [SerializeField]
         private float damage;
+        [SerializeField]
+        private Material material;
     }
 }

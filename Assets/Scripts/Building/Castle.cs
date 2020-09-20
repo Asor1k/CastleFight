@@ -34,6 +34,7 @@ namespace CastleFight
         [SerializeField] private NavMeshObstacle obstacle;
         [SerializeField] private ProjectileConfig projectileConfig;
         [SerializeField] private Transform launchPoint;
+        [SerializeField] private MeshRenderer[] meshRenderers;
 
         private TargetProvider targetProvider = new TargetProvider();
         private CastleConfig config;
@@ -67,6 +68,10 @@ namespace CastleFight
             }
             if(team == Team.Team1)
                 StartCoroutine(GainMoneyCouroutine());
+            foreach(MeshRenderer renderer in meshRenderers)
+            {
+                renderer.material = config.Material;
+            }
         }
 
         private IEnumerator GainMoneyCouroutine()

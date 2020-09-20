@@ -53,7 +53,7 @@ namespace CastleFight
             var stat = stats[modifier.StatType];
             modifier.Modify(ref stat);
             stats[modifier.StatType] = stat;
-
+           
             OnStatChanged?.Invoke(stat);
         }
 

@@ -61,7 +61,7 @@ namespace CastleFight
         {
             this.config = config;
             lvl = 1; //TODO: delete the magic number
-            levelLabel.SetLevel(lvl);
+            levelLabel.SetLevel(lvl,config.Levels.Count);
             stats.Init(config.Levels[0].MaxHp);
             stats.OnDamaged += OnDamage;
             UpdateUpgradeLabel();
@@ -85,7 +85,7 @@ namespace CastleFight
             goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost, team);
             stats.Init(config.Levels[lvl-1].MaxHp);
             EventBusController.I.Bus.Publish(new BuildingUpgradedEvent(this));
-            levelLabel.SetLevel(lvl);
+            levelLabel.SetLevel(lvl,config.Levels.Count);
             UpdateUpgradeLabel();
         }
 

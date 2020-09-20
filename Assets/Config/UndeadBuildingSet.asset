@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: UndeadBuildingSet
   m_EditorClassIdentifier: 
   buildingConfigs:
-  - {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4, type: 2}
   - {fileID: 11400000, guid: acda191cfda904e96a251899789ce13e, type: 2}
   - {fileID: 11400000, guid: 0359c7476d9a34d27819748637209b60, type: 2}
+  - {fileID: 11400000, guid: f1c7c7ae77949428e8ccf5cd361493a4, type: 2}

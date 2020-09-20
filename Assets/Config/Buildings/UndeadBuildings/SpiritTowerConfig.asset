@@ -30,7 +30,8 @@ MonoBehaviour:
     SumForSale: 0
     GoldPerSecond: 1
   prefab: {fileID: -546456028477452519, guid: 27e71f90dc83e324ca2e38dae5527fc7, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a35b9dc5647f19240986ea6b1d71622e, type: 3}
+  frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
   buildingName: Spirit tower
   cost: 90
   sumForSale: 0
