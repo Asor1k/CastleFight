@@ -12,31 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: GraveyardConfig
   m_EditorClassIdentifier: 
-  levels:
-  - Unit: {fileID: 11400000, guid: 169f32552df193347b2fd7f9f0f9a688, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 50
-    SumForSale: 30
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 846558e650238ba479b46784dee538d5, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 50
-    SumForSale: 30
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 9b26244518356404aab7d53316193af7, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 50
-    SumForSale: 30
-    GoldPerSecond: 1
+  levelUpgradesTree:
+    Config:
+      Unit: {fileID: 11400000, guid: 169f32552df193347b2fd7f9f0f9a688, type: 2}
+      Level: 1
+      MaxHp: 1000
+      GoldIncome: 1
+      GoldDelay: 5
+      Delay: 10
+      Cost: 50
+      SumForSale: 30
+      GoldPerSecond: 1
+    Nodes:
+    - Config:
+        Unit: {fileID: 11400000, guid: 846558e650238ba479b46784dee538d5, type: 2}
+        Level: 2
+        MaxHp: 1000
+        GoldIncome: 1
+        GoldDelay: 5
+        Delay: 10
+        Cost: 50
+        SumForSale: 30
+        GoldPerSecond: 1
+      Nodes:
+      - Config:
+          Unit: {fileID: 11400000, guid: 9b26244518356404aab7d53316193af7, type: 2}
+          Level: 3
+          MaxHp: 1000
+          GoldIncome: 1
+          GoldDelay: 5
+          Delay: 10
+          Cost: 50
+          SumForSale: 30
+          GoldPerSecond: 1
+        Nodes:
+        - Config:
+            Unit: {fileID: 11400000, guid: 4e064227bb92ce64f974b09f8d888d3e, type: 2}
+            Level: 4
+            MaxHp: 1000
+            GoldIncome: 1
+            GoldDelay: 5
+            Delay: 10
+            Cost: 50
+            SumForSale: 30
+            GoldPerSecond: 1
+          Nodes: []
   prefab: {fileID: -546456028477452519, guid: 7398d8d05ae4dea4b99ab709a3525d22, type: 3}
   icon: {fileID: 0}
   buildingName: Graveyard

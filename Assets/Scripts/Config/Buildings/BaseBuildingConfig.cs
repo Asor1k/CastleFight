@@ -11,11 +11,11 @@ namespace CastleFight.Config
         public Sprite Icon => icon;
         public string Name => buildingName;
         public int Cost => cost;
-        public List<BuildingLevelConfig> Levels => levels;
+        public BuildingUpgradeNode LevelUgradeTree => levelUpgradesTree;
         public int SumForSale => sumForSale;
 
         [SerializeField]
-        private List<BuildingLevelConfig> levels;
+        private BuildingUpgradeNode levelUpgradesTree;
         [SerializeField]
         protected Building prefab;
         [SerializeField]
@@ -41,6 +41,7 @@ namespace CastleFight.Config
     public struct BuildingLevelConfig
     {
         public BaseUnitConfig Unit;
+        public int Level;
         public int MaxHp;
         public int GoldIncome;
         public int GoldDelay;
@@ -48,5 +49,12 @@ namespace CastleFight.Config
         public int Cost;
         public int SumForSale;
         public int GoldPerSecond;
+    }
+
+    [Serializable]
+    public struct BuildingUpgradeNode
+    {
+        public BuildingLevelConfig Config;
+        public List<BuildingUpgradeNode> Nodes;
     }
 }

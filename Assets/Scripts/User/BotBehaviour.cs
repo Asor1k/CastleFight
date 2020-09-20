@@ -46,8 +46,8 @@ namespace CastleFight
                 List<Building> upgradbleBuildings = new List<Building>();
                 foreach (Building building in botController.Buildings)
                 {
-                    if (building.Lvl == building.Config.Levels.Count) continue;
-                    if(goldManager.BotGoldAmount >= building.Config.Levels[building.Lvl].Cost)
+                    if (building.Lvl == building.CurrentLevelConfig.Config.Level) continue;
+                    if(goldManager.BotGoldAmount >= building.CurrentLevelConfig.Config.Cost)
                     {
                         upgradbleBuildings.Add(building);
                     }

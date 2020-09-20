@@ -16,7 +16,7 @@ namespace CastleFight
 
         private void EarnMoney(BuildingEarnMoneyEvent eventData)
         {
-            building.GoldManager.MakeGoldChange(building.Config.Levels[building.Lvl-1].GoldPerSecond, (Team)gameObject.layer);
+            building.GoldManager.MakeGoldChange(building.CurrentLevelConfig.Config.GoldPerSecond, (Team)gameObject.layer);
         }
 
         public void OnDestroy()

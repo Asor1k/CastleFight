@@ -12,47 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efc207a495b72c4b84710ea204250d9, type: 3}
   m_Name: KnightTent
   m_EditorClassIdentifier: 
-  levels:
-  - Unit: {fileID: 11400000, guid: 74d46f08c47b60544becd74968bce6b0, type: 2}
-    MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
-    Delay: 10
-    Cost: 0
-    SumForSale: 10
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: a9837355940362e45b5ed84b1c0e0eaf, type: 2}
-    MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
-    Delay: 10
-    Cost: 80
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 7ca6522ddabfbf443ab227601e6b07db, type: 2}
-    MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
-    Delay: 1
-    Cost: 70
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 652a91417c0ab184b94d0e05e693d5cb, type: 2}
-    MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
-    Delay: 10
-    Cost: 1000
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 7d76b940f39705849aaa442d8a5eef15, type: 2}
-    MaxHp: 1000
-    GoldIncome: 10
-    GoldDelay: 10
-    Delay: 10
-    Cost: 1000
-    SumForSale: 0
-    GoldPerSecond: 1
+  levelUpgradesTree:
+    Config:
+      Unit: {fileID: 11400000, guid: 74d46f08c47b60544becd74968bce6b0, type: 2}
+      Level: 1
+      MaxHp: 1000
+      GoldIncome: 10
+      GoldDelay: 10
+      Delay: 10
+      Cost: 0
+      SumForSale: 10
+      GoldPerSecond: 1
+    Nodes:
+    - Config:
+        Unit: {fileID: 11400000, guid: a9837355940362e45b5ed84b1c0e0eaf, type: 2}
+        Level: 2
+        MaxHp: 1000
+        GoldIncome: 10
+        GoldDelay: 10
+        Delay: 10
+        Cost: 1
+        SumForSale: 1
+        GoldPerSecond: 0
+      Nodes:
+      - Config:
+          Unit: {fileID: 11400000, guid: 7ca6522ddabfbf443ab227601e6b07db, type: 2}
+          Level: 3
+          MaxHp: 1000
+          GoldIncome: 10
+          GoldDelay: 10
+          Delay: 10
+          Cost: 1
+          SumForSale: 0
+          GoldPerSecond: 0
+        Nodes:
+        - Config:
+            Unit: {fileID: 11400000, guid: 652a91417c0ab184b94d0e05e693d5cb, type: 2}
+            Level: 4
+            MaxHp: 1000
+            GoldIncome: 10
+            GoldDelay: 10
+            Delay: 10
+            Cost: 1
+            SumForSale: 0
+            GoldPerSecond: 0
+          Nodes: []
+        - Config:
+            Unit: {fileID: 11400000, guid: 7d76b940f39705849aaa442d8a5eef15, type: 2}
+            Level: 4
+            MaxHp: 1000
+            GoldIncome: 10
+            GoldDelay: 10
+            Delay: 10
+            Cost: 1
+            SumForSale: 0
+            GoldPerSecond: 0
+          Nodes: []
   prefab: {fileID: 7608270241480408792, guid: c32b31f78f506b14e8669ad75a5184f4, type: 3}
   icon: {fileID: 21300000, guid: 5ef36809831e0bd43950caf56bb7fed6, type: 3}
   buildingName: KnightTent
