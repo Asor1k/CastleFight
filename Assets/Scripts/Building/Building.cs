@@ -133,7 +133,7 @@ namespace CastleFight
                 {
                     if (i < currentLevelConfig.Nodes.Count)
                     {
-                        upgradeButtons[i].SetLabels(currentLevelConfig.Nodes[i].Config.Unit.Icon, currentLevelConfig.Nodes[i].Config.Cost);
+                        upgradeButtons[i].SetLabels(currentLevelConfig.Nodes[i].Config.Icon, currentLevelConfig.Nodes[i].Config.Cost, currentLevelConfig.Nodes[i].Config.Level);
                         upgradeButtons[i].SetInited(true);
                     }
                     else

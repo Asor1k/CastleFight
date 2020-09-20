@@ -41,6 +41,7 @@ namespace CastleFight.Config
     public struct BuildingLevelConfig
     {
         public BaseUnitConfig Unit;
+        public Sprite Icon;
         public int Level;
         public int MaxHp;
         public int GoldIncome;

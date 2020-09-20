@@ -15,6 +15,7 @@ MonoBehaviour:
   levelUpgradesTree:
     Config:
       Unit: {fileID: 11400000, guid: e37023dd5a88d9940863997f48a1c65e, type: 2}
+      Icon: {fileID: 21300000, guid: a9a701a810ff1d7418345dd4659e2409, type: 3}
       Level: 1
       MaxHp: 1000
       GoldIncome: 1
@@ -26,6 +27,7 @@ MonoBehaviour:
     Nodes:
     - Config:
         Unit: {fileID: 11400000, guid: 3b88be96e227f2944913e09335501d9e, type: 2}
+        Icon: {fileID: 21300000, guid: f45dadae7b205924cb1f1381c267d885, type: 3}
         Level: 2
         MaxHp: 1000
         GoldIncome: 1
@@ -37,6 +39,7 @@ MonoBehaviour:
       Nodes:
       - Config:
           Unit: {fileID: 11400000, guid: b505aa5a64de9d24a8715b5b8eb1bf1e, type: 2}
+          Icon: {fileID: 21300000, guid: 7b167ba1793a7364f8c9e2518080b5fc, type: 3}
           Level: 3
           MaxHp: 1000
           GoldIncome: 1
