@@ -39,6 +39,7 @@ namespace CastleFight
             secondsToOpen = standartTime;
             bookImage.sprite = bookSprites[0];
             audioManager.Play("Book start reserching");
+            canBeOpen = false;
             StartCoroutine(UpdateTimer());
         }
 

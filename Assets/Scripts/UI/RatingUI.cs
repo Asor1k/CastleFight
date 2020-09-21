@@ -14,7 +14,7 @@ namespace CastleFight
             {
                 return;
             }
-            ratingText.text = "Rating:" + playerProgress.Data.Rating;
+            ratingText.text = "" + playerProgress.Data.Rating;
         }
     }
 }
