@@ -35499,6 +35499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaneTree_5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3c8054b5908dc804797caf804250858d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c8054b5908dc804797caf804250858d, type: 3}
 --- !u!4 &181538770947525795 stripped
