@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  hitDistance: 1
+  hitDistance: 2
   destroyDelay: 1
   runEffects:
   - {fileID: 5950186056374076923}
@@ -137,6 +137,7 @@ PrefabInstance:
     - {fileID: -4890974470695406722, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
     - {fileID: 595237552123788139, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
     - {fileID: 2289067029989475206, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
+    - {fileID: -3664782161815479240, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc938208bbe4a9049aefe9d045b6d711, type: 3}
 --- !u!4 &8943659818044899674 stripped
 Transform:
