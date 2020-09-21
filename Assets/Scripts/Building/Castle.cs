@@ -76,7 +76,7 @@ namespace CastleFight
 
         private IEnumerator GainMoneyCouroutine()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(10f);
             EventBusController.I.Bus.Publish(new BuildingEarnMoneyEvent());
             StartCoroutine(GainMoneyCouroutine());  
         }

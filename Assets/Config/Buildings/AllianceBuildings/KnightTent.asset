@@ -18,7 +18,7 @@ MonoBehaviour:
       Icon: {fileID: 21300000, guid: 363af0aa5109e044fbcf16450d13f41e, type: 3}
       Level: 1
       MaxHp: 1000
-      GoldIncome: 10
+      GoldIncome: 20
       GoldDelay: 10
       Delay: 10
       Cost: 0
@@ -30,10 +30,10 @@ MonoBehaviour:
         Icon: {fileID: 21300000, guid: 8b490c104a40b844f944f45a842b69ff, type: 3}
         Level: 2
         MaxHp: 1000
-        GoldIncome: 10
+        GoldIncome: 12
         GoldDelay: 10
         Delay: 10
-        Cost: 80
+        Cost: 120
         SumForSale: 1
         GoldPerSecond: 0
       Nodes:
@@ -45,7 +45,7 @@ MonoBehaviour:
           GoldIncome: 10
           GoldDelay: 10
           Delay: 10
-          Cost: 100
+          Cost: 240
           SumForSale: 0
           GoldPerSecond: 0
         Nodes: []
@@ -57,7 +57,7 @@ MonoBehaviour:
           GoldIncome: 10
           GoldDelay: 10
           Delay: 10
-          Cost: 100
+          Cost: 240
           SumForSale: 0
           GoldPerSecond: 0
         Nodes: []
@@ -69,7 +69,7 @@ MonoBehaviour:
           GoldIncome: 10
           GoldDelay: 10
           Delay: 10
-          Cost: 100
+          Cost: 240
           SumForSale: 0
           GoldPerSecond: 0
         Nodes: []
@@ -77,5 +77,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5ef36809831e0bd43950caf56bb7fed6, type: 3}
   frame: {fileID: 21300000, guid: b858348c9294edd488dc45cfe902a377, type: 3}
   buildingName: KnightTent
-  cost: 85
+  cost: 80
   sumForSale: 0

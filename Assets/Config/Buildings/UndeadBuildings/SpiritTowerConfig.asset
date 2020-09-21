@@ -18,8 +18,8 @@ MonoBehaviour:
       Icon: {fileID: 21300000, guid: f8fa110c84d920443bee0333a3572d98, type: 3}
       Level: 1
       MaxHp: 1000
-      GoldIncome: 1
-      GoldDelay: 5
+      GoldIncome: 16
+      GoldDelay: 10
       Delay: 10
       Cost: 0
       SumForSale: 0
@@ -30,16 +30,28 @@ MonoBehaviour:
         Icon: {fileID: 21300000, guid: 499a5a72586fc334c9a4dec67e7fae5c, type: 3}
         Level: 2
         MaxHp: 1000
-        GoldIncome: 1
-        GoldDelay: 5
+        GoldIncome: 10
+        GoldDelay: 10
         Delay: 10
-        Cost: 85
+        Cost: 120
         SumForSale: 0
         GoldPerSecond: 1
-      Nodes: []
+      Nodes:
+      - Config:
+          Unit: {fileID: 11400000, guid: 9965f05fed5ddee4f992af5a815d70b1, type: 2}
+          Icon: {fileID: 21300000, guid: fb89864214253a9479fbc6506a923745, type: 3}
+          Level: 3
+          MaxHp: 1000
+          GoldIncome: 6
+          GoldDelay: 10
+          Delay: 10
+          Cost: 410
+          SumForSale: 0
+          GoldPerSecond: 0
+        Nodes: []
   prefab: {fileID: -546456028477452519, guid: 27e71f90dc83e324ca2e38dae5527fc7, type: 3}
   icon: {fileID: 21300000, guid: a35b9dc5647f19240986ea6b1d71622e, type: 3}
   frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
   buildingName: Spirit tower
-  cost: 90
+  cost: 120
   sumForSale: 0

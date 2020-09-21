@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - Type: 0
-    Value: 700
+    Value: 600
   - Type: 1
-    Value: 700
+    Value: 600
   - Type: 5
     Value: 3
   - Type: 4
-    Value: 200
+    Value: 150
   - Type: 6
     Value: 1
   - Type: 7
@@ -28,9 +28,9 @@ MonoBehaviour:
   - Type: 8
     Value: 2
   - Type: 9
-    Value: 0
+    Value: 0.3
   - Type: 3
-    Value: 0
+    Value: 1
   - Type: 13
     Value: 1
   prefab: {fileID: 997473790396060956, guid: b9d94814d233ae749b8400d113319325, type: 3}
