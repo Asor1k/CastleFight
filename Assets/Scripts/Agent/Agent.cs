@@ -20,19 +20,37 @@ namespace CastleFight
         protected NavMeshObstacle obstacle;
         private Unit unit;
         private Stat speed;
+        private float limitTimer = 0;
+        private float updateLimit = 1;
+        private bool canUpdateRoute = true;
+
+        private void Update()
+        {
+            limitTimer -= Time.deltaTime;
+
+            if (limitTimer <= 0 && !canUpdateRoute)
+            {
+                canUpdateRoute = true;
+            }
+        }
 
         public void Init(Unit unit)
         {
             speed = (Stat)unit.Stats.GetStat(StatType.Speed);
             agent.autoBraking = true;
             agent.autoRepath = true;
-            obstacle.carving = true;
+            //obstacle.carving = true;
             NavMesh.avoidancePredictionTime = 0.5f;
             agent.speed = speed.Value;
         }
         
         public virtual void MoveTo(Vector3 position)
         {
+            if (!canUpdateRoute) return;
+
+            Debug.Log(gameObject.name);
+            limitTimer = updateLimit;
+            canUpdateRoute = false;
             obstacle.enabled = false;
             agent.enabled = true;
 
