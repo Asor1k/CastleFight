@@ -20,13 +20,14 @@ namespace CastleFight.UI
 
         public void SetLabels(Sprite iconImage, int cost, int level)
         {
+            Debug.Log(cost);
             costLabel.text = cost.ToString();
             icon.sprite = iconImage;
 
             int frameIndex = 0;
-            if (level - 2 < frames.Count)
+            if (level - 1 < frames.Count)
             {
-                frameIndex = level - 2;
+                frameIndex = level - 1;
             }
             else
             {
@@ -39,11 +40,6 @@ namespace CastleFight.UI
         public void SetInited(bool status)
         {
             isInited = status;
-        }
-
-        public void SetBuilding(Building building)
-        {
-            this.building = building;
         }
 
         public void OnButtonClick(int nodeIndex)

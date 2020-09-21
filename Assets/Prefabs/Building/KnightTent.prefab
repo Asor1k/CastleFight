@@ -121,7 +121,7 @@ MonoBehaviour:
   healthBar: {fileID: 3559884099235920371}
   upgradeButtons:
   - {fileID: 8402332820069867083}
-  - {fileID: 4485278512381622847}
+  - {fileID: 0}
   destroyButton: {fileID: 728264001039823950}
   levelLabel: {fileID: 1658879853688378220}
   col: {fileID: 6570015363009870255}
@@ -462,17 +462,17 @@ PrefabInstance:
     - target: {fileID: 8440909177708860774, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440909177708860774, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
-        type: 3}
-      propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8440909177708860774, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440909177708860774, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24ac4def7d9e6e4eac4f965ba6a4056, type: 3}
@@ -528,17 +528,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 701eacfc513a3f241b128214797f8fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4485278512381622847 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5597283009770168597, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
-    type: 3}
-  m_PrefabInstance: {fileID: 8328108123791088426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf9af97a568b334b967401ccd51bb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

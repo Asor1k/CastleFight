@@ -60,6 +60,8 @@ namespace CastleFight
             {
                 upgradeButton.SetBuilding(this);
             }
+
+            destroyButton.SetBuilding(this);
         }
 
         private void Start()
@@ -74,7 +76,7 @@ namespace CastleFight
             this.config = config;
             currentLevelConfig = config.LevelUgradeTree;
             lvl = 1; //TODO: delete the magic number
-            levelLabel.SetLevel(lvl);
+            levelLabel.SetLevel(lvl, 3);
 
             stats.Init(currentLevelConfig.Config.MaxHp);
             stats.OnDamaged += OnDamage;
@@ -100,7 +102,7 @@ namespace CastleFight
             goldManager.MakeGoldChange(-currentLevelConfig.Config.Cost, team);
             stats.Init(currentLevelConfig.Config.MaxHp);
             EventBusController.I.Bus.Publish(new BuildingUpgradedEvent(this));
-            levelLabel.SetLevel(lvl);
+            levelLabel.SetLevel(lvl, 3);
             UpdateUpgradeLabel();
         }
 
@@ -133,6 +135,7 @@ namespace CastleFight
                 {
                     if (i < currentLevelConfig.Nodes.Count)
                     {
+                        Debug.Log("---" + currentLevelConfig.Nodes[i].Config.Cost);
                         upgradeButtons[i].SetLabels(currentLevelConfig.Nodes[i].Config.Icon, currentLevelConfig.Nodes[i].Config.Cost, currentLevelConfig.Nodes[i].Config.Level);
                         upgradeButtons[i].SetInited(true);
                     }

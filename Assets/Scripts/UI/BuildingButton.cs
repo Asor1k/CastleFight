@@ -16,5 +16,10 @@ namespace CastleFight
         {
             gameObject.SetActive(false);
         }
+
+        public void SetBuilding(Building building)
+        {
+            this.building = building;
+        }
     }
 }
