@@ -12,23 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: SpiritTowerConfig
   m_EditorClassIdentifier: 
-  levels:
-  - Unit: {fileID: 11400000, guid: 05d30238ca00d1242956cc3b79c499a4, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 0
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 2155f760d54fe274f8893af634705e99, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 85
-    SumForSale: 0
-    GoldPerSecond: 1
+  levelUpgradesTree:
+    Config:
+      Unit: {fileID: 11400000, guid: 05d30238ca00d1242956cc3b79c499a4, type: 2}
+      Icon: {fileID: 21300000, guid: f8fa110c84d920443bee0333a3572d98, type: 3}
+      Level: 1
+      MaxHp: 1000
+      GoldIncome: 1
+      GoldDelay: 5
+      Delay: 10
+      Cost: 0
+      SumForSale: 0
+      GoldPerSecond: 1
+    Nodes:
+    - Config:
+        Unit: {fileID: 11400000, guid: 2155f760d54fe274f8893af634705e99, type: 2}
+        Icon: {fileID: 21300000, guid: 499a5a72586fc334c9a4dec67e7fae5c, type: 3}
+        Level: 2
+        MaxHp: 1000
+        GoldIncome: 1
+        GoldDelay: 5
+        Delay: 10
+        Cost: 85
+        SumForSale: 0
+        GoldPerSecond: 1
+      Nodes: []
   prefab: {fileID: -546456028477452519, guid: 27e71f90dc83e324ca2e38dae5527fc7, type: 3}
   icon: {fileID: 21300000, guid: a35b9dc5647f19240986ea6b1d71622e, type: 3}
   frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}

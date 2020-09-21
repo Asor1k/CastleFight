@@ -7,14 +7,19 @@ namespace CastleFight
     public class BuildingButton : MonoBehaviour
     {
         [SerializeField] protected Building building;
-        public void Show()
+        public virtual void Show()
         {
             gameObject.SetActive(true);
         }
 
-        public void Hide()
+        public virtual void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        public void SetBuilding(Building building)
+        {
+            this.building = building;
         }
     }
 }

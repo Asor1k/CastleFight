@@ -102,7 +102,7 @@ namespace CastleFight
 
         public void UpgradeBuilding(Building building)
         {
-            building.UpgradeBuilding(Team.Team2);
+            building.UpgradeBuilding(UnityEngine.Random.Range(0, building.CurrentLevelConfig.Nodes.Count),Team.Team2);
             SetRandomAction();
         }
         private void SetRandomAction()
