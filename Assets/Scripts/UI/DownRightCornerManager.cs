@@ -24,7 +24,7 @@ namespace Castlefight {
 
         private void OnUpgrade()
         {
-            buildingBehaviour.Building.UpgradeBuilding();
+            buildingBehaviour.Building.UpgradeBuilding(1);
             UpdateGUI();
         }
         private void OnBuildingClicked(BuildingClickedEvent buildingClicked)

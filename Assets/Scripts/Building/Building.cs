@@ -8,6 +8,9 @@ using UnityEngine;
 using CastleFight.UI;
 using UnityEngine.AI;
 using BuildingStats = Castlefight.BuildingStats;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 
 namespace CastleFight
 {   
@@ -19,6 +22,7 @@ namespace CastleFight
         
         public BuildingBehavior Behavior => behavior;
         public BaseBuildingConfig Config => config;
+        public BuildingUpgradeNode CurrentLevelConfig => currentLevelConfig;
         public GoldManager GoldManager => goldManager;
         public bool SpawnBlocked => spawnBlocked;
         public Transform SpawnPoint => spawnPoint;
@@ -30,7 +34,7 @@ namespace CastleFight
         [SerializeField] private BuildingBehavior behavior;
         [SerializeField] private BuildingStats stats;
         [SerializeField] private BuildingHealthBar healthBar;
-        [SerializeField] private BuildingUpgradeButton upgradeButton;
+        [SerializeField] private List<BuildingUpgradeButton> upgradeButtons;
         [SerializeField] private DestroyBuildingUI destroyButton;
         [SerializeField] private BuildingLevelLabel levelLabel;
         [SerializeField] private Collider col;
@@ -39,15 +43,25 @@ namespace CastleFight
         private IDamageable damageable;
         private GoldManager goldManager;
         private BaseBuildingConfig config;
+        private BuildingUpgradeNode currentLevelConfig;
         private int lvl;
         private bool spawnBlocked = false;
         private bool isStanding = true;
         private BuildingsLimitManager buildingsLimitManager;
         private AudioManager audioManager;
+        private bool selected;
 
         private void Awake()
         {
             damageable = GetComponent<IDamageable>();
+            upgradeButtons = GetComponentsInChildren<BuildingUpgradeButton>(true).ToList();
+
+            foreach (var upgradeButton in upgradeButtons)
+            {
+                upgradeButton.SetBuilding(this);
+            }
+
+            destroyButton.SetBuilding(this);
         }
 
         private void Start()
@@ -60,9 +74,11 @@ namespace CastleFight
         public void Init(BaseBuildingConfig config)
         {
             this.config = config;
+            currentLevelConfig = config.LevelUgradeTree;
             lvl = 1; //TODO: delete the magic number
-            levelLabel.SetLevel(lvl);
-            stats.Init(config.Levels[0].MaxHp);
+            levelLabel.SetLevel(lvl, 3);
+
+            stats.Init(currentLevelConfig.Config.MaxHp);
             stats.OnDamaged += OnDamage;
             UpdateUpgradeLabel();
         }
@@ -70,22 +86,23 @@ namespace CastleFight
         public void SellBuilding()
         {
             Destroy();
-            goldManager.InitGoldAnim(config.Levels[lvl - 1].SumForSale, transform);
-            goldManager.MakeGoldChange(config.Levels[lvl - 1].SumForSale, Team.Team1);
+            goldManager.InitGoldAnim(currentLevelConfig.Config.SumForSale, transform);
+            goldManager.MakeGoldChange(currentLevelConfig.Config.SumForSale, Team.Team1);
             audioManager.Play("Sell building");
         }
 
-        public void UpgradeBuilding(Team team = Team.Team1)
+        public void UpgradeBuilding(int nodeIndex, Team team = Team.Team1)
         {
             if(team==Team.Team1)
-                if (lvl >= config.Levels.Count || !goldManager.IsEnough(config.Levels[lvl].Cost)) return;
+                if (currentLevelConfig.Nodes.Count == 0 || !goldManager.IsEnough(currentLevelConfig.Nodes[nodeIndex].Config.Cost)) return;
 
             audioManager.Play("Building Upgrade");
-            lvl++;  
-            goldManager.MakeGoldChange(-config.Levels[lvl - 1].Cost, team);
-            stats.Init(config.Levels[lvl-1].MaxHp);
+            lvl++;
+            currentLevelConfig = currentLevelConfig.Nodes[nodeIndex];
+            goldManager.MakeGoldChange(-currentLevelConfig.Config.Cost, team);
+            stats.Init(currentLevelConfig.Config.MaxHp);
             EventBusController.I.Bus.Publish(new BuildingUpgradedEvent(this));
-            levelLabel.SetLevel(lvl);
+            levelLabel.SetLevel(lvl, 3);
             UpdateUpgradeLabel();
         }
 
@@ -98,27 +115,62 @@ namespace CastleFight
 
         public void Select()
         {
+            selected = true;
             destroyButton.Show();
-            if (lvl == config.Levels.Count) return;
-            upgradeButton.Show();
+            ShowUpgradeButtons(true);
         }
 
         public void Deselect()
         {
-            upgradeButton.Hide();
+            selected = false;
+            ShowUpgradeButtons(false);
             destroyButton.Hide();
         }
 
         private void UpdateUpgradeLabel()
         {
-            if (lvl < config.Levels.Count)
+            if (currentLevelConfig.Nodes.Count != 0)
             {
-                upgradeButton.SetCostLabel(config.Levels[lvl].Cost.ToString());
-                upgradeButton.myImage.sprite = config.Levels[lvl].Unit.Icon;
+                for(int i = 0; i < upgradeButtons.Count;i++)
+                {
+                    if (i < currentLevelConfig.Nodes.Count)
+                    {
+                        Debug.Log("---" + currentLevelConfig.Nodes[i].Config.Cost);
+                        upgradeButtons[i].SetLabels(currentLevelConfig.Nodes[i].Config.Icon, currentLevelConfig.Nodes[i].Config.Cost, currentLevelConfig.Nodes[i].Config.Level);
+                        upgradeButtons[i].SetInited(true);
+                    }
+                    else
+                    {
+                        upgradeButtons[i].SetInited(false);
+                    }
+                }
+
+                if (selected)
+                {
+                    ShowUpgradeButtons(true);
+                }
             }
             else
             {
-                upgradeButton.Hide();
+                ShowUpgradeButtons(false);
+            }
+        }
+
+        private void ShowUpgradeButtons(bool show)
+        {
+            foreach (var upgradeButton in upgradeButtons)
+            {
+                if (show)
+                {
+                    if (upgradeButton.IsInited)
+                        upgradeButton.Show();
+                    else
+                        upgradeButton.Hide();
+                }
+                else
+                {
+                    upgradeButton.Hide();
+                }
             }
         }
 

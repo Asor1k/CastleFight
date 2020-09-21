@@ -46,6 +46,7 @@ namespace CastleFight
 
         private void InitExistingCard(int index)
         {
+            if(playerProgress.Data.CardsTimeToOpen[index] == -1) talantCards[index].Init(0, index);
             if (playerProgress.Data.CardsTimeToOpen[index] <= 0) return;
             
             int timeToSend = playerProgress.Data.CardsTimeToOpen[index];

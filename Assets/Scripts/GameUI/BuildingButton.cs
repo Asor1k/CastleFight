@@ -3,6 +3,7 @@ using CastleFight.Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CastleFight.GameUI
 {
@@ -12,7 +13,8 @@ namespace CastleFight.GameUI
         
         [SerializeField] private Button btn;
         [SerializeField] private Image img;
-        [SerializeField] private Text priceText;
+        [SerializeField] private TextMeshProUGUI priceText;
+        [SerializeField] private Image priceFrame;
         [SerializeField] private Text nameText;
         private BaseBuildingConfig buildingConfig;
         private bool isBuilding = false;
@@ -21,21 +23,20 @@ namespace CastleFight.GameUI
         {
             isBuilding = false;
         }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             isBuilding = true;
         }
-        public void OnMouseDown()
-        {
-            Debug.Log("Hi");
-        }
+        
         public void Update()
         {
-            if (Input.GetMouseButtonDown(0)&&isBuilding)
+            if (Input.GetMouseButtonDown(0) && isBuilding)
             {
                 OnClick();
             }
         }
+        
         private void Start()
         {
             btn.onClick.AddListener(OnClick);
@@ -54,7 +55,7 @@ namespace CastleFight.GameUI
             if (config.Icon != null)
             {
                 img.sprite = config.Icon;
-
+                priceFrame.sprite = config.Frame;
             }
         }
         
@@ -62,11 +63,13 @@ namespace CastleFight.GameUI
         {
             Click?.Invoke(this);
         }
+        
         public void OnDestroy()
         {
             //Debug.Log("Destroy");
             btn.onClick.RemoveAllListeners();
         }
+        
         public void Destroy()
         {
             // TODO: put to pool

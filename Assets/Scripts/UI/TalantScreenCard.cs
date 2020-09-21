@@ -15,6 +15,7 @@ namespace CastleFight
         [SerializeField] private TextMeshProUGUI descriptionText;
 
         private NewTalantUI talantUI;
+        private int index = 0;
 
         public void Start()
         {
@@ -22,12 +23,11 @@ namespace CastleFight
         }
         
 
-        public void InitDisabled()
+        public void InitDisabled(int index)
         {
-            if (talantUI == null) Debug.Log("null");
             talantImage.sprite = talantUI.SkillSprites[(int)StatType.Unknown];
-            frameImage.enabled = false;
-            descriptionText.text = "UNKNOWN";
+            frameImage.sprite = talantUI.FrameSprites[3 + (index / 2)];
+            descriptionText.text = "";
         }
 
         private string InsertSpaceBeforeUpperCase(string str)
@@ -51,8 +51,9 @@ namespace CastleFight
         }
 
 
-        public void Init(StatModifier modifier)
+        public void Init(StatModifier modifier, int index)
         {
+            this.index = index;
             if(modifier == null)
             {
                 return;
@@ -62,6 +63,5 @@ namespace CastleFight
             frameImage.enabled = true;
             descriptionText.text += " " + InsertSpaceBeforeUpperCase(modifier.StatType.ToString()).ToUpper();
         }
-
     }
 }

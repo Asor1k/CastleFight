@@ -10,6 +10,7 @@ namespace CastleFight
     public class NewTalantUI : MonoBehaviour
     {
         public List<Sprite> SkillSprites => skillsSprites;
+        public List<Sprite> FrameSprites => frameSprites;
 
         [SerializeField] private Text unitNameText;
         [SerializeField] private Text modifierText;
@@ -21,6 +22,7 @@ namespace CastleFight
         [SerializeField] private TalantsGenerator talantsGenerator;
 
         [SerializeField] private List<Sprite> skillsSprites;
+        [SerializeField] private List<Sprite> frameSprites;
 
         private bool isActive = false;
 

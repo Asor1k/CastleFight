@@ -12,33 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c506bb4c894b134e90d8348b60d6e5b, type: 3}
   m_Name: AltarOfKingsConfig
   m_EditorClassIdentifier: 
-  levels:
-  - Unit: {fileID: 11400000, guid: 485c976aef566bb4d8da57ba46adab71, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 0
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: 4690f518908329646a585151a4b579bb, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 80
-    SumForSale: 0
-    GoldPerSecond: 1
-  - Unit: {fileID: 11400000, guid: d68b7358a15e38e4fa0faeb51aedfa44, type: 2}
-    MaxHp: 1000
-    GoldIncome: 1
-    GoldDelay: 5
-    Delay: 10
-    Cost: 80
-    SumForSale: 1
-    GoldPerSecond: 0
+  levelUpgradesTree:
+    Config:
+      Unit: {fileID: 11400000, guid: 485c976aef566bb4d8da57ba46adab71, type: 2}
+      Icon: {fileID: 21300000, guid: e66d21dedf5db2043bbeedb6b991c420, type: 3}
+      Level: 1
+      MaxHp: 1000
+      GoldIncome: 1
+      GoldDelay: 5
+      Delay: 10
+      Cost: 0
+      SumForSale: 0
+      GoldPerSecond: 1
+    Nodes:
+    - Config:
+        Unit: {fileID: 11400000, guid: 4690f518908329646a585151a4b579bb, type: 2}
+        Icon: {fileID: 21300000, guid: ffdebfa65c2c1b54ea6bc06edf8b8125, type: 3}
+        Level: 2
+        MaxHp: 1000
+        GoldIncome: 1
+        GoldDelay: 5
+        Delay: 10
+        Cost: 80
+        SumForSale: 0
+        GoldPerSecond: 1
+      Nodes:
+      - Config:
+          Unit: {fileID: 11400000, guid: d68b7358a15e38e4fa0faeb51aedfa44, type: 2}
+          Icon: {fileID: 21300000, guid: 7a4337a2039de214582157cf288299c5, type: 3}
+          Level: 3
+          MaxHp: 1000
+          GoldIncome: 1
+          GoldDelay: 5
+          Delay: 10
+          Cost: 80
+          SumForSale: 1
+          GoldPerSecond: 0
+        Nodes: []
   prefab: {fileID: 3769575545502128820, guid: 95bb6a0a139d62a42ab93fd03104ffab, type: 3}
   icon: {fileID: 21300000, guid: bea78394102a2b441bd812b2d84e7c16, type: 3}
+  frame: {fileID: 21300000, guid: 0f13172c300e92f47bdf4dc2573c4a69, type: 3}
   buildingName: Altar of Kings
   cost: 160
   sumForSale: 0

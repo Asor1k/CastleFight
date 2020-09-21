@@ -64,6 +64,7 @@ MonoBehaviour:
   - {fileID: 5863648907583117263}
   - {fileID: 7755053980456210497}
   - {fileID: 2389255195714974848}
+  lookAtTarget: 0
   meteorMesh: {fileID: 4567439667552856750}
 --- !u!1001 &3315438157206540604
 PrefabInstance:

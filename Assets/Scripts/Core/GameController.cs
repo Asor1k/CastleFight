@@ -11,6 +11,10 @@ namespace CastleFight.Core
     {
         [SerializeField] private UserController userController;
         [SerializeField] private BotController botController;
+        [SerializeField] private Transform plane;
+        [SerializeField] private GameObject darkPlane;
+        
+
 
         private AudioManager audioManager;
         private string currentTheme;
@@ -64,11 +68,13 @@ namespace CastleFight.Core
             EventBusController.I.Bus.Unsubscribe<GameEndEvent>(OnGameEndEventHandler);
         }
 
+    
+
         public void StartGame(GameSet gameSet)
         {
             botController.Init(gameSet.botRaceConfig);
             userController.Init(gameSet.userRaceConfig);
-            
+          
             userController.StartGame();
             StopTheme();
             audioManager.Play("Battle begins");

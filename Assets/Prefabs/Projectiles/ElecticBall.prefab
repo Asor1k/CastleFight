@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 5118827268072123572}
   hitEffects:
   - {fileID: 4919385670453501674}
+  lookAtTarget: 1
 --- !u!1001 &4919385670472499502
 PrefabInstance:
   m_ObjectHideFlags: 0
