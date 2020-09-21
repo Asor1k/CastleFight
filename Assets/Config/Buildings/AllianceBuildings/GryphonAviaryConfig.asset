@@ -18,8 +18,8 @@ MonoBehaviour:
       Icon: {fileID: 21300000, guid: a9a701a810ff1d7418345dd4659e2409, type: 3}
       Level: 1
       MaxHp: 1000
-      GoldIncome: 1
-      GoldDelay: 5
+      GoldIncome: 16
+      GoldDelay: 10
       Delay: 10
       Cost: 0
       SumForSale: 0
@@ -30,10 +30,10 @@ MonoBehaviour:
         Icon: {fileID: 21300000, guid: 6d77bd86c0af32b48ac020d9b1c438ea, type: 3}
         Level: 2
         MaxHp: 1000
-        GoldIncome: 1
-        GoldDelay: 5
+        GoldIncome: 10
+        GoldDelay: 10
         Delay: 10
-        Cost: 80
+        Cost: 120
         SumForSale: 0
         GoldPerSecond: 1
       Nodes:
@@ -42,10 +42,10 @@ MonoBehaviour:
           Icon: {fileID: 21300000, guid: 567d70646fa86134094b1cc52d3879a1, type: 3}
           Level: 3
           MaxHp: 1000
-          GoldIncome: 1
-          GoldDelay: 5
+          GoldIncome: 6
+          GoldDelay: 10
           Delay: 10
-          Cost: 100
+          Cost: 410
           SumForSale: 1
           GoldPerSecond: 0
         Nodes: []
@@ -53,5 +53,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d1ae62a5d40a0cb4bb65e6ed1bfdf67c, type: 3}
   frame: {fileID: 21300000, guid: de34fa6d455767640b2618c710818d37, type: 3}
   buildingName: Gryphon Aviary
-  cost: 82
+  cost: 120
   sumForSale: 0

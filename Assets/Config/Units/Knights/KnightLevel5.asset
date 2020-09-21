@@ -35,7 +35,7 @@ MonoBehaviour:
     Value: 1
   prefab: {fileID: 4306829730814969665, guid: ef49d4afd071ddb44b9470a150de3af0, type: 3}
   icon: {fileID: 21300000, guid: 127538dbc75723049bd9fcaed70abe89, type: 3}
-  cost: 80
+  cost: 20
   goldDmgPercent: 0
   abilities: []
   unitKind: 3

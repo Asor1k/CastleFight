@@ -5078,6 +5078,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuLayout
       objectReference: {fileID: 0}
+    - target: {fileID: 1969155439790215485, guid: fe39232c150974ec4a2087070d28b39d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2030111423717892656, guid: fe39232c150974ec4a2087070d28b39d,
         type: 3}
       propertyPath: m_AnchorMin.y

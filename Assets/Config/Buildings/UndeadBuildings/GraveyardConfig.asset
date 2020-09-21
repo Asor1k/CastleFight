@@ -18,10 +18,10 @@ MonoBehaviour:
       Icon: {fileID: 21300000, guid: fd95cc4b4d274fd40bea70653ace53f2, type: 3}
       Level: 1
       MaxHp: 1000
-      GoldIncome: 1
-      GoldDelay: 5
+      GoldIncome: 20
+      GoldDelay: 10
       Delay: 10
-      Cost: 50
+      Cost: 0
       SumForSale: 30
       GoldPerSecond: 1
     Nodes:
@@ -30,10 +30,10 @@ MonoBehaviour:
         Icon: {fileID: 21300000, guid: 3d9b6f5c31ba03542a1c95e2db8da647, type: 3}
         Level: 2
         MaxHp: 1000
-        GoldIncome: 1
-        GoldDelay: 5
+        GoldIncome: 12
+        GoldDelay: 10
         Delay: 10
-        Cost: 50
+        Cost: 120
         SumForSale: 30
         GoldPerSecond: 1
       Nodes:
@@ -42,10 +42,10 @@ MonoBehaviour:
           Icon: {fileID: 21300000, guid: a00e0beaba5fde9409434cd07be4116a, type: 3}
           Level: 3
           MaxHp: 1000
-          GoldIncome: 1
-          GoldDelay: 5
+          GoldIncome: 10
+          GoldDelay: 10
           Delay: 10
-          Cost: 50
+          Cost: 240
           SumForSale: 30
           GoldPerSecond: 1
         Nodes:
@@ -65,5 +65,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fd7af140da060354cbc58e0cb099a35b, type: 3}
   frame: {fileID: 21300000, guid: b858348c9294edd488dc45cfe902a377, type: 3}
   buildingName: Graveyard
-  cost: 84
+  cost: 80
   sumForSale: 30
