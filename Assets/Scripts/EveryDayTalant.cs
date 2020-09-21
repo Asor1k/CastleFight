@@ -75,7 +75,6 @@ namespace CastleFight
         private void DisplayTime()
         {
             timeText.text = IntToDisplayText(secondsToOpen);
-            Debug.Log(secondsToOpen);
         }
 
         private void SetClikable()
