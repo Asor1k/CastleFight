@@ -24,7 +24,19 @@ MonoBehaviour:
       Cost: 0
       SumForSale: 0
       GoldPerSecond: 1
-    Nodes: []
+    Nodes:
+    - Config:
+        Unit: {fileID: 11400000, guid: e22d845029bc4d7449dce631924ad3de, type: 2}
+        Icon: {fileID: 21300000, guid: ba8ccbd1ab4119b43913e6d8bdd2ecdf, type: 3}
+        Level: 2
+        MaxHp: 1000
+        GoldIncome: 8
+        GoldDelay: 10
+        Delay: 10
+        Cost: 329
+        SumForSale: 0
+        GoldPerSecond: 0
+      Nodes: []
   prefab: {fileID: -546456028477452519, guid: 5de68431c904e2843b3a3dc69db287b2, type: 3}
   icon: {fileID: 21300000, guid: 9680073544b878d4d92b41befbaf7809, type: 3}
   frame: {fileID: 21300000, guid: 0f13172c300e92f47bdf4dc2573c4a69, type: 3}
