@@ -14,9 +14,10 @@ namespace CastleFight.Projectiles
         [SerializeField] protected float destroyDelay;
         [SerializeField] protected List<ParticleSystem> runEffects;
         [SerializeField] protected List<ParticleSystem> hitEffects;
-        
+        [SerializeField] protected bool lookAtTarget;
+
         protected Action<Projectile> targetReachCallback;
-        
+      
         protected GameObject target;
         protected Vector3 targetPoint;
         protected bool isMoving = false;
@@ -123,7 +124,9 @@ namespace CastleFight.Projectiles
                 targetPosition = targetPoint;
             }
 
-            transform.LookAt(targetPosition);
+
+            if(lookAtTarget) transform.LookAt(targetPosition);
+
             transform.position = Vector3.MoveTowards(projectilePosition, targetPosition, speed * Time.deltaTime);
         }
 
