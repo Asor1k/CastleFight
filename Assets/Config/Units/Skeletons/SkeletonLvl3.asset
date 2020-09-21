@@ -14,28 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - Type: 0
-    Value: 900
+    Value: 800
   - Type: 1
-    Value: 900
+    Value: 800
   - Type: 5
     Value: 3
   - Type: 4
-    Value: 160
+    Value: 200
   - Type: 6
-    Value: 1
+    Value: 2
   - Type: 7
     Value: 10
   - Type: 8
     Value: 2
   - Type: 9
-    Value: 0
+    Value: 0.15
   - Type: 3
-    Value: 0
+    Value: 1
   - Type: 13
     Value: 1
+  - Type: 11
+    Value: 15
   prefab: {fileID: 7938966819504230350, guid: 5624533d75fec7f498c579f60ce56837, type: 3}
   icon: {fileID: 21300000, guid: a00e0beaba5fde9409434cd07be4116a, type: 3}
-  cost: 80
+  cost: 112
   goldDmgPercent: 10
   abilities:
   - modifiers:
