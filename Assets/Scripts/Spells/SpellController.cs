@@ -63,7 +63,7 @@ namespace CastleFight
             {
                 if (Physics.Raycast(ray, out hit, layerMask))
                 {
-                    spellPointer.transform.position = hit.point;
+                    spellPointer.transform.position = hit.point + new Vector3(0, 0.3f, 0);
  
                 }
             }
