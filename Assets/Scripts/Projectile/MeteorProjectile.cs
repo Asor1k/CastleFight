@@ -28,6 +28,7 @@ namespace CastleFight.Projectiles
 
         private void OnEnable()
         {
+            meteorMesh.transform.localPosition = Vector3.zero;
             meteorMesh.gameObject.SetActive(true);
         }
     }
