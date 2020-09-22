@@ -21,15 +21,9 @@ namespace CastleFight.Config
             BuildingUpgradeNode upgradeNode = levelUpgradesTree;
             while (true)
             {
-                try
-                {
-                    upgradeNode = upgradeNode.Nodes[0];
-                    n++;
-                }
-                catch(ArgumentOutOfRangeException e)
-                {
-                    return n;
-                }
+                if (upgradeNode.Nodes.Count == 0) return n;
+                n++;
+                upgradeNode = upgradeNode.Nodes[0];
             }
         } 
 
