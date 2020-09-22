@@ -15,6 +15,23 @@ namespace CastleFight.Config
         public int Cost => cost;
         public BuildingUpgradeNode LevelUgradeTree => levelUpgradesTree;
         public int SumForSale => sumForSale;
+        public int GetMaxLevels ()
+        {
+            int n = 1;
+            BuildingUpgradeNode upgradeNode = levelUpgradesTree;
+            while (true)
+            {
+                try
+                {
+                    upgradeNode = upgradeNode.Nodes[0];
+                    n++;
+                }
+                catch(ArgumentOutOfRangeException e)
+                {
+                    return n;
+                }
+            }
+        } 
 
         [SerializeField]
         private BuildingUpgradeNode levelUpgradesTree;
