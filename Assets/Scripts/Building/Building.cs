@@ -129,13 +129,12 @@ namespace CastleFight
 
         private void UpdateUpgradeLabel()
         {
-            if (currentLevelConfig.Nodes.Count != 0)
+            if (currentLevelConfig.Nodes != null)
             {
                 for(int i = 0; i < upgradeButtons.Count;i++)
                 {
                     if (i < currentLevelConfig.Nodes.Count)
                     {
-                        Debug.Log("---" + currentLevelConfig.Nodes[i].Config.Cost);
                         upgradeButtons[i].SetLabels(currentLevelConfig.Nodes[i].Config.Icon, currentLevelConfig.Nodes[i].Config.Cost, currentLevelConfig.Nodes[i].Config.Level);
                         upgradeButtons[i].SetInited(true);
                     }
