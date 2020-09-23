@@ -42,4 +42,4 @@ MonoBehaviour:
   cost: 50
   goldDmgPercent: 10
   abilities: []
-  unitKind: 0
+  unitKind: 5
