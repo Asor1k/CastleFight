@@ -167,7 +167,7 @@ MonoBehaviour:
   behavior: {fileID: 2852064753154194856}
   stats: {fileID: 5167292077293399286}
   healthBar: {fileID: 7075859899066089844}
-  upgradeButton: {fileID: 2868418588255872716}
+  upgradeButtons: []
   destroyButton: {fileID: 6435343617093422281}
   levelLabel: {fileID: 4922496912556649451}
   col: {fileID: 5391365603093743726}
@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 7154845044039360737, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.28
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 7154845044039360737, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
         type: 3}
@@ -460,18 +460,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bba626b4214d64c812a97f0e1015fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2868418588255872716 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 506785904405382497, guid: e24ac4def7d9e6e4eac4f965ba6a4056,
-    type: 3}
-  m_PrefabInstance: {fileID: 2361817610688684973}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf9af97a568b334b967401ccd51bb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6435343617093422281 stripped
