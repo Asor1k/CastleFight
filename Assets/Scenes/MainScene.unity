@@ -4358,6 +4358,18 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 2024359446}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1419850034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3402237307421456527, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592833222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432821255
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,7 +5583,7 @@ PrefabInstance:
     - target: {fileID: 3402237307251532268, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -758.9469
+      value: -793.9874
       objectReference: {fileID: 0}
     - target: {fileID: 3402237307251532268, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
         type: 3}
@@ -5857,6 +5869,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402237308797063201, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402237308797063201, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1419850034}
+    - target: {fileID: 3402237308797063201, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_size
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402237308797063201, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402237308797063201, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3504196715840537675, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
         type: 3}
@@ -7720,9 +7757,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771691427172242374, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
         type: 3}
+      propertyPath: frameSprites.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771691427172242374, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
       propertyPath: talantsGenerator
       value: 
       objectReference: {fileID: 1051771383}
+    - target: {fileID: 8771691427172242374, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: frameSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: b167c04eb839be1418ecee9991523223,
+        type: 3}
+    - target: {fileID: 8771691427172242374, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: frameSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 991be753485a42d4683e667baa810405,
+        type: 3}
+    - target: {fileID: 8771691427172242374, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
+        type: 3}
+      propertyPath: frameSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c164964706e98a4aa19030b932ea899,
+        type: 3}
     - target: {fileID: 8771691427172244511, guid: 5216ab795037a7c46ba3ca2d2a456cfa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8879,6 +8939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProgressFileName: PlayerData.json
   ratingDelta: 25
+  generator: {fileID: 1051771383}
 --- !u!1001 &4968849266797525958
 PrefabInstance:
   m_ObjectHideFlags: 0

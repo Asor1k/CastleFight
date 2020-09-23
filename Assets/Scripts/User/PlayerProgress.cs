@@ -12,9 +12,11 @@ namespace CastleFight
     {
         [SerializeField] private string playerProgressFileName;
         [SerializeField] private int ratingDelta;
+        [SerializeField] private TalantsGenerator generator;
         public PlayerData Data => data;
         public int RatingDelta => ratingDelta;
         private PlayerData data;
+       
 
         public void Awake()
         {
@@ -22,6 +24,10 @@ namespace CastleFight
             if (SaveManager.FileExists(playerProgressFileName))
             {
                 data = SaveManager.Load<PlayerData>(playerProgressFileName);
+                if (!data.isNotFirst)
+                {
+                    CreateNewData();
+                }
             }
             else
             {
@@ -37,6 +43,8 @@ namespace CastleFight
         private void CreateNewData()
         {
             data = new PlayerData();
+            data.isNotFirst = true;
+            generator.ResetConfigs();
             SaveManager.Save(playerProgressFileName, data);
         }
 

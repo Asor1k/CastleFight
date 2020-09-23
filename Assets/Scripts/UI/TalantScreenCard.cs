@@ -61,6 +61,7 @@ namespace CastleFight
             talantImage.sprite = talantUI.SkillSprites[(int)modifier.StatType];
             descriptionText.text = modifier.Value >= 0 ? "+ " + modifier.Value : " " + modifier.Value.ToString();
             frameImage.enabled = true;
+            frameImage.sprite = talantUI.FrameSprites[6 + (index / 2)];
             descriptionText.text += " " + InsertSpaceBeforeUpperCase(modifier.StatType.ToString()).ToUpper();
         }
     }
