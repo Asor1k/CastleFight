@@ -24,7 +24,7 @@ namespace CastleFight
             if (SaveManager.FileExists(playerProgressFileName))
             {
                 data = SaveManager.Load<PlayerData>(playerProgressFileName);
-                if (!data.isNotFirst)
+                if (data.isNotFirst)
                 {
                     CreateNewData();
                 }
@@ -43,7 +43,7 @@ namespace CastleFight
         private void CreateNewData()
         {
             data = new PlayerData();
-            data.isNotFirst = true;
+            data.isNotFirst = false;
             generator.ResetConfigs();
             SaveManager.Save(playerProgressFileName, data);
         }

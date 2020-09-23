@@ -39,13 +39,8 @@ MonoBehaviour:
   goldDmgPercent: 10
   abilities:
   - modifiers:
-    - value: 50
+    - value: 156
       statType: 1
-      Type: 0
-    isActive: 0
-  - modifiers:
-    - value: 50
-      statType: 9
       Type: 0
     isActive: 0
   unitKind: 3

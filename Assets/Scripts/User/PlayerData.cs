@@ -19,9 +19,11 @@ namespace CastleFight
         public int OpeningIndex;
         public int BookSecondsToOpen = 0;
         public long Ticks;
-        
+        public bool isNotFirst;
+
         public PlayerData()
         {
+            isNotFirst = true;
             Wins = 0;
             Loses = 0;
             Rating = 0;
